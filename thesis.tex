@@ -1,0 +1,51 @@
+\documentclass[a4paper,twoside,11pt, draft]{report}
+
+\usepackage[english]{babel}
+\usepackage{natbib}
+\usepackage[left=2.5cm,right=2.5cm,top=3cm,bottom=3cm]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumerate}
+\usepackage{threeparttable}
+
+%set the number of sectioning levels that get number and appear in the contents
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{3}
+
+\include{thesis.preamble}
+
+\begin{document}
+{
+\title{\LARGE {\bf Muscular pattern based on multichanel surface emg during voluntary contractions of the upper-limb}\\
+ \vspace*{6mm}
+}
+
+\author{Mislav Jordanic}
+\submitdate{September 2017}
+\director{Miguel Angel Ma\~nanas Villanueva}
+\directortwo{Mónica Rojas-Martínez}
+
+\normallinespacing
+\maketitle
+
+\preface
+\input{abstract/abstract}
+\input{abstract/resumen}
+%\input{acknowledgements/acknowledgements}
+%\input{dedication/dedication}
+%\input{quotes/quotes}
+
+\body
+\input{introduction/introduction}
+\input{problem/problem}
+\input{metallicArtifacts/metallicArtifacts}
+\input{influenceMetallicArtifacts/influenceMetallicArtifacts}
+\input{hfos/hfos}
+% body of thesis comes here
+\input{conclusion/conclusion}
+\input{biblio/biblio}
+\appendix
+% appendices come here
+
+
+
+\end{document}

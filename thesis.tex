@@ -6,7 +6,12 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{enumerate}
 \usepackage{threeparttable}
+\usepackage{mathtools}
+\usepackage{graphicx}
 \usepackage{epstopdf}
+\epstopdfDeclareGraphicsRule
+  {.tif}{png}{.png}{convert tif:\SourceFile.\SourceExt png:\OutputFile}
+\AppendGraphicsExtensions{.tif}
 
 \usepackage{xargs}
 \usepackage[pdftex,dvipsnames]{xcolor}
@@ -47,9 +52,9 @@
 \body
 %\input{introduction/introduction}
 %\input{problem/problem}
-\input{JNER/JNER}
+%\input{JNER/JNER}
 %\input{JNE/paper}
-%\input{Sensors/paper}
+\input{Sensors/Sensors}
 % body of thesis comes here
 
 

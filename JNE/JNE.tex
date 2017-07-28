@@ -34,10 +34,20 @@ To our best knowledge, no studies have evaluated group-specific identification o
 
 Nine patients (age: 45 $\pm$ 20 years; body mass index: 27.1 $\pm$ 5.2; five male and four female) participated in the experiment. 
 They were all diagnosed with incomplete spinal cord injury (rated C or D according to ASIA scale) and they were injured at least 1 month before the experiment. There were six patients with injury at C4 vertebra and three patients with injuries at C3, C5 and C6 vertebras. The study was approved by the local ethics committee and all patients gave their written consent.
-Subjects performed four isometric upper-limb tasks following the same experimental protocol carried out in [14]: flexion and extension at the elbow and supination and pronation of the forearm. High-density EMG was recorded on five superficial muscles of the upper-arm and forearm, which are dominantly involved in these tasks: Biceps Brachii, Triceps Brachii, Brachioradialis, Anconeus and Pronator Teres.
+Subjects performed four isometric upper-limb tasks following the same experimental protocol carried out in \citep{Rojas-Martinez2013}: flexion and extension at the elbow and supination and pronation of the forearm. High-density EMG was recorded on five superficial muscles of the upper-arm and forearm, which are dominantly involved in these tasks: Biceps Brachii, Triceps Brachii, Brachioradialis, Anconeus and Pronator Teres.
 
-During the experiments, patients were sitting upright in front of a table with their dominant arm fixed using a mechanical brace to perform isometric contractions at the elbow (Figure 1). The forearm was in the sagittal plane, halfway between pronation and supination. The elbow was flexed at 45$^{\circ}$ and the shoulder was adducted at 90$^{\circ}$ in the horizontal plane and flexed at 45$^{\circ}$ in the sagittal plane. Two torque transducers (OT Bioelettronica, range 150 Nm, resolution 2.5 mV/V) were installed in the brace to measure the force exerted at the elbow, which was displayed to patients during the exercise as visual feedback.
+During the experiments, patients were sitting upright in front of a table with their dominant arm fixed using a mechanical brace to perform isometric contractions at the elbow (Figure \ref{fig:2-1}). The forearm was in the sagittal plane, halfway between pronation and supination. The elbow was flexed at 45$^{\circ}$ and the shoulder was adducted at 90$^{\circ}$ in the horizontal plane and flexed at 45$^{\circ}$ in the sagittal plane. Two torque transducers (OT Bioelettronica, range 150 Nm, resolution 2.5 mV/V) were installed in the brace to measure the force exerted at the elbow, which was displayed to patients during the exercise as visual feedback.
 HD-EMG monopolar signals were recorded using electrode arrays manufactured in our laboratory. They were designed as silver-plated eyelets (5 mm external diameter) embedded in hydrophobic, non-conductive fabric in a 10 mm $\times$ 10 mm quadrature grid. Elastic straps were used to fix the arrays to the patient’s skin.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\textwidth]{Images/figure2_1.png}
+\caption{Experimental protocol
+}
+\label{fig:2-1}
+\end{figure}      
+
+
 Three electrode arrays were used to gather a total of 240 monopolar EMG signals for each patient. The first array (6 rows $\times$ 16 columns) was used to record HD-EMG of forearm muscles (Brachioradialis, Anconeus and Pronator Teres) and was placed so that the most proximal row of electrodes was 2 cm below the elbow crease. The locations of the muscles were previously marked on the skin surface according to \citep{Kendall1993} and the array was placed to cover all three of them. The second and third array (6 rows $\times$ 12 columns each) were placed following the recommendations of the SENIAM project \citep{Hermens1999} and they covered the Biceps Brachii (distal part of the upper-arm) and Triceps Brachii (proximal part of the upper-arm) respectively. The reference electrodes were placed on the clavicle, wrist, and shoulder of the active arm. When placed, each eyelet was filled with 20 $\mu$l of conductive gel using a gel dispenser (Multipette Plus, Eppendorf, Germany).
 Signals were recorded using two commercial EMG amplifiers with synchronized sampling (EMG-USB- 128 channels, sampling frequency 2048 Hz, 12-bit A/D converter, 3 dB bandwidth 10-750 Hz, programmable gains of 100, 200, 500, 1000, 2000, 5000, 10000, manufactured by LISiN-OT Bioelettronica).
 At the beginning of the experimental protocol, the maximal voluntary contraction (MVC) was measured for each task, obtained as the maximum of three consecutive trials. Between each trial there was a three minute rest to prevent cumulative fatigue.
@@ -92,22 +102,26 @@ where $CG$ is the center of gravity of the HD-EMG map $HM$, and $(i,j)$ represen
 
 Two types of identification were performed: \textbf{1) identification of tasks} and \textbf{2) identification of tasks and effort levels}. In identification of tasks, four types of contraction were identified: flexion, extension, supination and pronation. Performances were compared between using only intensity features and using the combination of intensity and spatial features of all five monitored muscles. In this sense, the possible improvement of pattern recognition was evaluated when adding spatial information. 
 
-A conjoint identification of tasks and effort levels was constructed as classification in two steps \citep{Rojas-Martinez2013} (Figure 2). In the first step, the identification of tasks was performed, while in the second step, the level of effort of the identified task was determined. The second step was organized as 4 different classifiers, i.e. a single classifier for the identification of the effort level for each task (Figure 2). The features used in the identification of level of effort were the intensity and the center of gravity of the agonist-antagonist muscle pair involved in the task \citep{Rojas-Martinez2013}: Biceps Brachii and Triceps Brachii both for flexion and extension, Biceps Brachii, Brachioradialis and Anconeus for supination, and Pronator Teres and Anconeus for pronation. Two different approaches were used: the identification of three effort levels (10\% MVC, 30\% MVC, and 50\% MVC) and the identification of two effort levels (low, corresponding to 10\% MVC, and moderate, corresponding to 30\% and 50\% MVC). Thus, a total of 12 different classes for the first approach and 8 classes for the second were considered, and accordingly, a confusion matrix of 12 or 8 classes was formed at the output of the second step of the classifier for the evaluation of the identification. Therefore, if a task was misclassified in the first step but the level of effort was correctly classified in the second step, this observation counted as a misclassification.
+A conjoint identification of tasks and effort levels was constructed as classification in two steps \citep{Rojas-Martinez2013} (Figure \ref{fig:2-2}). In the first step, the identification of tasks was performed, while in the second step, the level of effort of the identified task was determined. The second step was organized as 4 different classifiers, i.e. a single classifier for the identification of the effort level for each task (Figure 2). The features used in the identification of level of effort were the intensity and the center of gravity of the agonist-antagonist muscle pair involved in the task \citep{Rojas-Martinez2013}: Biceps Brachii and Triceps Brachii both for flexion and extension, Biceps Brachii, Brachioradialis and Anconeus for supination, and Pronator Teres and Anconeus for pronation. Two different approaches were used: the identification of three effort levels (10\% MVC, 30\% MVC, and 50\% MVC) and the identification of two effort levels (low, corresponding to 10\% MVC, and moderate, corresponding to 30\% and 50\% MVC). Thus, a total of 12 different classes for the first approach and 8 classes for the second were considered, and accordingly, a confusion matrix of 12 or 8 classes was formed at the output of the second step of the classifier for the evaluation of the identification. Therefore, if a task was misclassified in the first step but the level of effort was correctly classified in the second step, this observation counted as a misclassification.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.45\textwidth]{Images/figure2_2.png}
+\caption{Schematic diagram of identification}
+\label{fig:2-2}
+\end{figure}     
 
 Observations from all patients were pooled together and the identification was tested using the holdout method where 60\% of the data were used for training and 40\% for validation. Results were expressed in terms of accuracy ($Acc$), sensitivity ($S$), precision ($P$), and specificity ($SP$) \citep{Farina2001}:
 
 \begin{equation} \label{eq:2-4}
 Acc = \frac{TP + TN}{TP + FP + TN + FN}
 \end{equation}
-
 \begin{equation} \label{eq:2-5}
 S = \frac{TP}{TP + FN}
 \end{equation}
-
 \begin{equation} \label{eq:2-6}
 P = \frac{TP}{TP + FP}
 \end{equation}
-
 \begin{equation} \label{eq:2-7}
 SP = \frac{TN}{TN + FP}
 \end{equation}
@@ -152,7 +166,22 @@ Pronator Teres  & 35.6\%                                    & 36.1\%   & 35.5\% 
 \end{tabular}
 \end{table}
 
-The activation maps averaged among patients with lesion at the C4 level are displayed in Figure 3. The maps were interpolated by factor 20 in both directions and cropped to the active regions for display purposes only. In addition, the spatial distribution of RSD for the same group of patients and for the same level of effort is shown in Figure 4. It can be seen that RSD was lower for Biceps Brachii and Triceps Brachii during their main tasks (flexion and extension, respectively) indicating that patients had similar activation patterns. On the other hand, the RSD for these muscles was higher during supination and pronation, which indicates different activation strategies among patients. The inter-subject variability was lower for the forearm muscles, especially the Anconeus.
+The activation maps averaged among patients with lesion at the C4 level are displayed in Figure \ref{fig:2-3}. The maps were interpolated by factor 20 in both directions and cropped to the active regions for display purposes only. In addition, the spatial distribution of RSD for the same group of patients and for the same level of effort is shown in Figure \ref{fig:2-4}. It can be seen that RSD was lower for Biceps Brachii and Triceps Brachii during their main tasks (flexion and extension, respectively) indicating that patients had similar activation patterns. On the other hand, the RSD for these muscles was higher during supination and pronation, which indicates different activation strategies among patients. The inter-subject variability was lower for the forearm muscles, especially the Anconeus.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\textwidth]{Images/figure2_3.png}
+\caption{Activation maps of different tasks at 50\% MVC averaged among patients with C4 level of injury}
+\label{fig:2-3}
+\end{figure}      
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\textwidth]{Images/figure2_4.png}
+\caption{Relative standard deviation maps of different tasks at 50\% MVC averaged among patients with C4 level of injury}
+\label{fig:2-4}
+\end{figure} 
+
 
 Table \ref{tb:2-2} shows the percentages of the areas of the activation maps used to calculate the features.
 

@@ -1,5 +1,5 @@
-\chapter{Prediction of isometric motor tasks and effort levels based on high-density EMG in patients with incomplete spinal cord injury}
-\label{ch:3}
+\chapter[Prediction of isometric motor tasks]{Prediction of isometric motor tasks and effort levels based on high-density EMG in patients with incomplete spinal cord injury}
+\label{ch:p2}
 \textbf{Published as:} 
 Jordanić, M., Roja-Martínez,  Ma\~nanas, M.A., Alonso J.F.
 Prediction of isometric motor tasks and effort levels based on high-density EMG in patients with incomplete spinal cord injury \textit{Journal of Neural Engineering} 13(4):46002, 2016
@@ -9,262 +9,465 @@ doi: 10.1088/1741-2560/13/4/046002
 Impact Factor: 3.465; Position: 13 of 77 (Q1) BIOMEDICAL ENGINEERING, 90 of 258 (Q2) NEUROSCIENCES.
 
 
-\textbf{Abstract:} \textit{Objective}. One of the principal drawbacks of magnetoencephalography (MEG) is its high sensitivity to metallic artifacts, which come from implanted intracranial electrodes and dental ferromagnetic prosthesis and produce a high distortion that masks cerebral activity. The aim of this study was to develop an automatic algorithm based on blind source separation (BSS) techniques to remove metallic artifacts from MEG signals. \textit{Approach.} Three methods were evaluated: AMUSE, a second-order technique; and INFOMAX and FastICA, both based on high-order statistics. Simulated signals consisting of real artifact-free data mixed with real metallic artifacts were generated to objectively evaluate the effectiveness of BSS and the subsequent interference reduction. A completely automatic detection of metallic-related components was proposed, exploiting the known characteristics of the metallic interference: regularity and low frequency content. \textit{Main results.} The automatic procedure was applied to the simulated datasets and the three methods exhibited different performances. Results indicated that AMUSE preserved and consequently recovered more brain activity than INFOMAX and FastICA. Normalized mean squared error for AMUSE decomposition remained below 2\%, allowing an effective removal of artifactual components. \textit{Significance.} To date, the performance of automatic artifact reduction has not been evaluated in MEG recordings. The proposed methodology is based on an automatic algorithm that provides an effective interference removal. This approach can be applied to any MEG dataset affected by metallic artifacts as a processing step, allowing further analysis of unusable or poor quality data.
+\textbf{Abstract:} \textit{Objective}. The development of modern assistive and rehabilitation devices requires reliable and easy-to-use methods to extract neural information for control of devices. Group-specific pattern recognition identifiers are influenced by inter-subject variability. Based on high-density EMG (HD-EMG) maps, our research group has already shown that inter-subject muscle activation patterns exist in a population of healthy subjects. The aim of this paper is to analyze muscle activation patterns associated with four tasks (flexion/extension of the elbow, and supination/pronation of the forearm) at three different effort levels in a group of patients with incomplete Spinal Cord Injury (iSCI). \textit{Approach.} Muscle activation patterns were evaluated by the automatic identification of these four isometric tasks along with the identification of levels of voluntary contractions. Two types of classifiers were considered in the identification: linear discriminant analysis and support vector machine. \textit{Main results.} Results show that performance of classification increases when combining features extracted from intensity and spatial information of HD-EMG maps ($Accuracy = 97.5\%$). Moreover, when compared to a population with injuries at different levels, a lower variability between activation maps was obtained within a group of patients with similar injury suggesting stronger task-specific and effort-level-specific co-activation patterns, which enable better prediction results. \textit{Significance.} Despite the challenge of identifying both the four tasks and the three effort levels in patients with iSCI, promising results were obtained which support the use of HD-EMG features for providing useful information regarding motion and force intention.
 
-\textbf{Keywords:} Magnetoencephalography, metallic artifact, automatic artifact reduction, blind source separation, AMUSE
+\textbf{Keywords:} Myoelectric control, pattern recognition, high-density electromyography, incomplete spinal cord injury
 
 \section{Introduction}
+Myoelectric signals have been extensively studied for more than half a century to understand muscle control strategies and to build rehabilitation and assistive devices. Surface electromyography (sEMG) is preferably used for monitoring because it is a non-invasive, easy-to-use method, rich in neural information, and has relatively high signal-to-noise ratio. It can be used in many and different applications: artificial limbs in prosthetics technology \citep{Li2010, Huang2005}, exoskeletons in assistive devices \citep{Young2013}, rehabilitation robots that stimulate neuroplasticity \citep{Marchal-Crespo2009, Dipietro2005}, and other human-machine interfaces.
 
-Magnetoencephalography (MEG) is a noninvasive and functional neuroimaging technique used in clinical practice that measures magnetic fields generated by synchronous brain oscillations. MEG has become an important tool in neurological signal processing and functional neuroimaging \citep{Hall2014,Baillet2001}. During the last decade, an increasing number of studies of language and cognitive functions and brain connectivity have been carried out \citep{Hari2012,Sakkalis2011}. Modern multichannel whole head systems such as MEG are increasingly being used for clinical applications such as the presurgical evaluation of children and adults requiring invasive surgery as a result of refractory epilepsy or brain tumors \citep{Stufflebeam2009}. This evaluation involves mainly the detection of the spatial focus that should be removed through source localization techniques \citep{Stefan2011}. Several studies claim that MEG adds valuable information to the source localization that is not visible with other imaging techniques such as electroencephalography (EEG) or functional Magnetic Resonance Imaging (fMRI) \citep{Stefan2011,Barkley2004,Sharon2007}.
+Neuromuscular intention has lately often been identified using a pattern-recognition approach. Although many classifier types have been evaluated for the identification (support vector machine, k-nearest neighbor, hidden Markov models, artificial neural networks) \citep{Oskoei2007}, fast-to-train and computationally-efficient classifiers are preferable, e.g., linear discriminant analysis \citep{Hakonen2015, Hargrove2007}. On the other hand, the choice of features used in classification is very delicate. In literature, a lot of features have been considered in the time, frequency, and time-frequency domains as well as spatial features \citep{Hakonen2015}. Time domain features are commonly used because they are effective and easy to calculate \citep{Hakonen2015}.
 
-The magnetic activity of the brain is substantially smaller (starting from a few tenths of femtoteslas) than ambient noise and this is the main reason why MEG recordings are performed in a magnetically shielded room to isolate them from external magnetic fields. However, as with EEG recordings, some artifacts are unavoidable because subjects may be affected by ocular, cardiac, muscular and other interferences \citep{Stufflebeam2009} that have to be removed or reduced using signal processing techniques before proper analysis of MEG signals can be performed. In this context, Blind Source Separation (BSS) is one of the most commonly used techniques to achieve an effective removal of several kinds of artifacts.
+Spatial features emerged with the appearance of high-density EMG systems (HD-EMG). Multiple EMG channels are recorded using a 2D array of closely spaced electrodes placed over the wide area of the muscle or group of muscles. This procedure allows the calculation of two-dimensional activation maps where the intensity of each pixel represents the intensity of a corresponding EMG channel. Consequently, the information on spatial distribution of EMG intensity over the muscle is provided. Recent studies show that changes in the spatial activation pattern are related to the duration of movement and fatigue \citep{Tucker2009, Staudenmann2014}, the position of the joint \citep{Vieira2010} and the level of contraction \citep{Holtermann2005}. Since the spatial distribution contains a lot of information about the muscle, it is acknowledged as a valuable feature in the identification of motion intention \citep{Hakonen2015, Stango2015, Rojas-Martinez2013}.
 
-A drawback of MEG is its increased sensitivity to metallic interference that may come from inside the head, such as implanted intracranial electrodes and dental ferromagnetic prosthesis and brackets, or from outside, such as pacemakers and vagal stimulators \citep{Vrba2002}. To try to minimize the effect of these interferences, an extremely magnetic hygiene inside the shielded room is required \citep{Hillebrand2013}. Recordings have to be performed with subjects trying to avoid any kind of movement, and even a demagnetization of the subject can be carried out. For this reason, MEG signal recording requires very careful preparation that can only be performed by highly trained specialists. Despite all precautions, sometimes it is not possible to eliminate all sources of metallic artifacts and highly distorted recordings are obtained. Typically, these artifacts appear modulated by breathing and cardiac rhythms \citep{Hillebrand2013} due to the great sensitivity to movement. The amplitude of metallic artifacts is typically much higher than the amplitude of cerebral signals and can even reach values larger than $10^5$ fT \citep{Cheyne2007}. Metallic artifacts affect the whole record, overlapping brain activity, and may alter all head channels with varying amplitudes. Usually, there are a certain number of channels whose high level of contamination masks cerebral activity almost completely.
+Most pattern-recognition identification methods are subject-specific. This could be avoided by building a single identifier for a group of patients, i.e. group-specific identifier. However, inter-subject variability is a big concern when designing a group-specific pattern recognition-based identifier. Individuals differ from each other when referring to physiological parameters, e.g., conductivity of subcutaneous tissue and limb dimension. Nevertheless, by comparing HD-EMG activation maps, inter-subject activation patterns for different tasks and levels of contraction were demonstrated to exist in a population of healthy subjects \citep{Rojas-Martinez2012}. Furthermore, by using intensity and spatial features extracted from activation maps it is possible to construct an inter-subject identification method not only for different tasks, but also for different effort levels \citep{Rojas-Martinez2013}. The authors also reported that in healthy subjects the performance improved by adding spatial features in the identification, proving that spatial distribution is less sensitive to inter-subject variability.
 
-The most widely used method for extracting useful information from contaminated recordings is to remove artifactual channels and to apply band-pass filtering, but there are still a large number of cases with unusable signals due to huge artifact contamination. This results in a loss of information that is particularly necessary when artifacts overlap the cerebral region of interest, for example during preparation of surgery. The literature reports few techniques able to eliminate this sort of metallic interference. For sources located outside the head, temporal Signal Space Separation (tSSS) has been used for metallic artifact reduction using generated metallic signals in a phantom experiment \citep{Taulu2006}. To do so, it was necessary to previously identify source patterns at the cost of potentially removing true brain signals as well \citep{Medvedovsky2009}.
+Unfortunately, in patients with incomplete spinal cord injury (iSCI) and other neurological disorders (e.g. stroke), motor control is impaired as a result of damaged nerves. Patients can have uncoordinated movements and lack of force, or, in more difficult cases, they can weakly activate their muscles, but cannot perform the movement. If motion intention could be extracted from muscle activity, that is, EMG, in real time, it would allow them to control external devices even without kinematic sensors. This technology could be helpful during therapy (e.g., Hogan et al. \citep{Hogan2006} reported that robotic rehabilitation can be improved by patients’ active participation), as well as in everyday life after the injury by using exoskeleton systems. It has already been shown that intensity-related and task-specific activation patterns exist in patients with neuromuscular impairment and that motion intention can be extracted; e.g. using time domain and autoregressive model features Liu and Zhou \citep{Liu2013} were able to perform patient-specific identification of tasks with high performance in patients with iSCI, Zhang and Zhou \citep{Zhang2012} in stroke patients, whereas Geng et al. \citep{Geng2014} in mildly-impaired traumatic brain injury patients. However, all of these studies considered subject-specific patterns, that is, the identification was trained and validated individually for each subject in the databases.
 
-BSS techniques have proven effective for automatically removing cardiac, ocular and movement artifacts \citep{Escudero2007,Mantini2008}  but, to date, there have not been any studies that use BSS to remove metallic artifacts in an automatic fashion. The goal of BSS algorithms is to estimate the different original source signals or components from the observation signals assuming a linear mixture model. This can be done because, although original source signals and the mixing system are unknown, a certain statistical independence between sources is assumed.
-
-The main aim of this study was to develop an automatic algorithm based on BSS techniques to effectively remove metallic artifacts from MEG signals. It was necessary to evaluate objectively and quantitatively the performance of different BSS methods. Consequently, three well-known algorithms were evaluated: AMUSE, a second order method; and INFOMAX and FastICA, both high order statistics. Semi-automatic AMUSE-based filtering was previously evaluated on a very preliminary study with four real MEG signals \citep{Migliorelli2013} and its main conclusion stated that AMUSE was able to extract components projecting on the areas where metallic artifacts had more energy. However, the objective evaluation of the effectiveness of each artifact reduction process is difficult to assess with real signals because the components belonging either to artifacts or to brain signals are not fully known. To date, BSS has been tested in EEG simulated signals to reduce artifacts from external sources such as ocular interference \citep{Romero2008,Romero2009},  but it has not been evaluated using simulated MEG data. Therefore, simulated MEG recordings corresponding to clean signals contaminated with real metallic artifacts were generated in this study to evaluate the effectiveness of separation into components and the subsequent artifact reduction. Previous knowledge of the behavior of metallic artifacts was useful to develop a fully automatic method for the selection of source components related to artifacts, which should be subsequently removed to obtain a successful reconstruction of MEG data. \\
+To our best knowledge, no studies have evaluated group-specific identification of motion intention in patients with iSCI so far. It is a particularly difficult task because of the diverse nature of injuries among patients, which can result in high variability among activation maps. The objective of this study is twofold: firstly, to analyze patterns in the activation maps associated with four movement directions at the elbow joint and with different strengths in a group of patients with iSCI; and secondly, the automatic identification of these four isometric tasks and the differentiation between levels of voluntary contraction at low-medium efforts. For this purpose, HD-EMG was recorded on patients with iSCI while performing the following motor tasks: flexion, extension, supination and pronation of the forearm at three different effort levels. HD-EMG activation maps were calculated and variability was measured between maps of different patients. Furthermore, inter-subject identification of tasks and effort levels was performed using intensity and spatial features calculated from activation maps. 
+\\
 \clearpage
 
-\section{Materials and Methods}
+\section{Methodololgy}
 
-\subsection*{Subjects and instrumentation}
+\subsection*{Experimental Protocol}
 
-Ten subjects with ferromagnetic implants (age 23.6 $\pm$ 10.4 years), six of them with an implanted subdural grid and four with dental brackets, and ten subjects without implants or other metallic artifactual sources (age 36.7 $\pm$ 10.7 years) were selected for this study. MEG signals were acquired during 10 min with closed eyes using a whole-head 148-channel magnetometer system (4D-Neuroimaging/BTi) and sampled at 678.19 Hz (bandwidth DC to 250 Hz). Signals were imported into MATLAB using the Fieldtrip toolbox \citep{Oostenveld2011}, and two-minute epochs were selected randomly.
+Nine patients (age: 45 $\pm$ 20 years; body mass index: 27.1 $\pm$ 5.2; five male and four female) participated in the experiment. 
+They were all diagnosed with incomplete spinal cord injury (rated C or D according to ASIA scale) and they were injured at least 1 month before the experiment. There were six patients with injury at C4 vertebra and three patients with injuries at C3, C5 and C6 vertebras. The study was approved by the local ethics committee and all patients gave their written consent.
+Subjects performed four isometric upper-limb tasks following the same experimental protocol carried out in \citep{Rojas-Martinez2013}: flexion and extension at the elbow and supination and pronation of the forearm. High-density EMG was recorded on five superficial muscles of the upper-arm and forearm, which are dominantly involved in these tasks: Biceps Brachii, Triceps Brachii, Brachioradialis, Anconeus and Pronator Teres.
 
-Implant-related artifacts contaminated a large number of channels, some of them with a very high amplitude that masked the cerebral activity completely, which could not be extracted using classical filtering techniques. Artifacts were observed to follow regular or periodic patterns that were present with varying intensity to many channels.
-
-\subsection{Simulated data}
-
-In order to simulate real cases of MEG signals affected by metallic interference, a linear mixture between clean signals and metallic artifacts extracted from contaminated signals was proposed, following a scheme analogous to that proposed in \citep{Romero2008} for the generation of simulated signals affected by ocular artifacts. Ten two-minute epochs were simulated according to the following mixing model:
-
-\begin{equation} \label{eq:1-1} 
-S=C+WP
-\end{equation}
-
-where $S$ indicates the simulated signals, $C$ denotes clean MEG recordings, $W$ corresponds to the mixture weights, and $P$ represents the different artifactual morphologies selected. These different patterns caused by metallic interference had to be extracted from contaminated recordings and then added to clean signals according to the propagation coefficients obtained by means of an approach based on linear regression.
-
-\subsubsection*{Extraction of different metallic artifactual waveforms from contaminated recordings}
-
-Most noticeable metallic artifacts are easily identifiable on visual inspection of the signals mainly due to their higher amplitude with respect to the remaining MEG channels, but also to their slower and more regular waveforms, which are usually modulated by the heart or respiratory rates \citep{Hillebrand2013}. In this study, three experts examined the signals and identified channels that clearly and strictly met these criteria of high amplitude, low frequency, regularity, and possible modulation by respiratory or cardiac rhythms. Only those channels selected by all three experts were chosen as artifactual channels and therefore used to obtain the artifactual waveforms. The interobserver agreement was of 0.829 $\pm$ 0.097 with a kappa index of 0.851 $\pm$ 0.095, indicating an 'almost perfect' agreement according to the definitions given in \citep{Viera2005}.
-
-In order to extract only the information provided by metallic interference, a low-pass filter with the cutoff frequencies obtained with the cumulative spectra was applied to remove the cerebral activity present in these selected channels (7.4 $\pm$ 2.1 Hz as mean and standard deviation for all channels). The spectra of clean and artifactual signals were similar at high frequencies but they differed at low frequencies due to metallic interference. Considering that this conspicuous difference was due to the presence of the metallic artifact, reverse-cumulative (from high to low frequency) spectra were obtained for each artifactual channel and for the same channel in all artifact-free recordings. Spectra were calculated by means of Welch's periodogram using a five-second Hanning window with 50\% overlapping. The difference between the artifactual spectrum and the average of all clean spectra was used to obtain the cutoff frequency for each artifactual channel, searching for the frequency where the normalized difference reached 5\% (see figures \ref{fig:1-1}(a) and (b)). Subsequently, each selected artifactual channel was filtered with an 8th-order Butterworth filter (figure \ref{fig:1-1}(b)).
+During the experiments, patients were sitting upright in front of a table with their dominant arm fixed using a mechanical brace to perform isometric contractions at the elbow (Figure \ref{fig:2-1}). The forearm was in the sagittal plane, halfway between pronation and supination. The elbow was flexed at 45$^{\circ}$ and the shoulder was adducted at 90$^{\circ}$ in the horizontal plane and flexed at 45$^{\circ}$ in the sagittal plane. Two torque transducers (OT Bioelettronica, range 150 Nm, resolution 2.5 mV/V) were installed in the brace to measure the force exerted at the elbow, which was displayed to patients during the exercise as visual feedback.
+HD-EMG monopolar signals were recorded using electrode arrays manufactured in our laboratory. They were designed as silver-plated eyelets (5 mm external diameter) embedded in hydrophobic, non-conductive fabric in a 10 mm $\times$ 10 mm quadrature grid. Elastic straps were used to fix the arrays to the patient’s skin.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=1\textwidth]{Images/fig1-1.png}
-\caption{Scheme for generation of a simulated artifactual MEG recording: (a) five-second epoch of raw MEG with metallic artifacts (only 16 selected channels are drawn). Orange traces correspond to the highly artifactual channels selected by the experts; (b) low-pass filtered artifactual channels (cutoff frequency automatically calculated from reverse-cumulative spectra); (c) selected morphologies (orange traces) after correlation among channels in (b), and their corresponding linear regression coefficients (whole head maps); (d) propagation of artifacts corresponding to coefficients obtained in (c); (e) five-second epochs of raw artifact-free MEG channels; and (f) simulated signals obtained by summation of (d) and (e).}
-\label{fig:1-1}
+\includegraphics[width=0.9\textwidth]{Images/figure2_1.png}
+\caption{Experimental protocol
+}
+\label{fig:2-1}
 \end{figure}      
 
-Metallic interference is known to affect different MEG channels with varying shape and intensity. For this purpose, a selection of the different waveforms spreading over the scalp had to be performed. Consequently, the cross-correlation between artifactual channels was obtained, and only low-correlated waveforms (coefficient $<$ 0.5) were preserved. Among those showing high correlation ($\geq$ 0.5), only the signal with the highest energy was maintained (see figure \ref{fig:1-1}(c)). In this way, only those morphologies that were different enough were selected as artifactual patterns (figure \ref{fig:1-1}(d)).
 
-\subsubsection*{Calculation of propagation coefficients by linear regression and generation of simulated data}
+Three electrode arrays were used to gather a total of 240 monopolar EMG signals for each patient. The first array (6 rows $\times$ 16 columns) was used to record HD-EMG of forearm muscles (Brachioradialis, Anconeus and Pronator Teres) and was placed so that the most proximal row of electrodes was 2 cm below the elbow crease. The locations of the muscles were previously marked on the skin surface according to \citep{Kendall1993} and the array was placed to cover all three of them. The second and third array (6 rows $\times$ 12 columns each) were placed following the recommendations of the SENIAM project \citep{Hermens1999} and they covered the Biceps Brachii (distal part of the upper-arm) and Triceps Brachii (proximal part of the upper-arm) respectively. The reference electrodes were placed on the clavicle, wrist, and shoulder of the active arm. When placed, each eyelet was filled with 20 $\mu$l of conductive gel using a gel dispenser (Multipette Plus, Eppendorf, Germany).
+Signals were recorded using two commercial EMG amplifiers with synchronized sampling (EMG-USB- 128 channels, sampling frequency 2048 Hz, 12-bit A/D converter, 3 dB bandwidth 10-750 Hz, programmable gains of 100, 200, 500, 1000, 2000, 5000, 10000, manufactured by LISiN-OT Bioelettronica).
+At the beginning of the experimental protocol, the maximal voluntary contraction (MVC) was measured for each task, obtained as the maximum of three consecutive trials. Between each trial there was a three minute rest to prevent cumulative fatigue.
+Afterwards, submaximal contractions for the four tasks at three different levels of effort (10\% MVC, 30\% MVC and 50\% MVC) were measured. Patients were asked to maintain the target force as precisely as possible for 10 seconds while the exerted level was displayed to them. Recordings were performed in randomized order and between consecutive recordings there were three minute breaks to prevent muscle fatigue.
 
-Propagation coefficients represented the amount of metallic interference that was present in a particular MEG channel with respect to a specific artifactual pattern. Linear regression between all channels of the actual artifactual recordings and each selected pattern was performed, taking into account the entire two-minute recordings. The obtained regression coefficients (represented as topographic maps in figure \ref{fig:1-1} (c)) were used as weights of the mixing matrix \textbf{\textit{W}} (equation \ref{eq:1-1}) and then patterns were propagated to all channels (figure \ref{fig:1-1}(d)). Finally, the simulated artifacts were added to clean recordings (figure \ref{fig:1-1}(e)) to obtain a set of simulated artifactual signals (figure \ref{fig:1-1}(f)). These steps were performed 10 times to obtain 10 sets of simulated MEG signals with known metallic interference.
 
-\subsection{Blind source separation approaches to artifact reduction}
+\subsection*{HD-EMG Activation Maps}
 
-BSS techniques estimate source signals from a set of mixed signals, separating MEG signals into spatial components to later reconstruct the brain signal discarding the components associated with artifacts. The model of the identification process is expressed by:
+In order to increase \emph{signal-to-noise ratio} (SNR), the obtained HD-EMG signals were zero-phase filtered between 15 Hz and 350 Hz using a Butterworth band-pass filter of 4\textsuperscript{th} order. Additionally, the power line interference was suppressed using the adaptive filter described in \citep{Mananas2001}. Channels containing measurement artifacts were identified and removed following the procedure described in \citep{Rojas-Martinez2012}.
+Based on the torque measurements, 20 time epochs of 250 ms were selected for every recording during which patients were able to maintain the torque level within a range of $\pm$5\%, $\pm$7.5\%, and $\pm$10\% MVC for the targets of 10\%, 30\%, and 50\% MVC respectively. On the selected epochs, HD-EMG maps, $HM$, were calculated as:
 
-\begin{equation} \label{eq:1-2}
-x(t)=As(t)
+\begin{equation} \label{eq:2-1}
+HM_{i,j} = \sqrt{\frac{1}{N} \sum_{n=0}^{N-1} sEMG_{i,j}^{2}[n] }
 \end{equation}
 
-where $x(t)$ is the observation signal vector and $s(t)$ the unknown source signal vector with \textit{n} and \textit{m} rows respectively. $A$ is the $n \times m$ mixing matrix which should be estimated and represents the weights of the projection of the corresponding source signals at different channels.
+where $HM$ was calculated for $N=512$ samples corresponding to 250 ms. Maps were calculated as the RMS values obtained from myoelectric signals ($sEMG$), where the position $(i,j)$ of a channel in the array was equivalent to the position of a pixel in the map. Channels identified as artifacts were substituted using a triangular-based cubic interpolation \citep{Rojas-Martinez2012}.
 
-Usually, BSS methods can be classified according to the order of the statistic used to perform the separation. Methods based on second order statistics (SOS) assume sources that are only uncorrelated. One of the techniques used in this study is the Algorithm for Multiple Unknown Signals Extraction (AMUSE) \citep{Tong1991}, which exploits SOS through a first step of signal whitening and a second step of an eigenvalue decomposition. AMUSE is sometimes classified as an independent component analysis (ICA) technique because decorrelation can be considered as a weak form of statistical independence \citep{Hyvarinen2001}. However, SOS are effectively enough to separate and remove those Independent Components (IC) corresponding to various types of artifacts \citep{Escudero2010}.
+To reduce crosstalk activity of adjacent muscles that can occur on the borders of the map, maps were segmented according to \citep{Rojas-Martinez2012}. This procedure ensured that maps were localized and represented only regions of the associated muscle activity.
 
-While SOS-based algorithms provide independence in terms of correlation, in the case of higher order statistics (HOS) a more general concept in considered: two random variables are independent when the statistical behavior of one of them is not affected by the values taken by the other. Statistical independence can be estimated using several different methods based on mutual information, non-gaussianity or maximum likelihood, for example. Additionally to AMUSE, two HOS-based techniques, INFOMAX and FastICA, were used in this work. Both algorithms are iterative and require proper initialization and parameter setting.
+To calculate comparable activation maps among patients, spatial coordinates were normalized with respect to limb dimensions and position of an electrode array for every patient. A coordinate system was built for each muscle where the x-axis was parallel to the medial-lateral direction, whereas the y-axis was parallel to the proximal-distal direction. The x-axis was normalized with respect to the upper-arm circumference measured at the muscle belly of either Biceps Brachii or Triceps Brachii for their corresponding maps, and with respect to the forearm circumference measured at the muscle belly of Brachioradialis for all three forearm muscle maps (Brachioradialis, Anconeus and Pronator Teres). Similarly, the y axis was normalized with respect to the distance between the Acromion and the Fossa Cubit for Biceps Brachii, the distance between the Acromion and the Olecranon for Triceps Brachii map and the distance between the medial Epicondyle and the Apofisis of the Radius for forearm muscles (Brachioradialis, Anconeus and Pronator Teres).
 
-On the one hand, INFOMAX maximizes the joint entropy of a neural processor output, based on the fact that the maximum entropy of joint variables only occurs when they are statistically independent \citep{Bell1995}. In this study, separation by means of an extended version of INFOMAX was performed using the default parameters proposed in the EEGLAB toolbox for MATLAB \citep{Delorme2004,Lee1999}
+The origins of these coordinate systems for muscles of upper-arm were set following SENIAM recommendations \citep{Hermens1999}, that is, the point located at \nicefrac{3}{4} of the distance between Acromion and the Fossa Cubit for Biceps Brachii and \nicefrac{1}{2} of the distance between Acromion and the Olecranon for Triceps Brachii. The origin of the coordinate system for each muscle of the forearm was located on the line that connects the origin and insertion of the muscle \citep{Kendall1993} 2 cm bellow the elbow crease.
 
-On the other hand, FastICA is based on a fixed-point iterative scheme that maximizes non-gaussianity as a measure of statistical independence between sources. A weight matrix is obtained after a certain number of iterations, but non-gaussianity of the independent components is necessary for a successful convergence of the algorithm \citep{Hyvarinen1999}. However, the step size can be adjusted through a stabilization parameter so that convergence can be achieved in unfavorable conditions.
+Representative activation maps for each patient and recording were obtained by averaging 20 activation maps $HM$ (Eq. \ref{eq:2-1}). These maps were then averaged between individuals to obtain activation maps for the group of patients. Since tissue conductivity and electrode-skin impedance is different from patient to patient, the recorded sEMG amplitude can vary a lot between patients. To compensate this effect, the dispersion of each pixel was expressed in terms of relative standard deviation (RSD), i.e. standard deviation between representative maps of different patients was calculated for each pixel in the map, and was then divided by the intensity value of the corresponding pixel in the average activation map. Finally, the average RSD of a map was calculated as the mean value of RSD of all pixels in a map.
 
-Automatic selection of metallic-related components
-For all three algorithms evaluated, a decomposition scheme that provided as many ICs as available MEG channels was used (148). Once the components were estimated, it was necessary to design an automatic selection procedure to detect those components related to metallic artifacts, taking into account their known features: low frequency and regular behavior, especially modulated by the heart and breathing rhythms. Two criteria were considered to identify the extracted independent components related to metallic artifacts (figure \ref{fig:1-2}(a)):
 
-\begin{enumerate}[(i)]
-\item The frequency below which the spectrum holds most of the energy of the signal. If the spectral content is located principally at low frequencies, it is more likely that the component corresponds to metallic interference.
 
-\item The regularity of the signal, as measured by the sample entropy \citep{Richman2000}. This criterion was directly associated with the typical modulation of metallic artifacts, which makes them more regular than cerebral activity.
-\end{enumerate}
+\subsection*{Identification}
+
+Two types of classifiers were evaluated: linear discriminant analysis (LDA), and support vector machine (SVM) with a radial kernel. Classification was performed in MATLAB (version 2015a) using the Statistics and Machine Learning Toolbox \citep{matlab}. Although when using LDA it is assumed that the patterns in each class are multivariate normally distributed with different means and identical covariance matrices, it is shown to be robust against deviations from the multivariate normality assumption \citep{Grouven1996}.
+
+The features used in identification were the intensity and the center of gravity of HD-EMG maps calculated over 250 ms epochs.
+
+Intensity was calculated as the common logarithm of the mean intensity of the map:
+
+\begin{equation} \label{eq:2-2}
+I = \log_{10} \frac{1}{N} \displaystyle\sum_{i,j} HM_{i,j}
+\end{equation}
+
+where $I$ is the intensity feature calculated for an $N-$ channel HD-EMG map ($HM$). The center of gravity was calculated as:
+
+\begin{equation} \label{eq:2-3}
+CG = \frac{1}{\sum_{i,j} HM_{i,j}}
+\displaystyle\sum_{i,j} HM_{i,j} 
+	\begin{bmatrix}
+	  \, i \,\\
+	  \, j \,\\
+	  \end{bmatrix}
+\end{equation}
+
+where $CG$ is the center of gravity of the HD-EMG map $HM$, and $(i,j)$ represents position of the channel in the map.
+
+Two types of identification were performed: \textbf{1) identification of tasks} and \textbf{2) identification of tasks and effort levels}. In identification of tasks, four types of contraction were identified: flexion, extension, supination and pronation. Performances were compared between using only intensity features and using the combination of intensity and spatial features of all five monitored muscles. In this sense, the possible improvement of pattern recognition was evaluated when adding spatial information. 
+
+A conjoint identification of tasks and effort levels was constructed as classification in two steps \citep{Rojas-Martinez2013} (Figure \ref{fig:2-2}). In the first step, the identification of tasks was performed, while in the second step, the level of effort of the identified task was determined. The second step was organized as 4 different classifiers, i.e. a single classifier for the identification of the effort level for each task (Figure 2). The features used in the identification of level of effort were the intensity and the center of gravity of the agonist-antagonist muscle pair involved in the task \citep{Rojas-Martinez2013}: Biceps Brachii and Triceps Brachii both for flexion and extension, Biceps Brachii, Brachioradialis and Anconeus for supination, and Pronator Teres and Anconeus for pronation. Two different approaches were used: the identification of three effort levels (10\% MVC, 30\% MVC, and 50\% MVC) and the identification of two effort levels (low, corresponding to 10\% MVC, and moderate, corresponding to 30\% and 50\% MVC). Thus, a total of 12 different classes for the first approach and 8 classes for the second were considered, and accordingly, a confusion matrix of 12 or 8 classes was formed at the output of the second step of the classifier for the evaluation of the identification. Therefore, if a task was misclassified in the first step but the level of effort was correctly classified in the second step, this observation counted as a misclassification.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=1\textwidth]{Images/fig1-2.png}
-\caption{Automatic artifact-related component selection: (a) frequency and entropy estimation (for all extracted ICs) and thresholds (blue dashed lines). (b) Artifactual area selected by the union of the regions of interest of the selected ICs. (c) As an example, evaluation of the projection of ICs 3 and 4 is shown. Regions of interest are indicated with dark blue shading. IC 3 is outside the artifactual area and therefore would not be selected by the automatic algorithm, whereas IC 4 would, as its region of interest is inside the artifactual area and the weak criteria concerning frequency and entropy are met.}
-\label{fig:1-2}
-\end{figure}      
+\includegraphics[width=0.45\textwidth]{Images/figure2_2.png}
+\caption{Schematic diagram of identification}
+\label{fig:2-2}
+\end{figure}     
 
-The procedure carried out in order to select the artifactual components was based on two steps: the selection of the artifactual region and a comparison of this region with the projection of each IC.
+Observations from all patients were pooled together and the identification was tested using the holdout method where 60\% of the data were used for training and 40\% for validation. Results were expressed in terms of accuracy ($Acc$), sensitivity ($S$), precision ($P$), and specificity ($SP$) \citep{Farina2001}:
 
-The purpose of the first step was to locate the artifactual area that, due to the particular origin of metallic artifacts, could be located anywhere on the scalp. In this first step, those components which simultaneously met the two above-mentioned criteria were selected as artifactual components (figure \ref{fig:1-2}(b)) and used to identify the area of the scalp where the artifact was located. A strong version of the criteria was applied, and only ICs with 90\% of the energy in the slowest frequency bands delta and theta (up to 7.5 Hz) and high regularity (sample entropy lower than 0.3, obtained with an embedding dimension of 3 and a search radius of 0.1 times the standard deviation of the signal) were selected.
+\begin{equation} \label{eq:2-4}
+Acc = \frac{TP + TN}{TP + FP + TN + FN}
+\end{equation}
+\begin{equation} \label{eq:2-5}
+S = \frac{TP}{TP + FN}
+\end{equation}
+\begin{equation} \label{eq:2-6}
+P = \frac{TP}{TP + FP}
+\end{equation}
+\begin{equation} \label{eq:2-7}
+SP = \frac{TN}{TN + FP}
+\end{equation}
 
-A region of interest was defined for each selected component, taking into account the BSS weights normalized with respect to the maximum for each channel and discarding the lowest quartile. The final artifactual region was defined as the union of the regions of each component. The purpose of this selection was to define a region where the artifact projected and to prevent artifactual regions being focused on only a few high-energy channels.
+where $TP$ (true positive) is the number of samples belonging to a certain class and classified to that class, $TN$ (true negative) is the number of samples not belonging to a certain class and not classified to that class, $FP$ (false positive) is the number of samples not belonging to a certain class and classified to that class, and $FN$ is the number of samples belonging to a certain class and classified to another class. 
 
-The second step involved the comparison between the artifactual region and the region of interest of every IC (figure \ref{fig:1-2}(c)). When this region of interest was included in the artifactual region and an IC fulfilled a weak version of the aforementioned criteria (90\% of energy below 15 Hz, sample entropy lower than 0.5), then the IC under evaluation was marked as an artifactual component. This second step was performed in order to ensure the selection of artifactual components that displayed characteristics highly related to metallic interference and were focused on the defined artifactual region. To achieve an effective removal of metallic interference, all marked ICs had to be removed, and the resulting artifact-free signal was obtained as the product of the remaining components by the weight matrix obtained by the algorithm.
-
-\subsection{Performance assessment}
-
-In order to assess the performance of the metallic artifact removal methodology, several error measurements based on time and frequency domain were calculated for each channel and each simulated recording.
-
-\begin{enumerate} [(i)]
-\item The normalized mean squared error (nMSE),
-  \begin{equation}
-	NMSE_n = 100 \cdot \frac{\sum_{i}^{N} (x_{n}(i)-y_{n}(i))^2}{\sum_{i}^N y_{n}(i)^2}
-  \end{equation}
-  
-\item The variation of absolute power in the delta band (0.5 to 4 Hz) was obtained to study the error in the band most affected by metallic artifacts.
- \begin{equation}
-	\bigtriangleup \delta  = 100 \cdot \frac{{\delta}_x -{\delta}_y}{{\delta}_y}
-  \end{equation}
-
-where ${\delta}_x$ and ${\delta}_y$ represent the power of the $\delta$ band of the filtered MEG channel under evaluation and of the original clean signal respectively.
+To reduce bias, a repeated holdout testing method was performed, i.e. the identification results were averaged over 20 iterations with randomized grouping for training and validation sets.
 
 
-\item The variation of absolute power in the alpha band (7.5 to 13 Hz) was also calculated in order to observe the error made in a band where metallic artifacts should have little influence, and therefore errors should be lower.
-  
-  \begin{equation}
-	\bigtriangleup \alpha  = 100 \cdot \frac{{\alpha}_x -{\alpha}_y}{{\alpha}_y}
-  \end{equation}
-\end{enumerate}
-
-where ${\alpha}_x$ and ${\alpha}_y$ represent the power in the $\alpha$ band of the signal under evaluation and of the original clean signal respectively.
 
 \section{Results}
+\subsection{Activation Maps}
+Activation maps were calculated and averaged among patients to obtain general activation maps for tasks and levels of effort in order to observe the activation pattern of the muscles.
 
-\subsection{Simulated data}
+Table \ref{tb:2-1} presents the relative standard deviation (RSD) between representative activation maps of individual patients. Results are shown for all patients in the database and also only for patients injured at the C4 level. It can be seen that the variability of the group increased notably when patients with injury different to C4 were included. Thus, patients with the C4 level of injury can be considered as a homogenous group.
 
-Ten simulated datasets were generated following the steps explained in figure \ref{fig:1-1}. The number of channels containing visible metallic interference selected by the experts was 6.6 $\pm$ 4.4, and, in general, artifacts contaminated channels with varying amplitudes. While in some subjects the high amplitude of the artifacts affected many channels, there were other cases where high amplitudes focused on a reduced number of channels. In spite of the dispersion shown by the location of the artifact, their associated signals showed low frequency and regular pattern characteristics, modulated by cardiac and respiratory rates.
-
-Once the different waveforms (patterns) were obtained, and after proper filtering and correlation procedures explained in the previous sections, propagation to the whole head was performed by means of linear regression. Figure \ref{fig:1-3} shows the propagation coefficients normalized with respect to the maximum obtained after regression. It is noticeable that metallic artifacts affected different areas of the scalp depending on the subject, and while in some cases artifacts were focused at specific regions, in others they appeared more dispersed and covered a larger area of the head.
-
-\begin{figure}[ht]
+\begin{table}[]
 \centering
-\includegraphics[width=0.9\textwidth]{Images/fig1-3.png}
-\caption{Sum of the linear regression coefficients normalized with respect to its maximum for all of the selected artifactual patterns for the 10 simulated MEG sets. Coefficients were obtained for the whole head after morphology selection and linear regression of each channel with the selected morphologies. Note that metallic artifacts behave differently depending on their nature and therefore they can appear in different areas of the head for each simulated MEG set.}
-\label{fig:1-3}
-\end{figure}      
-
-\subsection{Blind source separation and automatic detection}
-
-Separation of ICs was performed with AMUSE, INFOMAX and FastICA for the ten simulated subjects. AMUSE and INFOMAX algorithms successfully extracted ICs from the mixed signals in which artifact-related source components where visually identifiable. Subgaussianity of the data, especially related to metallic artifacts, caused a non-effective decomposition in the case of the FastICA algorithm, which could not separate ICs related to brain signals from metallic artifacts even after using the stabilization parameters to ensure convergence.
-
-The automatic detection procedure was applied to the obtained ICs to detect which components were associated with the metallic interference and therefore were to be discarded to obtain a successful removal of metallic artifacts.
-
-Figure \ref{fig:1-4}(a) shows, as an example, an artifact-free subject signal; and figure \ref{fig:1-4}(b) shows the simulated signals obtained after the addition of artifactual waveforms to the same subject. Figure \ref{fig:1-5} shows the results, in time domain, of the artifact reduction process on simulated signals shown in figure \ref{fig:1-4}. Figures \ref{fig:1-5}(a), (b) and (c) show the extracted ICs for AMUSE, INFOMAX and FastICA respectively, with the selected ICs displayed in a different color. The resulting signals obtained after reconstruction without considering the ICs associated with metallic interference are shown in figures \ref{fig:1-5}(d), (e) and (f). It is noticeable that the automatic algorithm procedure was not able to identify any metallic-related ICs in the FastICA decomposition, and this led to a full reconstruction of the signal with the original metallic interference. Visual inspection of the extracted components and the reconstructed signals indicated that INFOMAX was not completely successful in separating brain-related activity from artifactual waveforms, but AMUSE was indeed able to separate metallic interference from MEG activity. INFOMAX provided components related to artifactual activity mixed with cerebral waveforms and the effects of such a decomposition were remarkable after signal reconstruction (figure \ref{fig:1-5}(e)), especially when compared to AMUSE (figure \ref{fig:1-5}(d)), which showed much more similar signals compared to the clean set (figure \ref{fig:1-4}(a)).
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=1\textwidth]{Images/fig1-4.png}
-\caption{MEG channels (16 distributed evenly on the scalp) for: (a) control subject, that is, clean recording, free of metallic artifacts; (b) simulated subject. Orange traces indicate channels originally selected as artifacts by the experts.}
-\label{fig:1-4}
-\end{figure}   
-
-\begin{figure}[ht!]
-\centering
-\hspace*{-0.7cm}
-\includegraphics[width=1.1\textwidth]{Images/fig1-5.png}
-\caption{ Artifact-reduction for a simulated subject: (a), (b) and (c) show the first 20 extracted ICs corresponding to AMUSE, INFOMAX and FastICA algorithms, respectively. Note that the first 2 ICs (orange traces) obtained by AMUSE and INFOMAX were automatically selected and removed to perform signal reconstruction, whose results are shown in (d) and (e), respectively. FastICA was not able to extract useful artifact-related components and the reconstruction shown in (f) does not remove any amount of artifact (and, consequently, the reconstructed signals equal those of figure \ref{fig:1-4}(b)).}
-\label{fig:1-5}
-\end{figure}   
-
-\subsection{Performance assessment}
-
-Figure \ref{fig:1-6} shows the percentage error in several subjects as an example, represented as whole-head topographic maps. These errors were calculated for three conditions: simulated signals without correction, to observe the amount of artifact introduced; and after applying AMUSE- and INFOMAX-based artifact filtering. Metallic contamination was mainly present in the area of high-energy artifacts, while the distortion of the remaining channels was considerably lower. For this reason the amount of error observed for the uncorrected case always showed a maximum error value in the artifactual region. As expected, errors in the delta frequency band after filtering were higher than in the alpha band because of the characteristics of metallic contamination, and INFOMAX showed higher errors than AMUSE.
-
-\begin{figure}[ht!]
-\centering
-\includegraphics[width=1\textwidth]{Images/fig1-6.png}
-\caption{Error percentage for normalized MSE, delta power and alpha power, shown for three different simulated subjects as examples. Errors are shown for non-corrected, AMUSE-corrected and INFOMAX-corrected signals. Due to the frequency content of metallic artifacts, errors are expected to be lower in the alpha band and higher in the delta band, focusing especially on the areas where the artifact is located. Note that AMUSE-based reconstruction shows the lowest errors for the three measures.}
-\label{fig:1-6}
-\end{figure}  
-
-As explained in the previous sections, metallic contamination masked the cerebral activity of some channels in real cases. This situation was reproduced in the simulated MEG subjects and, in fact, the energy introduced by metallic artifacts in MEG activity was huge in many cases (see values and average in table \ref{tb:1-1}). After applying INFOMAX-based correction, this error was reduced but still high, whereas after AMUSE-based filtering this error was lower than 1\%.
-
-
-\begin{table}[ht!]
-\centering
-\caption{Error percentage for nMSE, delta power and alpha power (average of all channels) for non-corrected signals, AMUSE-corrected signals and INFOMAX-corrected signals.}
-\small
-\vspace{3mm}
-\hspace*{-0.35cm}
-\label{tb:1-1}
-\begin{tabular}{rrrrrrrrrr}
-\multicolumn{1}{l}{} & \multicolumn{3}{c}{nMSE}                                                                           & \multicolumn{3}{c}{Delta error (\%)}                                                               & \multicolumn{3}{l}{Alpha Error (\%)}                                                                   \\ \hline
-\multicolumn{1}{l}{} & \multicolumn{1}{l}{}                                 & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{}                                 & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{}                                     & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\ 
-Subj.                & \begin{tabular}[c]{@{}r@{}}Non-\\ corrected \end{tabular} & Amuse                & Infomax              & \begin{tabular}[c]{@{}r@{}}Non-\\ corrected \end{tabular} & Amuse                & Infomax              & \begin{tabular}[c]{@{}r@{}}Non-\\ corrected\end{tabular} & Amuse                & Infomax              \\ \hline
-\multicolumn{1}{l}{} & \multicolumn{1}{l}{}                                 & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{}                                 & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{}                                     & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\
-1                    & 521.70                                               & 0.12                 & 414.10               & 2464.23                                              & 0.52                 & 2226.07              & 2.12                                                     & 0.31                 & 3.99                 \\
-2                    & 7811.33                                              & 0.33                 & 173.02               & 44500.04                                             & 0.42                 & 214.46               & 1.30                                                     & 0.88                 & 121.7                \\
-3                    & 43.94                                                & 0.02                 & 48.02                & 84.01                                                & 0.15                 & 83.93                & 0.02                                                     & 0.07                 & 2.15                 \\
-4                    & 20926.17                                             & 1.51                 & 3622.56              & 64421.30                                             & 2.50                 & 12293.77             & 0.97                                                     & 2.52                 & 475.44               \\
-5                    & 219.99                                               & 0.02                 & 19.68                & 1568.38                                              & 0.13                 & 131.80               & 0.01                                                     & 0.06                 & 2.06                 \\
-6                    & 3754.65                                              & 0.21                 & 50.55                & 14169.41                                             & 0.48                 & 66.97                & 32.76                                                    & 0.62                 & 42.49                \\
-7                    & 9061.74                                              & 0.57                 & 3417.17              & 59869.96                                             & 0.80                 & 9964.57              & 0.01                                                     & 0.44                 & 1665.48              \\
-8                    & 8379.42                                              & 0.19                 & 135.58               & 43106.98                                             & 0.22                 & 174.84               & 0.01                                                     & 0.12                 & 114.64               \\
-9                    & 3795.21                                              & 0.13                 & 45.05                & 14018.33                                             & 0.64                 & 39.15                & 121.08                                                   & 0.52                 & 38.35                \\
-10                   & 3764.70                                              & 0.59                 & 205.70               & 14720.35                                             & 1.33                 & 308.99               & 148.16                                                   & 2.01                 & 102.39               \\
-\multicolumn{1}{l}{} & \multicolumn{1}{l}{}                                 & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{}                                 & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{}                                     & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\
-\textbf{Mean}        & \textbf{5827.89}                                     & \textbf{0.37}        & \textbf{813.14}      & \textbf{25892.30}                                    & \textbf{0.72}        & \textbf{2550.45}     & \textbf{30.64}                                           & \textbf{0.75}        & \textbf{256.87}     
+\caption{Relative standard deviation of activation maps for each muscle and effort level averaged between the group of all patients (top) and group of patients with C4 level of injury (bottom).}
+\label{tb:2-1}
+\begin{tabular}{lcccc}
+ & & & &\\
+                & \multicolumn{4}{c}{\large{\textbf{Group of all patients}}}                \\ 
+                & \large{10\% MVC}                                  & \large{30\% MVC} & \large{50\% MVC} & \large{All effort levels} \\ \hline
+                &                                           &          &          &                   \\
+Biceps          & 49.7\%                                    & 54.6\%   & 57.3\%   & 53.9\%            \\
+Triceps         & 65.4\%                                    & 65.5\%   & 64.5\%   & 65.1\%            \\
+Brachioradialis & 59.9\%                                    & 67.6\%   & 67.1\%   & 64.9\%            \\
+Anconeus        & 39.0\%                                    & 40.6\%   & 40.7\%   & 40.1\%            \\
+Pronator Teres  & 54.2\%                                    & 58.3\%   & 57.6\%   & 56.7\%            \\
+\textbf{Average}    & \textbf{53.6\%}  & \textbf{57.3\%}  & \textbf{57.4\%} & \textbf{56.1\%}            \\
+                &                                           &          &          &                   \\
+                & \multicolumn{4}{c}{\large{\textbf{Group of patients with C4 level of injury}}}                    \\
+                & \large{10\% MVC}                                  & \large{30\% MVC} & \large{50\% MVC} & \large{All effort levels} \\ \hline
+                &                                           &          &          &                   \\
+Biceps          & 38.1\%                                    & 39.9\%   & 41.7\%   & 39.9\%            \\
+Triceps         & 48.7\%                                    & 47.2\%   & 50.1\%   & 48.6\%            \\
+Brachioradialis & 25.5\%                                    & 28.1\%   & 31.1\%   & 28.2\%            \\
+Anconeus        & 32.9\%                                    & 32.9\%   & 35.8\%   & 33.9\%            \\
+Pronator Teres  & 35.6\%                                    & 36.1\%   & 35.5\%   & 35.7\%            \\
+\textbf{Average}     & \textbf{36.2\%}        & \textbf{36.8\%}  & \textbf{38.8\%} & \textbf{37.3\%}          
 \end{tabular}
 \end{table}
 
-The variability in amplitude and energy of metallic artifacts caused the amount of error introduced to be very inhomogeneous. As can be observed in figure \ref{fig:1-6}, INFOMAX was not an appropriate method to remove the interference because of the large amount of error obtained: the error provided in the alpha band, sometimes higher than without correction, suggested that INFOMAX ICs associated with artifacts were a mixture of metallic and cerebral signals, and possibly some brain-related activity was being deleted. On the contrary, AMUSE always provided low alpha power errors, below 3\%.
-
-\subsection{Real data}
-
-Once the effectiveness of the automatic BSS-based procedure has been measured using simulated signals, assessment of its performance with real MEG data is pertinent. Real spontaneous MEG signals with eyes closed corresponding to the 10 subjects with ferromagnetic implants described in the 'Materials and Methods' section were used for this purpose. One way to demonstrate the filtering performance is to show that alpha-band oscillations with eyes closed can be better detected after artifact removal.
-
-Figure \ref{fig:1-7}(a) shows as an example a five-second epoch corresponding to a subject with a metallic subdural grid affecting the posterior region of the scalp where a high interference is clearly noticeable. The AMUSE algorithm, which has been shown to be the most effective and efficient technique in the simulated database, was used for the BSS decomposition. After applying the filtering procedure (see figure {fig:1-7}(b)), alpha waves could be easily recognized by visual inspection. Moreover, topographic maps of the average alpha power of the 10 subjects with metallic implants before and after applying the automatic procedure are shown in figure {fig:1-8}. Although metallic artifacts mainly affected the delta and theta bands, the alpha-band is also significantly affected, as shown in figure {fig:1-8}(a) where alpha power is scattered over the scalp due to metallic interference. Once the BSS-based artifact reduction procedure was applied, the map shows a physiologically more plausible distribution of alpha power mainly focused on the posterior region, as expected.
+The activation maps averaged among patients with lesion at the C4 level are displayed in Figure \ref{fig:2-3}. The maps were interpolated by factor 20 in both directions and cropped to the active regions for display purposes only. In addition, the spatial distribution of RSD for the same group of patients and for the same level of effort is shown in Figure \ref{fig:2-4}. It can be seen that RSD was lower for Biceps Brachii and Triceps Brachii during their main tasks (flexion and extension, respectively) indicating that patients had similar activation patterns. On the other hand, the RSD for these muscles was higher during supination and pronation, which indicates different activation strategies among patients. The inter-subject variability was lower for the forearm muscles, especially the Anconeus.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=1\textwidth]{Images/fig1-7.png}
-\caption{(a) Five-second epoch of raw MEG signals containing prominent metallic interference. Posterior channels are shown as an example. (b) Corrected MEG signals obtained after applying automatic AMUSE-based metallic removal procedure.}
-\label{fig:1-7}
-\end{figure}  
+\includegraphics[width=0.9\textwidth]{Images/figure2_3.png}
+\caption{Activation maps of different tasks at 50\% MVC averaged among patients with C4 level of injury}
+\label{fig:2-3}
+\end{figure}      
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=1\textwidth]{Images/fig1-8.png}
-\caption{(a) Topographic distribution of the average alpha power of the 10 artifactual subjects. (b) Average of alpha power obtained after applying automatic AMUSE-based metallic removal procedure.}
-\label{fig:1-8}
+\includegraphics[width=0.9\textwidth]{Images/figure2_4.png}
+\caption{Relative standard deviation maps of different tasks at 50\% MVC averaged among patients with C4 level of injury}
+\label{fig:2-4}
 \end{figure} 
 
+
+Table \ref{tb:2-2} shows the percentages of the areas of the activation maps used to calculate the features.
+
+\begin{table}[]
+\centering
+\caption{Percentages of the activation maps covered by the electrode arrays in each patient. Results are presented for each muscle as mean and standard deviation within the group of all patients (top) and group of patients with C4 level of injury (bottom).}
+\label{tb:2-2}
+\begin{tabular}{ccccc}
+ & & & &\\
+               \multicolumn{5}{c}{\textbf{Group of all patients}}                     \\
+Biceps         & Triceps         & Brachioradialis  & Anconeus        & Pronator Teres  \\\hline
+        
+50\% $\pm$ 7\% & 42\% $\pm$ 7\%  & 36\% $\pm$ 8\%   & 25\% $\pm$ 9\%  & 37\% $\pm$ 12\% \\
+               &                 &                  &                 &                 \\
+              \multicolumn{5}{c}{\textbf{Group of patients with C4 level of injury}} \\
+Biceps         & Triceps         & Brachioradialis  & Anconeus        & Pronator Teres  \\ \hline
+     
+48\% $\pm$ 8\% & 42\% $\pm$ 8\%  & 35\% $\pm$ 5\%   & 22\% $\pm$ 8\%  & 36\% $\pm$ 13\%
+\end{tabular}
+\end{table}
+
+
+\subsection{Identification of Tasks}
+Firstly, the influence of the effort level in the task identification was evaluated. The performance is shown in Figures 5 to 8 using the LDA classifier while both training and validation sets were composed of recordings at a specific effort level (10\%, 30\%, or 50\% MVC). The task identification improved considerably when adding CG to the intensity features for the classification in both groups: all patients (Figure 5 with respect to Figure 7) and patients with C4 level of injury (Figure 6 with respect to Figure 8). In addition, when comparing between the two groups, the identification performance was better in the latter (Figures 5 and 7 compared to Figures 6 and 8, respectively). These improvements were observed at all the effort levels. However, when comparing between effort levels, the performance indices (especially sensitivity and precision) were lower at 10\% MVC than at 30\% or 50\% MVC, particularly when combining intensity with spatial features (Figures 7 and 8). This points out to a lower reliability when identifying tasks at very low levels of contraction. 
+
+Secondly, the task identification (flexion, extension, supination and extension) based on different sets of features was performed on the pooled data of all three effort levels, using the LDA (Table \ref{tb:2-3}) and the SVM (Table \ref{tb:2-4}) classifiers. It is shown again that the results for task identification when using the LDA classifier are higher for the group of patients with a C4 level of injury than for the group of patients with all levels of injury. Although this could be noticed from the performance indices when only the intensity features were used ($\Delta Acc= 4.1\%$; $\Delta S= 8.2\%$; $\Delta P= 7.8\%$; $\Delta SP= 2.7\%$), it was more pronounced when spatial features were added to the identification, especially regarding sensitivity and precision ($\Delta Acc= 7.6\%$; $\Delta S= 15.2\%$; $\Delta P= 15.2\%$; $\Delta SP= 5.1\%$). The observed differences between groups could be explained by a lower relative standard deviation between activation maps of patients with C4 level of injury than between maps of all patients). These differences between groups in the automatic identification were removed when using a non-linear classifier, that is, a radial kernel SVM, whose separation power is greater than the higher dispersion of activation maps when the complete group was considered.
+
+\begin{table}[]
+\centering
+\caption{Identification of tasks using LDA classifier}
+\label{tb:2-3}
+\begin{tabular}{lcccc}
+ & & & &\\
+                          & \multicolumn{4}{c}{\large{\textbf{Intensity features}}}                                                                       \\
+                          & \textbf{Accuracy}           & \textbf{Sensitivity}        & \textbf{Precision}          & \textbf{Specificity}        \\ \hline
+                          &                             &                             &                             &                             \\
+Flexion                   & 82.6\% $\pm$ 1.2\%          & 61.9\% $\pm$ 3.3\%          & 66.3\% $\pm$ 2.7\%          & 89.5\% $\pm$ 1.0\%          \\
+Extension                 & 79.2\% $\pm$ 1.1\%          & 62.6\% $\pm$ 4.5\%          & 57.9\% $\pm$ 2.1\%          & 84.8\% $\pm$ 1.4\%          \\
+Supination                & 82.8\% $\pm$ 1.1\%          & 61.5\% $\pm$ 3.4\%          & 67.0\% $\pm$ 2.7\%          & 89.9\% $\pm$ 1.1\%          \\
+Pronation                 & 79.7\% $\pm$ 1.1\%          & 62.6\% $\pm$ 2.5\%          & 58.9\% $\pm$ 2.6\%          & 85.4\% $\pm$ 1.8\%          \\ \hline
+
+\textbf{AVG all patients} & \textbf{81.1\% $\pm$ 1.1\%} & \textbf{62.1\% $\pm$ 3.4\%} & \textbf{62.5\% $\pm$ 2.5\%} & \textbf{87.4\% $\pm$ 1.3\%} \\
+\textbf{AVG C4}           & \textbf{85.2\% $\pm$ 1.0\%} & \textbf{70.3\% $\pm$ 3.4\%} & \textbf{70.3\% $\pm$ 2.6\%} & \textbf{90.1\% $\pm$ 1.4\%} \\
+                          &                             &                             &                             &                             \\
+                          & \multicolumn{4}{c}{\large{\textbf{Combination of Intensity and center of gravity features}}}                                  \\
+                          & \textbf{Accuracy}           & \textbf{Sensitivity}        & \textbf{Precision}          & \textbf{Specificity}        \\ \hline
+                          &                             &                             &                             &                             \\
+Flexion                   & 90.7\% $\pm$ 0.8\%          & 83.3\% $\pm$ 2.1\%          & 80.4\% $\pm$ 2.3\%          & 93.2\% $\pm$ 1.1\%          \\
+Extension                 & 84.6\% $\pm$ 1.1\%          & 73.3\% $\pm$ 2.9\%          & 67.8\% $\pm$ 2.8\%          & 88.3\% $\pm$ 1.7\%          \\
+Supination                & 91.6\% $\pm$ 0.9\%          & 84.3\% $\pm$ 2.5\%          & 82.6\% $\pm$ 1.9\%          & 94.1\% $\pm$ 0.7\%          \\
+Pronation                 & 86.2\% $\pm$ 1.0\%          & 65.4\% $\pm$ 2.6\%          & 76.2\% $\pm$ 2.9\%          & 93.1\% $\pm$ 1.1\%           \\ \hline
+\textbf{AVG all patients} & \textbf{88.3\% $\pm$ 0.9\%} & \textbf{76.6\% $\pm$ 2.5\%} & \textbf{76.8\% $\pm$ 2.5\%} & \textbf{92.2\% $\pm$ 1.2\%} \\
+\textbf{AVG C4}           & \textbf{95.9\% $\pm$ 0.9\%} & \textbf{91.8\% $\pm$ 2.3\%} & \textbf{92.0\% $\pm$ 2.1\%} & \textbf{97.3\% $\pm$ 0.8\%}
+\end{tabular}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{Identification of tasks using SVM classifier}
+\label{tb:2-4}
+\begin{tabular}{lcccc}
+                    &                                 &                               &                                    &                                       \\
+                          & \multicolumn{4}{c}{\large{\textbf{Intensity features}}}                                                                                                                                                       \\
+                          & \textbf{Accuracy}                               & \textbf{Sensitivity}                            & \textbf{Precision}                              & \textbf{Specificity}                            \\ \hline
+                    &                                 &                               &                                    &                                       \\
+Flexion                   & \multicolumn{1}{c}{95.9\% $\pm$ 0.6\%}          & \multicolumn{1}{c}{89.8\% $\pm$ 1.6\%}          & \multicolumn{1}{c}{93.8\% $\pm$ 1.8\%}          & \multicolumn{1}{c}{98.0\% $\pm$ 0.6\%}          \\
+Extension                 & \multicolumn{1}{c}{95.8\% $\pm$ 0.9\%}          & \multicolumn{1}{c}{93.2\% $\pm$ 3.0\%}          & \multicolumn{1}{c}{90.4\% $\pm$ 1.7\%}          & \multicolumn{1}{c}{96.7\% $\pm$ 0.6\%}          \\
+Supination                & \multicolumn{1}{c}{95.9\% $\pm$ 0.6\%}          & \multicolumn{1}{c}{90.3\% $\pm$ 2.0\%}          & \multicolumn{1}{c}{93.2\% $\pm$ 1.9\%}          & \multicolumn{1}{c}{97.8\% $\pm$ 0.6\%}          \\
+Pronation                 & \multicolumn{1}{c}{95.4\% $\pm$ 0.8\%}          & \multicolumn{1}{c}{92.8\% $\pm$ 1.6\%}          & \multicolumn{1}{c}{89.3\% $\pm$ 2.6\%}          & \multicolumn{1}{c}{96.3\% $\pm$ 1.1\%}          \\ \hline \hline
+\textbf{AVG all patients} & \multicolumn{1}{c}{\textbf{95.8\% $\pm$ 0.7\%}} & \multicolumn{1}{c}{\textbf{91.5\% $\pm$ 2.0\%}} & \multicolumn{1}{c}{\textbf{91.7\% $\pm$ 2.0\%}} & \multicolumn{1}{c}{\textbf{97.2\% $\pm$ 0.7\%}} \\
+\textbf{AVG C4}           & \multicolumn{1}{c}{\textbf{95.9\% $\pm$ 0.7\%}} & \multicolumn{1}{c}{\textbf{91.8\% $\pm$ 2.5\%}} & \multicolumn{1}{c}{\textbf{91.9\% $\pm$ 2.4\%}} & \multicolumn{1}{c}{\textbf{97.3\% $\pm$ 0.9\%}} \\
+                    &                                 &                               &                                    &                                       \\
+                    &                                 &                               &                                    &                                       \\
+                          & \multicolumn{4}{c}{\large{\textbf{Combination of Intensity and center of gravity features}}}                                                                                                                  \\
+                          & \textbf{Accuracy}                               & \textbf{Sensitivity}                            & \textbf{Precision}                              & \textbf{Specificity}                            \\ \hline
+                    &                                 &                               &                                    &                                       \\
+Flexion                   & 98.8\% $\pm$ 0.4\%                              & 97.2\% $\pm$ 0.9\%                              & 97.8\% $\pm$ 1.0\%                              & 99.3\% $\pm$ 0.3\%                              \\
+Extension                 & 99.0\% $\pm$ 0.4\%                              & 98.1\% $\pm$ 1.0\%                              & 98.0\% $\pm$ 0.9\%                              & 99.3\% $\pm$ 0.3\%                              \\
+Supination                & 98.7\% $\pm$ 0.4\%                              & 98.1\% $\pm$ 0.8\%                              & 96.8\% $\pm$ 1.0\%                              & 98.9\% $\pm$ 0.4\%                              \\
+Pronation                 & 99.4\% $\pm$ 0.3\%                              & 98.4\% $\pm$ 1.0\%                              & 99.2\% $\pm$ 0.4\%                              & 99.7\% $\pm$ 0.1\%                              \\ \hline \hline
+\textbf{AVG all patients} & \textbf{99.0\% $\pm$ 0.4\%}                     & \textbf{97.9\% $\pm$ 0.9\%}                     & \textbf{98.0\% $\pm$ 0.8\%}                     & \textbf{99.3\% $\pm$ 0.3\%}                     \\
+\textbf{AVG C4}           & \textbf{99.1\% $\pm$ 0.4\%}                     & \textbf{98.2\% $\pm$ 1.2\%}                     & \textbf{98.2\% $\pm$ 1.0\%}                     & \textbf{99.4\% $\pm$ 0.4\%}                    
+\end{tabular}
+\end{table}
+
+
+
+On the other hand, the performance of both classifiers improved when the center of gravity was added to the intensity features in the classification ($\Delta Acc= 7.2\%$; $\Delta S= 14.5\%$; $\Delta P= 14.3\%$; $\Delta SP= 4.8\%$ for LDA; $\Delta Acc= 3.2\%$; $\Delta S= 6.4\%$; $\Delta P= 6.3\%$; $\Delta SP= 2.1\%$ for SVM). For this reason, the results for the conjoint identification of tasks and effort levels are presented only for the combination of intensity and spatial features in the next Section.
+
+Finally, when comparing the two classifiers, the results showed that the SVM notably outperformed the LDA for both combinations of features ($\Delta Acc= 14.7\%$; $\Delta S= 29.4\%$; $\Delta P= 29.2\%$; $\Delta SP= 9.8\%$ when using only intensity features; and $\Delta Acc= 10.7\%$; $\Delta S= 21.4\%$; $\Delta P= 21.2\%$; $\Delta SP= 7.1\%$ when using the combination of both intensity and center of gravity features).
+
+
+\subsection{Identification of Tasks and Effort Levels}
+The performance indices for conjoint identification of the four tasks and the three effort levels using intensity and spatial features are presented in Table \ref{tb:2-5} and Table \ref{tb:2-7} for the LDA and SVM classifiers, respectively. Analogously, the joint identification of the four tasks and low and moderate effort levels are presented in Table \ref{tb:2-6} and Table \ref{tb:2-8} for the LDA and the SVM classifiers, respectively.
+Similarly to the task identification, improvements considering the group of patients with a C4 level of injury with respect to the whole group were found when using the LDA, but not with the SVM classifier ($\Delta Acc= 3.8\%$; $\Delta S= 22.6\%$; $\Delta P= 23.6\%$; $\Delta SP= 2.1\%$ for identification of three levels of effort; $\Delta Acc= 5.8\%$; $\Delta S= 23.1\%$; $\Delta P= 23.4\%$; $\Delta SP= 3.3\%$ for identification of low and moderate effort levels).
+
+\begin{table}[]
+\centering
+\caption{LDA identification of tasks and three effort levels}
+\label{tb:2-5}
+\begin{tabular}{lcccc}
+ & & & &\\
+                          & \textbf{Accuracy}           & \textbf{Sensitivity}        & \textbf{Precision}          & \textbf{Specificity}        \\ \hline
+                          &                             &                             &                             &                             \\
+Flexion 10\% MVC          & 89.4\% $\pm$ 1.1\%          & 58.5\% $\pm$ 5.5\%          & 40.6\% $\pm$ 4.0\%          & 92.2\% $\pm$ 1.0\%          \\
+Flexion 30\% MVC          & 89.6\% $\pm$ 0.8\%          & 22.6\% $\pm$ 7.4\%          & 32.1\% $\pm$ 7.2\%          & 95.7\% $\pm$ 0.9\%          \\
+Flexion 50\% MVC          & 91.0\% $\pm$ 1.0\%          & 44.5\% $\pm$ 8.2\%          & 46.1\% $\pm$ 6.2\%          & 95.3\% $\pm$ 0.9\%          \\
+\textbf{Flexion Average}    & \textbf{90.0\% $\pm$ 1.0\%} & \textbf{41.9\% $\pm$ 7.0\%} & \textbf{39.6\% $\pm$ 5.8\%} & \textbf{94.4\% $\pm$ 1.0\%} \\
+Extension 10\% MVC        & 88.0\% $\pm$ 1.0\%          & 32.6\% $\pm$ 4.0\%          & 30.0\% $\pm$ 3.6\%          & 93.0\% $\pm$ 1.0\%          \\
+Extension 30\% MVC        & 88.9\% $\pm$ 0.8\%          & 37.9\% $\pm$ 6.0\%          & 35.0\% $\pm$ 3.9\%          & 93.6\% $\pm$ 0.9\%          \\
+Extension 50\% MVC        & 89.5\% $\pm$ 0.9\%          & 40.7\% $\pm$ 4.7\%          & 38.3\% $\pm$ 4.8\%          & 94.0\% $\pm$ 0.9\%          \\
+\textbf{Extension Average}  & \textbf{88.8\% $\pm$ 0.9\%} & \textbf{37.1\% $\pm$ 4.9\%} & \textbf{34.4\% $\pm$ 4.1\%} & \textbf{93.5\% $\pm$ 1.0\%} \\
+Supination 10\% MVC       & 89.3\% $\pm$ 0.8\%          & 46.8\% $\pm$ 6.3\%          & 38.4\% $\pm$ 3.5\%          & 93.2\% $\pm$ 0.9\%          \\
+Supination 30\% MVC       & 90.0\% $\pm$ 1.0\%          & 31.1\% $\pm$ 4.4\%          & 38.0\% $\pm$ 5.9\%          & 95.3\% $\pm$ 0.9\%          \\
+Supination 50\% MVC       & 92.7\% $\pm$ 0.7\%          & 56.6\% $\pm$ 5.4\%          & 56.0\% $\pm$ 4.1\%          & 95.9\% $\pm$ 0.7\%          \\
+\textbf{Supination Average} & \textbf{90.6\% $\pm$ 0.8\%} & \textbf{44.8\% $\pm$ 5.4\%} & \textbf{44.1\% $\pm$ 4.5\%} & \textbf{94.8\% $\pm$ 0.8\%} \\
+Pronation 10\% MVC        & 92.1\% $\pm$ 0.9\%          & 55.4\% $\pm$ 4.6\%          & 53.0\% $\pm$ 5.5\%          & 95.5\% $\pm$ 1.0\%          \\
+Pronation 30\% MVC        & 89.3\% $\pm$ 0.5\%          & 15.9\% $\pm$ 4.5\%          & 26.4\% $\pm$ 5.4\%          & 96.0\% $\pm$ 0.7\%          \\
+Pronation 50\% MVC        & 89.5\% $\pm$ 0.8\%          & 33.3\% $\pm$ 5.7\%          & 35.9\% $\pm$ 4.7\%          & 94.6\% $\pm$ 0.8\%          \\
+\textbf{Pronation Average}  & \textbf{90.3\% $\pm$ 0.7\%} & \textbf{34.9\% $\pm$ 5.0\%} & \textbf{38.4\% $\pm$ 5.2\%} & \textbf{95.4\% $\pm$ 0.8\%} \\ \hline \hline
+\textbf{AVG all patients} & \textbf{89.9\% $\pm$ 0.9\%} & \textbf{39.7\% $\pm$ 5.6\%} & \textbf{39.1\% $\pm$ 4.9\%} & \textbf{94.5\% $\pm$ 0.9\%} \\
+\textbf{AVG C4 patients}  & \textbf{93.7\% $\pm$ 0.8\%} & \textbf{62.3\% $\pm$ 7.3\%} & \textbf{62.7\% $\pm$ 5.8\%} & \textbf{96.6\% $\pm$ 0.8\%}
+\end{tabular}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\caption{LDA identification of tasks and low and moderate effort levels}
+\label{tb:2-6}
+\begin{tabular}{lcccc}
+ & & & &\\
+                            & \textbf{Accuracy}           & \textbf{Sensitivity}        & \textbf{Precision}          & \textbf{Specificity}        \\ \hline
+                            &                             &                             &                             &                             \\
+Flexion low                 & 87.8\% $\pm$ 1.3\%          & 60.2\% $\pm$ 4.2\%          & 51.1\% $\pm$ 4.3\%          & 91.7\% $\pm$ 1.3\%          \\
+Flexion moder.              & 92.8\% $\pm$ 0.9\%          & 62.8\% $\pm$ 6.5\%          & 76.1\% $\pm$ 4.8\%          & 97.1\% $\pm$ 0.9\%          \\
+\textbf{Flexion Average}    & \textbf{90.3\% $\pm$ 1.1\%} & \textbf{61.5\% $\pm$ 5.4\%} & \textbf{63.6\% $\pm$ 4.6\%} & \textbf{94.4\% $\pm$ 1.1\%} \\
+Extension low               & 85.3\% $\pm$ 1.3\%          & 39.0\% $\pm$ 5.3\%          & 41.0\% $\pm$ 4.8\%          & 91.9\% $\pm$ 1.3\%          \\
+Extension moder.            & 86.0\% $\pm$ 1.3\%          & 55.9\% $\pm$ 5.9\%          & 45.2\% $\pm$ 3.8\%          & 90.2\% $\pm$ 1.5\%          \\
+\textbf{Extension Average}  & \textbf{85.6\% $\pm$ 1.3\%} & \textbf{47.5\% $\pm$ 5.6\%} & \textbf{43.1\% $\pm$ 4.3\%} & \textbf{91.1\% $\pm$ 1.4\%} \\
+Supination low              & 87.4\% $\pm$ 1.1\%          & 58.2\% $\pm$ 4.2\%          & 49.9\% $\pm$ 3.6\%          & 91.6\% $\pm$ 1.2\%          \\
+Supination moder.           & 93.0\% $\pm$ 1.0\%          & 68.9\% $\pm$ 5.2\%          & 74.1\% $\pm$ 5.7\%          & 96.5\% $\pm$ 1.1\%          \\
+\textbf{Supination Average} & \textbf{90.2\% $\pm$ 1.0\%} & \textbf{63.5\% $\pm$ 4.7\%} & \textbf{62.0\% $\pm$ 4.7\%} & \textbf{94.0\% $\pm$ 1.2\%} \\
+Pronation low               & 88.8\% $\pm$ 1.0\%          & 55.6\% $\pm$ 6.0\%          & 55.5\% $\pm$ 4.5\%          & 93.6\% $\pm$ 1.3\%          \\
+Pronation moder.            & 86.9\% $\pm$ 0.8\%          & 31.7\% $\pm$ 4.6\%          & 47.0\% $\pm$ 4.5\%          & 94.8\% $\pm$ 1.0\%          \\
+\textbf{Pronation Average}  & \textbf{87.9\% $\pm$ 0.9\%} & \textbf{43.6\% $\pm$ 5.3\%} & \textbf{51.3\% $\pm$ 4.5\%} & \textbf{94.2\% $\pm$ 1.2\%} \\ \hline \hline
+\textbf{AVG all patients}   & \textbf{88.5\% $\pm$ 1.1\%} & \textbf{54.0\% $\pm$ 5.2\%} & \textbf{55.0\% $\pm$ 4.5\%} & \textbf{93.4\% $\pm$ 1.2\%} \\
+\textbf{AVG C4 patients}    & \textbf{94.3\% $\pm$ 1.0\%} & \textbf{77.1\% $\pm$ 6.4\%} & \textbf{78.4\% $\pm$ 5.1\%} & \textbf{96.7\% $\pm$ 1.0\%}
+\end{tabular}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{SVM identification of tasks and three effort levels}
+\label{tb:2-7}
+\begin{tabular}{lcccc}
+ & & & &\\
+                          & \textbf{Accuracy}           & \textbf{Sensitivity}        & \textbf{Precision}          & \textbf{Specificity}        \\ \hline
+                          &                             &                             &                             &                             \\
+Flexion                   & 98.1\% $\pm$ 0.4\%          & 88.6\% $\pm$ 3.7\%          & 89.5\% $\pm$ 3.2\%          & 99.0\% $\pm$ 0.3\%          \\
+Extension                 & 97.6\% $\pm$ 0.4\%          & 85.4\% $\pm$ 3.7\%          & 85.4\% $\pm$ 3.3\%          & 98.7\% $\pm$ 0.4\%          \\
+Supination                & 97.8\% $\pm$ 0.4\%          & 87.5\% $\pm$ 3.3\%          & 86.4\% $\pm$ 3.9\%          & 98.7\% $\pm$ 0.4\%          \\
+Pronation                 & 96.6\% $\pm$ 0.4\%          & 79.3\% $\pm$ 5.0\%          & 79.9\% $\pm$ 3.8\%          & 98.2\% $\pm$ 0.5\%          \\ \hline \hline
+\textbf{AVG all patients} & \textbf{97.5\% $\pm$ 0.4\%} & \textbf{85.2\% $\pm$ 3.9\%} & \textbf{85.3\% $\pm$ 3.5\%} & \textbf{98.7\% $\pm$ 0.4\%} \\
+\textbf{AVG C4 patients}  & \textbf{97.3\% $\pm$ 0.5\%} & \textbf{84.1\% $\pm$ 5.4\%} & \textbf{84.4\% $\pm$ 4.5\%} & \textbf{98.6\% $\pm$ 0.5\%}
+\end{tabular}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{SVM identification of tasks and low and moderate effort levels}
+\label{tb:2-8}
+\begin{tabular}{lcccc}
+ & & & &\\
+                          & \textbf{Accuracy}           & \textbf{Sensitivity}        & \textbf{Precision}          & \textbf{Specificity}        \\ \hline
+                          &                             &                             &                             &                             \\
+Flexion                   & 98.7\% $\pm$ 0.4\%          & 94.4\% $\pm$ 2.7\%          & 95.6\% $\pm$ 2.2\%          & 99.4\% $\pm$ 0.3\%          \\
+Extension                 & 97.9\% $\pm$ 0.4\%          & 91.5\% $\pm$ 3.7\%          & 92.4\% $\pm$ 3.0\%          & 98.8\% $\pm$ 0.5\%          \\
+Supination                & 97.9\% $\pm$ 0.6\%          & 92.8\% $\pm$ 2.8\%          & 91.2\% $\pm$ 3.2\%          & 98.7\% $\pm$ 0.5\%          \\
+Pronation                 & 97.5\% $\pm$ 0.6\%          & 89.5\% $\pm$ 3.5\%          & 90.6\% $\pm$ 3.1\%          & 98.6\% $\pm$ 0.5\%          \\ \hline \hline
+\textbf{AVG all patients} & \textbf{98.0\% $\pm$ 0.5\%} & \textbf{92.0\% $\pm$ 3.2\%} & \textbf{92.4\% $\pm$ 2.9\%} & \textbf{98.9\% $\pm$ 0.5\%} \\
+\textbf{AVG C4 patients}  & \textbf{97.8\% $\pm$ 0.7\%} & \textbf{91.4\% $\pm$ 3.9\%} & \textbf{91.7\% $\pm$ 3.6\%} & \textbf{98.8\% $\pm$ 0.6\%}
+\end{tabular}
+\end{table}
+
+Both in the LDA and SVM classifiers the improvement could be seen when identifying low and moderate effort levels instead of three contraction levels ($\Delta S= 14.3\%$; $\Delta P= 15.9\%$ for LDA; $\Delta S= 6.8\%$; $\Delta P= 7.1\%$ for SVM). Note that in this case, when comparing between identifications with different number of classes (12 or 8 classes for three or two effort levels, respectively), accuracy and specificity are not the appropriate indices, as described in \citep{Rojas-Martinez2013}. These two measures are biased by the high number of observations not belonging to a given group and correctly identified as members of the other groups (TN). Thus, because of the higher number of classes, and consequently, higher number of TN observations, these indices tend to have seemingly higher results of identification of tasks and three effort levels. In this comparison, S and P are more appropriate measures because they are not affected by the number of TN (see Eq. \ref{eq:2-4} to Eq. \ref{eq:2-7}) but by the number of observations for each group that were correctly classified to that group ($TP$) with respect to the number of those that were wrongly classified to another group ($FN$), and with respect to those that were incorrectly classified as members of the group ($FP$), respectively.
+Finally, in all cases, the SVM-based identification outperformed the LDA-based both in the conjoint identification of tasks and three effort levels ($\Delta Acc= 7.6\%$; $\Delta S= 45.5\%$; $\Delta P= 46.1\%$; $\Delta SP= 4.1\%$) and in the identification of tasks and low and moderate effort levels ($\Delta Acc= 9.5\%$; $\Delta S= 38.0\%$; $\Delta P= 37.4\%$; $\Delta SP= 5.4\%$).
+The interactions between classifiers, tasks, and effort levels were analyzed using a repeated measures analysis of variance. The post hoc pairwise comparison of means was performed with application of the Bonferroni correction factor. Effects were considered to be significant at p-value $p=0.01$. The interaction between the classifier and the task, as well as the interaction between the classifier and the effort level were both found significant. However, the post hoc pairwise comparison of means showed no significant differences between the identification results across individual tasks for the SVM classifier, whereas the extension and, especially, the pronation had much lower identification indices than the flexion and the supination for the LDA classifier. When considering the influence of the classifier on the identification of effort level, the detection of 10\% MVC had in average the highest performance in both classifiers, but the LDA detected 30\% MVC effort level much worse than the 50\% MVC effort level, whereas there was no significant difference in detection between 30\% MVC and 50\% MVC using the SVM.
+
+
+\subsection{Classification Using Smaller Arrays of Electrodes}
+Subsets of electrodes (3$\times$3 electrodes) were considered in the identification of tasks and levels of effort to evaluate the classification performance using a lower number of electrodes at different positions. Four different locations within the area covered by the entire array were selected randomly for each muscle to evaluate the impact of their placement on the identification performance. The identification was carried out following the same procedure as considering the entire array but using only the intensity features, because the spatial information could not be measured using these small arrays. The average results of the identification of tasks can be seen in Table \ref{2-9}, whereas the average results of the identification of tasks and three effort levels can be seen in Table \ref{tb:2-10}.
+
+\begin{table}[]
+\centering
+\caption{Identification of tasks using a subset of electrodes: Classification indices using a 3x3 electrode grid located randomly in each muscle. Results are averaged within the group of all patients (top) and group of patients with C4 level of injury (bottom).}
+\label{2-9}
+\begin{tabular}{lcccc}
+ & & & &\\
+                 & \multicolumn{4}{c}{\large{\textbf{LDA}}}                                                      \\
+                 & \textbf{Accuracy}  & \textbf{Sensitivity} & \textbf{Precision} & \textbf{Specificity} \\ \hline
+                 &                    &                      &                    &                      \\
+AVG all patients & 79.2\% $\pm$ 2.7\% & 58.5\% $\pm$ 6.5\%   & 58.9\% $\pm$ 5.8\% & 86.1\% $\pm$ 2.8\%   \\
+AVG C4           & 83.5\% $\pm$ 3.2\% & 67.1\% $\pm$ 7.1\%   & 67.5\% $\pm$ 7.1\% & 80.0\% $\pm$ 3.1\%   \\
+                 &                    &                      &                    &                      \\
+                 & \multicolumn{4}{c}{\large{\textbf{SVM}}}                                                      \\
+                 & \textbf{Accuracy}  & \textbf{Sensitivity} & \textbf{Precision} & \textbf{Specificity} \\ \hline
+                 &                    &                      &                    &                      \\
+AVG all patients & 94.8\% $\pm$ 1.1\% & 89.7\% $\pm$ 3.3\%   & 89.7\% $\pm$ 2.8\% & 96.5\% $\pm$ 1.0\%   \\
+AVG C4           & 94.8\% $\pm$ 1.4\% & 89.6\% $\pm$ 3.8\%   & 89.8\% $\pm$ 3.9\% & 96.5\% $\pm$ 1.5\%  
+\end{tabular}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{Identification of tasks and three effort levels using a subset of electrodes: Classification indices using a 3x3 electrode grid located randomly in each muscle. Results are averaged within the group of all patients (top) and group of patients with C4 level of injury (bottom).}
+\label{2-10}
+\begin{tabular}{lcccc}
+ & & & &\\
+                 & \multicolumn{4}{c}{\large{\textbf{LDA}}}                                                      \\
+                 & \textbf{Accuracy}  & \textbf{Sensitivity} & \textbf{Precision} & \textbf{Specificity} \\ \hline
+                 &                    &                      &                    &                      \\
+AVG all patients & 88.1\% $\pm$ 1.3\% & 28.7\% $\pm$ 7.4\% & 28.3\% $\pm$ 6.4\% & 93.5\% $\pm$ 1.5\% \\
+AVG C4           & 89.7\% $\pm$ 1.6\% & 38.4\% $\pm$ 9.1\% & 38.8\% $\pm$ 9.1\% & 94.4\% $\pm$ 1.6\% \\
+                 &                    &                      &                    &                      \\
+                 & \multicolumn{4}{c}{\large{\textbf{SVM}}}                                                      \\
+                 & \textbf{Accuracy}  & \textbf{Sensitivity} & \textbf{Precision} & \textbf{Specificity} \\ \hline
+                 &                    &                      &                    &                      \\
+AVG all patients & 93.8\% $\pm$ 8.5\% & 62.9\% $\pm$ 7.5\% & 63.3\% $\pm$ 5.7\% & 96.6\% $\pm$ 0.8\% \\
+AVG C4           & 93.8\% $\pm$ 1.0\% & 62.9\% $\pm$ 8.6\% & 63.6\% $\pm$ 6.9\% & 96.6\% $\pm$ 1.0\%
+\end{tabular}
+\end{table}
+
+Results obtained using 3$\times$3 electrode grids were slightly worse than the results obtained using the entire electrode arrays (see Tables \ref{tb:2-3} and \ref{tb:2-4}). In addition, the classification indices of conjoint identification of tasks and effort levels were very low, inferring that the results obtained by adding spatial features (see Tables \ref{tb:2-5} and \ref{tb:2-7}) cannot be reached with a smaller grid of electrodes.
+
+
 \section{Discussion}
+In order to demonstrate the existence of distinguishable group-specific patterns in HD-EMG, the identification of different tasks was performed. Within-group identification of motion intention at different effort levels was tested on nine patients with iSCI performing four upper limb tasks (flexion/extension of the elbow and supination/pronation of the forearm) at three different effort levels (10\%, 30\%, and 50\% MVC). 
 
-Metallic artifacts in MEG recordings are an important issue in the diagnosis of neurobiological events because they can hugely distort MEG signals and render many single-channel signals unusable. This leads to an unavoidable loss of information regarding the activity of the brain, or even worse, to a rejection of the MEG technique as a mean to obtain reliable cerebral signals of those patients who have metallic elements that could generate such interferences.
+Although a single type of a classifier would be sufficient to demonstrate the existence of different patterns, for an additional verification two types of classifiers were evaluated in the identification of motion intention: LDA and SVM. The former is a classical, simple, and computationally efficient classification method, whereas the latter is a more powerful classifier that can employ a nonlinear transform of features to improve their separability among classes. In this paper, a SVM with radial kernel was considered. Although the SVM is superior in classification performance, the LDA is commonly used in myocontrol applications because of its simplicity and performance in real-time. However, with the increasing computational power of new computer generations, SVM could become more common in these applications. 
 
-Signal space separation (SSS) \citep{Taulu2004} and temporal SSS (tSSS) \citep{Taulu2006} are also methods for MEG filtering. Applying SSS or tSSS is highly advised for Elekta-Neuromag systems \citep{GonzalezMoreno2014} and their algorithms are provided by a software registered and available only on this equipment. On the other hand, the filtering approach presented in this paper is based on BSS standard libraries which are freely available and could be used with signals from different MEG systems such as CTF/VSM, 4D Neuroimaging, Elekta and Yokogawa.
+The identification of tasks was tested using two feature sets: 1) the average intensities of HD-EMG activation maps (I) of five muscles and 2) the combination of average intensities and centers of gravity (I+CG) of the activation maps of five muscles.
+On the other hand, a conjoint identification of tasks and effort levels was designed as two-step classifier, following the procedure described by Rojas et al. \citep{Rojas-Martinez2013} and tested on a healthy population. The first step comprised the identification of tasks using a combination of intensity and spatial features of all five muscles, whereas in the second step the levels of effort were identified separately for each task. The effort levels were identified using a combination of the intensity and spatial features of agonist-antagonist muscle pairs involved in the task \citep{Rojas-Martinez2013}.
 
-The tSSS algorithm was applied efficiently to remove MEG artifacts in several studies \citep{GonzalezMoreno2014,Nenonen2012,Taulu2009} and in particular, in the case of metallic interferences: \citep{Hillebrand2013,Cheyne2007,Taulu2006}. These studies showed the improvement of dipole fitting procedures when tSSS is applied instead of SSS but they did not evaluate the noise reduction of metallic interference or measure it quantitatively. Furthermore, there are no comparative studies of this technique with other artifact reduction algorithms such as BSS or epoch rejection.
+HD-EMG activation maps were calculated for all exercises and compared among patients. 
 
-In \citep{GonzalezMoreno2014} an interesting SNR analysis was carried out when SSS and tSSS were first applied followed by the BSS or epoch-rejection procedure. This study concluded that SNR increased by 100\% after applying SSS or tSSS techniques. Moreover, the SNR improved an additional 33–36\% when BSS methods were subsequently applied. The latter suggests that not all noise was successfully removed by the tSSS method and BSS algorithms could remove interferences that remained after applying tSSS techniques. In addition, these studies also concluded that one of the main drawbacks of BSS-based noise-reduction techniques is the need for manual selection of noisy or artifactual components, which is done visually. However, our study describes an automatic approach to detect artifactual components.
+Rojas-Martínez et al. \citep{RojasMartinez2012} calculated the relative standard deviation between maps within a group of healthy subjects (17.4\% in average), reporting an increase in standard deviation between maps with increasing effort levels (12.1\%, 16.6\%, and 23.6\% for 10\%, 30\%, and 50\% MVC, respectively). As expected, the dispersion between maps of iSCI patients was considerably higher (56\% in average), but the variability was similar in the case of patients with iSCI (Table 1). However, when maps were compared among patients with the same level of injury, the standard deviation between maps was greatly reduced (19\% in average). Moreover, the variability was higher for muscles of the upper-arm (biceps and triceps) than for forearm muscles. This reduction could be either due to a distinct activation, specific to the level of injury, or because during the rehabilitation process patients developed similar activation patterns. This is an important finding that has to be taken into account when training a classifier for a group of patients. Muscle activation patterns in patients differed from those of healthy subjects in \citep{Rojas-Martinez2012}: the Biceps Brachii was more active during supination than during flexion; the Pronator Teres was more active during supination and especially during flexion than during pronation. This could be because both muscles are particularly affected by the iSCI at the level of C4 \citep{Young-SCI}.
 
-As the location and intensity of metallic artifacts usually varies among different subjects, it is not possible to make feasible \textit{a priori} assumptions on these characteristics to adjust an automatic detection algorithm. In this work, a new BSS-based automatic procedure using freely available standard libraries was presented to identify components related to metallic activity, whose performance was tested using simulated MEG signals, which are essential to objectively quantify the effectiveness of the method while reproducing standard clinical situations as faithfully as possible.
+Furthermore, the results using the LDA showed much better identifications within the group of patients with a C4 level of injury than within the group of all patients. These findings could be related to a higher homogeneity among patients with the same level of injury. The combination of intensity and center of gravity performed better than only intensity features. These results showed that similar patterns exist in spite of the diverse nature of their injuries. This correlation exists not only in the average intensity of the HD-EMG activation maps, but also in the spatial distribution of EMG intensity, which justifies the choice of these intensity and spatial features for automatic identification.
 
-One of the main questions arising when working with BSS is the estimation of the number of independent components (ICs) to be extracted. At most, it is possible to extract as many ICs as there are channels that the record is composed of, but when this number is high it is usually advisable to reduce it and usually a lower number of ICs is obtained. The search for the optimal number allows one to avoid over- and under-fitting phenomena \citep{Li2007},  and is often achieved by selecting the ICs that can explain a high percentage of the variance of the signals. Due to the high amount of energy accounted for by metallic artifacts, the reduction of the number of ICs was not appropriate when dealing with this kind of interference. The energy of the artifacts was much greater than that of cerebral signals (around four orders of magnitude in some cases) and consequently the number of ICs corresponding to very high percentages of the total variance resulted in being very low. Thus, it was not possible to achieve a successful separation between cerebral activity and metallic interferences. For this reason, all BSS algorithms were forced to extract as many components as available channels.
+Finally, a considerable improvement was observed when using the SVM instead of the LDA, reaching the following results: 1) excellent automatic task identification even in the group of all patients ($Acc=99.0\%$, $S=97.9\%$, $P=98.0\%$, and $SP=99.3\%$), 2) a good combined classification of four tasks and three effort levels also in the group of all patients ($Acc=97.5\%$, $S=85.2\%$, $P=85.3\%$, and $SP=98.7\%$) which is even better in 3) conjoint identification of four tasks and low or moderate effort levels ($Acc=98.0\%$, $S=92.0\%$, $P=92.4\%$, and $SP=98.9\%$). In spite of the previous reports suggesting the greater importance of selection of the features than the selection of the classifier, our results have shown that both have considerable impact on the identification.
 
-One Second-Order Statistics (SOS) and two Higher-Order Statistics (HOS) techniques were tested. The SOS-based algorithm, AMUSE, showed considerably lower errors and therefore a valid decomposition. In the case of HOS, two algorithms were tested, INFOMAX and FastICA. While the first one was successful in separating ICs related to brain activity from those of metallic interference, the second did not manage to generate a valid decomposition. FastICA is an algorithm that uses the kurtosis to evaluate the gaussianity in order to separate independent components. This algorithm is very effective in dealing with supergaussian sources such as cardiac and ocular interferences (kurtosis higher than 3), but its principal drawback is poor convergence when working with gaussian and subgaussian signals, which is the case for metallic interferences that, in general, present a kurtosis value close to 3. Even after ensuring convergence by means of the stabilizer provided by \citep{Hyvarinen1999}, the decomposition was not effective and no metallic-related components could be identified.
+Several array subsets corresponding to 3$\times$3 square grids of channels (IED = 10 mm) located at different positions were also used to evaluate the possibility of task identification using a much smaller number of electrodes. In this case, the results were considerably worse, especially when using the LDA classifier. Due to the small region covered by electrodes in each muscle, the spatial information could not be extracted and it was not possible to increase the performance as in the case of using all the electrodes.
 
-On the other hand, the extended version of INFOMAX was able to work with subgaussian signals, and effective convergence and IC separation were achieved. However, the algorithm was not able to separate metallic components as accurately as AMUSE, and part of the cerebral signals remained, mixed with metallic components. That is the main reason why some of the error measures increased significantly when INFOMAX was applied.
+Although this study presents an important improvement in the identification of motion intention, it is important to mention that the recordings were carried out during highly controlled isometric contractions. Therefore, even though the findings are promising, they are only a step towards final real-time applications involving free movements and multiple DoFs.
 
-After source decomposition, a simple two-step procedure for metallic-related component identification was applied. This simple scheme, based on two criteria which exploited the basic characteristics of metallic artifacts (low frequency and regularity), allowed the delimitation of an artifactual region. Once this region was obtained, all possible ICs that exhibited artifactual behavior were identified and removed from the reconstruction matrix.
+The results show that the use of a SVM-based classifier is indeed a promising approach in myocontrol-oriented pattern recognition applications. Moreover, even though a different activation pattern can be expected in subjects with neurological impairment, as in the present case, such pattern can still be associated with task and level-dependent changes in the spatial distribution of the intensity, as has been previously observed in non-injured subjects \citep{Rojas-Martinez2012}.
 
-This artifact-filtering methodology was tested on 10 sets of simulated MEG signals consisting of clean recordings to which metallic artifacts were added. The extraction of these artifacts from real signals was performed taking into account the different morphologies and varying propagation of this contamination by means of filtering, correlation and estimation of propagation coefficients by linear regression.
 
-Results showed that the two-step automatic detection methodology was able to detect ICs related to metallic interference especially when they were extracted through the AMUSE algorithm. Normalized MSE error showed and average value of 0.37\% (see table \ref{tb:1-1}). Errors in delta power were lower than 1\% in average, showing a great performance in the most affected spectral band.
+\section{Conclusions}
+Group-specific identification of motion intention in impaired patients has a potential to improve the translation of pattern recognition techniques to clinical practice. Unfortunately, group-specific design is a difficult topic because it assumes strong task-related and level of effort-related co-activation patterns among patients, but given the diverse nature of injuries and the high inter-patient variability, co-activation patterns are weak.
 
-It is notable that these error measures presented very low values when compared to non-corrected sets of signals. However, there were some cases in which alpha power showed a slightly higher error (worst case subject 4, 1.55\% in excess) but this amount can be considered negligible with respect to the general improvement achieved.
+This study shows that muscular co-activation patterns in intensity and spatial distribution indeed exist. Furthermore, it shows that stronger co-activation patterns can be found between patients of the same level of injury. Whether because of the rehabilitation process or the level of injury, muscle control strategies are similar for the group of patients with an injury at C4, which makes them a more homogenous population and enables the control of universal assistive devices with higher reliability. In summary, in spite of the difficulty to identify both task and effort level in patients with iSCI, very promising results were found to provide a useful estimation of motion intention. 
 
-Moreover, the performance of the automatic BSS reduction method was assessed in real MEG signals. Results showed that even high-amplitude metallic interference was properly removed from the MEG data. A study based on the alpha activity confirmed that the BSS-based procedure was able to reduce the metallic artifacts and show a more plausible topographic distribution of alpha-band signal after filtering.
 
-Therefore, after applying the fully automated BSS procedure in simulated and real artifactual MEG data, it can be concluded that AMUSE is the most suitable technique to be used along with the two-step algorithm presented in this study for effectively removing metallic interference from MEG signals.
+\section{Acknowledgements}
+Special acknowledgement to Ursula Costa and Josep Medina as assistant and Head of the Functional Rehabilitation service respectively, of the Neurorehabilitation Hospital Institut Guttmann for their collaboration in patients recruitment and clinical support during the experiments carried out at the same Hospital.
 
-\section{Acknowledgments}
+This work has been partially supported by the Spanish Ministry of Economy and Competitiveness- Spain (project DPI2014-59049-R), and by the FI grant from the AGAUR, Generalitat de Catalunya, Spain.
 
-CIBER-BBN is an initiative of the Instituto de Salud Carlos III, Spain. This work has been partially supported by the Ministry of Economy and Competitiveness (MINECO), Spain, under contracts DPI2011-22680 and DPI2014-59049-R and the Ministry of Education, Culture and Sports (MECO) FPU12/05631.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

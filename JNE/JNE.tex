@@ -102,7 +102,7 @@ where $CG$ is the center of gravity of the HD-EMG map $HM$, and $(i,j)$ represen
 
 Two types of identification were performed: \textbf{1) identification of tasks} and \textbf{2) identification of tasks and effort levels}. In identification of tasks, four types of contraction were identified: flexion, extension, supination and pronation. Performances were compared between using only intensity features and using the combination of intensity and spatial features of all five monitored muscles. In this sense, the possible improvement of pattern recognition was evaluated when adding spatial information. 
 
-A conjoint identification of tasks and effort levels was constructed as classification in two steps \citep{Rojas-Martinez2013} (Figure \ref{fig:2-2}). In the first step, the identification of tasks was performed, while in the second step, the level of effort of the identified task was determined. The second step was organized as 4 different classifiers, i.e. a single classifier for the identification of the effort level for each task (Figure 2). The features used in the identification of level of effort were the intensity and the center of gravity of the agonist-antagonist muscle pair involved in the task \citep{Rojas-Martinez2013}: Biceps Brachii and Triceps Brachii both for flexion and extension, Biceps Brachii, Brachioradialis and Anconeus for supination, and Pronator Teres and Anconeus for pronation. Two different approaches were used: the identification of three effort levels (10\% MVC, 30\% MVC, and 50\% MVC) and the identification of two effort levels (low, corresponding to 10\% MVC, and moderate, corresponding to 30\% and 50\% MVC). Thus, a total of 12 different classes for the first approach and 8 classes for the second were considered, and accordingly, a confusion matrix of 12 or 8 classes was formed at the output of the second step of the classifier for the evaluation of the identification. Therefore, if a task was misclassified in the first step but the level of effort was correctly classified in the second step, this observation counted as a misclassification.
+A conjoint identification of tasks and effort levels was constructed as classification in two steps \citep{Rojas-Martinez2013} (Figure \ref{fig:2-2}). In the first step, the identification of tasks was performed, while in the second step, the level of effort of the identified task was determined. The second step was organized as 4 different classifiers, i.e. a single classifier for the identification of the effort level for each task (Figure \ref{fig:2-2}). The features used in the identification of level of effort were the intensity and the center of gravity of the agonist-antagonist muscle pair involved in the task \citep{Rojas-Martinez2013}: Biceps Brachii and Triceps Brachii both for flexion and extension, Biceps Brachii, Brachioradialis and Anconeus for supination, and Pronator Teres and Anconeus for pronation. Two different approaches were used: the identification of three effort levels (10\% MVC, 30\% MVC, and 50\% MVC) and the identification of two effort levels (low, corresponding to 10\% MVC, and moderate, corresponding to 30\% and 50\% MVC). Thus, a total of 12 different classes for the first approach and 8 classes for the second were considered, and accordingly, a confusion matrix of 12 or 8 classes was formed at the output of the second step of the classifier for the evaluation of the identification. Therefore, if a task was misclassified in the first step but the level of effort was correctly classified in the second step, this observation counted as a misclassification.
 
 \begin{figure}[ht]
 \centering
@@ -205,7 +205,64 @@ Biceps         & Triceps         & Brachioradialis  & Anconeus        & Pronator
 
 
 \subsection{Identification of Tasks}
-Firstly, the influence of the effort level in the task identification was evaluated. The performance is shown in Figures 5 to 8 using the LDA classifier while both training and validation sets were composed of recordings at a specific effort level (10\%, 30\%, or 50\% MVC). The task identification improved considerably when adding CG to the intensity features for the classification in both groups: all patients (Figure 5 with respect to Figure 7) and patients with C4 level of injury (Figure 6 with respect to Figure 8). In addition, when comparing between the two groups, the identification performance was better in the latter (Figures 5 and 7 compared to Figures 6 and 8, respectively). These improvements were observed at all the effort levels. However, when comparing between effort levels, the performance indices (especially sensitivity and precision) were lower at 10\% MVC than at 30\% or 50\% MVC, particularly when combining intensity with spatial features (Figures 7 and 8). This points out to a lower reliability when identifying tasks at very low levels of contraction. 
+Firstly, the influence of the effort level in the task identification was evaluated. The performance is shown in Figures \ref{fig:2-5} to \ref{fig:2-8} using the LDA classifier while both training and validation sets were composed of recordings at a specific effort level (10\%, 30\%, or 50\% MVC). The task identification improved considerably when adding CG to the intensity features for the classification in both groups: all patients (Figure \ref{fig:2-5} with respect to Figure \ref{fig:2-7}) and patients with C4 level of injury (Figure \ref{fig:2-6} with respect to Figure \ref{fig:2-8}). In addition, when comparing between the two groups, the identification performance was better in the latter (Figures \ref{fig:2-5} and \ref{fig:2-7} compared to Figures \ref{fig:2-6} and \ref{fig:2-8}, respectively). These improvements were observed at all the effort levels. However, when comparing between effort levels, the performance indices (especially sensitivity and precision) were lower at 10\% MVC than at 30\% or 50\% MVC, particularly when combining intensity with spatial features (Figures \ref{fig:2-7} and \ref{fig:2-8}). This points out to a lower reliability when identifying tasks at very low levels of contraction. 
+
+\begin{figure}
+%
+\centering
+\begin{subfigure}
+\includegraphics[width=0.45\textwidth]{Images/figure2_5.png}
+\caption{LDA classification within a group of all patients using intensity features.}
+\label{fig:2-5}
+\end{subfigure}
+%
+\begin{subfigure}
+\includegraphics[width=0.45\textwidth]{Images/figure2_6.png}
+\caption{LDA classification within a group of C4 patients using intensity features}
+\label{fig:2-6}
+\end{subfigure}
+%
+\begin{subfigure}
+\includegraphics[width=0.45\textwidth]{Images/figure2_7.png}
+\caption{LDA classification within a group of all patients using intensity and spatial features}
+\label{fig:2-7}
+\end{subfigure}
+%
+\begin{subfigure}
+\includegraphics[width=0.45\textwidth]{Images/figure2_8.png}
+\caption{LDA classification within a group of C4 patients using intensity and spatial features}
+\label{fig:2-8}
+\end{subfigure}
+%
+\end{figure}
+
+%\begin{figure}[ht]
+%\centering
+%\includegraphics[width=0.45\textwidth]{Images/figure2_5.png}
+%\caption{LDA classification within a group of all patients using intensity features.}
+%\label{fig:2-5}
+%\end{figure}      
+
+%\begin{figure}[ht]
+%\centering
+%\includegraphics[width=0.45\textwidth]{Images/figure2_6.png}
+%\caption{LDA classification within a group of C4 patients using intensity features}
+%\label{fig:2-6}
+%\end{figure}      
+
+%\begin{figure}[ht]
+%\centering
+%\includegraphics[width=0.45\textwidth]{Images/figure2_7.png}
+%\caption{LDA classification within a group of all patients using intensity and spatial features}
+%\label{fig:2-7}
+%\end{figure}      
+
+%\begin{figure}[ht]
+%\centering
+%\includegraphics[width=0.45\textwidth]{Images/figure2_8.png}
+%\caption{LDA classification within a group of C4 patients using intensity and spatial features}
+%\label{fig:2-8}
+%\end{figure}     
 
 Secondly, the task identification (flexion, extension, supination and extension) based on different sets of features was performed on the pooled data of all three effort levels, using the LDA (Table \ref{tb:2-3}) and the SVM (Table \ref{tb:2-4}) classifiers. It is shown again that the results for task identification when using the LDA classifier are higher for the group of patients with a C4 level of injury than for the group of patients with all levels of injury. Although this could be noticed from the performance indices when only the intensity features were used ($\Delta Acc= 4.1\%$; $\Delta S= 8.2\%$; $\Delta P= 7.8\%$; $\Delta SP= 2.7\%$), it was more pronounced when spatial features were added to the identification, especially regarding sensitivity and precision ($\Delta Acc= 7.6\%$; $\Delta S= 15.2\%$; $\Delta P= 15.2\%$; $\Delta SP= 5.1\%$). The observed differences between groups could be explained by a lower relative standard deviation between activation maps of patients with C4 level of injury than between maps of all patients). These differences between groups in the automatic identification were removed when using a non-linear classifier, that is, a radial kernel SVM, whose separation power is greater than the higher dispersion of activation maps when the complete group was considered.
 
@@ -377,7 +434,7 @@ Subsets of electrodes (3$\times$3 electrodes) were considered in the identificat
 
 \begin{table}[]
 \centering
-\caption{Identification of tasks using a subset of electrodes: Classification indices using a 3x3 electrode grid located randomly in each muscle. Results are averaged within the group of all patients (top) and group of patients with C4 level of injury (bottom).}
+\caption{Identification of tasks using a subset of electrodes: Classification indices using a 3$\times$3 electrode grid located randomly in each muscle. Results are averaged within the group of all patients (top) and group of patients with C4 level of injury (bottom).}
 \label{2-9}
 \begin{tabular}{lcccc}
  & & & &\\
@@ -397,7 +454,7 @@ AVG C4           & 94.8\% $\pm$ 1.4\% & 89.6\% $\pm$ 3.8\%   & 89.8\% $\pm$ 3.9\
 
 \begin{table}[]
 \centering
-\caption{Identification of tasks and three effort levels using a subset of electrodes: Classification indices using a 3x3 electrode grid located randomly in each muscle. Results are averaged within the group of all patients (top) and group of patients with C4 level of injury (bottom).}
+\caption{Identification of tasks and three effort levels using a subset of electrodes: Classification indices using a 3$\times$3 electrode grid located randomly in each muscle. Results are averaged within the group of all patients (top) and group of patients with C4 level of injury (bottom).}
 \label{2-10}
 \begin{tabular}{lcccc}
  & & & &\\

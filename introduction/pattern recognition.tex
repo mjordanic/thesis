@@ -1,0 +1,183 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{threeparttable}
+\usepackage{nicefrac}
+\usepackage{cancel}
+
+\newcommand{\argmax}{\arg\!\max} % AlfC
+
+\begin{document}
+%commetn sve do ovdje
+
+
+
+\section{Pattern Recognition}
+
+Pattern recognition is a technique for classification of samples based on a certain pattern. Nowadays there are many different models, i.e. classifiers available. They differ from each other by the shape of the boundary, complexity of the model, computational speed. However practice often shows that given the appropriate set of features,  all classifiers tend to have a similar performance.
+
+In a classical problem with $n$ samples $x$, which consist of $m$ features, the dataset of available samples is a matrix $\mathbf{x}_{[n \times m]}$, whereas the vector of labels that describe the belonging of each sample to one of the classes is $\mathbf{y}$, where $y \in (1,2,3,...,K)$.
+
+Bayesian equation laid the basic principle of the pattern recognition. According to the equation, the probability that a sample $x_0$ belongs to a class $k$ is equivalent to the: 
+\begin{equation} 
+P(y=k \,\, | \, x=x_0) = \frac{P(x=x_0  \,\, | \, y=k) \,\,P(y=k)} {P(x=x_0)}
+\end{equation}
+
+Term $P(x=x_0  \,\, | \, y=k)$ is called the \emph{class-conditional probability} and describes the probability that the sample with exact features $x_0$ is encountered within the group of samples belonging only to the class $C$. Term $(P(y=C))$ is called the \emph{a priori probability} and describes the probability that the sample with class C is found within the group of all samples, regardless of the features. Finally, the term $P(x=x_0)$ is called \emph{marginal probability} and describes the probability of finding the exact set of features in the dataset, regardless of the class. Marginal probability can be writen as a sum of class-conditional probabilities multiplied by the a priori probabilities for each class:
+
+\begin{equation}
+\begin{split}
+P(x=x_0) = P(x=x_0  \,\, | \, y=1) \,\,P(y=1) + \\
+P(x=x_0  \,\, | \, y=2) \,\,P(y=2) + \dots + \\
+P(x=x_0  \,\, | \, y=K) \,\,P(y=K)
+\end{split}
+\end{equation}
+
+For classification task, the hypothesis, i.e., the predicted class of a sample $x_0$ is chosen as the class which has the highest probability $P(y=k \,\, | \, x=x_0)$:
+
+\begin{equation} 
+h(x_0) = \argmax_k P(y=k \,\, | \, x=x_0)
+\end{equation}
+
+Statistically speaking, this is the best possible classifier. The problem arises in implementation. The exact probability density functions are unknown and have to be estimate from the available data.
+Estimated version of the stated probability will be marked with a different symbols to stress out the fact they are just an estimates:
+
+\begin{equation} 
+p_k(x) \coloneqq P(y=k \,\, | \, x)
+\end{equation}
+
+\begin{equation} 
+g_k(x) \coloneqq P(x  \,\, | \, y=k)
+\end{equation}
+
+\begin{equation} 
+\pi_k \coloneqq P(y=k)
+\end{equation}
+
+
+\subsection{Linear Discriminant Analysis}
+
+\begin{flushright}
+\textit{All models are wrong; some models are useful.} \\George E. P. Box
+\end{flushright}
+
+Linear Discriminant Analysis is a computationally simple and efficient classifier with linear decision boundary.
+It is based on the Bayesian equation and estimates class-conditial probability from the available dataset as a Gaussian function:
+
+\begin{equation} 
+g_k(x) = \frac{1}{(2 \pi)^{\nicefrac{1}{2}}\, |\Sigma_k|^{\nicefrac{1}{2}}}\,\, e^{\nicefrac{-1}{2}  (x-\mu_k)^T  \Sigma_k^{-1} (x-\mu_k)} 
+\end{equation}
+
+, where $\mu_k$ and $\Sigma_k$ are the mean and covariance matrix for class $k$, respectively, and they are estimated from the available data as:
+
+\begin{equation}
+\left. m_k = \frac{1}{n_k} \sum_{i}{x_i} \right\vert_{\forall x \in k}
+\end{equation}
+
+\begin{equation}
+\left. \Sigma_k = \frac{1}{n_k-K} \sum_{i}{\Big( x_i - \mu_k \Big) \Big( x_i - \mu_k \Big)^T} \right\vert_{\forall x \in k}
+\end{equation}
+
+
+%However, Naïve Bayesian \emph{naively} assumes statistical independence between features, i.e., off diagonal elements of the covariance matrix $\Sigma$ are zero.
+ 
+To simplify the model, LDA assumes that the covariance matrices $\Sigma$ are the same for all classes:
+
+\begin{equation} 
+\Sigma_0 = \Sigma_1 = \dots = \Sigma_K = \Sigma
+\end{equation}
+
+and they are usually calculated using weighted average:
+\begin{equation} 
+\Sigma = \frac{\sum_{k=1}^K {n_k\Sigma_k}}{\sum_{k=1}^K{n_k}}
+\end{equation}
+
+where $n_k$ represents the number of samples belonging to a class $k$. This assumption also 
+
+In a two class example ($y \in \{0,1\}$), all samples on the decision boundary ($D.B.$) will have the same probability of belonging to class 0 or 1:
+
+\begin{equation} 
+D.B. = \Big\{x\,\, \Big| \,\,P\big(y=0 \, \big| \, x=x_0\big) = P\big(y=1 \, \big| \, x=x_0\big) \Big\}
+\end{equation}
+
+Following this idea, the decision boundary can be estimated by solving the equation:
+
+\begin{equation} 
+\frac{g_0(x) \, \pi_0} {\cancel{\sum_{k=1}^K{g_k \, \pi_k}}} = \frac{g_1(x) \, \pi_1} {\cancel{\sum_{k=1}^K{g_k \, \pi_k}}}
+\end{equation}
+
+
+\begin{equation} 
+\begin{split}
+\frac{1}{(2 \pi)^{\nicefrac{d}{2}}\, |\Sigma_0|^{\nicefrac{1}{2}}}\,\, e^{\nicefrac{-1}{2}  (x-\mu_0)^T  \Sigma_0^{-1} (x-\mu_0)}  \,\,\,\pi_0 = \\
+\frac{1}{(2 \pi)^{\nicefrac{d}{2}}\, |\Sigma_1|^{\nicefrac{1}{2}}}\,\, e^{\nicefrac{-1}{2}  (x-\mu_1)^T  \Sigma_1^{-1} (x-\mu_1)}  \,\,\,\pi_1
+\end{split}
+\end{equation}
+
+If making the assumption on the equal covariance matrices for both classes:
+\begin{equation} 
+\Sigma_0 = \Sigma_1  = \Sigma
+\end{equation}
+
+and taking the logarithm, the equation takes the form: 
+
+\begin{equation} 
+\begin{split}
+-\frac{1}{2}  \Big(x-\mu_0\Big)^T  \Sigma^{-1} \Big(x-\mu_0\Big) +  \log{\Big(\pi_0\Big)}= \\
+-\frac{1}{2}  \Big(x-\mu_1\Big)^T  \Sigma^{-1} \Big(x-\mu_1\Big) +  \log{\Big(\pi_1)\Big)}
+\end{split}
+\end{equation}
+
+This equation can be written as the linear function $x^T\beta + \alpha = 0$ as:
+
+\begin{equation} 
+\begin{split}
+x^T\Big(\Sigma^{-1} \mu_0 - \Sigma^{-1} \mu_1\Big) + \frac{1}{2} \Big(\mu_1^T \Sigma^{-1}\mu_1 - \mu_0^T \Sigma^{-1}\mu_0\Big)
++ \log\Big( \frac{\pi_0}{\pi_1}  \Big)
+\end{split}
+\end{equation}
+
+The equation represents the decision boundary between classes, i.e., all samples lying on this line will have equal probability of belonging to class 0 and class 1. It is interesting to note that the slope of the line depends only on the class means and covariance matrix, whereas a priori probabilities (which are the result of number of samples belonging to class 0 or 1) have effect only on the $y$-intercept term, i.e., the offset of the function.
+
+When considering multiclass classification problem, probability of a sample belonging to each class is firstly estimated by the equation:
+
+\begin{equation}
+p_k = -\frac{1}{2} \log \big\vert \Sigma \big\vert - \frac{1}{2}  \Big(x-\mu_k\Big)^T  \Sigma^{-1} \Big(x-\mu_k\Big) +  \log{\Big(\pi_k\Big)}
+\end{equation}
+
+and then the class is estimated as the one with the highest probability as:
+
+\begin{equation} 
+h(x) = \argmax_k p_k(x)
+\end{equation}
+
+
+\subsection{Support Vector Machine}
+
+\begin{flushright}
+\small{\textit{When solving a problem of interest, do not solve a more general problem as an intermediate step.} \\Vladimir Vapnik}
+\end{flushright}
+
+Supoort vector machine is nowadays known as a very powerful classifier with a lot of different applications. The big advantage over LDA is the fact that it is a \emph{non-paramteric} classifier. This implies that the model is not obtained using assumption of the form of the class density function and estimation of it's parameters, which is inevitably erraneous. Instead, SVM forms the decision boundary between samples by maximizing the distance between samples and the boundary.
+As Vladimir Vapnik said ''When solving a problem of interest, do not solve a more general problem as an intermediate step.''
+
+This classification method esentially has a very simple principle, but using sever mathemathical trics, it became a very powerful tool. The optimization problem does not depend on $x$, but on $x^Tx$. This enables the use of \emph{kernel trick} and allows nonlinear transform of the feature space at no additional cost. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

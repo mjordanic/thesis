@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2017.7.24)  31 AUG 2017 16:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2017.7.24)  3 SEP 2017 19:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -302,11 +302,11 @@ e
 Here is how much of TeX's memory you used:
  3212 strings out of 492990
  46418 string characters out of 6135005
- 124805 words of memory out of 5000000
+ 123805 words of memory out of 5000000
  6731 multiletter control sequences out of 15000+600000
  6577 words of font info for 24 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,20n,32p,835b,212s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,20n,32p,871b,212s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
@@ -322,7 +322,7 @@ blic/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfo
 nt/line10.pfb>
-Output written on "pattern recognition.pdf" (5 pages, 159510 bytes).
+Output written on "pattern recognition.pdf" (5 pages, 160810 bytes).
 PDF statistics:
  80 PDF objects out of 1000 (max. 8388607)
  57 compressed objects within 1 object stream

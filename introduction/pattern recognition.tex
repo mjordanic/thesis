@@ -178,7 +178,120 @@ h(\mathbf{x}) = \argmax_k p_k(\mathbf{x})
 Support vector machine is nowadays known as a very powerful classifier with a lot of different applications. The big advantage over LDA is the fact that it is a \emph{non-parametric} classifier. The model is not obtained using assumption of the form of the class density function and estimation of it's parameters, which is inevitably erroneous. Instead, SVM forms the decision boundary using the samples (not their density estimates) by maximizing the distance between samples and the boundary.
 This was the idea Vladimir Vapnik, the inventor of this method stood for. It is better to try to solve the problem directly and simply, without many intermediate steps that can be complicated and inaccurate.
 
-This classification method essentially has a very simple principle, but using several mathematical tricks, it became a very powerful tool. The optimization problem does not depend on $\mathbf{x}$, but on $\mathbf{x}^T\mathbf{x}$. This enables the use of \emph{kernel trick} and allows nonlinear transform of the feature space at no additional cost. 
+This classification method essentially has a very simple principle, but using several mathematical tricks, it became a very powerful tool. 
+
+In pattern recognition, the decision rule ($h$) is usually obtained by multiplying the sample ($\mathbf{x}$) by predefined weights ($\Theta$):
+
+\begin{equation} 
+\Theta^T \mathbf{x} + \Theta_0
+\end{equation}
+
+, where $\Theta_0$ is a constant.
+
+If samples $\mathbf{x}_0$ and $\mathbf{x}_1$ lay on the decision boundary $D.B.$, following statements are true:
+
+\begin{equation} 
+\Theta^T \mathbf{x}_0 + \Theta_0 = \Theta^T \mathbf{x}_1 + \Theta_0
+\end{equation}
+
+\begin{equation} 
+\Theta^T (\mathbf{x}_0 - \mathbf{x}_1) = 0
+\end{equation}
+
+This result implies that $\Theta$ is perpendicular to $D.B.$.
+
+The goal of the SVM is to find the decision boundary so that the distance between the $D.B.$ and samples, i.e., the margin is maximized. The distance ($d$) from a sample to the decision boundary can be defined as the distance between the sample $\mathbf{x}$ and any point on the boundary, $\mathbf{x}_0$, projected onto the vector $\Theta$.
+
+\begin{equation} 
+d = \frac{\Theta^T \big(\mathbf{x} - \mathbf{x}_0\big)}{\big\vert \Theta \big\vert}
+\end{equation}
+
+Term $\vert \Theta \vert$ is introduced to normalize the vector $\Theta$
+
+Since $\mathbf{x}_0$ is on the decision boundary, the expression $\Theta^T \mathbf{x}_0 + \Theta_0 = 0$ is valid, and, therefore, the expression for the distance can be written as:
+\begin{equation} 
+d = \frac{\Theta^T \mathbf{x} + \Theta_0}{\big\vert \Theta \big\vert}
+\end{equation}
+
+Margin ($M$) is the distance from the boundary to the closest samples:
+\begin{equation} 
+M = \min_i d_i
+\end{equation}
+
+Depending on which side of the boundary the sample is located, distance can be positive or negative. In order to keep the strictly positive, therm $y$ is introduced, where $y \in {-1,1}$:
+\begin{equation} 
+M = \min_i \big\{y_id_i\big\}
+\end{equation}
+
+\begin{equation} 
+M = \min_i \left\{ \frac{y_i \left(\Theta^T \mathbf{x} + \Theta_0\right)}{\left\vert \Theta \right\vert} \right\}
+\end{equation}
+
+The goal is to maximize the margin. Since $\Theta$ can be rescaled, a certain $\Theta$ exists so that $y_i \left(\Theta^T \mathbf{x} + \Theta_0\right) = 0$, which implies
+\begin{equation} 
+\exists \Theta, \,\, y_i \left(\Theta^T \mathbf{x} + \Theta_0\right) = 1 \,\,\,\, \Rightarrow \,\,\,\, M = \min_i \left\{ \frac{1)}{\left\vert \Theta \right\vert} \right\}
+\end{equation}
+
+Therefore, to maximize the margin, a hyperplane should be found such that a norm of vector orthogonal to the hyperplane ($\Theta$) is minimal. $L_2$ norm is preferred because it has continuous derivative 
+
+For every point not on the boundary the following term is valid:
+\begin{equation} 
+y_i \left(\Theta^T \mathbf{x} + \Theta_0\right) > 0 
+\end{equation}
+
+Value $C$ can be selected such that:
+\begin{equation} 
+y_i \left(\Theta^T \mathbf{x} + \Theta_0\right) > C
+\end{equation}
+
+\begin{equation} 
+y_i \left(\frac{\Theta^T \mathbf{x}}{C} + \frac{\Theta_0}{C}\right) > 1
+\end{equation}
+
+Since $\Theta$ and $\Theta_0$ can be rescaled, it can be written:
+\begin{equation} 
+\Theta := \frac{\Theta}{C}, \,\,\,\,\,\, \Theta_0 := \frac{\Theta_0}{C}
+\end{equation}
+%\begin{equation} 
+%\Theta_0 := \frac{\Theta_0}{C}
+%\end{equation}
+
+\begin{equation} 
+ y_i \left(\Theta^T \mathbf{x} + \Theta_0\right) > 1
+\end{equation}
+
+Finally the optimization problem states:
+
+\begin{equation} 
+\min \frac{1}{2} \vert \Theta \vert ^2, \,\,\,\, s.t. \,\,\, y_i \left(\Theta^T \mathbf{x} + \Theta_0\right) > 1
+\end{equation}
+
+and it can be solved using the Lagrange polynomial as:
+
+\begin{equation} 
+L(\Theta, \Theta_0, \alpha) = \frac{1}{2} \vert \Theta \vert ^2 - \sum_{i=1}^n \left[y_i \left(\Theta^T \mathbf{x} + \Theta_0\right) - 1\right]
+\end{equation}
+
+\begin{equation} 
+\frac{\partial L}{\partial \Theta} = \Theta - \sum_{i=1}^n \alpha_i y_i \mathbf{x}_i = 0 \,\,\,\, \Rightarrow \,\,\,\, \Theta = \sum_{i=1}^n \alpha_i y_i \mathbf{x}_i
+\end{equation}
+
+\begin{equation} 
+\frac{\partial L}{\partial \Theta} = \sum_{i=1}^n \alpha_i y_i = 0
+\end{equation}
+
+By enlisting this terms into the equation HAHA, 
+
+\begin{equation} 
+L(\alpha) = \sum_i \alpha_i - \frac{1}{2} \sum_j \sum_i \alpha_j \alpha_i y_j y_i \mathbf{x}_i^T \mathbf{x}_j
+\end{equation}
+
+
+The optimization problem does not depend on $\mathbf{x}$, but on $\mathbf{x}^T\mathbf{x}$. This enables the use of \emph{kernel trick} and allows nonlinear transform of the feature space at no additional cost. 
+
+
+
+
 
 
 

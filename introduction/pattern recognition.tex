@@ -35,15 +35,14 @@ In statistical pattern recognition, each sample is composed of $m$ measures that
 \end{flushright}
 \end{myquote}
 
-Linear Discriminant Analysis is a computationally simple and efficient classifier with linear decision boundary and it is based on the Bayesian equation.
-
-In a classical problem with $n$ samples in training set, which consist of $m$ features, the dataset of available samples is a matrix $\mathbf{x}_{[n \times m]}$, whereas the vector of labels that describe the belonging of each sample to one of the classes is $\mathbf{y}$, where $y \in (0,1,2,...,K-1)$.
+Linear Discriminant Analysis is a computationally simple and efficient classifier with linear decision boundary and it is based on the Bayesian equation. In a classical problem with $n$ samples in training set, which consist of $m$ features, the dataset of available samples is a matrix of dimension $[n \times m]$, whereas the vector of labels that describe the belonging of each sample to one of the classes is $y$, where $y \in (0,1,2,...,K-1)$.
 
 According to Bayesian equation, the probability that a sample $\mathbf{x}_0$ belongs to a class $k$ is equivalent to the: 
 \begin{equation} 
 P(y=k \,\, | \, \mathbf{x}=\mathbf{x}_0) = \frac{P(\mathbf{x}=\mathbf{x}_0  \,\, | \, y=k) \,\,P(y=k)} {P(\mathbf{x}=\mathbf{x}_0)}
 \end{equation}
 
+\noindent
 ,where k represents the class. Term $P(\mathbf{x}=\mathbf{x}_0  \,\, | \, y=k)$ is called the \emph{class-conditional} probability and describes the probability that the sample with exact features $\mathbf{x}_0$ is encountered within the group of samples belonging only to the class $k$. Term $P(y=k)$ is called the \emph{a priori} probability and describes the probability that the sample with class $k$ is found within the group of all samples, regardless of the features. Finally, the term $P(\mathbf{x}=\mathbf{x}_0)$ is called \emph{marginal} probability and describes the probability of finding the exact set of features in the dataset, regardless of the class. Marginal probability can be written as a sum of class-conditional probabilities multiplied by the a priori probabilities for each class:
 
 \begin{equation}
@@ -54,13 +53,14 @@ P(\mathbf{x}=\mathbf{x}_0  \,\, | \, y=K) \,\,P(y=K)
 \end{split}
 \end{equation}
 
+
 Following Bayesian theory, the hypothesis, i.e., the predicted class of a sample $\mathbf{x}_0$ is chosen as the class which has the highest probability $P(y=k \,\, | \, \mathbf{x}=\mathbf{x}_0)$:
 
 \begin{equation} 
 h(\mathbf{x}_0) = \argmax_k P(y=k \,\, | \, \mathbf{x}=\mathbf{x}_0)
 \end{equation}
 
-Statistically speaking, this is the best possible classifier. The problem arises in implementation. The exact probability density functions are unknown and have to be estimate from the available data, which is the source of error.
+Statistically speaking, this is the best possible classifier. The problem arises in the implementation. The exact probability density functions are unknown and have to be estimated from the available data, which is the source of error.
 Estimated version of the stated probabilities will be marked with a different symbols to stress out the fact they are just an estimates:
 
 \begin{equation} 
@@ -76,13 +76,14 @@ g_k(\mathbf{x}) \coloneqq P(\mathbf{x}  \,\, | \, y=k)
 \end{equation}
 
 
-Linear Discriminant Analysis estimates marginal probability term ($\pi_k$) as ratio of number of samples belonging to class $k$ and the total  number of samples, whereas class-conditional probability term in the Bayesian equation is estimated as a Gaussian function:
+Linear Discriminant Analysis estimates marginal probability term ($\pi_k$) as a ratio of number of samples belonging to class $k$ and the total  number of samples, whereas the class-conditional probability term in the Bayesian equation is estimated as a Gaussian function:
 
 \begin{equation} 
-g_k(\mathbf{x}) = \frac{1}{(2 \pi)^{\nicefrac{1}{2}}\, |\Sigma_k|^{\nicefrac{1}{2}}}\,\, e^{\nicefrac{-1}{2}  (\mathbf{x}-\mu_k)^T  \Sigma_k^{-1} (\mathbf{x}-\mu_k)} 
+g_k(\mathbf{x}) = \frac{1}{(2 \pi)^{\nicefrac{m}{2}}\, |\Sigma_k|^{\nicefrac{1}{2}}}\,\, e^{\nicefrac{-1}{2}  (\mathbf{x}-\mu_k)^T  \Sigma_k^{-1} (\mathbf{x}-\mu_k)} 
 \end{equation}
 
-, where $g_k$ is estimated class-conditional probability of class $k$, and $\mu_k$ and $\Sigma_k$ are the mean and co-variance matrix for class $k$, respectively, and they are estimated from the available data as:
+\noindent
+, where $m$ is the dimensionality of the feature space, i.e., number of features representing each sample. Function $g_k$ is estimated class-conditional probability of class $k$, and $\mu_k$ and $\Sigma_k$ are the mean and co-variance matrix for class $k$, respectively, and they are estimated from the available data as:
 
 \begin{equation}
 \left. \mu_k = \frac{1}{n_k} \sum_{i}{\mathbf{x}_i} \right\vert_{\forall \mathbf{x} \in k}
@@ -93,21 +94,24 @@ g_k(\mathbf{x}) = \frac{1}{(2 \pi)^{\nicefrac{1}{2}}\, |\Sigma_k|^{\nicefrac{1}{
 \end{equation}
 
  
-where $n_k$ represents the number of samples belonging to a class $k$.
+\noindent
+, where $n_k$ represents the number of samples belonging to a class $k$.
 To simplify the model, LDA assumes that the co-variance matrices $\Sigma_k$ are the same for all classes:
 
 \begin{equation} 
 \Sigma_0 = \Sigma_1 = \dots = \Sigma_{K-1} = \Sigma
 \end{equation}
 
-and they are usually calculated using weighted average:
+\noindent
+and they are usually calculated using the weighted average:
 \begin{equation} 
 \Sigma = \frac{\sum_{k=1}^K {n_k\Sigma_k}}{\sum_{k=1}^K{n_k}}
 \end{equation}
 
-The consequence of this assumption is the linearity of the decision boundary. % The lack of this simplification would lead to quadratic discriminant analysis, which has non-linear boundary.
+\noindent
+The consequence of this assumption is the linearity of the decision boundary. Without this assumption the same calculus would lead to quadratic discriminant analysis, which has non-linear boundary.
 
-In a two class example ($y \in \{0,1\}$), all samples on the decision boundary ($D.B.$) will have the same probability of belonging to class 0 or 1:
+In a two class example ($y \in \{0,1\}$), all samples on the decision boundary will have the same probability of belonging to class 0 or 1:
 
 \begin{equation} 
 D.B. = \Big\{\mathbf{x}\,\, \Big| \,\,P\big(y=0 \, \big| \, \mathbf{x}=\mathbf{x}_0\big) = P\big(y=1 \, \big| \, \mathbf{x}=\mathbf{x}_0\big) \Big\}
@@ -121,28 +125,29 @@ Following this idea, the decision boundary can be estimated by solving the equat
 
 
 \begin{equation} 
-\begin{split}
+%\begin{split}
 \frac{1}{(2 \pi)^{\nicefrac{d}{2}}\, |\Sigma_0|^{\nicefrac{1}{2}}}\,\, e^{\nicefrac{-1}{2}  (\mathbf{x}-\mu_0)^T  \Sigma_0^{-1} (\mathbf{x}-\mu_0)}  \,\,\,\pi_0 = \\
 \frac{1}{(2 \pi)^{\nicefrac{d}{2}}\, |\Sigma_1|^{\nicefrac{1}{2}}}\,\, e^{\nicefrac{-1}{2}  (\mathbf{x}-\mu_1)^T  \Sigma_1^{-1} (\mathbf{x}-\mu_1)}  \,\,\,\pi_1
-\end{split}
+%\end{split}
 \end{equation}
 
-,where $d$ is the dimensionality of the feature space, i.e., number of features representing each sample.
+%,where $d$ is the dimensionality of the feature space, i.e., number of features representing each sample.
 If making the assumption on the equal co-variance matrices for both classes:
 \begin{equation} 
 \Sigma_0 = \Sigma_1  = \Sigma
 \end{equation}
 
+\noindent
 and taking the logarithm, the equation takes the form: 
 
 \begin{equation} 
-\begin{split}
+%\begin{split}
 -\frac{1}{2}  \Big(\mathbf{x}-\mu_0\Big)^T  \Sigma^{-1} \Big(\mathbf{x}-\mu_0\Big) +  \log{\Big(\pi_0\Big)}= \\
--\frac{1}{2}  \Big(\mathbf{x}-\mu_1\Big)^T  \Sigma^{-1} \Big(\mathbf{x}-\mu_1\Big) +  \log{\Big(\pi_1)\Big)}
-\end{split}
+-\frac{1}{2}  \Big(\mathbf{x}-\mu_1\Big)^T  \Sigma^{-1} \Big(\mathbf{x}-\mu_1\Big) +  \log{\Big(\pi_1\Big)}
+%\end{split}
 \end{equation}
 
-This equation can be written as the linear function $x^T\beta + \alpha = 0$ as:
+This equation can be written in the form of the linear function $x^T\beta + \alpha = 0$ as:
 
 \begin{equation} 
 \begin{split}
@@ -151,7 +156,7 @@ This equation can be written as the linear function $x^T\beta + \alpha = 0$ as:
 \end{split}
 \end{equation}
 
-The equation represents the decision boundary between classes, i.e., all samples lying on this line will have equal probability of belonging to class 0 and class 1. It is interesting to note that the slope of the line depends only on the class means and co-variance matrix, whereas a priori probabilities (which are the result of number of samples belonging to class 0 or 1) have effect only on the $y$-intercept term, i.e., the offset of the function. This is an interesting point that demands caution. If groups are unbalanced, that is, number of samples of one group is higher than in the other group, $y$-intercept of the decision boundary will be affected and the classifier will be biased by this disproportion.
+The equation represents the decision boundary between two classes, i.e., all samples lying on this line will have equal probability of belonging to class 0 and class 1. It should be noted that the slope of the line depends only on the class means and co-variance matrix, whereas a priori probabilities (which are the result of number of samples belonging to class 0 or 1) have effect only on the $y$-intercept term, i.e., the offset of the function. This is an interesting point that demands caution. If groups are unbalanced, that is, number of samples of one group is higher than in the other group, $y$-intercept of the decision boundary will be affected and the classifier will be biased by this disproportion. If groups are unbalanced because of the incomplete or missing data, whereas in reality they are balanced, this can have a negative effect.
 
 When considering multiclass classification problem, probability of a sample belonging to each class is firstly estimated by the equation:
 
@@ -159,7 +164,7 @@ When considering multiclass classification problem, probability of a sample belo
 p_k = -\frac{1}{2} \log \big\vert \Sigma \big\vert - \frac{1}{2}  \Big(\mathbf{x}-\mu_k\Big)^T  \Sigma^{-1} \Big(\mathbf{x}-\mu_k\Big) +  \log{\Big(\pi_k\Big)}
 \end{equation}
 
-and then the class is estimated as the one with the highest probability as:
+\noindent and then the class is estimated as the one with the highest probability as:
 
 \begin{equation} 
 h(\mathbf{x}) = \argmax_k p_k(\mathbf{x})
@@ -175,10 +180,10 @@ h(\mathbf{x}) = \argmax_k p_k(\mathbf{x})
 \end{myquote}
 
 
-Support vector machine is nowadays known as a very powerful classifier with a lot of different applications. The big advantage over LDA is the fact that it is a \emph{non-parametric} classifier. The model is not obtained using assumption of the form of the class density function and estimation of it's parameters, which is inevitably erroneous. Instead, SVM forms the decision boundary using the samples (not their density estimates) by maximizing the distance between samples and the boundary.
+Support vector machine is nowadays known as a very powerful classifier with a lot of different applications. The big advantage over LDA is the fact that it is a \emph{non-parametric} classifier. The model is not obtained using assumptions of the form of the class density function and estimation of it's parameters, which is inevitably erroneous. Instead, SVM forms the decision boundary using the samples (not their density estimates) by maximizing the distance between samples and the boundary.
 This was the idea Vladimir Vapnik, the inventor of this method stood for. It is better to try to solve the problem directly and simply, without many intermediate steps that can be complicated and inaccurate.
 
-This classification method essentially has a very simple principle, but using several mathematical tricks, it became a very powerful tool. 
+%This classification method essentially has a very simple principle, but using several mathematical tricks, it became a very powerful tool. 
 
 In pattern recognition, the decision rule ($h$) is usually obtained by multiplying the sample ($\mathbf{x}$) by predefined weights ($\Theta$):
 
@@ -186,9 +191,7 @@ In pattern recognition, the decision rule ($h$) is usually obtained by multiplyi
 \Theta^T \mathbf{x} + \Theta_0
 \end{equation}
 
-, where $\Theta_0$ is a constant.
-
-If samples $\mathbf{x}_0$ and $\mathbf{x}_1$ lay on the decision boundary $D.B.$, following statements are true:
+\noindent , where $\Theta_0$ is a constant. If samples $\mathbf{x}_0$ and $\mathbf{x}_1$ lay on the decision boundary, following statements are true:
 
 \begin{equation} 
 \Theta^T \mathbf{x}_0 + \Theta_0 = \Theta^T \mathbf{x}_1 + \Theta_0
@@ -198,54 +201,58 @@ If samples $\mathbf{x}_0$ and $\mathbf{x}_1$ lay on the decision boundary $D.B.$
 \Theta^T (\mathbf{x}_0 - \mathbf{x}_1) = 0
 \end{equation}
 
-This result implies that $\Theta$ is perpendicular to $D.B.$.
+\noindent This result implies that $\Theta$ is perpendicular to the boundary:
+\begin{equation} 
+\Theta \perp \left(\mathbf{x}_0 - \mathbf{x}_1\right)
+\end{equation}
 
-The goal of the SVM is to find the decision boundary so that the distance between the $D.B.$ and samples, i.e., the margin is maximized. The distance ($d$) from a sample to the decision boundary can be defined as the distance between the sample $\mathbf{x}$ and any point on the boundary, $\mathbf{x}_0$, projected onto the vector $\Theta$.
+
+The goal of the SVM is to find the decision boundary so that the distance between the samples and the decision boundary, i.e., the margin is maximized. The distance ($d$) from a sample to the decision boundary can be defined as the distance between the sample $\mathbf{x}$ and any point lying on the boundary, $\mathbf{x}_0$, projected onto the vector $\Theta$.
 
 \begin{equation} 
 d = \frac{\Theta^T \big(\mathbf{x} - \mathbf{x}_0\big)}{\big\vert \Theta \big\vert}
 \end{equation}
 
-Term $\vert \Theta \vert$ is introduced to normalize the vector $\Theta$
+\noindent Term $\vert \Theta \vert$ is introduced to normalize the vector $\Theta$. Without this normalization the distance would depend on the norm of $\Theta$.
 
 Since $\mathbf{x}_0$ is on the decision boundary, the expression $\Theta^T \mathbf{x}_0 + \Theta_0 = 0$ is valid, and, therefore, the expression for the distance can be written as:
 \begin{equation} 
 d = \frac{\Theta^T \mathbf{x} + \Theta_0}{\big\vert \Theta \big\vert}
 \end{equation}
 
-Margin ($M$) is the distance from the boundary to the closest samples:
+Margin ($M$) can be defined as the distance from the boundary to the closest sample:
 \begin{equation} 
 M = \min_i d_i
 \end{equation}
 
-Depending on which side of the boundary the sample is located, distance can be positive or negative. In order to keep the strictly positive, therm $y$ is introduced, where $y \in {-1,1}$:
+Depending on which side of the boundary the sample is located, the distance can be positive or negative. In order to keep it strictly positive, term $y$ is introduced, where $y \in \{-1,1\}$:
 \begin{equation} 
 M = \min_i \big\{y_id_i\big\}
 \end{equation}
 
 \begin{equation} 
-M = \min_i \left\{ \frac{y_i \left(\Theta^T \mathbf{x} + \Theta_0\right)}{\left\vert \Theta \right\vert} \right\}
+M = \min_i \left\{ \frac{y_i \left(\Theta^T \mathbf{x}_i + \Theta_0\right)}{\left\vert \Theta \right\vert} \right\}
 \end{equation}
 
-The goal is to maximize the margin. Since $\Theta$ can be rescaled, a certain $\Theta$ exists so that $y_i \left(\Theta^T \mathbf{x} + \Theta_0\right) = 0$, which implies
+The objective is to maximize the margin $M$. Since $\Theta$ can be rescaled, a certain $\Theta$ exists so that $y_i \left(\Theta^T \mathbf{x}_i + \Theta_0\right) = 1$, which implies
 \begin{equation} 
-\exists \Theta, \,\, y_i \left(\Theta^T \mathbf{x} + \Theta_0\right) = 1 \,\,\,\, \Rightarrow \,\,\,\, M = \min_i \left\{ \frac{1)}{\left\vert \Theta \right\vert} \right\}
+\exists \Theta, \,\, y_i \left(\Theta^T \mathbf{x}_i + \Theta_0\right) = 1 \,\,\,\, \Rightarrow \,\,\,\, M = \min_i \left\{ \frac{1}{\left\vert \Theta \right\vert} \right\}
 \end{equation}
 
-Therefore, to maximize the margin, a hyperplane should be found such that a norm of vector orthogonal to the hyperplane ($\Theta$) is minimal. $L_2$ norm is preferred because it has continuous derivative 
+\noindent Therefore, to maximize the margin, a hyperplane, that is, a decision boundary should be found such that a norm of vector orthogonal to the hyperplane ($\Theta$) is minimal. 
 
 For every point not on the boundary the following term is valid:
 \begin{equation} 
-y_i \left(\Theta^T \mathbf{x} + \Theta_0\right) > 0 
+y_i \left(\Theta^T \mathbf{x}_i + \Theta_0\right) > 0 
 \end{equation}
 
 Value $C$ can be selected such that:
 \begin{equation} 
-y_i \left(\Theta^T \mathbf{x} + \Theta_0\right) > C
+y_i \left(\Theta^T \mathbf{x}_i + \Theta_0\right) > C
 \end{equation}
 
 \begin{equation} 
-y_i \left(\frac{\Theta^T \mathbf{x}}{C} + \frac{\Theta_0}{C}\right) > 1
+y_i \left(\frac{\Theta^T \mathbf{x}_i}{C} + \frac{\Theta_0}{C}\right) > 1
 \end{equation}
 
 Since $\Theta$ and $\Theta_0$ can be rescaled, it can be written:
@@ -257,39 +264,90 @@ Since $\Theta$ and $\Theta_0$ can be rescaled, it can be written:
 %\end{equation}
 
 \begin{equation} 
- y_i \left(\Theta^T \mathbf{x} + \Theta_0\right) > 1
+ y_i \left(\Theta^T \mathbf{x}_i + \Theta_0\right) > 1
 \end{equation}
 
 Finally the optimization problem states:
 
 \begin{equation} 
-\min \frac{1}{2} \vert \Theta \vert ^2, \,\,\,\, s.t. \,\,\, y_i \left(\Theta^T \mathbf{x} + \Theta_0\right) > 1
+\min \frac{1}{2} \vert \Theta \vert ^2, \,\,\,\, s.t. \,\,\, y_i \left(\Theta^T \mathbf{x}_i + \Theta_0\right) > 1.
 \end{equation}
 
-and it can be solved using the Lagrange polynomial as:
+\noindent $L_2$ norm is preferred because it has continuous derivative, whereas constant $\nicefrac{1}{2}$ is introduced for the mathematical convenience. The optimization problem is solved using Lagrangian method as:
 
-\begin{equation} 
-L(\Theta, \Theta_0, \alpha) = \frac{1}{2} \vert \Theta \vert ^2 - \sum_{i=1}^n \left[y_i \left(\Theta^T \mathbf{x} + \Theta_0\right) - 1\right]
+\begin{equation} \label{eq:SVM-opt}
+L(\Theta, \Theta_0, \alpha_i) = \frac{1}{2} \vert \Theta \vert ^2 - \sum_{i=1}^n \alpha_i \left[y_i \left(\Theta^T \mathbf{x}_i + \Theta_0\right) - 1\right]
 \end{equation}
 
-\begin{equation} 
+\begin{equation} \label{eq:SVM-primal}
 \frac{\partial L}{\partial \Theta} = \Theta - \sum_{i=1}^n \alpha_i y_i \mathbf{x}_i = 0 \,\,\,\, \Rightarrow \,\,\,\, \Theta = \sum_{i=1}^n \alpha_i y_i \mathbf{x}_i
 \end{equation}
 
-\begin{equation} 
+\begin{equation} \label{eq:SVM-dual}
 \frac{\partial L}{\partial \Theta} = \sum_{i=1}^n \alpha_i y_i = 0
 \end{equation}
 
-By enlisting this terms into the equation HAHA, 
+By rewriting the problem in \ref{eq:SVM-opt} in terms of dual variable $\alpha$, the following expression can be obtained:
 
 \begin{equation} 
 L(\alpha) = \sum_i \alpha_i - \frac{1}{2} \sum_j \sum_i \alpha_j \alpha_i y_j y_i \mathbf{x}_i^T \mathbf{x}_j
 \end{equation}
 
+Since this is the function with single variable $\alpha$, the solution can be obtained by maximizing it:
+\begin{equation} 
+%\max \sum_i \alpha_i - \frac{1}{2} \sum_j \sum_i \alpha_j \alpha_i y_j y_i \mathbf{x}_i^T \mathbf{x}_j, \,\,\,\, s.t. \,\,\, \alpha_i \geq 0, \sum_i \alpha_i y_i = 0
+%\max L(\alpha) \,\,\,\,\, s.t. \,\,\, \alpha_i \geq 0,   \sum_i \alpha_i y_i = 0
+\max L(\alpha) \,\,\,\,\, s.t. \,\,\, \left\{\begin{array}{lr} \alpha_i \geq 0 \\
+\sum_{i} \alpha_i y_i = 0  \end{array}\right.
+\end{equation}
 
-The optimization problem does not depend on $\mathbf{x}$, but on $\mathbf{x}^T\mathbf{x}$. This enables the use of \emph{kernel trick} and allows nonlinear transform of the feature space at no additional cost. 
+In this optimization problem, the objective has the form of quadratic function, whereas constraints are linear. This problem is typically solved using quadratic programming. Since it is a convex problem, the solution has global maximum and the algorithm can not stuck in the local solution. By solving it, solution for dual variable $\alpha$ can be found, and then primal variable $\Theta$ can be found using equation \ref{eq:SVM-primal}.
+
+In the optimization, Karush-Kuhn-Tucker conditions need to be satisfied citep{Boyd2004}. One of this condition is \emph{complementary slackness}, stating that in the optimal point product of dual variable and the constraint must be zero:
+\begin{equation} 
+\alpha_i \left[ y_i \left( \Theta^T\mathbf{x}_i + \Theta_0  \right) -1 \right] = 0
+\end{equation}
+
+This condition is interesting in order to better understand the principle of SVM. Since the dual variable must greater or equal to zero ($\alpha \geq 0$), there are two possibilities:
+\begin{enumerate}
+\item
+If $\alpha$ is greater than zero, $\left[ y_i \left( \Theta^T\mathbf{x}_i + \Theta_0  \right) -1 \right]$ must equal one:
+\begin{equation} 
+\alpha_i > 0 \,\,\,\,\, \Rightarrow \,\,\,  y_i \left( \Theta^T\mathbf{x}_i + \Theta_0  \right) = 1
+\end{equation}
+\item
+If $\left[ y_i \left( \Theta^T\mathbf{x}_i + \Theta_0  \right) -1 \right]$ is greater than zero, $\alpha$ must be zero:
+\begin{equation} 
+y_i \left( \Theta^T\mathbf{x}_i + \Theta_0  \right) > 1 \,\,\,\,\, \Rightarrow \,\,\,  \alpha = 0
+\end{equation}
+\end{enumerate}
+
+Since for all samples lying on the margin, the statement  
+\begin{equation}
+y_i \left( \Theta^T\mathbf{x}_i + \Theta_0  \right) = 1
+\end{equation}
+\noindent holds, $\alpha$ will be different from zero only for the samples lying on the decision hyperplane, whereas for the samples further away from the hyperplane, $\alpha$ will be zero and this points will have no effect on the model. This is especially useful for the outlier samples.
 
 
+It is important to note that weights $\Theta$ depend on the linear combination of the samples. The optimization problem does not depend on $\mathbf{x}$, but on $\mathbf{x}^T\mathbf{x}$. This enables the use of \emph{kernel trick} and allows nonlinear transform of the feature space at no additional cost. Non-linear decision boundary can be achieved by nonlinear transform of features:
+\begin{equation} 
+\mathbf{x} \rightarrow \Phi(\mathbf{x})
+\end{equation}
+
+However, this operation is computationally expensive. The solution can be achieved using kernel. Kernel is a function $K(x,y)$ for which:
+\begin{equation} 
+K(\mathbf{x},\mathbf{y}) = \Phi(\mathbf{x})^T  \Phi(\mathbf{y})
+\end{equation}
+
+Since in the equation \ref{eq:SVM-dual} $\mathbf{x}$ does not appear by itself, but in a form of dot product $\mathbf{x}^T\mathbf{x}$, non-linear transform can be used in a form of kernel trick:
+\begin{equation} 
+L(\alpha) = \sum_i \alpha_i - \frac{1}{2} \sum_j \sum_i \alpha_j \alpha_i y_j y_i K(\mathbf{x}_i, \mathbf{x}_j)
+\end{equation}
+
+Most often used kernel is radial basis kernel ($K_{RBF}(\mathbf{x}_i,\mathbf{x}_j)$):
+\begin{equation} 
+K_{RBF}(\mathbf{x}_i,\mathbf{x}_j) = e^\frac{-\parallel \mathbf{x}_i - \mathbf{x}_j\parallel^2}{2\sigma^2}
+\end{equation}
 
 
 

@@ -12,9 +12,15 @@
 \usepackage{nicefrac}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{cancel}
 \epstopdfDeclareGraphicsRule
   {.tif}{png}{.png}{convert tif:\SourceFile.\SourceExt png:\OutputFile}
+
 \AppendGraphicsExtensions{.tif}
+\newcommand{\argmax}{\arg\!\max} % AlfC
+%\def\myquote#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\def\myquote{\list{}{\setlength{\leftmargin}{2cm}\setlength{\rightmargin}{0.5cm}}\item[]}
+\let\endmyquote=\endlist 
 
 \usepackage{xargs}
 \usepackage[pdftex,dvipsnames]{xcolor}
@@ -53,11 +59,11 @@
 %\input{quotes/quotes}
 
 \body
-%\input{introduction/introduction}
+\input{introduction/introduction}
 %\input{problem/problem}
 %\input{JNER/JNER}
 %\input{JNE/JNE}
-\input{Sensors/Sensors}
+%\input{Sensors/Sensors}
 
 % body of thesis comes here
 

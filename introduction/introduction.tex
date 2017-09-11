@@ -5,28 +5,47 @@
 
 
 
-\section{Muscle anatomy}
+\section{Muscle physiology}
 
-Movement is achieved using over 600 skeletal muscles, the ones that can be controlled voluntary. 
+Movement is achieved by using over 600 skeletal muscles. Besides skeletal muscles, there are two other muscle types: smooth muscle, of which internal organs are mostly built, and cardiac muscle, building the heart. Only the skeletal muscles can be controlled voluntary.
 
-Smooth muscles - mostly in internal organs
-
-cardiac muscle
-
-Elementary building block of a muscle is muscle cell, or muscle fiber - \emph{myocyte}. Myocytes are ensheated by \emph{endomysium}, a connective tissue that contains nerves and capillaries. They are organized in bundles of 10 to 100, \emph{fascicles}, and surrounded by sheath of connective tissue, \emph{perymisium}. Group of fascicles is finally grouped together and enveloped by \emph{epimysium}, forming a muscle.
+Elementary building block of a muscle is muscle cell, or muscle fiber - \emph{myocyte}. Myocytes are ensheated by \emph{endomysium}, a connective tissue that contains nerves and capillaries. They are organized in bundles of 10 to 100 fibers, which are called \emph{fascicles}, and surrounded by sheath of connective tissue, \emph{perymisium}. Group of fascicles is finally grouped together and enveloped by \emph{epimysium}, forming a muscle.
 
 \emph{Sarcolema} is the cell membrane of myocyte, consisting of a lipid bilayer that contains intracelular liquid, \emph{myoplasma}. In the myoplasma, thin and thick filaments are serially connected, forming \emph{sarcomeres}, which are longitudinally connected in \emph{myofibrils} that extend through entire length of the myocyte. During shortening of muscle fibers, thin and thick filaments of sarcomeres are pulled together by cross-bridges between them. Total shortening of myofibril is summation of shortenings of sarcomeres of which it is composed.
 
-Each motor neuron at the neuromuscular junction innervates several muscle fibers, forming the smallest functional unit called \emph{motor unit}. It was firstly defined by Liddell and Sherrington in 1925 \citep{Liddell1925, Sherrington1925} and is composed of motor neuron with axon and dendrites, and muscle fibers that axon innervates \citep{Duchateau2011}. Since motor neuron with a single action potential usually evokes action potentials simultaneously in all belonging muscle fibers, by observing action potentials of the muscle fibers, information on activity of motor neurons in spinal cord or brain stem can be inferred \citep{Merletti-Farina-book}. % mozda ne treba ovaj citat
+During the stable state when there are no stimuli, i.e., in the resting state, the inside of the myocyte is at greater potential that the outside. This difference in potential is usually around 80 mV and it is caused by the higher concentration of positive ions, namely Na+ and K+, outside of the sarcolema \citep{Nazmi2016}.   
 
-Motor neurons transfer nerve impulses that control the muscle from spinal cord to neuromuscular junction. At the nerve endings action potentials trigger the release of the neurotransmitter \emph{acetylcholine} to the narrow space between the axon and sarcolema, which causes sodium channels in sarcolema to open. If the amount of acetylcoline is sufficient for the excitation, depolarization takes place and the action potential propagates longitudinally from the junction towards the ends of the fiber causing contraction \citep{Henneberg1999}. Speed of action potential propagation is called \emph{conduction velocity} and typically ranges around 4 m/s. 
+Motor neurons transfer nerve impulses that control the muscle from spinal cord to neuromuscular junction. At the nerve endings action potentials trigger opens calcium channels, which enables calcium to enter axon terminals and trigger the release of the neurotransmitter \emph{acetylcholine}. It is released to the narrow space between the axon and sarcolema, and causes sodium channels in sarcolema to open. Na+ ions now flow into the myoplasma by diffusion due to higher concentration of Na+ ions outside of the membrane. This process causes depolarization of sarcolema during which the outside potential of the muscle cell is at lower voltage than inside potential by around 30 mV. Depolarization is immediatelly followed by repolarization, a process during which the electrochemical balance and the resting potential of the cell are restored. It is achieved by flushing the Na+ ions outside of the sarcolema by the \emph{ion pump}. The process can be seen in figures \ref{fig:depolarization} and \ref{fig:action_potential_generation}.
+  
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.95\textwidth]{Images/Depolarization.png}
+\caption{Ilustration of depolarization/repolarization of the muscle fiber. Adopted from \citep{Nazmi2016}}
+\label{fig:depolarization}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.95\textwidth]{Images/action_potential_generation.png}
+\caption{Ilustration of generation of action potential. Adopted from citepWidmaier}
+\label{fig:action_potential_generation}
+\end{figure}
+  
+If the amount of acetylcoline is sufficient for the excitation, depolarization/repolarization wave, that is, action potential, propagates longitudinally from the junction towards the ends of the fiber causing contraction \citep{Henneberg1999}. Speed of action potential propagation is called \emph{conduction velocity} and typically ranges around 4 m/s.
 
 Detailed analysis of muscle physiology can be found elsewhere \citep{Squire1986}.
 
+
+
+\section{Muscle activation}
+
+Each motor neuron at the neuromuscular junction innervates several muscle fibers, forming the smallest functional unit called \emph{motor unit}. It was firstly defined by Liddell and Sherrington in 1925 \citep{Liddell1925, Sherrington1925} and is composed of motor neuron with axon and dendrites, and muscle fibers that axon innervates \citep{Duchateau2011}. Since motor neuron with a single action potential usually evokes action potentials simultaneously in all belonging muscle fibers, by observing action potentials of the muscle fibers, information on activity of motor neurons in spinal cord or brain stem can be inferred \citep{Merletti-Farina-book}. % mozda ne treba ovaj citat
+
 Pool of motor neurons that innervates entire muscle generally ranges from ten to thousand, depending on the muscle. \citep{Merletti-Farina-book}.
 
+
+
 By the characteristics of muscle fiber, there are three main types of muscle fibers:
-\change{prepisi od Monice}
 \begin{itemize}
 \item Fast twitch, fatigable fibers (FF, or type IIb)\\
 They have high levels of ATP for anaerobic energy supply. They are present in pale muscles. glycolytic and work well in ischemic or low oxygen conditions. fast twitch, large forces. high nerve conduction velocity. 
@@ -39,16 +58,43 @@ Oxidative and do not work well in low oxygen conditions. They generate small for
 
 Muscle fibers innervated by the same motor neuron have similar histochemical and contractile characteristics.
 
-Force that muscle fibers generate depends on firing frequency of the action potentials (rate coding) innervating the neuromuscular junction, and the recruitment strategy by which the motor units are activated, i.e., the number of activated motor units. Firing frequency and the recruitment strategy depend on the speed and force of contraction. Muscle units with low threshold are activated firstly, resulting in low force and high endurance, i.e., resistance to fatigue. If greater force is required, muscle units with higher threshold that are prone to fatigue are activated \citep{Freund1975, Merletti-book}. This was first proposed by Henneman et al. in 1965 \citep{Henneman1965}, who state that order of recruitment of motor neurons is based on size principle, that is, neurons with smaller axons are recruited at lower effort levels and with increase in force, larger motoneurons are recruited. Therefore, S type muscle units, which have the smallest motoneurons are recruited first, followed by FR type units, and finally FF units. 
+Force that muscle fibers generate depends on firing frequency of the action potentials (rate coding) innervating the neuromuscular junction, and the recruitment strategy by which the motor units are activated, i.e., the number of activated motor units. Firing frequency and the recruitment strategy depend on the speed and force of contraction. Muscle units with low threshold are activated firstly, resulting in low force and high endurance, i.e., resistance to fatigue. If greater force is required, muscle units with higher threshold that are prone to fatigue are activated \citep{Freund1975, Merletti-book}. This was first proposed by Henneman et al. in 1965 \citep{Henneman1965}, who state that order of recruitment of motor neurons is based on size principle, that is, neurons with smaller axons are recruited at lower effort levels and with increase in force, larger motoneurons are recruited. Therefore, S type muscle units, which have the smallest motoneurons are recruited first, followed by FR type units, and finally FF units. The recruitment strategy can be seen in figure \ref{fig:fiber_distribution}, whereas resistance to fatigue can be seen in figure \ref{fig:fiber_fatigue}. 
 
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.95\textwidth]{Images/fiber_distribution.png}
+\caption{Figure illustrates \textbf{a)} diagram of different muscle fibers in muscle cross section, and \textbf{b)} muscle tension produced by recruitment of different types of muscle fiber. It can be noted that type S fibers are activated first and generate low force level, whereas type FF fibers are activated last and generate high forces . Adopted from Widmaier}
+\label{fig:fiber_distribution}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.95\textwidth]{Images/fiber_fatigue.png}
+\caption{Figure illustrates the time during which specific muscle fibers can remain tension. Adopted from Widmaier}
+\label{fig:fiber_fatigue}
+\end{figure}
+
+\section{Muscle fatigue}
+Muscle during contraction develops muscle fatigue. It is characterized by decrease of conduction velocity \textbf{Wdimaier}. Although muscle fatigue begins to develop at the beginning of contractions, it is a challenge to grade it during contraction. What   
 
 
 \section{Surface electromyography}
 
+Muscle unit action potentnial (MUAP) is the combination of action potentials generated by the single motor unit.
 Myoelectric signal is a superposition of electrical activity (propagating action potentials) produced by the muscle fibers while contracting. It can be characterized
 \citep{Farina2014}
 
 EMG signals could be recorded either non-invasively (surface EMG, sEMG) or invasively with needle and wire electrodes (intramuscular EMG, iEMG) \citep{Marateb1999}. Although iEMG signal is usually with higher quality (in terms of signal-to-noise ratio), it was shown that both approaches provide a similar quality of identification of upper-arm motor task\citep{Hargrove2007}.
+
+Surface electromyographic signal (sEMG) is the sum of the electrical activity of the muscle fibers recorded on the surface of the skin. Since muscle fibers are activated by the impulse train of the innervating motor neurons, i.e. neural drive to the muscle, sEMG is the convolution of motor neuron spike trains by the motor unit action potential recorded on the electrodes \citep{Farina2010, Farina2014}.
+\begin{equation}
+sEMG(t) = \sum_{i=1}^{M} \sum_{j=-\infty}^{+\infty} MUAP_i(t)\,\, \delta(t-t_{i,j})
+\end{equation}
+, where $M$ is the number of active motor units, $MUAP_i(t)$ is the action potential waveform of the $i^{th}$ motor unit recorded by the electrodes, and $t_{i,j}$ is the time of the discharge of the $i^{th}$ motor neuron. This model assumes there is no interference and that neuromuscular junction never fails, which is not the case. In the equation, $MUAP_i(t)$ is related to the electrophysiological state of the muscle fiber membranes, whereas neural information is contained in motor neuron spike trains $\delta(t-t_{i,j})$ citiraj The extraction of neural strategies from the surface EMG: an update.
+
+
+
+
 
 Depending on number of electrodes used for the recording. the following classification exists: monopolar, bipolar, linear electrode array, and high-density EMG (see Figure \ref{fig:electrode_types})
 
@@ -64,9 +110,14 @@ are}
 
 HD-EMG \ref{fig:HD-EMG}
 
+Technological advancement of EMG acquisition systems enables use of high-density electromyography (HD-EMG) \textbf{Surface EMG: how far can you go}. Using an array of closely spaced electrodes organized in a quadrature grid, a wide muscle area is recorded. This technology is the only one that allows insights into spatial distribution of motor units in a muscle. By observing the amplitude or intensity of signals recorded in different channels, it is possible to analyze how different muscle regions activate depending on joint position \citep{Vieira2010}, contraction level \citep{Holterman2005}, and duration of movement and fatigue \citep{Tucker2009, Staudenmann2014}. An example of this kind of behavior is presented in Figure 2, where different spatial activation patterns of m. biceps brachii can be observed for contractions at different effort levels.
+In addition, activation of individual motor units, i.e. individual motor neuron spike train, can be extracted from the HD-EMG recordings using Blind Source Separation methods \citep{Holobar2010}, \textbf{Multichannel Blind Source Separation Using Convolution Kernel Compensation}, which can be a valuable information in force estimation because motor unit recruitment and firing frequency depend primarily on force level \textbf{Merletti book}. Several authors have used this approach instead of the traditional one based on intramuscular (invasive) EMG. One of the obvious advantages of this method is that is safe and not painful, although it has not been implemented in clinical practice yet. Using this technique, authors in \citep{Holobar2010} were able to extract 6 to 7 motor units starting from contractions at 5\% MVC and up to 20\% MVC with associated discharge rates between 10 pps and 12 pps. However, one of the current limitations is that the intensity of isometric contraction must remain constant during the measurement.
+Similar algorithms can also be used to separate EMG activity of adjacent muscles \textbf{Blind separation of linear instantaneous mixtures of nonstationary surface myoelectric signals}, \citep{Holobar2014}. This method can be a powerful tool in task identification \textbf{Performance comparison of ICA algorithms for Isometric Hand gesture identification using Surface EMG}, because it could minimize crosstalk effect from nearby muscles. Consequently, extracted features would characterize only the target muscles.
+However, HD-EMG can be corrupted by low quality channels, which are a common issue in measurements due to well-known artifacts, such as: electrode displacement, bad electrical contact between skin and the electrode, movement of cables, electromagnetic interference, etc. \citep{Clancy2002b}. Affected channels differentiate themselves in amplitude and spectral content, which makes them outliers that compromise classification. To cope with this problem, authors in \citep{Rojas-Martinez2012} developed an expert system for detection, removal and interpolation of HD-EMG channels corrupted by artifacts.
+
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.95\textwidth]{Images/HD-EMG.png}
+\includegraphics[width=0.95\textwidth]{Images/HDEMG.png}
 \caption{The figure represents the HD-EMG activation map recorded on the biceps brachii muscle during flexion. Distinct activation of the two heads can be noticed in the map. Modified from Monica}
 \label{fig:HD-EMG}
 \end{figure}
@@ -120,10 +171,8 @@ According to Bayesian equation, the probability that a sample $\mathbf{x}_0$ bel
 \begin{equation} 
 P(y=k \,\, | \, \mathbf{x}=\mathbf{x}_0) = \frac{P(\mathbf{x}=\mathbf{x}_0  \,\, | \, y=k) \,\,P(y=k)} {P(\mathbf{x}=\mathbf{x}_0)}
 \end{equation}
-
 \noindent
 , where k represents the class. Term $P(\mathbf{x}=\mathbf{x}_0  \,\, | \, y=k)$ is called the \emph{class-conditional} probability and describes the probability that the sample with exact features $\mathbf{x}_0$ is encountered within the group of samples belonging to the class $k$. Term $P(y=k)$ is called the \emph{a priori} probability and describes the probability that the sample belonging to the class $k$ is found within the group of all samples, regardless of the features. Finally, the term $P(\mathbf{x}=\mathbf{x}_0)$ is called the \emph{marginal} probability and describes the probability of finding the sample with exact set of features in the dataset, regardless of the class. Marginal probability can be written as a sum of class-conditional probabilities multiplied by the a priori probabilities for each class:
-
 \begin{equation}
 \begin{split}
 P(\mathbf{x}=\mathbf{x}_0) = P(\mathbf{x}=\mathbf{x}_0  \,\, | \, y=1) \,\,P(y=1) + \\
@@ -132,55 +181,42 @@ P(\mathbf{x}=\mathbf{x}_0  \,\, | \, y=K) \,\,P(y=K)
 \end{split}
 \end{equation}
 
-
 Following the Bayesian theory, the hypothesis, i.e., the predicted class of a sample $\mathbf{x}_0$ is chosen as the class which has the highest probability $P(y=k \,\, | \, \mathbf{x}=\mathbf{x}_0)$:
-
 \begin{equation} 
 h(\mathbf{x}_0) = \argmax_k P(y=k \,\, | \, \mathbf{x}=\mathbf{x}_0)
 \end{equation}
 
 Statistically speaking, this is the best possible classifier. The problem arises in the implementation. The exact probability density functions are unknown and have to be estimated from the available data, which is the source of error.
 Estimated version of the stated probabilities will be marked with a different symbols to stress out the fact they are just an estimates:
-
 \begin{equation} 
 p_k(\mathbf{x}) \coloneqq P(y=k \,\, | \, \mathbf{x})
 \end{equation}
-
 \begin{equation} 
 g_k(\mathbf{x}) \coloneqq P(\mathbf{x}  \,\, | \, y=k)
 \end{equation}
-
 \begin{equation} 
 \pi_k \coloneqq P(y=k)
 \end{equation}
 
 
 Linear Discriminant Analysis estimates marginal probability term ($\pi_k$) as a ratio of number of samples belonging to class $k$ and the total  number of samples, whereas the class-conditional probability term in the Bayesian equation is estimated as a multivariate Gaussian function:
-
 \begin{equation} 
 g_k(\mathbf{x}) = \frac{1}{(2 \pi)^{\nicefrac{m}{2}}\, |\Sigma_k|^{\nicefrac{1}{2}}}\,\, e^{\nicefrac{-1}{2}  (\mathbf{x}-\mu_k)^T  \Sigma_k^{-1} (\mathbf{x}-\mu_k)} 
 \end{equation}
-
 \noindent
 , where $m$ is the dimensionality of the feature space, i.e., number of features representing each sample. Function $g_k$ is estimated class-conditional probability of class $k$, and $\mu_k$ and $\Sigma_k$ are the mean and co-variance matrix for class $k$, respectively, and they are estimated from the available data as:
-
 \begin{equation}
 \left. \mu_k = \frac{1}{n_k} \sum_{i}{\mathbf{x}_i} \right\vert_{\forall \mathbf{x} \in k}
 \end{equation}
-
 \begin{equation}
 \left. \Sigma_k = \frac{1}{n_k-K} \sum_{i}{\Big( \mathbf{x}_i - \mu_k \Big) \Big( \mathbf{x}_i - \mu_k \Big)^T} \right\vert_{\forall \mathbf{x} \in k}
 \end{equation}
-
- 
 \noindent
 , where $n_k$ represents the number of samples belonging to a class $k$.
 To simplify the model, LDA assumes that the co-variance matrices $\Sigma_k$ are the same for all classes:
-
 \begin{equation} 
 \Sigma_0 = \Sigma_1 = \dots = \Sigma_{K-1} = \Sigma
 \end{equation}
-
 \noindent
 and they are usually calculated using the weighted average:
 \begin{equation} 
@@ -191,18 +227,14 @@ and they are usually calculated using the weighted average:
 The consequence of this assumption is the linearity of the decision boundary. Without this assumption the same calculus would lead to quadratic discriminant analysis, which has non-linear boundary.
 
 In a two class example ($y \in \{0,1\}$), all samples on the decision boundary will have the same probability of belonging to class 0 or 1:
-
 \begin{equation} 
 D.B. = \Big\{\mathbf{x}\,\, \Big| \,\,P\big(y=0 \, \big| \, \mathbf{x}=\mathbf{x}_0\big) = P\big(y=1 \, \big| \, \mathbf{x}=\mathbf{x}_0\big) \Big\}
 \end{equation}
 
 Following this idea, the decision boundary can be estimated by solving the equation:
-
 \begin{equation} 
 \frac{g_0(\mathbf{x}) \, \pi_0} {\cancel{\sum_{k=1}^K{g_k \, \pi_k}}} = \frac{g_1(\mathbf{x}) \, \pi_1} {\cancel{\sum_{k=1}^K{g_k \, \pi_k}}}
 \end{equation}
-
-
 \begin{equation} 
 %\begin{split}
 \frac{1}{(2 \pi)^{\nicefrac{m}{2}}\, |\Sigma_0|^{\nicefrac{1}{2}}}\,\, e^{\nicefrac{-1}{2}  (\mathbf{x}-\mu_0)^T  \Sigma_0^{-1} (\mathbf{x}-\mu_0)}  \,\,\,\pi_0 = \\
@@ -212,20 +244,13 @@ Following this idea, the decision boundary can be estimated by solving the equat
 
 %,where $d$ is the dimensionality of the feature space, i.e., number of features representing each sample.
 If making the assumption on the equal co-variance matrices for both classes $(\Sigma_0 = \Sigma_1  = \Sigma)$, and taking the logarithm, the equation takes the form: 
-%\begin{equation} 
-%\Sigma_0 = \Sigma_1  = \Sigma
-%\end{equation}
-
-
 \begin{equation} 
 %\begin{split}
 -\frac{1}{2}  \Big(\mathbf{x}-\mu_0\Big)^T  \Sigma^{-1} \Big(\mathbf{x}-\mu_0\Big) +  \log{\Big(\pi_0\Big)}= \\
 -\frac{1}{2}  \Big(\mathbf{x}-\mu_1\Big)^T  \Sigma^{-1} \Big(\mathbf{x}-\mu_1\Big) +  \log{\Big(\pi_1\Big)}
 %\end{split}
 \end{equation}
-
 , which can be written in the form of the linear function $x^T\beta + \alpha = 0$ as:
-
 \begin{equation} 
 \begin{split}
 \mathbf{x}^T\Big(\Sigma^{-1} \mu_0 - \Sigma^{-1} \mu_1\Big) + \frac{1}{2} \Big(\mu_1^T \Sigma^{-1}\mu_1 - \mu_0^T \Sigma^{-1}\mu_0\Big)
@@ -236,13 +261,10 @@ If making the assumption on the equal co-variance matrices for both classes $(\S
 This equation represents the decision boundary between two classes, i.e., all samples lying on this line will have equal probability of belonging to class 0 and class 1. It should be noted that the slope of the line depends only on the class means and co-variance matrix, whereas a priori probabilities (which are the result of number of samples belonging to class 0 or 1) have effect only on the $y$-intercept term, i.e., the offset of the function. This is an interesting point that demands caution. If groups are unbalanced, that is, number of samples of one group is higher than in the other group, $y$-intercept of the decision boundary will be affected and the classifier will be biased by this disproportion. If groups are unbalanced because of the incomplete or missing data, whereas in reality they are balanced, this can have a negative effect.
 
 When considering multiclass classification problem, probability of a sample belonging to each class is firstly estimated by the equation:
-
 \begin{equation}
 p_k = -\frac{1}{2} \log \big\vert \Sigma \big\vert - \frac{1}{2}  \Big(\mathbf{x}-\mu_k\Big)^T  \Sigma^{-1} \Big(\mathbf{x}-\mu_k\Big) +  \log{\Big(\pi_k\Big)}
 \end{equation}
-
 \noindent and then the class is estimated as the one with the highest probability as:
-
 \begin{equation} 
 h(\mathbf{x}) = \argmax_k p_k(\mathbf{x})
 \end{equation}
@@ -263,17 +285,13 @@ This was the idea Vladimir Vapnik, the inventor of this method stood for. It is 
 %This classification method essentially has a very simple principle, but using several mathematical tricks, it became a very powerful tool. 
 
 In pattern recognition, the decision rule ($h$) is usually obtained by multiplying the sample ($\mathbf{x}$) by predefined weights ($\Theta$):
-
 \begin{equation} 
 \Theta^T \mathbf{x} + \Theta_0
 \end{equation}
-
 \noindent , where $\Theta_0$ is a constant. If samples $\mathbf{x}_0$ and $\mathbf{x}_1$ lay on the decision boundary, following statements are true:
-
 \begin{equation} 
 \Theta^T \mathbf{x}_0 + \Theta_0 = \Theta^T \mathbf{x}_1 + \Theta_0
 \end{equation}
-
 \begin{equation} 
 \Theta^T (\mathbf{x}_0 - \mathbf{x}_1) = 0
 \end{equation}
@@ -285,7 +303,6 @@ In pattern recognition, the decision rule ($h$) is usually obtained by multiplyi
 
 
 The goal of the SVM is to find the decision boundary between two classes so that the distance between the samples and the decision boundary, i.e., the margin is maximized. The distance ($d$) from a sample to the decision boundary can be defined as the distance between the sample $\mathbf{x}$ and any point lying on the boundary, $\mathbf{x}_0$, projected onto the vector $\Theta$.
-
 \begin{equation} 
 d = \frac{\Theta^T \big(\mathbf{x} - \mathbf{x}_0\big)}{\big\vert \Theta \big\vert}
 \end{equation}
@@ -306,7 +323,6 @@ Depending on which side of the boundary the sample is located, the distance can 
 \begin{equation} 
 M = \min_i \big\{y_id_i\big\}
 \end{equation}
-
 \begin{equation} 
 M = \min_i \left\{ \frac{y_i \left(\Theta^T \mathbf{x}_i + \Theta_0\right)}{\left\vert \Theta \right\vert} \right\}
 \end{equation}
@@ -322,12 +338,10 @@ For every point not on the boundary the following term is valid:
 \begin{equation} 
 y_i \left(\Theta^T \mathbf{x}_i + \Theta_0\right) > 0 
 \end{equation}
-
 Value $C$ can be selected such that:
 \begin{equation} 
 y_i \left(\Theta^T \mathbf{x}_i + \Theta_0\right) > C
 \end{equation}
-
 \begin{equation} 
 y_i \left(\frac{\Theta^T \mathbf{x}_i}{C} + \frac{\Theta_0}{C}\right) > 1
 \end{equation}
@@ -339,34 +353,29 @@ Since $\Theta$ and $\Theta_0$ can be rescaled, it can be written:
 %\begin{equation} 
 %\Theta_0 := \frac{\Theta_0}{C}
 %\end{equation}
-
-\begin{equation} 
+, and, therefore:
+\begin{equation}  \label{eq:SVM-constraint}
  y_i \left(\Theta^T \mathbf{x}_i + \Theta_0\right) > 1
 \end{equation}
 
 Finally the optimization problem states:
-
 \begin{equation} 
 \min \frac{1}{2} \vert \Theta \vert ^2, \,\,\,\, s.t. \,\,\, y_i \left(\Theta^T \mathbf{x}_i + \Theta_0\right) > 1.
 \end{equation}
 
 \noindent $L_2$ norm is preferred because it has continuous derivative, whereas constant $\nicefrac{1}{2}$ is introduced for the mathematical convenience. The optimization is solved using Lagrangian method as:
-
 \begin{equation} \label{eq:SVM-opt}
 L(\Theta, \Theta_0, \alpha_i) = \frac{1}{2} \vert \Theta \vert ^2 - \sum_{i=1}^n \alpha_i \left[y_i \left(\Theta^T \mathbf{x}_i + \Theta_0\right) - 1\right]
 \end{equation}
-
 \begin{equation} \label{eq:SVM-primal}
 \frac{\partial L}{\partial \Theta} = \Theta - \sum_{i=1}^n \alpha_i y_i \mathbf{x}_i = 0 \,\,\,\, \Rightarrow \,\,\,\, \Theta = \sum_{i=1}^n \alpha_i y_i \mathbf{x}_i
 \end{equation}
-
 \begin{equation} \label{eq:SVM-dual}
-\frac{\partial L}{\partial \Theta} = \sum_{i=1}^n \alpha_i y_i = 0
+\frac{\partial L}{\partial \Theta_0} = \sum_{i=1}^n \alpha_i y_i = 0
 \end{equation}
 
 By rewriting the problem in \ref{eq:SVM-opt} in terms of dual variable $\alpha$, the following expression can be obtained:
-
-\begin{equation} 
+\begin{equation} \label{eq:SVM-rewritten}
 L(\alpha) = \sum_i \alpha_i - \frac{1}{2} \sum_j \sum_i \alpha_j \alpha_i y_j y_i \mathbf{x}_i^T \mathbf{x}_j
 \end{equation}
 
@@ -403,9 +412,47 @@ Since for all samples lying on the margin, the statement
 \begin{equation}
 y_i \left( \Theta^T\mathbf{x}_i + \Theta_0  \right) = 1
 \end{equation}
-\noindent holds, $\alpha$ will be greater than zero only for the samples lying on the decision hyperplane, whereas for the samples further away from the hyperplane, $\alpha$ will be zero. Given the fact that $\Theta$ depends on linear combination of samples weighted by $\alpha$ (eq. \ref{eq:SVM-primal}), only the samples lying on the boundary will have effect in the calculation of $\Theta$ (where $\alpha > 0$), and they are called \emph{support vectors}. This can be especially useful for the outlier samples.
+\noindent holds, $\alpha$ will be greater than zero only for the samples lying on the decision hyperplane, whereas for the samples further away from the hyperplane, $\alpha$ will be zero. Given the fact that $\Theta$ depends on linear combination of samples weighted by $\alpha$ (eq. \ref{eq:SVM-primal}), only the samples lying on the boundary will have effect in the calculation of $\Theta$ (where $\alpha > 0$), and they are called \emph{support vectors}. The inconveniency of this approach is the fact that the data need to be linearly separable, i.e., there should not be any data on the other side of the margin, which is rarely the case in practice. For this reason it is called the \emph{hard margin SVM}. Margin has distance one from the boundary and all points have to be distanced more or equal (constraint in eq. \ref{eq:SVM-constraint}). To relax this constrain, variable $\beta_i$ is introduced for every sample $\mathbf{x}_i$, such that $\beta_i \geq 0$:s
+\begin{equation} 
+ y_i \left(\Theta^T \mathbf{x}_i + \Theta_0\right) \geq 1 - \beta_i
+\end{equation}
 
-The optimization problem does not depend on $\mathbf{x}$, but on $\mathbf{x}^T\mathbf{x}$. This allows the use of \emph{kernel trick} and implicitly enables nonlinear transform of the feature space at little additional cost. Usually, non-linear decision boundary can be achieved by nonlinear transform of features:
+For points lying on the other side of the margin, $\beta$ will be positive, whereas for the points on the margin or on the correct side of it, it will be zero. This is the ground assumption for \emph{soft margin SVM}. The new optimization problem states:
+ \begin{equation} 
+\max \frac{1}{2} \vert \Theta \vert ^2 + \gamma \sum_{i=1}^n \beta_i \,\,\,\,\, s.t. \,\,\, \left\{\begin{array}{lr} y_i \left(\Theta^T \mathbf{x}_i + \Theta_0\right) \geq 1 - \beta_i \\
+\beta_i \geq 0  \end{array}\right.
+\end{equation}
+The term $\gamma \sum_{i=1}^n \beta_i$ is introduced to minimize this effect, whereas $\gamma$ is the constant of penalization. The procedure of solving the problem is the same as in hard margin SVM, using the Lagrangian method:
+\begin{equation} 
+L(\Theta, \Theta_0, \beta_i, \alpha_i, \lambda_i) = \frac{1}{2} \vert \Theta \vert ^2 + \gamma \sum_{i=1}^n \beta_i - \sum_{i=1}^n \alpha_i \left[y_i \left(\Theta^T \mathbf{x}_i + \Theta_0\right) - 1 + \gamma \beta_i \right] - \sum_{i=1}^n \lambda_i \beta_i
+\end{equation}
+\begin{equation}
+\frac{\partial L}{\partial \Theta} = \Theta - \sum_{i=1}^n \alpha_i y_i \mathbf{x}_i = 0 \,\,\,\, \Rightarrow \,\,\,\, \Theta = \sum_{i=1}^n \alpha_i y_i \mathbf{x}_i
+\end{equation}
+\begin{equation}
+\frac{\partial L}{\partial \Theta_0} = \sum_{i=1}^n \alpha_i y_i = 0
+\end{equation}
+\begin{equation} \label{dual_variable_beta}
+\frac{\partial L}{\partial \beta_i} = \gamma - \alpha_i - \lambda_i = 0
+\end{equation}
+
+By rewriting the optimization problem in terms of dual variable $\alpha$, the same term can be obtained as in eq. \ref{eq:SVM-rewritten}:
+\begin{equation} 
+L(\alpha) = \sum_i \alpha_i - \frac{1}{2} \sum_j \sum_i \alpha_j \alpha_i y_j y_i \mathbf{x}_i^T \mathbf{x}_j
+\end{equation}
+, and the new optimization problem states:
+\begin{equation} 
+\max L(\alpha) \,\,\,\,\, s.t. \,\,\, \left\{\begin{array}{lr} \alpha_i \geq 0 \\
+\lambda_i \geq 0  \end{array}\right.
+\end{equation}
+However, since objective function $L(\alpha)$ does not depend on dual variable $\lambda_i$, the substituation can be made following the expression in eq. \ref{dual_variable_beta} and the new optimization problem states:
+ \begin{equation} 
+\max L(\alpha) \,\,\,\,\, s.t. \,\,\, 0 \leq \alpha_i \leq \gamma.
+\end{equation}
+
+This is the only diference between hard margin SVM and soft margin SVM.
+
+It is important to state that the optimization problem does not depend on $\mathbf{x}$, but on $\mathbf{x}^T\mathbf{x}$. This allows the use of \emph{kernel trick} and implicitly enables nonlinear transform of the feature space at little additional cost. Usually, non-linear decision boundary can be achieved by nonlinear transform of features:
 \begin{equation} 
 \mathbf{x} \rightarrow \Phi(\mathbf{x})
 \end{equation}

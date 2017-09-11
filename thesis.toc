@@ -1,0 +1,14 @@
+\select@language {english}
+\contentsline {chapter}{Abstract}{i}{section*.1}
+\contentsline {chapter}{List of Tables}{v}{section*.3}
+\contentsline {chapter}{List of Figures}{vii}{section*.5}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Muscle physiology}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Muscle activation}{3}{section.1.2}
+\contentsline {section}{\numberline {1.3}Muscle fatigue}{4}{section.1.3}
+\contentsline {section}{\numberline {1.4}Surface electromyography}{4}{section.1.4}
+\contentsline {section}{\numberline {1.5}Task identification}{6}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1}Pattern recognition}{8}{subsection.1.5.1}
+\contentsline {subsubsection}{Linear Discriminant Analysis}{9}{section*.13}
+\contentsline {subsubsection}{Support Vector Machine}{12}{section*.14}
+\contentsline {chapter}{Bibliography}{24}{section*.15}

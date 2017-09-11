@@ -1,4 +1,4 @@
-\begin{thebibliography}{82}
+\begin{thebibliography}{101}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -22,6 +22,11 @@ Boschmann, A. and Platzner, M.
 \newblock \emph{2013 ISSNIP Biosignals and Biorobotics Conference (BRC)}, pages
   1--5, 2013.
 
+\bibitem[Boyd and Vandenberghe(2004)]{Boyd2004}
+Boyd, S. and Vandenberghe, L.
+\newblock \emph{{Convex optimization}}.
+\newblock Cambridge University Press, 2004.
+
 \bibitem[Cacoullos(1966)]{Cacoullos1966}
 Cacoullos, T.
 \newblock {Estimation of a multivariate density}.
@@ -34,6 +39,13 @@ Celadon, N., Do{\v{s}}en, S., Binder, I., Ariano, P., and Farina, D.
 \newblock {Proportional estimation of finger movements from high-density
   surface electromyography}.
 \newblock \emph{Journal of NeuroEngineering and Rehabilitation}, 2016.
+
+\bibitem[Clancy et~al.(2002)Clancy, Morin, and Merletti]{Clancy2002a}
+Clancy, E., Morin, E.~L., and Merletti, R.
+\newblock {Sampling, noise-reduction and amplitude estimation issues in surface
+  electromyography}.
+\newblock \emph{Journal of Electromyography and Kinesiology}, 12\penalty0
+  (1):\penalty0 1--16, 2002.
 
 \bibitem[Comaniciu and Meer(2002)]{Comaniciu2002}
 Comaniciu, D. and Meer, P.
@@ -69,6 +81,19 @@ Du, Y., Jin, W., Wei, W., Hu, Y., and Geng, W.
   Domain Adaptation}.
 \newblock \emph{Sensors}, 17\penalty0 (3):\penalty0 458, 2017.
 
+\bibitem[Duchateau and Enoka(2011)]{Duchateau2011}
+Duchateau, J. and Enoka, R.~M.
+\newblock {Human motor unit recordings: Origins and insight into the integrated
+  motor system}.
+\newblock \emph{Brain Research}, 1409:\penalty0 42--61, 2011.
+
+\bibitem[Englehart and Hudgins(2003)]{Englehart2003}
+Englehart, K. and Hudgins, B.
+\newblock {A robust, real-time control scheme for multifunction myoelectric
+  control.}
+\newblock \emph{IEEE Transactions on Biomedical Engineering}, 50\penalty0
+  (7):\penalty0 848--854, 2003.
+
 \bibitem[Farina et~al.(2001)Farina, Colombo, Merletti, and Olsen]{Farina2001}
 Farina, D., Colombo, R., Merletti, R., and Olsen, H.~B.
 \newblock {Evaluation of intra-muscular EMG signal decomposition algorithms.}
@@ -89,7 +114,30 @@ Farina, D., Jiang, N., Rehbaum, H., Holobar, A., Graimann, B., Dietl, H., and
 \newblock {The extraction of neural information from the surface EMG for the
   control of upper-limb prostheses: emerging avenues and challenges.}
 \newblock \emph{IEEE Transactions on Neural Systems and Rehabilitation
-  Engineering}, 22\penalty0 (4):\penalty0 797--809, jul 2014.
+  Engineering}, 22\penalty0 (4):\penalty0 797--809, 2014.
+
+\bibitem[Fougner et~al.(2011)Fougner, Scheme, Chan, Englehart, and
+  Stavdahl]{Fougner2011}
+Fougner, A., Scheme, E., Chan, A. D.~C., Englehart, K., and Stavdahl, {\O}.
+\newblock {Resolving the Limb Position Effect in Myoelectric Pattern
+  Recognition}.
+\newblock \emph{IEEE Transactions on Neural Systems and Rehabilitation
+  Engineering}, 19\penalty0 (6):\penalty0 644--651, 2011.
+
+\bibitem[Fougner et~al.(2012)Fougner, Stavdahl, Kyberd, Losier, and
+  Parker]{Fougner2012}
+Fougner, A., Stavdahl, O., Kyberd, P.~J., Losier, Y.~G., and Parker, P.~a.
+\newblock {Control of upper limb prostheses: Terminology and proportional
+  myoelectric control - A review}.
+\newblock \emph{IEEE Transactions on Neural Systems and Rehabilitation
+  Engineering}, 20\penalty0 (5):\penalty0 663--677, 2012.
+
+\bibitem[Freund et~al.(1975)Freund, B{\"{u}}dingen, and Dietz]{Freund1975}
+Freund, H.~J., B{\"{u}}dingen, H.~J., and Dietz, V.
+\newblock {Activity of Single Motor Units from Human Forearm Muscles during
+  Voluntary Isometric Contractions.}
+\newblock \emph{Journal of Neurophysiology}, 38\penalty0 (4):\penalty0 933--46,
+  jul 1975.
 
 \bibitem[Fukunaga and Hostetler(1975)]{Fukunaga1975}
 Fukunaga, K. and Hostetler, L.
@@ -143,6 +191,13 @@ Hakonen, M., Piitulainen, H., and Visala, A.
 \newblock \emph{Biomedical Signal Processing and Control}, 18:\penalty0
   334--359, 2015.
 
+\bibitem[Hargrove et~al.(2008)Hargrove, Englehart, and Hudgins]{Hargrove2008}
+Hargrove, L., Englehart, K., and Hudgins, B.
+\newblock {A training strategy to reduce classification degradation due to
+  electrode displacements in pattern recognition based myoelectric control}.
+\newblock \emph{Biomedical Signal Processing and Control}, 3\penalty0
+  (2):\penalty0 175--180, 2008.
+
 \bibitem[Hargrove et~al.(2009)Hargrove, Li, Englehart, and
   Hudgins]{Hargrove2009}
 Hargrove, L., Li, G., Englehart, K., and Hudgins, B.
@@ -164,6 +219,17 @@ He, J., Zhang, D., Sheng, X., Li, S., and Zhu, X.
   myoelectric control based on muscle coordination}.
 \newblock \emph{IEEE Journal of Biomedical and Health Informatics}, 19\penalty0
   (3):\penalty0 874--882, 2015.
+
+\bibitem[Henneberg(1999)]{Henneberg1999}
+Henneberg, K.
+\newblock {Principles of Electromyography}.
+\newblock In Bronzino, J., editor, \emph{The Biomedical Engineering Handbook}.
+  CRC Press, Boca Raton, second edition, 1999.
+
+\bibitem[Henneman et~al.(1965)Henneman, Somjen, and Carpenter]{Henneman1965}
+Henneman, E., Somjen, G., and Carpenter, D.~O.
+\newblock {Functional Significance of Cell Size in Spinal Motoneurons}.
+\newblock \emph{Journal of Neurophysiology}, 28\penalty0 (3), 1965.
 
 \bibitem[Hennig et~al.(2015)Hennig, Meila, Murtagh, and Rocci]{Hennig2015}
 Hennig, C., Meila, M., Murtagh, F., and Rocci, R.
@@ -213,6 +279,13 @@ Huang, Y., Englehart, K.~B., Hudgins, B., and Chan, A. D.~C.
   control of powered upper limb prostheses}.
 \newblock \emph{IEEE Transactions on Biomedical Engineering}, 52\penalty0
   (11):\penalty0 1801--1811, 2005.
+
+\bibitem[Jiang et~al.(2012)Jiang, Dosen, Muller, and Farina]{Jiang2012}
+Jiang, N., Dosen, S., Muller, K.-R., and Farina, D.
+\newblock {Myoelectric Control of Artificial Limbs—Is There a Need to Change
+  Focus? [In the Spotlight]}.
+\newblock \emph{IEEE Signal Processing Magazine}, 29\penalty0 (5):\penalty0
+  152--150, 2012.
 
 \bibitem[Jordanic et~al.(2016)Jordanic, Rojas-Mart{\'{i}}nez, Ma{\~{n}}anas,
   and Alonso]{Jordanic2016a}
@@ -269,6 +342,12 @@ Li, Z., Wang, B., Yang, C., Xie, Q., and Su, C.~Y.
   enhancement}.
 \newblock \emph{IEEE Journal of Biomedical and Health Informatics}, 2013.
 
+\bibitem[Liddell and Sherrington(1925)]{Liddell1925}
+Liddell, E. G.~T. and Sherrington, C.~S.
+\newblock {Recruitment and some other Features of Reflex Inhibition}.
+\newblock \emph{Proceedings of the Royal Society of London B: Biological
+  Sciences}, 97\penalty0 (686):\penalty0 488--518, 1925.
+
 \bibitem[Liu and Zhou(2013)]{Liu2013}
 Liu, J. and Zhou, P.
 \newblock {A novel myoelectric pattern recognition strategy for hand function
@@ -319,11 +398,23 @@ Marchal-Crespo, L. and Reinkensmeyer, D.~J.
 \newblock \emph{Journal of Neuroengineering and Rehabilitation}, 6:\penalty0
   20, 2009.
 
+\bibitem[Merletti and Farina(2016)]{Merletti-Farina-book}
+Merletti, R. and Farina, D.
+\newblock \emph{{Surface Electromyography: Physiology, Engineering, and
+  Applications}}.
+\newblock Wiley-IEEE Press, Hoboken, New Jersey (USA), 2016.
+
 \bibitem[Merletti and Hermens(2004)]{Merletti2004}
 Merletti, R. and Hermens, H.
 \newblock {Detection and Conditioning of the surface EMG signal}.
 \newblock In \emph{Electromyography: Physiology, Engineering, and Noninvasive
   Applications}, chapter~5, pages 115--120. Wiley, New Jersey, USA, 2004.
+
+\bibitem[Merletti and Parker(2004)]{Merletti-book}
+Merletti, R. and Parker, P.
+\newblock \emph{{Electromyography : physiology, engineering, and noninvasive
+  applications}}.
+\newblock Wiley-IEEE Press, 2004.
 
 \bibitem[Merletti et~al.(2009)Merletti, Botter, Troiano, Merlo, and
   Minetto]{Merletti2009}
@@ -332,6 +423,15 @@ Merletti, R., Botter, A., Troiano, A., Merlo, E., and Minetto, M.~A.
   surface electromyographic signal: State of the art}.
 \newblock \emph{Clinical Biomechanics}, 24\penalty0 (2):\penalty0 122--134,
   2009.
+
+\bibitem[Merletti et~al.(2010)Merletti, Aventaggiato, Botter, Holobar, Marateb,
+  and Vieira]{Merletti2010}
+Merletti, R., Aventaggiato, M., Botter, A., Holobar, A., Marateb, H., and
+  Vieira, T. M.~M.
+\newblock {Advances in surface EMG: recent progress in detection and processing
+  techniques.}
+\newblock \emph{Critical Reviews in Biomedical Engineering}, 38\penalty0
+  (4):\penalty0 305--45, 2010.
 
 \bibitem[Mohebian et~al.(2017)Mohebian, Marateb, Mansourian, Ma{\~{n}}anas, and
   Mokarian]{Mohebian2017}
@@ -454,6 +554,24 @@ Sensinger, J., Lock, B., and Kuiken, T.
 \newblock \emph{IEEE Transactions on Neural Systems and Rehabilitation
   Engineering}, 17\penalty0 (3):\penalty0 270--278, 2009.
 
+\bibitem[Sherrington(1925)]{Sherrington1925}
+Sherrington, C.~S.
+\newblock {Remarks on some Aspects of Reflex Inhibition}.
+\newblock \emph{Proceedings of the Royal Society of London B: Biological
+  Sciences}, 97\penalty0 (686):\penalty0 519--545, 1925.
+
+\bibitem[Simon et~al.(2011)Simon, Hargrove, Lock, and Kuiken]{Simon2011}
+Simon, A.~M., Hargrove, L.~J., Lock, B.~a., and Kuiken, T.~a.
+\newblock {A decision-based velocity ramp for minimizing the effect of
+  misclassifications during real-time pattern recognition control}.
+\newblock \emph{IEEE Transactions on Biomedical Engineering}, 58\penalty0
+  (8):\penalty0 2360--2368, 2011.
+
+\bibitem[Squire(1986)]{Squire1986}
+Squire, J.
+\newblock \emph{{Muscle: design, diversity, and disease}}.
+\newblock Benjamin/Cummnigs, Menlo Park, CA, USA, 1986.
+
 \bibitem[Stango et~al.(2015)Stango, Negro, and Farina]{Stango2015}
 Stango, A., Negro, F., and Farina, D.
 \newblock {Spatial Correlation of High Density EMG Signals Provides Features
@@ -552,6 +670,13 @@ Wan, B., Xu, L., Ren, Y., Wang, L., Qiu, S., Liu, X., Liu, X., Qi, H., Ming,
 Wang, Y., Li, J., and Li, Y.
 \newblock {Measure for data partitioning in m x 2 cross-validation}.
 \newblock \emph{Pattern Recognition Letters}, 65:\penalty0 211--217, 2015.
+
+\bibitem[Young et~al.(2011)Young, Hargrove, and Kuiken]{Young2011}
+Young, A.~J., Hargrove, L.~J., and Kuiken, T.~A.
+\newblock {The Effects of Electrode Size and Orientation on the Sensitivity of
+  Myoelectric Pattern Recognition Systems to Electrode Shift}.
+\newblock \emph{IEEE Transactions on Biomedical Engineering}, 58\penalty0
+  (9):\penalty0 2537--2544, 2011.
 
 \bibitem[Young et~al.(2012)Young, Hargrove, and Kuiken]{Young2012}
 Young, A.~J., Hargrove, L.~J., and Kuiken, T.~a.

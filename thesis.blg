@@ -1,0 +1,55 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: thesis.aux
+The style file: abbrvnatnourl.bst
+Database file #1: biblio/thesis.bib
+Warning--I didn't find a database entry for "Englehart2013"
+Warning--I didn't find a database entry for "RojasMartinez2012"
+Warning--I didn't find a database entry for "Parker2206"
+Warning--I didn't find a database entry for "Broccard2014"
+Warning--I didn't find a database entry for "Sokolova2009"
+Warning--to sort, need author or key in matlab
+Warning--empty year in matlab
+Warning--empty year in Young-SCI
+You've used 101 entries,
+            2757 wiz_defined-function locations,
+            1367 strings with 28685 characters,
+and the built_in function-call counts, 52952 in all, are:
+= -- 4616
+> -- 3643
+< -- 37
++ -- 1221
+- -- 1120
+* -- 4796
+:= -- 8215
+add.period$ -- 303
+call.type$ -- 101
+change.case$ -- 670
+chr.to.int$ -- 101
+cite$ -- 206
+duplicate$ -- 2135
+empty$ -- 3970
+format.name$ -- 1264
+if$ -- 10867
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 107
+newline$ -- 510
+num.names$ -- 402
+pop$ -- 1238
+preamble$ -- 1
+purify$ -- 575
+quote$ -- 0
+skip$ -- 1679
+stack$ -- 0
+substring$ -- 2166
+swap$ -- 155
+text.length$ -- 6
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 1071
+warning$ -- 3
+while$ -- 463
+width$ -- 0
+write$ -- 1309
+(There were 8 warnings)

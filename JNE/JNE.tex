@@ -207,62 +207,62 @@ Biceps         & Triceps         & Brachioradialis  & Anconeus        & Pronator
 \subsection{Identification of Tasks}
 Firstly, the influence of the effort level in the task identification was evaluated. The performance is shown in Figures \ref{fig:2-5} to \ref{fig:2-8} using the LDA classifier while both training and validation sets were composed of recordings at a specific effort level (10\%, 30\%, or 50\% MVC). The task identification improved considerably when adding CG to the intensity features for the classification in both groups: all patients (Figure \ref{fig:2-5} with respect to Figure \ref{fig:2-7}) and patients with C4 level of injury (Figure \ref{fig:2-6} with respect to Figure \ref{fig:2-8}). In addition, when comparing between the two groups, the identification performance was better in the latter (Figures \ref{fig:2-5} and \ref{fig:2-7} compared to Figures \ref{fig:2-6} and \ref{fig:2-8}, respectively). These improvements were observed at all the effort levels. However, when comparing between effort levels, the performance indices (especially sensitivity and precision) were lower at 10\% MVC than at 30\% or 50\% MVC, particularly when combining intensity with spatial features (Figures \ref{fig:2-7} and \ref{fig:2-8}). This points out to a lower reliability when identifying tasks at very low levels of contraction. 
 
-\begin{figure}
-%
-\centering
-\begin{subfigure}
-\includegraphics[width=0.45\textwidth]{Images/figure2_5.png}
-\caption{LDA classification within a group of all patients using intensity features.}
-\label{fig:2-5}
-\end{subfigure}
-%
-\begin{subfigure}
-\includegraphics[width=0.45\textwidth]{Images/figure2_6.png}
-\caption{LDA classification within a group of C4 patients using intensity features}
-\label{fig:2-6}
-\end{subfigure}
-%
-\begin{subfigure}
-\includegraphics[width=0.45\textwidth]{Images/figure2_7.png}
-\caption{LDA classification within a group of all patients using intensity and spatial features}
-\label{fig:2-7}
-\end{subfigure}
-%
-\begin{subfigure}
-\includegraphics[width=0.45\textwidth]{Images/figure2_8.png}
-\caption{LDA classification within a group of C4 patients using intensity and spatial features}
-\label{fig:2-8}
-\end{subfigure}
-%
-\end{figure}
-
-%\begin{figure}[ht]
+%\begin{figure}
+%%
 %\centering
+%\begin{subfigure}
 %\includegraphics[width=0.45\textwidth]{Images/figure2_5.png}
 %\caption{LDA classification within a group of all patients using intensity features.}
 %\label{fig:2-5}
-%\end{figure}      
-
-%\begin{figure}[ht]
-%\centering
+%\end{subfigure}
+%%
+%\begin{subfigure}
 %\includegraphics[width=0.45\textwidth]{Images/figure2_6.png}
 %\caption{LDA classification within a group of C4 patients using intensity features}
 %\label{fig:2-6}
-%\end{figure}      
-
-%\begin{figure}[ht]
-%\centering
+%\end{subfigure}
+%%
+%\begin{subfigure}
 %\includegraphics[width=0.45\textwidth]{Images/figure2_7.png}
 %\caption{LDA classification within a group of all patients using intensity and spatial features}
 %\label{fig:2-7}
-%\end{figure}      
-
-%\begin{figure}[ht]
-%\centering
+%\end{subfigure}
+%%
+%\begin{subfigure}
 %\includegraphics[width=0.45\textwidth]{Images/figure2_8.png}
 %\caption{LDA classification within a group of C4 patients using intensity and spatial features}
 %\label{fig:2-8}
-%\end{figure}     
+%\end{subfigure}
+%%
+%\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.45\textwidth]{Images/figure2_5.png}
+\caption{LDA classification within a group of all patients using intensity features.}
+\label{fig:2-5}
+\end{figure}      
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.45\textwidth]{Images/figure2_6.png}
+\caption{LDA classification within a group of C4 patients using intensity features}
+\label{fig:2-6}
+\end{figure}      
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.45\textwidth]{Images/figure2_7.png}
+\caption{LDA classification within a group of all patients using intensity and spatial features}
+\label{fig:2-7}
+\end{figure}      
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.45\textwidth]{Images/figure2_8.png}
+\caption{LDA classification within a group of C4 patients using intensity and spatial features}
+\label{fig:2-8}
+\end{figure}     
 
 Secondly, the task identification (flexion, extension, supination and extension) based on different sets of features was performed on the pooled data of all three effort levels, using the LDA (Table \ref{tb:2-3}) and the SVM (Table \ref{tb:2-4}) classifiers. It is shown again that the results for task identification when using the LDA classifier are higher for the group of patients with a C4 level of injury than for the group of patients with all levels of injury. Although this could be noticed from the performance indices when only the intensity features were used ($\Delta Acc= 4.1\%$; $\Delta S= 8.2\%$; $\Delta P= 7.8\%$; $\Delta SP= 2.7\%$), it was more pronounced when spatial features were added to the identification, especially regarding sensitivity and precision ($\Delta Acc= 7.6\%$; $\Delta S= 15.2\%$; $\Delta P= 15.2\%$; $\Delta SP= 5.1\%$). The observed differences between groups could be explained by a lower relative standard deviation between activation maps of patients with C4 level of injury than between maps of all patients). These differences between groups in the automatic identification were removed when using a non-linear classifier, that is, a radial kernel SVM, whose separation power is greater than the higher dispersion of activation maps when the complete group was considered.
 

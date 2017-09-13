@@ -3,13 +3,13 @@
 \addcontentsline{toc}{chapter}{Appendix: Pattern recognition}
 
 \begin{appendix}
-
+\chapter{Pattern recognition}
 Pattern recognition is a classification technique and the principle by which it is performed is learned independently from the data, i.e., training set. There are two main types of pattern recognition: supervised and unsupervised. Supervised pattern recognition implies that the classes of the training set are known and are used to obtain the model. New inputs are identified as one of the predetermined classes. On the other hand, unsupervised pattern recognition is used when no labels are available and samples are assigned to unknown classes. This technique is more appropriate for the clustering problem because the classes are determined automatically by the system, whereas supervised approach is more appropriate for the classification because classes are defined by the system designer, and, therefore, it is usually used in task identification based on EMG.
 
-In statistical pattern recognition, each sample is composed of $m$ measures that form the pattern, i.e., features $(x_0, x_1, \dots, x_{m-1})$. The objective of the algorithm is to obtain a decision rule, i.e., the decision boundary which separates well samples of different classes. There are many \emph{state-of-the-art} classifiers that use various principles to construct these boundaries. However, many researchers agree that the fidelity of the classification in EMG applications depends mostly on selection of features. In other words, with appropriate selection of features, all classifiers will give similar classification result. A short introduction is provided on the two methods used in the thesis: Linear Discriminant Analysis and Support Vector Machine.
+In statistical pattern recognition, each sample is composed of $m$ measures that form the pattern, i.e., features $(x_0, x_1, \dots, x_{m-1})$. The objective of the algorithm is to obtain a decision rule, i.e., the decision boundary which separates well samples of different classes. There are many \emph{state-of-the-art} classifiers that use various principles to construct these boundaries. However, many researchers agree that the fidelity of the classification in EMG applications depends mostly on selection of features \citep{Hakonen2015}. In other words, with appropriate selection of features, all classifiers will give similar classification result. A short introduction is provided on the two methods used in the thesis: Linear Discriminant Analysis and Support Vector Machine. Although the SVM is superior in classification performance, the LDA is commonly used in myocontrol applications because of its simplicity and performance in real-time. However, with the increasing computational power of new computer generations, SVM could become more common in these applications. 
 
 
-\subsubsection{Linear Discriminant Analysis}
+\section{Linear Discriminant Analysis}
 
 \begin{myquote}
 \begin{flushright}
@@ -122,7 +122,7 @@ h(\mathbf{x}) = \argmax_k p_k(\mathbf{x})
 \end{equation}
 
 
-\subsubsection{Support Vector Machine}
+\section{Support Vector Machine}
 
 \begin{myquote}
 \begin{flushright}

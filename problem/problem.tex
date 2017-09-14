@@ -1,17 +1,33 @@
 \chapter{Problem statement}
-	\section{Introduction}
-    
- Voluntary movements are achieved by the contraction of skeletal muscles controlled by the Central and Peripheral Nervous system. The contraction is initiated by the release of a neurotransmitter that promotes a reaction in the walls of the muscular fiber, producing a biopotential known as Motor Unit Action Potential (MUAP) that travels from the neuromuscular junction to the tendons. The surface electromyographic signal records the continuous activation of such potentials over the surface of the skin and constitutes a valuable tool for the diagnosis, monitoring and clinical research of muscular disorders. Moreover, the use of electrode arrays facilitate the investigation of the peripheral properties of the active Motor Units such as: conduction velocity and fatigue \citep{Soares2015}; anatomical characteristics in terms of location of the innervation zones \citep{Beck2012}, the spatial composition of the muscle, that is, muscle compartmentalization \citep{Vieira2010}; and change in spatial distribution of MUAPs with exercise and pain \citep{Madeleine2006}. This last property of the muscles has proven to be very useful to infer motion intention not only regarding the direction of the movement but also its power \citep{Rojas-Martinez2013}.
-    
-    \section{Task identification}
 
-Something on task identification Problems 
+Extraction of information on motor task intention can be used in many different application from assistive devices, prosthetics, and rehabilitation robots to leisure and gaming equipment. This information can be extracted at any point of the system for motor control. The central nervous system is organized in multiple levels, from simple connections between cells to coordinated cell populations, building a complex architecture of interconnected brain regions, including the centers for motor control. All this brain activity is summed together and its electromagnetic field can be measured on the scalp surface (EEG). In that case, the system is brain-computer interface (BCI). Although this approach is being extensively researched and the possibilities and achievements are rising rapidly, it is not an easy task. The problem is that activity of entire brain is superimposed to the motor control activity.
+On the other hand, EMG is electrical activity of many muscle units that carry similar information. The ration of power of useful signal, compared to interference of other sources is much higher in EMG recordings. Moreover, by recording myoelectrical activity over muscle surface with high spatial sampling (HD-EMG), even higher SNR can be achieved and more information can be extracted. Therefore, this Doctoral Thesis investigates the possibilities of extraction of motor control information from multichannel sEMG during voluntary contractions.
+
+    
+    
+    \section{Task identification using HD-EMG}
+    
+    Voluntary movements are achieved by the contraction of skeletal muscles controlled by the Central and Peripheral Nervous system. The contraction is initiated by the release of a neurotransmitter that promotes a reaction in the walls of the muscular fiber, producing a biopotential known as Motor Unit Action Potential (MUAP) that travels from the neuromuscular junction to the tendons. The surface electromyographic signal records the continuous activation of such potentials over the surface of the skin and constitutes a valuable tool for the diagnosis, monitoring and clinical research of muscular disorders. Moreover, the use of electrode arrays facilitate the investigation of the peripheral properties of the active Motor Units such as: conduction velocity and fatigue \citep{Soares2015}; anatomical characteristics in terms of location of the innervation zones \citep{Beck2012}, the spatial composition of the muscle, that is, muscle compartmentalization \citep{Vieira2010}; and change in spatial distribution of MUAPs with exercise and pain \citep{Madeleine2006}. This last property of the muscles has proven to be very useful to infer motion intention not only regarding the direction of the movement but also its power \citep{Rojas-Martinez2013}.
+    
+    HD-EMG enables measuring of valuable information about muscle unit recruitment: muscle fiber conduction velocity, location of the innervation zones, estimation of muscle fatigue, and estimation of number, type and the spatial distribution of muscle fibers \citep{Marateb2016}. The advantages of the HD-EMG lie in the large amount of recorded information, which enables minimizing the effect of electrodes shift and allows choosing an appropriate subset of channels for further analysis.
+    
+    
+Task identification using pattern recognition is classification of recorded EMG signal segments into one of predefined classes based on the characteristics of the recorded EMG signal. These extracted features should ideally form a repeatable and distinct pattern for each class, but different between classes.  The main drawback of this method is that only one movement can be activated at the time. Any task that requires more than one DoF must be performed sequentially. However, several authors recently proposed solutions which enable simultaneous control \citep{Young2013, Kamavuako2013, Baker2010}. A variety of classifiers (e.g. hidden Markov model, support vector machine, artificial neural network, fuzzy logic and linear discriminant analysis) \citep{Oskoei2007} has been used in myocontrol research. Nevertheless, multiple authors agree that the identification does not significantly depend on the classifier type \citep{Hargrove2007, Zhang2012, Hakonen2015}. Therefore, simple and easy to train classifiers like linear discriminant analysis are preferred \citep{Li2010, Englehart1999, Tkach2010, Li2014, Hakonen2015}. On the other hand, finding an appropriate set of features is challenging \citep{Englehart1999, Tkach2010, Liu2013}.
+
+In this work, linear discriminant analysis and support vector machine will be used as pattern recognition classifiers. LDA is a computationally simple and efficient classifier with linear decision boundary and it is based on the Bayesian equation. It is a \emph{parametric classifier}, i.e., it estimates statistical probability of classes by estimating the probability density function of each class from the available data, which is not a simple task and can often be erroneous. On the other hand, SVM is nowadays known as a very powerful classifier with a lot of different applications. The big advantage over LDA is the fact that it is a \emph{non-parametric} classifier. The model is not obtained using assumptions of the form of the class density function and estimation of it's parameters, which is inevitably erroneous. Instead, SVM forms the decision boundary using the samples (not their density estimates) by maximizing the distance between samples and the boundary. This was the idea Vladimir Vapnik, the inventor of this method stood for. It is better to try to solve the problem directly and simply, without many intermediate steps that can often be complicated and inaccurate. Detailed explanation of the classifiers is provided in the appendix A.
+
+Challenges in pattern recognition are electrode shift \citep{Hargrove2008, Young2011}, change in arm posture \citep{Fougner2011}, slow time dependent changes \citep{Farina2014} such as fatigue \citep{Tkach2010}, and change in electrode-skin impedance \citep{Clancy2002a}.
+
+Methods  were applied to control subjects as well as to patients with incomplete spinal cord injury with reduced mobility of the upper-limb.
 
      \section{Objectives}
      
      	\subsection*{Main objective}
-        %metodos para la reducción de ruiod
-This doctoral thesis addresses the problem of extraction of information from muscular patterns obtained from multichannel surface electromyography and associated with different movement directions. The aim of the thesis is to analyze the muscular pattern of upper-limb muscles during isomeric contractions and its relationship to neuromuscular disorders, particularly to incomplete spinal cord injury. This information can be useful for the identification of motion intention, i.e. identification of intended motor task and force based on EMG.
+
+This Doctoral Thesis addresses the problem of extraction of information from muscular patterns obtained from multichannel surface electromyography and associated with different motor tasks. The aim of the thesis is to analyze the muscular pattern of upper-limb muscles during isomeric contractions and its relationship to neuromuscular disorders, particularly to incomplete spinal cord injury. This information can be useful for the identification of motion intention, i.e. identification of intended motor task and force based on EMG and could provide a control signal to interfaces like exoskeletons or rehabilitation robots, particularly for stroke or other patients with neuromuscular disorders.
+
+
+
 
         
         \subsection*{Specific objectives}
@@ -20,13 +36,15 @@ To achieve the main objective, this thesis strives for the following specific ob
 
 \begin{enumerate}[I]
 
-\item To develop a pattern recognition-based procedure for identification of task and force of isometric contractions (i.e. extract motor intention). For this assignment, different features and methods for their selection as well as classification techniques will be evaluated and compared in order to choose the best-suited solution. Special attention will be paid to features related to spatial distribution of myoelectric intensity recorded over the surface of the muscle. This is a new and unexplored approach that has proven to have high potential in identification. 
+\item To investigate muscle co-activation patterns extracted from multichannel sEMG in patients with incomplete spinal cord injury during isometric contractions. Repeatability of the patterns will be evaluated for different motor tasks, but also for different effort levels. Patterns in intensity and in spatial domain will be evaluated.
+
+\item To search for the similarity in multichannel EMG activation patterns between patients with incomplete spinal cord injury using pattern recognition
+
+\item To develop a novel pattern recognition-based procedure for identification of task and force of isometric contractions. Special attention will be paid to features related to spatial distribution of myoelectric intensity. 
 
 \item To test stability and robustness of extracted features regarding physiological and non-physiological changes which are consequences of long-term contractions (i.e. myoelectric fatigue and gel drying).
 
-\item To publish the obtained results and conclusions in high-impact journals, as well as in international and national conferences.
-
-Methods  were applied to control subjects as well as to patients with incomplete spinal cord injury with reduced mobility of the upper-limb.
+\item To publish the obtained results and conclusions in high-impact journals and conferences.
 
 \end{enumerate}
 

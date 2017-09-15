@@ -37,9 +37,9 @@ In this work, a method for the identification of different tasks and effort leve
 \clearpage 
 \section{Method}
 
-\subsection*{Measurements}
+\subsection{Measurements}
 
-\subsubsection*{Instrumentation}
+\subsubsection{Instrumentation}
 For the recording of HD-EMG signals, 2-D electrode arrays were fabricated in our laboratory (see Figure \ref{fig:1-1}c). They were designed as silver-plated eyelets (5 mm external diameter), embedded in a hydrophobic fabric in a quadrature grid with 10 mm inter-electrode distance. When positioned and fixed with elastic straps, fabric follows the contour of the muscle enabling a constant electrical contact between subject’s skin and eyelets.
 
 \begin{figure}[ht]
@@ -57,7 +57,7 @@ Monopolar EMG signals were digitized using two amplifiers with synchronized samp
 
 In order to perform isometric contractions at the desired force, a mechanical brace was used and torque transducers (OT Bioelettronica, range 150 Nm, resolution 2.5 mV/V) were placed on each joint to record the exerted torque (Figure \ref{fig:1-1}c). During the measurements, patients were sitting upright in front of the brace with their dominant arm immobilized at the wrist to avoid hand grip. The forearm was in the sagittal plane, halfway between pronation and supination. The elbow was flexed at 45$^{\circ}$ and the shoulder was adducted at 90$^{\circ}$ in the horizontal plane and flexed at 45$^{\circ}$ in the sagittal plane. The exerted force level was displayed online to patients during the exercise for visual feedback.
 
-\subsubsection*{Experimental setup}
+\subsubsection{Experimental setup}
 Nine patients (four male, five female; age: 47 $\pm$ 18 years; body mass index: 28.2 $\pm$ 4.2) diagnosed with iSCI at C4-C6 levels participated in the study. Patients were rated C or D according to the ASIA scale and were injured at least 1 month before the experimental session. The study was conducted in accordance with the Declaration of Helsinki and subsequent amendments concerning research in humans and was approved by the Hospital Ethics Committee and the Local Government. All volunteers gave their written informed consent to participate.
 
 HD-EMG was recorded during four isometric upper-limb tasks, i.e. flexion/extension of the elbow and supination/pronation of the forearm, on five superficial muscles involved by these tasks: Biceps Brachii, Triceps Brachii, Anconeus, Brachioradialis, and Pronator Teres. Prior to positioning of the electrode arrays, skin was cleaned, shaved, and treated with abrasive gel.
@@ -65,7 +65,7 @@ HD-EMG was recorded during four isometric upper-limb tasks, i.e. flexion/extensi
 Three electrode arrays were used during the experiment: array A1 was placed over the forearm covering Anconeus, Brachioradialis and Pronator Teres muscles, and arrays A2 and A3 were placed over the upper arm covering Biceps Brachii and Triceps Brachii muscles. Reference electrodes were placed on the clavicle, wrist and shoulder of the active arm. After placing the arrays, each eyelet was filled with 20 $\mu l$ of conductive gel using a gel dispenser (Multipette Plus, Eppendorf, Germany). The experimental setup can be seen in Figure \ref{fig:1-1}.
 
 
-\subsubsection*{HD-EMG recordings}
+\subsubsection{HD-EMG recordings}
 Before signal recording, the maximal voluntary contraction (MVC) was measured for each task as a maximum of three consecutive trials. To prevent fatigue, each trial was followed by a three minute rest \citep{Pizzigalli2014, Holobar2010}. Patients were trained to keep their fingers and wrist relaxed in order to minimize the activity of forearm muscles that do not participate in the intended tasks.
 
 The measurement protocol was composed of two parts. In the first part, contractions at three levels of effort (10\%, 30\% and 50\% MVC) were measured for each task in randomized order. Visual feedback of the level of effort was provided in real time and subjects were asked to maintain the target level as precise as possible. Patients were instructed to remain at rest for three seconds followed by a contraction at a predefined force level for 10 s. There were three-minute breaks between consecutive recordings to prevent cumulative fatigue.
@@ -81,8 +81,8 @@ The recorded signals were divided into three sets for the subsequent analysis: t
 \end{figure}      
 
 
-\subsection*{HD-EMG maps and feature extraction}
-\subsubsection*{HD-EMG maps calculation}
+\subsection{HD-EMG maps and feature extraction}
+\subsubsection{HD-EMG maps calculation}
 Low quality channels, a common issue in HD-EMG measurements, were identified by an expert system proposed by Rojas-Martínez et al. \citep{Rojas-Martinez2012}. The system is based on thresholds associated with the following three features: 1) relative power of low frequency components (from 0 to 12 Hz); 2) relative power of power-line components (50 Hz and first four harmonics); and 3) power calculated from RMS value of the signal. EMG channels without measurement artifacts were zero-phase filtered between 15 Hz and 350 Hz (Butterworth bandpass filter, 4\textsuperscript{th} order), and the first 6 harmonics of power line coupling were suppressed by using the adaptive transversal filter described in [30], whose weights were estimated by a least mean squares algorithm.
 
 HD-EMG maps represent the spatial distribution of intensities of active motor units over the surface of the muscle:
@@ -94,7 +94,7 @@ HM_{i,j} = RMS\left (sEMG_{i,j})\right.
 where $HM$ is an activation map and each pixel in a map $(HM_{i,j})$ corresponds to an RMS value of a channel in an electrode array (position $i,j$). Maps were calculated on non-overlapping time windows of 250 ms to ensure an acceptable response time in applications directed to myoelectric control \citep{Oskoei2007}, and channels previously identified as artifacts were replaced by triangle-based cubic interpolation \citep{Rojas-Martinez2012}.
 
 
-\subsubsection*{Feature extraction}
+\subsubsection{Feature extraction}
 Two types of features related to HD-EMG maps were extracted: intensity and center of gravity. They were used in classification individually or combined in order to compare their performance. Additionally, the intensity of a single differential channel, i.e. traditional bipolar recordings usually employed in pattern recognition as a “gold standard”, was compared to other features. In any case, the feature set was composed of features extracted from all 5 monitored muscles.
 Multiple studies suggest that the relationship between EMG amplitude and generated force is not linear \citep{Staudenmann2010, DeLuca1997}. Accordingly, the intensity features were calculated as a common logarithm of the mean intensity of the HD-EMG maps, which proved to achieve higher classification results than a linear measure \citep{Rojas-Martinez2013}:
 
@@ -126,8 +126,8 @@ Diff = \log_{10} \, \Bigl(RMS \,\bigl(sEMG_{i,j} - sEMG{i+1,j}\bigr)\Bigr)
 where the locations of channels $(i,j)$ and $(i + 1,j)$ are selected following SENIAM recommendations \citep{Hermens1999}. Diff was calculated on the same 250 ms time epoch as the HD-EMG map.
 
 
-\subsection*{Identification of motion intention}
-\subsubsection*{Classification}
+\subsection{Identification of motion intention}
+\subsubsection{Classification}
 Three LDA classifiers based on different feature sets extracted from all five monitored muscles were evaluated in the study:
 \begin{enumerate}
 \item Classifier based on the intensity of the HD-EMG map (I)
@@ -160,7 +160,7 @@ SP = \frac{TN}{TN + FP}
 where true positives ($TP$) is the number of samples correctly appended to a certain class; true negatives ($TN$) is the number of samples that do not belong to a certain class and were not classified to that class; false positives ($FP$) is the number of samples not belonging to a certain class, but wrongly classified into that class; and false negatives ($FN$) is the number of samples belonging to a certain class, but wrongly classified into another class.
 
 
-\subsubsection*{Short-term identification}
+\subsubsection{Short-term identification}
 Classifiers with different sets of features (I, I + CG, and Diff) were tested on the submaximal set. Signals belonging to this set were recorded in a short time interval and, consequently, in the same conditions.
 
 Two types of identification were considered: \textbf{1) Identification of tasks} and \textbf{2) Identification of tasks and effort levels}. Identification of tasks had 4 classes corresponding to the type of the task (flexion, extension, supination, and pronation) and an additional fifth class that corresponds to the rest period – no activity class (NoAct). Observations of no activity were extracted from the first three seconds of each recording, where subjects were asked to maintain at rest. Activity classes consisted of a mixture of all effort levels. On the other hand, identification of tasks and effort levels had 13 classes: 4 tasks with 3 levels of effort for each task (10\% MVC, 30\% MVC and 50\% MVC) and NoAct class.
@@ -168,7 +168,7 @@ Two types of identification were considered: \textbf{1) Identification of tasks}
 Considering that patients were not always able to maintain the target level of contraction given their condition, the torque signal was used to select only time segments where the measured force remained within a threshold of $\pm$5\%, $\pm$10\% and $\pm$10\% MVC for target contractions at 10\%, 30\% and 50\% MVC. From every submaximal contraction 20 non-overlapping, 250 ms time epochs, closest to the target force were selected. This procedure ensured 20 observations for each task with differentiation on the level of effort, or 60 samples for each task, without differentiation on the effort level. Consequently, 60 observations without muscle activity were selected for NoAct class from the beginnings of exercises (rest period).
 
 
-\subsubsection*{Influence of time- progress on identification}
+\subsubsection{Influence of time- progress on identification}
 Wet electrodes with conductive electrolytic gel are commonly used for sEMG recording. However, these electrodes are not good for long-term monitoring \citep{Searle2000}. Gel drying increases skin-electrode impedance, affecting amplitude and spectral content of the recorded signal. Moreover, skin perspiration is enhanced under the electrode array, which also affects the skin-electrode impedance and, consequently, the characteristics of the recorded signal. To compare the performances of the different features, task identification was tested in these conditions.
 
 Classifiers were trained on the submaximal set and validated on the time-effect contractions recorded in the second part of the protocol. As in the previous section, 20 time epochs for each task and level of effort were identified from the submaximal set based on the torque signal. Half the extracted observations of all levels of effort were used for training, following the recommendations of Scheme and Englehart \citep{Scheme2013}, where it was noticed that a mixture of effort levels in the training group yields a more robust classifier. NoAct observations for the training group were extracted from recordings in the first part of the measurement protocol, whereas observations for the validation group were extracted from recordings in the second part of the protocol.
@@ -179,11 +179,11 @@ The classifier was trained and evaluated over 1000 iterations with observations 
 
 
 
-\subsubsection*{Influence of muscle fatigue on identification}
+\subsubsection{Influence of muscle fatigue on identification}
 Muscle fatigue is a slow change that occurs in contracting muscles. It alters the characteristics of recorded sEMG signal (i.e. amplitude and frequency content) \citep{DeLuca1984} and, inherently, alters the extracted classification features \citep{Wan2010}. To test the effect of fatigue on identification, each recording in the endurance set was divided into five equal time segments, i.e. 0–20\% TDC, 20–40\% TDC, 40–60\% TDC, 60–80\% TDC, and 80–100\% TDC. The first segments (0–20\% TDC) were used as a training group and the identification was carried out on all segments. The classification indices (accuracy, sensitivity, precision and specificity) were calculated for each segment in order to monitor performance during fatigue. The number of observations of each class was the same in the training group, as well as in the validation group.
 
 
-\subsubsection*{Statistical methods}
+\subsubsection{Statistical methods}
 A repeated measures analysis of variance (ANOVA) was applied to the different performance indices using each type of task and effort level as measures and features used in the classification as factors. Both, within-subject and between-subject effects were considered in the analysis. In the case of endurance analysis, the repeated measures test was applied to account for differences attributed to the factor time, that is, duration of the contraction. In addition, differences between means were assessed through Student’s t-test for paired samples. Effects and differences were considered significant at $p = 0.05$.
 
 

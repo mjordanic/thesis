@@ -1,4 +1,4 @@
-\chapter[Prediction of isometric motor tasks]{Prediction of isometric motor tasks and effort levels based on high-density EMG in patients with incomplete spinal cord injury}
+\chapter[Myoelectric patterns within the group of patients]{Prediction of isometric motor tasks and effort levels based on high-density EMG in patients with incomplete spinal cord injury}
 \label{ch:p2}
 \textbf{Published as:} 
 Jordanić, M., Roja-Martínez,  Ma\~nanas, M.A., Alonso J.F.
@@ -30,7 +30,7 @@ To our best knowledge, no studies have evaluated group-specific identification o
 
 \section{Methodololgy}
 
-\subsection*{Experimental Protocol}
+\subsection{Experimental protocol}
 
 Nine patients (age: 45 $\pm$ 20 years; body mass index: 27.1 $\pm$ 5.2; five male and four female) participated in the experiment. 
 They were all diagnosed with incomplete spinal cord injury (rated C or D according to ASIA scale) and they were injured at least 1 month before the experiment. There were six patients with injury at C4 vertebra and three patients with injuries at C3, C5 and C6 vertebras. The study was approved by the local ethics committee and all patients gave their written consent.
@@ -54,7 +54,7 @@ At the beginning of the experimental protocol, the maximal voluntary contraction
 Afterwards, submaximal contractions for the four tasks at three different levels of effort (10\% MVC, 30\% MVC and 50\% MVC) were measured. Patients were asked to maintain the target force as precisely as possible for 10 seconds while the exerted level was displayed to them. Recordings were performed in randomized order and between consecutive recordings there were three minute breaks to prevent muscle fatigue.
 
 
-\subsection*{HD-EMG Activation Maps}
+\subsection{HD-EMG activation maps}
 
 In order to increase \emph{signal-to-noise ratio} (SNR), the obtained HD-EMG signals were zero-phase filtered between 15 Hz and 350 Hz using a Butterworth band-pass filter of 4\textsuperscript{th} order. Additionally, the power line interference was suppressed using the adaptive filter described in \citep{Mananas2001}. Channels containing measurement artifacts were identified and removed following the procedure described in \citep{Rojas-Martinez2012}.
 Based on the torque measurements, 20 time epochs of 250 ms were selected for every recording during which patients were able to maintain the torque level within a range of $\pm$5\%, $\pm$7.5\%, and $\pm$10\% MVC for the targets of 10\%, 30\%, and 50\% MVC respectively. On the selected epochs, HD-EMG maps, $HM$, were calculated as:
@@ -75,7 +75,7 @@ Representative activation maps for each patient and recording were obtained by a
 
 
 
-\subsection*{Identification}
+\subsection {Identification}
 
 Two types of classifiers were evaluated: linear discriminant analysis (LDA), and support vector machine (SVM) with a radial kernel. Classification was performed in MATLAB (version 2015a) using the Statistics and Machine Learning Toolbox \citep{matlab}. Although when using LDA it is assumed that the patterns in each class are multivariate normally distributed with different means and identical covariance matrices, it is shown to be robust against deviations from the multivariate normality assumption \citep{Grouven1996}.
 
@@ -133,7 +133,7 @@ To reduce bias, a repeated holdout testing method was performed, i.e. the identi
 
 
 \section{Results}
-\subsection{Activation Maps}
+\subsection{Activation maps}
 Activation maps were calculated and averaged among patients to obtain general activation maps for tasks and levels of effort in order to observe the activation pattern of the muscles.
 
 Table \ref{tb:2-1} presents the relative standard deviation (RSD) between representative activation maps of individual patients. Results are shown for all patients in the database and also only for patients injured at the C4 level. It can be seen that the variability of the group increased notably when patients with injury different to C4 were included. Thus, patients with the C4 level of injury can be considered as a homogenous group.
@@ -204,7 +204,7 @@ Biceps         & Triceps         & Brachioradialis  & Anconeus        & Pronator
 \end{table}
 
 
-\subsection{Identification of Tasks}
+\subsection{Identification of tasks}
 Firstly, the influence of the effort level in the task identification was evaluated. The performance is shown in Figures \ref{fig:2-5} to \ref{fig:2-8} using the LDA classifier while both training and validation sets were composed of recordings at a specific effort level (10\%, 30\%, or 50\% MVC). The task identification improved considerably when adding CG to the intensity features for the classification in both groups: all patients (Figure \ref{fig:2-5} with respect to Figure \ref{fig:2-7}) and patients with C4 level of injury (Figure \ref{fig:2-6} with respect to Figure \ref{fig:2-8}). In addition, when comparing between the two groups, the identification performance was better in the latter (Figures \ref{fig:2-5} and \ref{fig:2-7} compared to Figures \ref{fig:2-6} and \ref{fig:2-8}, respectively). These improvements were observed at all the effort levels. However, when comparing between effort levels, the performance indices (especially sensitivity and precision) were lower at 10\% MVC than at 30\% or 50\% MVC, particularly when combining intensity with spatial features (Figures \ref{fig:2-7} and \ref{fig:2-8}). This points out to a lower reliability when identifying tasks at very low levels of contraction. 
 
 %\begin{figure}
@@ -331,7 +331,7 @@ On the other hand, the performance of both classifiers improved when the center 
 Finally, when comparing the two classifiers, the results showed that the SVM notably outperformed the LDA for both combinations of features ($\Delta Acc= 14.7\%$; $\Delta S= 29.4\%$; $\Delta P= 29.2\%$; $\Delta SP= 9.8\%$ when using only intensity features; and $\Delta Acc= 10.7\%$; $\Delta S= 21.4\%$; $\Delta P= 21.2\%$; $\Delta SP= 7.1\%$ when using the combination of both intensity and center of gravity features).
 
 
-\subsection{Identification of Tasks and Effort Levels}
+\subsection{Identification of tasks and effort levels}
 The performance indices for conjoint identification of the four tasks and the three effort levels using intensity and spatial features are presented in Table \ref{tb:2-5} and Table \ref{tb:2-7} for the LDA and SVM classifiers, respectively. Analogously, the joint identification of the four tasks and low and moderate effort levels are presented in Table \ref{tb:2-6} and Table \ref{tb:2-8} for the LDA and the SVM classifiers, respectively.
 Similarly to the task identification, improvements considering the group of patients with a C4 level of injury with respect to the whole group were found when using the LDA, but not with the SVM classifier ($\Delta Acc= 3.8\%$; $\Delta S= 22.6\%$; $\Delta P= 23.6\%$; $\Delta SP= 2.1\%$ for identification of three levels of effort; $\Delta Acc= 5.8\%$; $\Delta S= 23.1\%$; $\Delta P= 23.4\%$; $\Delta SP= 3.3\%$ for identification of low and moderate effort levels).
 
@@ -429,7 +429,7 @@ Finally, in all cases, the SVM-based identification outperformed the LDA-based b
 The interactions between classifiers, tasks, and effort levels were analyzed using a repeated measures analysis of variance. The post hoc pairwise comparison of means was performed with application of the Bonferroni correction factor. Effects were considered to be significant at p-value $p=0.01$. The interaction between the classifier and the task, as well as the interaction between the classifier and the effort level were both found significant. However, the post hoc pairwise comparison of means showed no significant differences between the identification results across individual tasks for the SVM classifier, whereas the extension and, especially, the pronation had much lower identification indices than the flexion and the supination for the LDA classifier. When considering the influence of the classifier on the identification of effort level, the detection of 10\% MVC had in average the highest performance in both classifiers, but the LDA detected 30\% MVC effort level much worse than the 50\% MVC effort level, whereas there was no significant difference in detection between 30\% MVC and 50\% MVC using the SVM.
 
 
-\subsection{Classification Using Smaller Arrays of Electrodes}
+\subsection{Classification using smaller arrays of electrodes}
 Subsets of electrodes (3$\times$3 electrodes) were considered in the identification of tasks and levels of effort to evaluate the classification performance using a lower number of electrodes at different positions. Four different locations within the area covered by the entire array were selected randomly for each muscle to evaluate the impact of their placement on the identification performance. The identification was carried out following the same procedure as considering the entire array but using only the intensity features, because the spatial information could not be measured using these small arrays. The average results of the identification of tasks can be seen in Table \ref{2-9}, whereas the average results of the identification of tasks and three effort levels can be seen in Table \ref{tb:2-10}.
 
 \begin{table}[]
@@ -455,7 +455,7 @@ AVG C4           & 94.8\% $\pm$ 1.4\% & 89.6\% $\pm$ 3.8\%   & 89.8\% $\pm$ 3.9\
 \begin{table}[]
 \centering
 \caption{Identification of tasks and three effort levels using a subset of electrodes: Classification indices using a 3$\times$3 electrode grid located randomly in each muscle. Results are averaged within the group of all patients (top) and group of patients with C4 level of injury (bottom).}
-\label{2-10}
+\label{tb:2-10}
 \begin{tabular}{lcccc}
  & & & &\\
                  & \multicolumn{4}{c}{\large{\textbf{LDA}}}                                                      \\
@@ -485,7 +485,7 @@ On the other hand, a conjoint identification of tasks and effort levels was desi
 
 HD-EMG activation maps were calculated for all exercises and compared among patients. 
 
-Rojas-Martínez et al. \citep{RojasMartinez2012} calculated the relative standard deviation between maps within a group of healthy subjects (17.4\% in average), reporting an increase in standard deviation between maps with increasing effort levels (12.1\%, 16.6\%, and 23.6\% for 10\%, 30\%, and 50\% MVC, respectively). As expected, the dispersion between maps of iSCI patients was considerably higher (56\% in average), but the variability was similar in the case of patients with iSCI (Table 1). However, when maps were compared among patients with the same level of injury, the standard deviation between maps was greatly reduced (19\% in average). Moreover, the variability was higher for muscles of the upper-arm (biceps and triceps) than for forearm muscles. This reduction could be either due to a distinct activation, specific to the level of injury, or because during the rehabilitation process patients developed similar activation patterns. This is an important finding that has to be taken into account when training a classifier for a group of patients. Muscle activation patterns in patients differed from those of healthy subjects in \citep{Rojas-Martinez2012}: the Biceps Brachii was more active during supination than during flexion; the Pronator Teres was more active during supination and especially during flexion than during pronation. This could be because both muscles are particularly affected by the iSCI at the level of C4 \citep{Young-SCI}.
+Rojas-Martínez et al. calculated the relative standard deviation between maps within a group of healthy subjects (17.4\% in average), reporting an increase in standard deviation between maps with increasing effort levels (12.1\%, 16.6\%, and 23.6\% for 10\%, 30\%, and 50\% MVC, respectively) \citep{Rojas-Martinez2012}. As expected, the dispersion between maps of iSCI patients was considerably higher (56\% in average), but the variability was similar in the case of patients with iSCI (Table 1). However, when maps were compared among patients with the same level of injury, the standard deviation between maps was greatly reduced (19\% in average). Moreover, the variability was higher for muscles of the upper-arm (biceps and triceps) than for forearm muscles. This reduction could be either due to a distinct activation, specific to the level of injury, or because during the rehabilitation process patients developed similar activation patterns. This is an important finding that has to be taken into account when training a classifier for a group of patients. Muscle activation patterns in patients differed from those of healthy subjects in \citep{Rojas-Martinez2012}: the Biceps Brachii was more active during supination than during flexion; the Pronator Teres was more active during supination and especially during flexion than during pronation. This could be because both muscles are particularly affected by the iSCI at the level of C4 \citep{Young-SCI}.
 
 Furthermore, the results using the LDA showed much better identifications within the group of patients with a C4 level of injury than within the group of all patients. These findings could be related to a higher homogeneity among patients with the same level of injury. The combination of intensity and center of gravity performed better than only intensity features. These results showed that similar patterns exist in spite of the diverse nature of their injuries. This correlation exists not only in the average intensity of the HD-EMG activation maps, but also in the spatial distribution of EMG intensity, which justifies the choice of these intensity and spatial features for automatic identification.
 

@@ -133,7 +133,7 @@ h(\mathbf{x}) = \argmax_k p_k(\mathbf{x})
 \end{myquote}
 
 
-Support vector machine is nowadays known as a very powerful classifier with a lot of different applications. The big advantage over LDA is the fact that it is a \emph{non-parametric} classifier. The model is not obtained using assumptions of the form of the class density function and estimation of it's parameters, which is inevitably erroneous. Instead, SVM forms the decision boundary using the samples (not their density estimates) by maximizing the distance between samples and the boundary.
+Support vector machine is nowadays known as a very powerful classifier with a lot of different applications \citep{Cortes1995}. The big advantage over LDA is the fact that it is a \emph{non-parametric} classifier. The model is not obtained using assumptions of the form of the class density function and estimation of it's parameters, which is inevitably erroneous. Instead, SVM forms the decision boundary using the samples (not their density estimates) by maximizing the distance between samples and the boundary.
 This was the idea Vladimir Vapnik, the inventor of this method stood for. It is better to try to solve the problem directly and simply, without many intermediate steps that can be complicated and inaccurate.
 
 %This classification method essentially has a very simple principle, but using several mathematical tricks, it became a very powerful tool. 
@@ -306,7 +306,7 @@ However, since objective function $L(\alpha)$ does not depend on dual variable $
 
 This is the only diference between hard margin SVM and soft margin SVM.
 
-It is important to state that the optimization problem does not depend on $\mathbf{x}$, but on $\mathbf{x}^T\mathbf{x}$. This allows the use of \emph{kernel trick} and implicitly enables nonlinear transform of the feature space at little additional cost. Usually, non-linear decision boundary can be achieved by nonlinear transform of features:
+It is important to state that the optimization problem does not depend on $\mathbf{x}$, but on $\mathbf{x}^T\mathbf{x}$. This allows the use of \emph{kernel trick} and implicitly enables nonlinear transform of the feature space at little additional cost \citep{Hofmann2008}. Usually, non-linear decision boundary can be achieved by nonlinear transform of features:
 \begin{equation} 
 \mathbf{x} \rightarrow \Phi(\mathbf{x})
 \end{equation}
@@ -326,6 +326,6 @@ Most often used kernel is a radial basis kernel ($K_{RBF}(\mathbf{x}_i,\mathbf{x
 K_{RBF}(\mathbf{x}_i,\mathbf{x}_j) = e^\frac{-\parallel \mathbf{x}_i - \mathbf{x}_j\parallel^2}{2\sigma^2}
 \end{equation}
 
-Although SVM is conceptually designed as a two-class classifier, techniques for multiclass classification also exist, e.g. \emph{one-versus-one} or \emph{one-versus-all}.
+Although SVM is conceptually designed as a two-class classifier, techniques for multiclass classification also exist, e.g. \emph{one-versus-one} or \emph{one-versus-all} \citep{Hsu2002}.
 
 \end{appendix}

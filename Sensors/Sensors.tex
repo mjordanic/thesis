@@ -16,7 +16,7 @@ Impact Factor: 2.077; Position: 10 of 58 (Q1) INSTRUMENTS AND INSTRUMENTATION.
 
 \section{Introduction}
 
-Electromyography (EMG) is a technique for recording the electrical activity produced by skeletal muscles. The EMG signal is a summation of action potentials produced by muscle fibers, directly triggered by the action potentials traveling along motor neurons \citep{Farina2010}. Since EMG is an important source of neural information, it has been extensively studied in the field of human-machine interfacing  \citep{Nazmi2016, Hakonen2015}. Applications of EMG include the control of neurorehabilitation devices such as prostheses \citep{Parker2206, Li2010}, rehabilitation robots \citep{Marchal-Crespo2009, Broccard2014}, and identification of muscle anatomical structure \citep{Marateb2016}, but also implementations in leisure activities such as sports \citep{Verikas2016} and computer games \citep{vanDijk2016}.
+Electromyography (EMG) is a technique for recording the electrical activity produced by skeletal muscles. The EMG signal is a summation of action potentials produced by muscle fibers, directly triggered by the action potentials traveling along motor neurons \citep{Farina2010}. Since EMG is an important source of neural information, it has been extensively studied in the field of human-machine interfacing  \citep{Nazmi2016, Hakonen2015}. Applications of EMG include the control of neurorehabilitation devices such as prostheses \citep{Parker2006, Li2010}, rehabilitation robots \citep{Marchal-Crespo2009, Boccard2014}, and identification of muscle anatomical structure \citep{Marateb2016}, but also implementations in leisure activities such as sports \citep{Verikas2016} and computer games \citep{vanDijk2016}.
 
 EMG signals could be recorded either non-invasively (surface EMG, sEMG) or invasively with needle and wire electrodes (intramuscular EMG, iEMG) \citep{Marateb1999}. Although the iEMG has higher signal-to-noise ratio, both approaches provide a similar quality of identification of upper-arm motor task \citep{Hargrove2007}. Moreover, sEMG is preferred as it is recorded non-invasively.
 
@@ -24,11 +24,11 @@ The pattern recognition approach has been recently used in research laboratories
 
 Features can be calculated in time, frequency/scale, and time-frequency/scale domain \citep{Nazmi2016, Hakonen2015, Oskoei2007}. Time domain features are usually used because of their computational simplicity and good performance \citep{Hakonen2015}. Additionally, they can be combined with other features to increase the performance, e.g., autoregressive features \citep{Hargrove2007}.
 
-The influence of the physiological (e.g., muscle fatigue) or non-physiological (electrode-skin impedance) non-stationarity of the EMG features is a big issue in neuromuscular control. As a solution, Vidovic et al. \citep{Vidovic2016} and Hahne et al. \citep{Hahne2015} proposed a real-time retraining of the classifier where the parameters are constantly updated. Liu et al. \citep{Liu2016} proposed a universal LDA classifier which was trained during different days and then combined. Such methods adapt the model to changes in the features, rather than using robust features.
+The influence of the physiological (e.g., muscle fatigue) or non-physiological (electrode-skin impedance) non-stationarity of the EMG features is a big issue in neuromuscular control. As a solution, \citep{Vidovic2016} and \citep{Hahne2015} proposed a real-time retraining of the classifier where the parameters are constantly updated. \citet{Liu2016} proposed a universal LDA classifier which was trained during different days and then combined. Such methods adapt the model to changes in the features, rather than using robust features.
 
-Moreover, the variation of force can affect the identification \citep{Tkach2010}. Scheme and Englehart \citep{Scheme2013} recommended to train the classifier using all effort levels, whereas He et al. \citep{He2015} tackled the problem using a feature set based on the frequency content of the signal and muscle coordination.
+Moreover, the variation of force can affect the identification \citep{Tkach2010}. \citep{Scheme2013} recommended to train the classifier using all effort levels, whereas \citep{He2015} tackled the problem using a feature set based on the frequency content of the signal and muscle coordination.
 
-With the recent introduction of high-density EMG (HD-EMG) \citep{Merletti2009}, i.e., multichannel EMG recorded using 2D grids of closely spaced sEMG electrodes, multiple studies have reported improvement in task identification. Stango et al. reported that spatial features extracted from the HD-EMG are robust to the electrodes shift. Geng et al. \citep{Geng2016} and Du et al. \citep{Du2017} exploited the power of deep convolutional network to design gesture recognition classifier that classifies instantaneous maps, i.e., raw HD-EMG samples. Hahne et al. extracted features using spatial filters optimized to increase separability between different classes \citep{Hahne2012}. This methods exploit the information about spatial muscle activation pattern extracted from the HD-EMG and the fact that the myoelectric activity over different parts of muscle depends on the various factors (e.g., contraction level \citep{Holtermann2005}, duration of the contraction \citep{Tucker2009}, and joint position \citep{Vieira2010}) and can be useful in differentiation between tasks.
+With the recent introduction of high-density EMG (HD-EMG) \citep{Merletti2009}, i.e., multichannel EMG recorded using 2D grids of closely spaced sEMG electrodes, multiple studies have reported improvement in task identification. Stango et al. reported that spatial features extracted from the HD-EMG are robust to the electrodes shift. \citep{Geng2016} and \citep{Du2017} exploited the power of deep convolutional network to design gesture recognition classifier that classifies instantaneous maps, i.e., raw HD-EMG samples. Hahne et al. extracted features using spatial filters optimized to increase separability between different classes \citep{Hahne2012}. This methods exploit the information about spatial muscle activation pattern extracted from the HD-EMG and the fact that the myoelectric activity over different parts of muscle depends on the various factors (e.g., contraction level \citep{Holtermann2005}, duration of the contraction \citep{Tucker2009}, and joint position \citep{Vieira2010}) and can be useful in differentiation between tasks.
 
 In our previous work, we used the center of gravity as a feature to describe spatial patterns in HD-EMG \citep{Jordanic2016a, Jordanic2016b, Rojas-Martinez2013}. In this work, we propose a new spatial feature for task identification based on the modified mean shift algorithm. Novel features were evaluated in the identification of four isometric motor tasks of the upper-limb (flexion/extension, supination/pronation of the forearm) using the LDA classifier. The proposed features were tested in three conditions: when training set and test set were recorded at the same time (time-dependent changes in the signal are minor), when test set was recorded after training set, and during the fatiguing exercise. In addition, features were tested during the identification of task recorded at different effort levels. The proposed features proved to improve the identification and are especially useful in extreme cases like identification of tasks recorded at very low effort level or identification of tasks during fatigue. These results confirm the usefulness of information of spatial distribution of myoelectric intensity over the muscle in discrimination between tasks.
 The rest of the paper is organized as follows: in the next section (section \ref{sc:3-2}), information about the experimental protocol and the task identification method used in this study is presented. Section \ref{sc:3-3} provides the results of the identification using the proposed features and its comparison with the previously established features. The discussion is provided in Section \ref{sc:3-4} and finally, the conclusions are summarized in Section \ref{sc:3-5}.\\
@@ -290,7 +290,7 @@ This study showed that the combination of intensity and spatial information is u
 
 IMS features achieved very good results compared to other feature sets during task identification when the task was performed at very low effort level. Moreover, the Friedman test showed no significant differences in task identification using IMS when tasks were performed at 10\% MVC, 30\% MVC, or 50\% MVC. This can be a very important quality in everyday applications where subject could not need to contract muscles at moderate effort level to complete the task. It can be a step toward more natural control where even slight contractions can be successfully identified. In fact, only activations with low level of intensity are sometimes possible in patients with neuromuscular impairments.
 
-A high identification rate is not the only factor important in the extraction of neural information from sEMG. The system should also be robust to slow time-dependent changes such as fatigue and electrode-skin contact impedance \citep{Farina2014}. Therefore, the robustness of the proposed features was tested with respect to time and fatigue. When evaluating the time effect, no significant differences in performance were found between IMS, ICG, and I feature sets and IMS significantly outperformed TD and Diff features. However, time effect was evaluated only when test set was composed of contractions recorded at 50\% MVC and, as shown in Figure \ref{fig:3-6}, all features perform similarly for the identification of that effort level. This phenomenon was already remarked and described in \citep{Jordanic2016a} where authors noted that adding spatial features to intensity features significantly improved the identification of tasks recorded at low effort levels, whereas improvement is not significant at moderate effort levels. On the other hand, the proposed features are particularly robust in task identification during fatiguing exercises and show significantly higher identification rate when compared to other features. Further improvements in reliability of the identification during the long-term contractions and fatiguing contractions can be achieved by using adaptive identification models that are being constantly updated during the usage (e.g., \citep{Vidovic2016, Hahne2015, Sensinger2009}).
+A high identification rate is not the only factor important in the extraction of neural information from sEMG. The system should also be robust to slow time-dependent changes such as fatigue and electrode-skin contact impedance \citep{Farina2014}. Therefore, the robustness of the proposed features was tested with respect to time and fatigue. When evaluating the time effect, no significant differences in performance were found between IMS, ICG, and I feature sets and IMS significantly outperformed TD and Diff features. However, time effect was evaluated only when test set was composed of contractions recorded at 50\% MVC and, as shown in Figure \ref{fig:3-6}, all features perform similarly for the identification of that effort level. This phenomenon was already remarked and described in \citep{Jordanic2016a} where authors noted that adding spatial features to intensity features significantly improved the identification of tasks recorded at low effort levels, whereas improvement is not significant at moderate effort levels. On the other hand, the proposed features are particularly robust in task identification during fatiguing exercises and show significantly higher identification rate when compared to other features. Further improvements in reliability of the identification during the long-term contractions and fatiguing contractions can be achieved by using adaptive identification models that are being constantly updated during the usage, e.g., \citep{Vidovic2016, Hahne2015, Sensinger2009}.
 
 In the current work, features were extracted from the RMS activation maps of the HD-EMG. Although these features proved to be very effective, by describing the EMG signal with its RMS value, i.e., the estimator of variance, the information is partially lost. Since the gradient of the probability density function of raw EMG is a useful feature in task identification, statistical measures (e.g., modes) of the raw HD-EMG, i.e., joint distribution of instantaneous EMG amplitude over the electrode array, could provide valuable information. Moreover, in literature, features were often calculated for each channel separately and selected using the simple sequential method prior to classification \citep{Hargrove2009, Li2017}. On the other hand, Geng et al. recently proposed a more advanced channel selection method based on common spatial patterns \citep{Geng2014}. Modes of the HD-EMG density function could be correlated with the channels with discriminative information and could be a useful tool in channel selection.
 
@@ -315,65 +315,52 @@ The authors declare no conflict of interest.
 \clearpage
 
 \section{Appendix A}
-The mean shift algorithm is a non-parametric approach to estimate the gradient of a density function. It was first proposed by Fukunaga and Hostetler \citep{Fukunaga1975} in 1975, but did not get a lot of attention of the academic community initially. Although their work was cited more than 1500 times in literature, most of the cites occurred after the famous publication of Comaniciu and Meer \citep{Comaniciu2002} in 2002 (counting almost 6000 citations) that revised the method and drew attention of the scientific community to it.
+The mean shift algorithm is a non-parametric approach to estimate the gradient of a density function. It was first proposed by \citet{Fukunaga1975}, but did not get a lot of attention of the academic community initially. Although their work was cited more than 1500 times in literature, most of the cites occurred after the famous publication of Comaniciu and Meer in 2002 (counting almost 6000 citations) that revised the method and drew attention of the scientific community to it \citep{Comaniciu2002}.
 
 The algorithm is the enhanced version of the Parzen window technique for the estimation of density using a kernel \citep{Parzen1962} and its extension to multivariate distributions \citep{Cacoullos1966}, given that density for the point $\textbf{x}$ can be estimated based on the observed samples $\textbf{x}_i$ $(i = 1,2,…,n)$ using the kernel function $K$ as:
-
 \begin{equation} \label{eq:3-A1}
 \hat{f}(\mathbf{x}) = \frac{1}{n} \sum_{i=1}^{n} K_{H} (\mathbf{x}-\mathbf{x}_i)
 \end{equation}
-
 \begin{equation} \label{eq:3-A2}
 K_H =  \vert \mathbf{H} \vert ^{-\frac{1}{2}} K (\mathbf{H}^{-\frac{1}{2}} \mathbf{x})
 \end{equation}
-
-where $\hat{f}(\mathbf{x})$ is the estimated density, $K_H$ is the normalized kernel function, and $H$ is $d x d$ bandwidth matrix. The bandwidth matrix $H$ can be fully parameterized, diagonal, or, as in this paper, proportional to identity matrix $(\mathbf{H} = h\mathbf{I})$, which simplifies the expression for the density estimation to:
-
+, where $\hat{f}(\mathbf{x})$ is the estimated density, $K_H$ is the normalized kernel function, and $H$ is $d x d$ bandwidth matrix. The bandwidth matrix $H$ can be fully parameterized, diagonal, or, as in this paper, proportional to identity matrix $(\mathbf{H} = h\mathbf{I})$, which simplifies the expression for the density estimation to:
 \begin{equation} \label{eq:3-A3}
 \hat{f}(\mathbf{x}) = \frac{1}{nh^d} \sum_{i=1}^{n} K (\frac{\mathbf{x}-\mathbf{x}_i}{h})\
 \end{equation}
-
-where $\hat{f}(\mathbf{x})$ is the estimated density, $h$ is a single bandwidth parameter, $d$ is the number of dimensions, and $K$ is the kernel function. Two commonly used univariate kernel profiles are Epanechnikov $(k_E)$ and Gaussian $(k_N)$:
+, where $\hat{f}(\mathbf{x})$ is the estimated density, $h$ is a single bandwidth parameter, $d$ is the number of dimensions, and $K$ is the kernel function. Two commonly used univariate kernel profiles are Epanechnikov $(k_E)$ and Gaussian $(k_N)$:
 \begin{equation} \label{eq:3-A4}
 k_N (x) = e^{- \frac{1}{2} x},\,\, x \geq 0
 \end{equation}
-
 \begin{equation} \label{eq:3-A5}
 k_E (x) = \left\{\begin{array}{lr} 1-x & \,\,0 \leq x \leq 1\\ 0  & \,\,x > 1 \ \end{array}\right.
 \end{equation}
-
-which yield multivariate radially symmetric kernel $(K_E)$ and normal kernel $(K_N)$ respectively:
-
+, which yield multivariate radially symmetric kernel $(K_E)$ and normal kernel $(K_N)$ respectively:
 \begin{equation} \label{eq:3-A6}
 K_N ( \mathbf{x}) = \frac{1}{2 \pi^{d/2}} e^{- \frac{1}{2} \parallel \mathbf{x} \parallel^2}
 \end{equation}
-
 \begin{equation} \label{eq:3-A7}
 K_E ( \mathbf{x}) = \left\{\begin{array}{lr} \frac{1}{2} \frac{d+2}{c_d} \left(1 - \parallel \mathbf{x}\parallel^2\right) & \,\, \parallel \mathbf{x}\parallel \leq 1    \\
  0  & \,\,\parallel \mathbf{x}\parallel > 1 \end{array}\right.
 \end{equation}
+, where $d$ is the number of dimension and $c_d$ is the constant that ensures the kernel integrates to one.
 
-where $d$ is the number of dimension and $c_d$ is the constant that ensures the kernel integrates to one.
 Mean shift vector is defined as \citep{Comaniciu2002}:
 \begin{equation} \label{eq:3-A8}
 \mathbf{ms} (\mathbf{x}) = 
 \frac{\sum_{i=1}^n \, \mathbf{x}_i \, g (\parallel  \frac{\mathbf{x}-\mathbf{x_i}}{h} \parallel^2) }{\sum_{i=1}^n \, g (\parallel  \frac{\mathbf{x}-\mathbf{x}_i}{h} \parallel^2)} - \mathbf{x}
 \end{equation}
-
-where $g(x)$ is the negative derivative of the original univariate kernel profile $k(x)$:
-
+,where $g(x)$ is the negative derivative of the original univariate kernel profile $k(x)$:
 \begin{equation} \label{eq:3-A9}
 g(x) = - \frac{dk(x)}{dx}
 \end{equation}
 
 Mean shift is a function defined for every point in space. It is a vector of difference between the current position and the weighted mean of all points within its bandwidth $h$, whose weights are defined by the kernel profile $g(x)$. Therefore, the mean shift vector always points to the direction of maximum increase of the density and can be considered as a function proportional to the gradient of the density function:
-
 \begin{equation} \label{eq:3-A10}
 \mathbf{ms}_g (\mathbf{x}) \, \propto \, \nabla \hat{f}_k (\mathbf{x})
 \end{equation}
 
 In addition, mean shift can be effectively used to find modes (local maxima) of the underlying density function by an iterative procedure. Kernel is usually centered at a random point in space and the mean shift vector is calculated. In the next iteration, the kernel is centered at the location pointed by the mean shift vector. The procedure is mathematically defined as:
-
 \begin{equation} \label{eq:3-A11}
 \mathbf{y}_{i+1} \coloneqq 
 \frac{\sum_{j=1}^n \, \mathbf{x}_j \, g (\parallel \frac{\mathbf{y}_i-\mathbf{x}_j}{h} \parallel^2) }
@@ -381,15 +368,12 @@ In addition, mean shift can be effectively used to find modes (local maxima) of 
 \end{equation}
 
 By repeating this procedure, at every step, the center of the kernel is shifted to the direction of maximum increase of the density function until the local maximum is reached. At this location, the difference between two consecutive points is zero (up to a tolerance). These final stationary points are considered to be modes of the probability density function:
-
 \begin{equation} \label{eq:3-A12}
 \mathbf{y}_{i+1} - \mathbf{y}_i = 0
 \end{equation}
-
 \begin{equation} \label{eq:3-A12}
 \mathbf{y}_{i+1} - \mathbf{y}_i = 0
 \end{equation}
-
 \begin{equation} \label{eq:3-A13}
 \mathbf{ms}_g (\mathbf{y}_{i}) = \nabla \hat{f}_k \, (\mathbf{y}_i) = 0
 \end{equation}
@@ -397,18 +381,15 @@ By repeating this procedure, at every step, the center of the kernel is shifted 
 This algorithm is very useful in image processing and feature space analysis with many applications, of which clustering is the most popular. It only requires setting one parameter, bandwidth $(h)$. On the other hand, unlike the similar methods, e.g., $k-$ means clustering, it is not necessary to define the number of expected clusters. This is a big advantage because it does not require \textit{a priori} knowledge on the number of clusters. Detailed explanation of the mean shift algorithm can be found in the literature \citep{Comaniciu2002, Fukunaga1975}.
 
 In this study, modes of the density function of root-mean-square (RMS) activation maps were found using the mean shift algorithm implemented in Python \citep{scikit-learn} and were used as features in the identification. The Epanechnikov kernel profile was employed to describe the density function, which yielded flat kernel profile $g(x)$ in the calculation of the mean shift vector:
-
 \begin{equation} \label{eq:3-A14}
 g (x) = \left\{\begin{array}{lr} 1, & \,\, \parallel x \parallel \leq h \\
 0,  & \,\,\parallel x \parallel > h \end{array}\right.
 \end{equation}
 
 This choice of the kernel profile simplified the update of the mean shift centroid to:
-
 \begin{equation} \label{eq:3-A15}
 \left. \mathbf{y}_{i+1} \coloneqq \frac{\sum_{j=1}^{N} \mathbf{x}_j}{N} \right\vert_{\forall \mathbf{x} \,s.t. \,\parallel \mathbf{x}-\mathbf{y}_i \parallel \leq h}
 \end{equation}
-
 In the other words, the new centroid was calculated as the mean value of $N$ points located within the Euclidean distance $h$ from the current centroid.
 \clearpage
 

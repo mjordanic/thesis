@@ -82,6 +82,17 @@
   \par
 }
 
+\def\acronyms{
+    \Huge \textbf{List of Acronyms}
+  \normalsize
+  %\def\baselinestretch{1.5}
+  \linespread{1.5}
+  \normalsize
+}
+\def\endacronyms{
+  \par
+}
+
 \newenvironment{acknowledgements}{
   \cleardoublepage
   \begin{center}{
@@ -131,6 +142,12 @@
     \addcontentsline{toc}{chapter}{\listfigurename}
     \listoffigures
     \pagestyle{plain}
+    \cleardoublepage
+    \pagestyle{uheadings}
+    \phantomsection
+    \input{acronyms/acronyms}
+    \pagestyle{plain}
+    
     \cleardoublepage
     \pagestyle{uheadings}
     \pagenumbering{arabic}

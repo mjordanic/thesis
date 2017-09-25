@@ -1,77 +1,96 @@
 \select@language {english}
 \contentsline {chapter}{Abstract}{i}{section*.1}
-\contentsline {chapter}{List of Tables}{vii}{section*.3}
-\contentsline {chapter}{List of Figures}{ix}{section*.5}
+\contentsline {chapter}{Resumen}{ii}{section*.2}
+\contentsline {chapter}{List of Tables}{xi}{section*.4}
+\contentsline {chapter}{List of Figures}{xiii}{section*.6}
+\contentsline {chapter}{List of Acronyms}{xix}{section*.9}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Muscle physiology}{3}{section.1.1}
-\contentsline {section}{\numberline {1.2}Muscle contraction}{7}{section.1.2}
-\contentsline {section}{\numberline {1.3}Muscle fatigue}{8}{section.1.3}
-\contentsline {section}{\numberline {1.4}Surface electromyography}{11}{section.1.4}
-\contentsline {section}{\numberline {1.5}Task identification using pattern recognition}{16}{section.1.5}
-\contentsline {section}{\numberline {1.6}Application to patients with neuromuscular impairment}{21}{section.1.6}
-\contentsline {section}{\numberline {1.7}Doctoral thesis overview}{23}{section.1.7}
-\contentsline {chapter}{\numberline {2}Problem statement}{25}{chapter.2}
-\contentsline {section}{\numberline {2.1}Motivation}{26}{section.2.1}
-\contentsline {section}{\numberline {2.2}Objectives}{29}{section.2.2}
-\contentsline {section}{\numberline {2.3}Thesis framework}{30}{section.2.3}
-\contentsline {chapter}{\numberline {3}Task identification using spatial distribution in patients}{31}{chapter.3}
-\contentsline {section}{\numberline {3.1}Backround}{32}{section.3.1}
-\contentsline {section}{\numberline {3.2}Method}{35}{section.3.2}
-\contentsline {section}{\numberline {3.3}Results}{44}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Short-term identification}{44}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Influence of time on identification}{46}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}Influence of time on identification}{47}{subsection.3.3.3}
-\contentsline {section}{\numberline {3.4}Discussion}{49}{section.3.4}
-\contentsline {section}{\numberline {3.5}Conclusion}{52}{section.3.5}
-\contentsline {section}{\numberline {3.6}Declarations}{53}{section.3.6}
-\contentsline {subsection}{\numberline {3.6.1}Acknowledgements}{53}{subsection.3.6.1}
-\contentsline {subsection}{\numberline {3.6.2}Open Access}{53}{subsection.3.6.2}
-\contentsline {subsection}{\numberline {3.6.3}Competing interests}{53}{subsection.3.6.3}
-\contentsline {subsection}{\numberline {3.6.4}Authors\IeC {\textquoteright } contributions}{54}{subsection.3.6.4}
-\contentsline {chapter}{\numberline {4}Myoelectric patterns within the group of patients}{55}{chapter.4}
-\contentsline {section}{\numberline {4.1}Introduction}{56}{section.4.1}
-\contentsline {section}{\numberline {4.2}Methodololgy}{59}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Experimental protocol}{59}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}HD-EMG activation maps}{61}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Identification}{62}{subsection.4.2.3}
-\contentsline {section}{\numberline {4.3}Results}{65}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Activation maps}{65}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Identification of tasks}{67}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Identification of tasks and effort levels}{70}{subsection.4.3.3}
-\contentsline {subsection}{\numberline {4.3.4}Classification using smaller arrays of electrodes}{74}{subsection.4.3.4}
-\contentsline {section}{\numberline {4.4}Discussion}{75}{section.4.4}
-\contentsline {section}{\numberline {4.5}Conclusions}{78}{section.4.5}
-\contentsline {section}{\numberline {4.6}Acknowledgements}{78}{section.4.6}
-\contentsline {chapter}{\numberline {5}A Novel Feature for Task Identification}{79}{chapter.5}
-\contentsline {section}{\numberline {5.1}Introduction}{80}{section.5.1}
-\contentsline {section}{\numberline {5.2}Materials and methods}{83}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Instrumentation and measurement protocol}{83}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}HD-EMG processing}{85}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}Feature extraction}{86}{subsection.5.2.3}
-\contentsline {subsection}{\numberline {5.2.4}Task identification}{89}{subsection.5.2.4}
-\contentsline {subsection}{\numberline {5.2.5}Statistical methods}{91}{subsection.5.2.5}
-\contentsline {section}{\numberline {5.3}Results}{92}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Bandwidth and time window selection}{92}{subsection.5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}Short-term identification}{93}{subsection.5.3.2}
-\contentsline {subsection}{\numberline {5.3.3}Long-term identification}{96}{subsection.5.3.3}
-\contentsline {subsection}{\numberline {5.3.4}Identification during fatigue}{97}{subsection.5.3.4}
-\contentsline {section}{\numberline {5.4}Discussion}{99}{section.5.4}
-\contentsline {section}{\numberline {5.5}Conclusions}{101}{section.5.5}
-\contentsline {section}{\numberline {5.6}Acknowledgments}{101}{section.5.6}
-\contentsline {section}{\numberline {5.7}Author contributions}{102}{section.5.7}
-\contentsline {section}{\numberline {5.8}Conflicts of interest}{102}{section.5.8}
-\contentsline {section}{\numberline {5.9}Appendix A}{103}{section.5.9}
-\contentsline {section}{\numberline {5.10}Appendix B}{107}{section.5.10}
-\contentsline {chapter}{\numberline {6}Conclusion}{112}{chapter.6}
-\contentsline {section}{\numberline {6.1}Summary}{112}{section.6.1}
-\contentsline {section}{\numberline {6.2}Main conclusions}{113}{section.6.2}
-\contentsline {section}{\numberline {6.3}Main contributions}{116}{section.6.3}
-\contentsline {section}{\numberline {6.4}Future Work}{117}{section.6.4}
-\contentsline {section}{\numberline {6.5}Publications derived from the thesis}{119}{section.6.5}
-\contentsline {subsection}{\numberline {6.5.1}Journal papers}{119}{subsection.6.5.1}
-\contentsline {subsection}{\numberline {6.5.2}Conference papers}{119}{subsection.6.5.2}
-\contentsline {chapter}{Bibliography}{121}{section*.83}
-\contentsline {chapter}{Appendix: Pattern recognition}{131}{section*.85}
-\contentsline {chapter}{\numberline {A}Pattern recognition}{131}{chapter.1}
-\contentsline {section}{\numberline {A.1}Linear Discriminant Analysis}{131}{section.1.1}
-\contentsline {section}{\numberline {A.2}Support Vector Machine}{134}{section.1.2}
+\contentsline {section}{\numberline {1.1}Anatomy of a movement: Muscle}{1}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Muscle physiology}{2}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Muscle contraction}{6}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3}Muscle fatigue}{8}{subsection.1.1.3}
+\contentsline {section}{\numberline {1.2}Surface electromyography}{11}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Intramuscular vs. surface electrmyography}{11}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Origin of surface electromyographic signal}{12}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Recording electrodes}{15}{subsection.1.2.3}
+\contentsline {section}{\numberline {1.3}Task identification using pattern recognition}{19}{section.1.3}
+\contentsline {section}{\numberline {1.4}Application to patients with neuromuscular impairment}{24}{section.1.4}
+\contentsline {section}{\numberline {1.5}Doctoral thesis overview}{26}{section.1.5}
+\contentsline {chapter}{\numberline {2}Problem statement}{28}{chapter.2}
+\contentsline {section}{\numberline {2.1}Motivation}{29}{section.2.1}
+\contentsline {section}{\numberline {2.2}Objectives}{31}{section.2.2}
+\contentsline {section}{\numberline {2.3}Thesis framework}{33}{section.2.3}
+\contentsline {chapter}{\numberline {3}Myoelectric patterns for task identification in patients with iSCI}{34}{chapter.3}
+\contentsline {section}{\numberline {3.1}Backround}{35}{section.3.1}
+\contentsline {section}{\numberline {3.2}Method}{38}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Measurements}{38}{subsection.3.2.1}
+\contentsline {subsubsection}{Instrumentation}{38}{section*.26}
+\contentsline {subsubsection}{Experimental setup}{39}{section*.28}
+\contentsline {subsubsection}{HD-EMG recordings}{40}{section*.29}
+\contentsline {subsection}{\numberline {3.2.2}HD-EMG maps and feature extraction}{40}{subsection.3.2.2}
+\contentsline {subsubsection}{HD-EMG maps calculation}{40}{section*.31}
+\contentsline {subsubsection}{Feature extraction}{42}{section*.32}
+\contentsline {subsection}{\numberline {3.2.3}Identification of motion intention}{43}{subsection.3.2.3}
+\contentsline {subsubsection}{Classification}{43}{section*.33}
+\contentsline {subsubsection}{Short-term identification}{44}{section*.34}
+\contentsline {subsubsection}{Influence of time- progress on identification}{45}{section*.35}
+\contentsline {subsubsection}{Influence of muscle fatigue on identification}{46}{section*.36}
+\contentsline {subsubsection}{Statistical methods}{46}{section*.37}
+\contentsline {section}{\numberline {3.3}Results}{47}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Short-term identification}{47}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Influence of time on identification}{49}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Influence of time on identification}{51}{subsection.3.3.3}
+\contentsline {section}{\numberline {3.4}Discussion}{52}{section.3.4}
+\contentsline {section}{\numberline {3.5}Conclusion}{55}{section.3.5}
+\contentsline {section}{\numberline {3.6}Declarations}{56}{section.3.6}
+\contentsline {subsection}{\numberline {3.6.1}Acknowledgements}{56}{subsection.3.6.1}
+\contentsline {subsection}{\numberline {3.6.2}Open Access}{56}{subsection.3.6.2}
+\contentsline {subsection}{\numberline {3.6.3}Competing interests}{56}{subsection.3.6.3}
+\contentsline {subsection}{\numberline {3.6.4}Authors\IeC {\textquoteright } contributions}{57}{subsection.3.6.4}
+\contentsline {chapter}{\numberline {4}Myoelectric patterns within the group of patients with iSCI}{58}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introduction}{59}{section.4.1}
+\contentsline {section}{\numberline {4.2}Methodololgy}{62}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Experimental protocol}{62}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}HD-EMG activation maps}{64}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Identification}{65}{subsection.4.2.3}
+\contentsline {section}{\numberline {4.3}Results}{68}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Activation maps}{68}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Identification of tasks}{70}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Identification of tasks and effort levels}{73}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}Classification using smaller arrays of electrodes}{77}{subsection.4.3.4}
+\contentsline {section}{\numberline {4.4}Discussion}{78}{section.4.4}
+\contentsline {section}{\numberline {4.5}Conclusions}{81}{section.4.5}
+\contentsline {section}{\numberline {4.6}Acknowledgements}{81}{section.4.6}
+\contentsline {chapter}{\numberline {5}A Novel feature for task identification}{82}{chapter.5}
+\contentsline {section}{\numberline {5.1}Introduction}{83}{section.5.1}
+\contentsline {section}{\numberline {5.2}Materials and methods}{86}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Instrumentation and measurement protocol}{86}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}HD-EMG processing}{88}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Feature extraction}{89}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}Task identification}{92}{subsection.5.2.4}
+\contentsline {subsection}{\numberline {5.2.5}Statistical methods}{94}{subsection.5.2.5}
+\contentsline {section}{\numberline {5.3}Results}{95}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Bandwidth and time window selection}{95}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Short-term identification}{96}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}Long-term identification}{99}{subsection.5.3.3}
+\contentsline {subsection}{\numberline {5.3.4}Identification during fatigue}{100}{subsection.5.3.4}
+\contentsline {section}{\numberline {5.4}Discussion}{102}{section.5.4}
+\contentsline {section}{\numberline {5.5}Conclusions}{104}{section.5.5}
+\contentsline {section}{\numberline {5.6}Acknowledgments}{104}{section.5.6}
+\contentsline {section}{\numberline {5.7}Author contributions}{105}{section.5.7}
+\contentsline {section}{\numberline {5.8}Conflicts of interest}{105}{section.5.8}
+\contentsline {section}{\numberline {5.9}Appendix A}{106}{section.5.9}
+\contentsline {section}{\numberline {5.10}Appendix B}{110}{section.5.10}
+\contentsline {chapter}{\numberline {6}Conclusion}{115}{chapter.6}
+\contentsline {section}{\numberline {6.1}Summary}{115}{section.6.1}
+\contentsline {section}{\numberline {6.2}Main conclusions}{116}{section.6.2}
+\contentsline {section}{\numberline {6.3}Main contributions}{119}{section.6.3}
+\contentsline {section}{\numberline {6.4}Future Work}{120}{section.6.4}
+\contentsline {section}{\numberline {6.5}Publications derived from the thesis}{122}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}Journal papers}{122}{subsection.6.5.1}
+\contentsline {subsection}{\numberline {6.5.2}Conference papers}{122}{subsection.6.5.2}
+\contentsline {chapter}{Bibliography}{124}{section*.84}
+\contentsline {chapter}{Appendix: Pattern recognition}{134}{section*.86}
+\contentsline {chapter}{\numberline {A}Pattern recognition}{134}{chapter.1}
+\contentsline {section}{\numberline {A.1}Linear Discriminant Analysis}{134}{section.1.1}
+\contentsline {section}{\numberline {A.2}Support Vector Machine}{137}{section.1.2}

@@ -1,76 +1,95 @@
 \BOOKMARK [0][-]{section*.1}{Abstract}{}% 1
-\BOOKMARK [0][-]{section*.3}{List of Tables}{}% 2
-\BOOKMARK [0][-]{section*.5}{List of Figures}{}% 3
-\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 4
-\BOOKMARK [1][-]{section.1.1}{Muscle physiology}{chapter.1}% 5
-\BOOKMARK [1][-]{section.1.2}{Muscle contraction}{chapter.1}% 6
-\BOOKMARK [1][-]{section.1.3}{Muscle fatigue}{chapter.1}% 7
-\BOOKMARK [1][-]{section.1.4}{Surface electromyography}{chapter.1}% 8
-\BOOKMARK [1][-]{section.1.5}{Task identification using pattern recognition}{chapter.1}% 9
-\BOOKMARK [1][-]{section.1.6}{Application to patients with neuromuscular impairment}{chapter.1}% 10
-\BOOKMARK [1][-]{section.1.7}{Doctoral thesis overview}{chapter.1}% 11
-\BOOKMARK [0][-]{chapter.2}{Problem statement}{}% 12
-\BOOKMARK [1][-]{section.2.1}{Motivation}{chapter.2}% 13
-\BOOKMARK [1][-]{section.2.2}{Objectives}{chapter.2}% 14
-\BOOKMARK [1][-]{section.2.3}{Thesis framework}{chapter.2}% 15
-\BOOKMARK [0][-]{chapter.3}{Task identification using spatial distribution in patients}{}% 16
-\BOOKMARK [1][-]{section.3.1}{Backround}{chapter.3}% 17
-\BOOKMARK [1][-]{section.3.2}{Method}{chapter.3}% 18
-\BOOKMARK [1][-]{section.3.3}{Results}{chapter.3}% 19
-\BOOKMARK [2][-]{subsection.3.3.1}{Short-term identification}{section.3.3}% 20
-\BOOKMARK [2][-]{subsection.3.3.2}{Influence of time on identification}{section.3.3}% 21
-\BOOKMARK [2][-]{subsection.3.3.3}{Influence of time on identification}{section.3.3}% 22
-\BOOKMARK [1][-]{section.3.4}{Discussion}{chapter.3}% 23
-\BOOKMARK [1][-]{section.3.5}{Conclusion}{chapter.3}% 24
-\BOOKMARK [1][-]{section.3.6}{Declarations}{chapter.3}% 25
-\BOOKMARK [2][-]{subsection.3.6.1}{Acknowledgements}{section.3.6}% 26
-\BOOKMARK [2][-]{subsection.3.6.2}{Open Access}{section.3.6}% 27
-\BOOKMARK [2][-]{subsection.3.6.3}{Competing interests}{section.3.6}% 28
-\BOOKMARK [2][-]{subsection.3.6.4}{Authors\220 contributions}{section.3.6}% 29
-\BOOKMARK [0][-]{chapter.4}{Myoelectric patterns within the group of patients}{}% 30
-\BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 31
-\BOOKMARK [1][-]{section.4.2}{Methodololgy}{chapter.4}% 32
-\BOOKMARK [2][-]{subsection.4.2.1}{Experimental protocol}{section.4.2}% 33
-\BOOKMARK [2][-]{subsection.4.2.2}{HD-EMG activation maps}{section.4.2}% 34
-\BOOKMARK [2][-]{subsection.4.2.3}{Identification}{section.4.2}% 35
-\BOOKMARK [1][-]{section.4.3}{Results}{chapter.4}% 36
-\BOOKMARK [2][-]{subsection.4.3.1}{Activation maps}{section.4.3}% 37
-\BOOKMARK [2][-]{subsection.4.3.2}{Identification of tasks}{section.4.3}% 38
-\BOOKMARK [2][-]{subsection.4.3.3}{Identification of tasks and effort levels}{section.4.3}% 39
-\BOOKMARK [2][-]{subsection.4.3.4}{Classification using smaller arrays of electrodes}{section.4.3}% 40
-\BOOKMARK [1][-]{section.4.4}{Discussion}{chapter.4}% 41
-\BOOKMARK [1][-]{section.4.5}{Conclusions}{chapter.4}% 42
-\BOOKMARK [1][-]{section.4.6}{Acknowledgements}{chapter.4}% 43
-\BOOKMARK [0][-]{chapter.5}{A Novel Feature for Task Identification}{}% 44
-\BOOKMARK [1][-]{section.5.1}{Introduction}{chapter.5}% 45
-\BOOKMARK [1][-]{section.5.2}{Materials and methods}{chapter.5}% 46
-\BOOKMARK [2][-]{subsection.5.2.1}{Instrumentation and measurement protocol}{section.5.2}% 47
-\BOOKMARK [2][-]{subsection.5.2.2}{HD-EMG processing}{section.5.2}% 48
-\BOOKMARK [2][-]{subsection.5.2.3}{Feature extraction}{section.5.2}% 49
-\BOOKMARK [2][-]{subsection.5.2.4}{Task identification}{section.5.2}% 50
-\BOOKMARK [2][-]{subsection.5.2.5}{Statistical methods}{section.5.2}% 51
-\BOOKMARK [1][-]{section.5.3}{Results}{chapter.5}% 52
-\BOOKMARK [2][-]{subsection.5.3.1}{Bandwidth and time window selection}{section.5.3}% 53
-\BOOKMARK [2][-]{subsection.5.3.2}{Short-term identification}{section.5.3}% 54
-\BOOKMARK [2][-]{subsection.5.3.3}{Long-term identification}{section.5.3}% 55
-\BOOKMARK [2][-]{subsection.5.3.4}{Identification during fatigue}{section.5.3}% 56
-\BOOKMARK [1][-]{section.5.4}{Discussion}{chapter.5}% 57
-\BOOKMARK [1][-]{section.5.5}{Conclusions}{chapter.5}% 58
-\BOOKMARK [1][-]{section.5.6}{Acknowledgments}{chapter.5}% 59
-\BOOKMARK [1][-]{section.5.7}{Author contributions}{chapter.5}% 60
-\BOOKMARK [1][-]{section.5.8}{Conflicts of interest}{chapter.5}% 61
-\BOOKMARK [1][-]{section.5.9}{Appendix A}{chapter.5}% 62
-\BOOKMARK [1][-]{section.5.10}{Appendix B}{chapter.5}% 63
-\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 64
-\BOOKMARK [1][-]{section.6.1}{Summary}{chapter.6}% 65
-\BOOKMARK [1][-]{section.6.2}{Main conclusions}{chapter.6}% 66
-\BOOKMARK [1][-]{section.6.3}{Main contributions}{chapter.6}% 67
-\BOOKMARK [1][-]{section.6.4}{Future Work}{chapter.6}% 68
-\BOOKMARK [1][-]{section.6.5}{Publications derived from the thesis}{chapter.6}% 69
-\BOOKMARK [2][-]{subsection.6.5.1}{Journal papers}{section.6.5}% 70
-\BOOKMARK [2][-]{subsection.6.5.2}{Conference papers}{section.6.5}% 71
-\BOOKMARK [0][-]{section*.83}{Bibliography}{}% 72
-\BOOKMARK [0][-]{section*.85}{Appendix: Pattern recognition}{}% 73
-\BOOKMARK [0][-]{chapter.1}{Pattern recognition}{}% 74
-\BOOKMARK [1][-]{section.1.1}{Linear Discriminant Analysis}{chapter.1}% 75
-\BOOKMARK [1][-]{section.1.2}{Support Vector Machine}{chapter.1}% 76
+\BOOKMARK [0][-]{section*.2}{Resumen}{}% 2
+\BOOKMARK [0][-]{section*.4}{List of Tables}{}% 3
+\BOOKMARK [0][-]{section*.6}{List of Figures}{}% 4
+\BOOKMARK [0][-]{section*.9}{List of Acronyms}{}% 5
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 6
+\BOOKMARK [1][-]{section.1.1}{Anatomy of a movement: Muscle}{chapter.1}% 7
+\BOOKMARK [2][-]{subsection.1.1.1}{Muscle physiology}{section.1.1}% 8
+\BOOKMARK [2][-]{subsection.1.1.2}{Muscle contraction}{section.1.1}% 9
+\BOOKMARK [2][-]{subsection.1.1.3}{Muscle fatigue}{section.1.1}% 10
+\BOOKMARK [1][-]{section.1.2}{Surface electromyography}{chapter.1}% 11
+\BOOKMARK [2][-]{subsection.1.2.1}{Intramuscular vs. surface electrmyography}{section.1.2}% 12
+\BOOKMARK [2][-]{subsection.1.2.2}{Origin of surface electromyographic signal}{section.1.2}% 13
+\BOOKMARK [2][-]{subsection.1.2.3}{Recording electrodes}{section.1.2}% 14
+\BOOKMARK [1][-]{section.1.3}{Task identification using pattern recognition}{chapter.1}% 15
+\BOOKMARK [1][-]{section.1.4}{Application to patients with neuromuscular impairment}{chapter.1}% 16
+\BOOKMARK [1][-]{section.1.5}{Doctoral thesis overview}{chapter.1}% 17
+\BOOKMARK [0][-]{chapter.2}{Problem statement}{}% 18
+\BOOKMARK [1][-]{section.2.1}{Motivation}{chapter.2}% 19
+\BOOKMARK [1][-]{section.2.2}{Objectives}{chapter.2}% 20
+\BOOKMARK [1][-]{section.2.3}{Thesis framework}{chapter.2}% 21
+\BOOKMARK [0][-]{chapter.3}{Myoelectric patterns for task identification in patients with iSCI}{}% 22
+\BOOKMARK [1][-]{section.3.1}{Backround}{chapter.3}% 23
+\BOOKMARK [1][-]{section.3.2}{Method}{chapter.3}% 24
+\BOOKMARK [2][-]{subsection.3.2.1}{Measurements}{section.3.2}% 25
+\BOOKMARK [3][-]{section*.26}{Instrumentation}{subsection.3.2.1}% 26
+\BOOKMARK [3][-]{section*.28}{Experimental setup}{subsection.3.2.1}% 27
+\BOOKMARK [3][-]{section*.29}{HD-EMG recordings}{subsection.3.2.1}% 28
+\BOOKMARK [2][-]{subsection.3.2.2}{HD-EMG maps and feature extraction}{section.3.2}% 29
+\BOOKMARK [3][-]{section*.31}{HD-EMG maps calculation}{subsection.3.2.2}% 30
+\BOOKMARK [3][-]{section*.32}{Feature extraction}{subsection.3.2.2}% 31
+\BOOKMARK [2][-]{subsection.3.2.3}{Identification of motion intention}{section.3.2}% 32
+\BOOKMARK [3][-]{section*.33}{Classification}{subsection.3.2.3}% 33
+\BOOKMARK [3][-]{section*.34}{Short-term identification}{subsection.3.2.3}% 34
+\BOOKMARK [3][-]{section*.35}{Influence of time- progress on identification}{subsection.3.2.3}% 35
+\BOOKMARK [3][-]{section*.36}{Influence of muscle fatigue on identification}{subsection.3.2.3}% 36
+\BOOKMARK [3][-]{section*.37}{Statistical methods}{subsection.3.2.3}% 37
+\BOOKMARK [1][-]{section.3.3}{Results}{chapter.3}% 38
+\BOOKMARK [2][-]{subsection.3.3.1}{Short-term identification}{section.3.3}% 39
+\BOOKMARK [2][-]{subsection.3.3.2}{Influence of time on identification}{section.3.3}% 40
+\BOOKMARK [2][-]{subsection.3.3.3}{Influence of time on identification}{section.3.3}% 41
+\BOOKMARK [1][-]{section.3.4}{Discussion}{chapter.3}% 42
+\BOOKMARK [1][-]{section.3.5}{Conclusion}{chapter.3}% 43
+\BOOKMARK [1][-]{section.3.6}{Declarations}{chapter.3}% 44
+\BOOKMARK [2][-]{subsection.3.6.1}{Acknowledgements}{section.3.6}% 45
+\BOOKMARK [2][-]{subsection.3.6.2}{Open Access}{section.3.6}% 46
+\BOOKMARK [2][-]{subsection.3.6.3}{Competing interests}{section.3.6}% 47
+\BOOKMARK [2][-]{subsection.3.6.4}{Authors\220 contributions}{section.3.6}% 48
+\BOOKMARK [0][-]{chapter.4}{Myoelectric patterns within the group of patients with iSCI}{}% 49
+\BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 50
+\BOOKMARK [1][-]{section.4.2}{Methodololgy}{chapter.4}% 51
+\BOOKMARK [2][-]{subsection.4.2.1}{Experimental protocol}{section.4.2}% 52
+\BOOKMARK [2][-]{subsection.4.2.2}{HD-EMG activation maps}{section.4.2}% 53
+\BOOKMARK [2][-]{subsection.4.2.3}{Identification}{section.4.2}% 54
+\BOOKMARK [1][-]{section.4.3}{Results}{chapter.4}% 55
+\BOOKMARK [2][-]{subsection.4.3.1}{Activation maps}{section.4.3}% 56
+\BOOKMARK [2][-]{subsection.4.3.2}{Identification of tasks}{section.4.3}% 57
+\BOOKMARK [2][-]{subsection.4.3.3}{Identification of tasks and effort levels}{section.4.3}% 58
+\BOOKMARK [2][-]{subsection.4.3.4}{Classification using smaller arrays of electrodes}{section.4.3}% 59
+\BOOKMARK [1][-]{section.4.4}{Discussion}{chapter.4}% 60
+\BOOKMARK [1][-]{section.4.5}{Conclusions}{chapter.4}% 61
+\BOOKMARK [1][-]{section.4.6}{Acknowledgements}{chapter.4}% 62
+\BOOKMARK [0][-]{chapter.5}{A Novel feature for task identification}{}% 63
+\BOOKMARK [1][-]{section.5.1}{Introduction}{chapter.5}% 64
+\BOOKMARK [1][-]{section.5.2}{Materials and methods}{chapter.5}% 65
+\BOOKMARK [2][-]{subsection.5.2.1}{Instrumentation and measurement protocol}{section.5.2}% 66
+\BOOKMARK [2][-]{subsection.5.2.2}{HD-EMG processing}{section.5.2}% 67
+\BOOKMARK [2][-]{subsection.5.2.3}{Feature extraction}{section.5.2}% 68
+\BOOKMARK [2][-]{subsection.5.2.4}{Task identification}{section.5.2}% 69
+\BOOKMARK [2][-]{subsection.5.2.5}{Statistical methods}{section.5.2}% 70
+\BOOKMARK [1][-]{section.5.3}{Results}{chapter.5}% 71
+\BOOKMARK [2][-]{subsection.5.3.1}{Bandwidth and time window selection}{section.5.3}% 72
+\BOOKMARK [2][-]{subsection.5.3.2}{Short-term identification}{section.5.3}% 73
+\BOOKMARK [2][-]{subsection.5.3.3}{Long-term identification}{section.5.3}% 74
+\BOOKMARK [2][-]{subsection.5.3.4}{Identification during fatigue}{section.5.3}% 75
+\BOOKMARK [1][-]{section.5.4}{Discussion}{chapter.5}% 76
+\BOOKMARK [1][-]{section.5.5}{Conclusions}{chapter.5}% 77
+\BOOKMARK [1][-]{section.5.6}{Acknowledgments}{chapter.5}% 78
+\BOOKMARK [1][-]{section.5.7}{Author contributions}{chapter.5}% 79
+\BOOKMARK [1][-]{section.5.8}{Conflicts of interest}{chapter.5}% 80
+\BOOKMARK [1][-]{section.5.9}{Appendix A}{chapter.5}% 81
+\BOOKMARK [1][-]{section.5.10}{Appendix B}{chapter.5}% 82
+\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 83
+\BOOKMARK [1][-]{section.6.1}{Summary}{chapter.6}% 84
+\BOOKMARK [1][-]{section.6.2}{Main conclusions}{chapter.6}% 85
+\BOOKMARK [1][-]{section.6.3}{Main contributions}{chapter.6}% 86
+\BOOKMARK [1][-]{section.6.4}{Future Work}{chapter.6}% 87
+\BOOKMARK [1][-]{section.6.5}{Publications derived from the thesis}{chapter.6}% 88
+\BOOKMARK [2][-]{subsection.6.5.1}{Journal papers}{section.6.5}% 89
+\BOOKMARK [2][-]{subsection.6.5.2}{Conference papers}{section.6.5}% 90
+\BOOKMARK [0][-]{section*.84}{Bibliography}{}% 91
+\BOOKMARK [0][-]{section*.86}{Appendix: Pattern recognition}{}% 92
+\BOOKMARK [0][-]{chapter.1}{Pattern recognition}{}% 93
+\BOOKMARK [1][-]{section.1.1}{Linear Discriminant Analysis}{chapter.1}% 94
+\BOOKMARK [1][-]{section.1.2}{Support Vector Machine}{chapter.1}% 95

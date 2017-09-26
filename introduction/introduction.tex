@@ -365,12 +365,68 @@ Rojas-Martínez et al. demonstrated that by using intensity and spatial features
 
 \section{Application to patients with neuromuscular impairment}
 
-Physical injury to the brain, spinal cord, or nerves, is usually the cause of neurological disorders. According to World Health Organization, each year there are 500 000 spinal cord injuries and 15 million strokes (of which 5 million result with death and 5 million with permanent disability) every year. Furthermore, the number of people who are older than 60 years will increase to 22\% of the world population by 2050 and will count 2 billion people. Unfortunately, in affected patients motor control can be impaired as a result of damaged nerves and they often suffer from uncoordinated movements, lack of force, and spasticity. On the other hand, stroke is a serious life-threatening condition that occurs when the blood supply to the brain is interrupted, resulting in severe disability among survivors. Brain damage due to stroke can affect important areas that control everything we do, including how we move different parts of our body. Common manifestations of upper extremity motor impairment include muscle weakness, impaired motor control, and changes in muscle tone. These impairments induce disabilities in common daily life tasks like reaching and holding objects. During the recovery process, rehabilitation robots that stimulate neuroplasticity are commonly used \citep{VacaBenitez2013, Dipietro2005, Marchal-Crespo2009, Cesqui2013}. 
+%\begin{figure}[ht]
+%\centering
+%\includegraphics[width=0.50\textwidth]{Images/introduction/vertebra.png}
+%\caption{Ventral view of the section of the spinal cord. The direction of transmission of neural activity is noted by arrows. Retrieved from \citet{Widmaier2014}.}
+%\label{fig:vertebra}
+%\end{figure}
+%
+%\begin{figure}[ht]
+%\centering
+%\includegraphics[width=0.50\textwidth]{Images/introduction/spinal_cord.png}
+%\caption{Dorsal view of the spinal cord. Parts of the skull and vertebrae have been cut away. In general, the eight cervical nerves (C) control the muscles and glands and receive sensory input from the neck, shoulder, arm, and hand. The 12 thoracic nerves (T) are associated with the chest and abdominal walls. The five lumbar nerves (L) are associated with the hip and leg, and the five sacral nerves (S) are associated with the genitals and lower digestive tract. Retrieved from \citet{Widmaier2014}.}
+%\label{fig:spinal_cord}
+%\end{figure}
+%
+%
+%\begin{figure}[ht]
+%\centering
+%\includegraphics[width=0.50\textwidth]{Images/introduction/SCI.png}
+%\caption{Magnetic resonance imaging scan of cervical spine of patient with SCI. There is a fracture and dislocation at C4 vertebra, compressing spinal cord. Figure was retrieved from \citet{Korolev2012}.}
+%\label{fig:SCI}
+%\end{figure}
+Physical injury to the brain, spinal cord, or nerves, is usually the cause of neurological disorders. According to World Health Organization, each year there are 500 000 spinal cord injuries and 15 million strokes (of which 5 million result with death and 5 million with permanent disability) every year. Furthermore, the number of people who are older than 60 years will increase to 22\% of the world population by 2050 and will count 2 billion people. Unfortunately, in affected patients motor control can be impaired as a result of damaged nerves and they often suffer from uncoordinated movements, lack of force, and spasticity. Common manifestations of upper extremity motor impairment include muscle weakness, impaired motor control, and changes in muscle tone. These impairments induce disabilities in common daily life tasks like reaching and holding objects. During the recovery process, rehabilitation robots that stimulate neuroplasticity are commonly used \citep{VacaBenitez2013, Dipietro2005, Marchal-Crespo2009, Cesqui2013}. 
 
-In spite of the injury, patients can still have uncoordinated movements, and a lack of force, or, in more difficult cases, they can weakly activate their muscles, but cannot perform the movement. If their motion intention could be extracted in real time, it would allow them to control assistive devices and maximize the benefits of robotic-aided therapies where it has been proved that the active participation improves the medical condition of the patient \citep{Hogan2006}.
+Spinal cord is a slender cylinder of soft tissue, lying protected within the vertebral column \citep{Widmaier2014}. In the center is gray matter, the butterfly-shaped cross section area composed of interneurons, the cell bodies and dendrites of efferent and afferent neurons, the entering fibers of afferent neurons, and glial cells. It is surrounded by white matter, consisted of groups of myelinated axons. At each vertebra and at each side of the spinal cord, efferent nerves leave the cord at ventral side, whereas afferent nerves enter the spine at the dorsal side (see figure \ref{fig:spinal_cord}b). A short distance from the cord, the dorsal and ventral roots from the same level combine to form a spinal nerve, which innervates a specific part of the body and carries motor control information to muscles. In general, the eight cervical nerves (C) control the muscles and glands and receive sensory input from the neck, shoulder, arm, and hand (see figure \ref{fig:spinal_cord}a). The 12 thoracic nerves (T) are associated with the chest and abdominal walls. The five lumbar nerves (L) are associated with the hip and leg, and the five sacral nerves (S) are associated with the genitals and lower digestive tract.
+
+\begin{figure}
+\centering
+
+\tabskip=0pt
+\valign{#\cr
+  \hbox{%
+    \begin{subfigure}[b]{.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Images/introduction/spinal_cord.png}
+    \caption{Retrieved from \citet{Widmaier2014}.}
+    \end{subfigure}%
+  }\cr
+  \noalign{\hfill}
+  \hbox{%
+    \begin{subfigure}{.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Images/introduction/vertebra.png}
+    \caption{Retrieved from \citet{Widmaier2014}.}
+    \end{subfigure}%
+  }\vfill
+  \hbox{%
+    \begin{subfigure}{.43\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Images/introduction/SCI.png}
+    \caption{Retrieved from \citet{Korolev2012}.}
+    \end{subfigure}%
+  }\cr
+}
+\caption{Figure shows \textbf{a)} dorsal view of the spinal cord. Parts of the skull and vertebrae have been cut away. In subfigure \textbf{b)} ventral view of the section of the spinal cord can be seen. The direction of transmission of neural activity is noted by arrows. Subfigure \textbf{c)} shows magnetic resonance imaging scan of cervical spine of patient with SCI. There is a fracture and dislocation at C4 vertebra, compressing spinal cord.}
+\label{fig:spinal_cord}
+\end{figure}
+
+A spinal cord injury is the the damage to the spinal cord usually caused by trauma (an example can be seen in figure \ref{fig:spinal_cord}c). The part of the spinal cord that was damaged affects the functionality of the spinal nerves at that level and below. Therefore, injuries located at higher vertebrae are more severe and cause greater loss of functionality. Classified by the level of injury, spinal cord can be cervical 1–8 (C1–C8), thoracic 1–12 (T1–T12), lumbar 1–5 (L1–L5), or sacral (S1–S5). Depending on the location and the severity of the injury, the symptoms can vary from pain and numbness to paralysis. While in complete spinal cord injury all functionality below the injury is lost, in incomplete spinal cord injury patients can preserve sensations or motor functions. Patients can still have uncoordinated movements, and a lack of force, or, in more difficult cases, they can weakly activate their muscles, but cannot perform the movement. If their motion intention could be extracted in real time, it would allow them to control assistive devices and maximize the benefits of robotic-aided therapies where it has been proved that the active participation improves the medical condition of the patient \citep{Hogan2006}.
 
 It was already shown that intensity-related and task-specific activation patterns exist in patients with neurological disorders and that motion intention can be extracted from EMG. In other words, a movement that a patient is trying to perform can be predicted using the recorded myoelectric activity. Liu and Zhou were able to successfully perform identification of tasks using time domain and autoregressive model features in patients with incomplete spinal cord injury \citep{Liu2013}, whereas Zhang and Zhou identified tasks in patients with stroke using a similar feature set \citep{Zhang2012}.
 
+%On the other hand, stroke is a serious life-threatening condition that occurs when the blood supply to the brain is interrupted, resulting in severe disability among survivors. Brain damage due to stroke can affect important areas that control everything we do, including how we move different parts of our body.
 After the neurological disorder, rehabilitation treatment should start as soon as possible, only days after injury in the case of stroke, whereas in the case of spinal cord injury, after the inflammation. Early interventions can achieve incredible results and patients can either regain control of limbs, which is known as \emph{true recovery}, or can learn new compensatory movements, which is called \emph{restitution}. 
 
 In spite of the correct neuromuscular activation, patients sometimes cannot achieve a movement because of insufficient contraction force, or spasticity \citep{Liu2016b}. These patients have a good chance of recovery, but therapists are often unaware of their state. On the other hand, rehabilitation robots are mostly based on force and inertia, and, therefore, cannot be of assistance either. Since these patients have the ability to generate EMG signals, they could control a rehabilitation robot and maximize their chance of recovery by individualizing rehabilitation.

@@ -1,0 +1,86 @@
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Appendices}
+%\addcontentsline{toc}{chapter}{Appendix: Pattern recognition}
+
+%\begin{appendix}
+
+\chapter[Mean shift algorithm]{Mean shift algorithm}\label{mean_shift}
+The mean shift algorithm is a non-parametric approach to estimate the gradient of a density function. It was first proposed by \citet{Fukunaga1975}, but did not get a lot of attention of the academic community initially. Although their work was cited more than 1500 times in literature, most of the cites occurred after the famous publication of Comaniciu and Meer in 2002 (counting almost 6000 citations) that revised the method and drew attention of the scientific community to it \citep{Comaniciu2002}.
+
+The algorithm is the enhanced version of the Parzen window technique for the estimation of density using a kernel \citep{Parzen1962} and its extension to multivariate distributions \citep{Cacoullos1966}, given that density for the point $\textbf{x}$ can be estimated based on the observed samples $\textbf{x}_i$ $(i = 1,2,…,n)$ using the kernel function $K$ as:
+\begin{equation} \label{eq:3-A1}
+\hat{f}(\mathbf{x}) = \frac{1}{n} \sum_{i=1}^{n} K_{H} (\mathbf{x}-\mathbf{x}_i)
+\end{equation}
+\begin{equation} \label{eq:3-A2}
+K_H =  \vert \mathbf{H} \vert ^{-\frac{1}{2}} K (\mathbf{H}^{-\frac{1}{2}} \mathbf{x})
+\end{equation}
+, where $\hat{f}(\mathbf{x})$ is the estimated density, $K_H$ is the normalized kernel function, and $H$ is $d x d$ bandwidth matrix. The bandwidth matrix $H$ can be fully parameterized, diagonal, or, as in this paper, proportional to identity matrix $(\mathbf{H} = h\mathbf{I})$, which simplifies the expression for the density estimation to:
+\begin{equation} \label{eq:3-A3}
+\hat{f}(\mathbf{x}) = \frac{1}{nh^d} \sum_{i=1}^{n} K (\frac{\mathbf{x}-\mathbf{x}_i}{h})\
+\end{equation}
+, where $\hat{f}(\mathbf{x})$ is the estimated density, $h$ is a single bandwidth parameter, $d$ is the number of dimensions, and $K$ is the kernel function. Two commonly used univariate kernel profiles are Epanechnikov $(k_E)$ and Gaussian $(k_N)$:
+\begin{equation} \label{eq:3-A4}
+k_N (x) = e^{- \frac{1}{2} x},\,\, x \geq 0
+\end{equation}
+\begin{equation} \label{eq:3-A5}
+k_E (x) = \left\{\begin{array}{lr} 1-x & \,\,0 \leq x \leq 1\\ 0  & \,\,x > 1 \ \end{array}\right.
+\end{equation}
+, which yield multivariate radially symmetric kernel $(K_E)$ and normal kernel $(K_N)$ respectively:
+\begin{equation} \label{eq:3-A6}
+K_N ( \mathbf{x}) = \frac{1}{2 \pi^{d/2}} e^{- \frac{1}{2} \parallel \mathbf{x} \parallel^2}
+\end{equation}
+\begin{equation} \label{eq:3-A7}
+K_E ( \mathbf{x}) = \left\{\begin{array}{lr} \frac{1}{2} \frac{d+2}{c_d} \left(1 - \parallel \mathbf{x}\parallel^2\right) & \,\, \parallel \mathbf{x}\parallel \leq 1    \\
+ 0  & \,\,\parallel \mathbf{x}\parallel > 1 \end{array}\right.
+\end{equation}
+, where $d$ is the number of dimension and $c_d$ is the constant that ensures the kernel integrates to one.
+
+Mean shift vector is defined as \citep{Comaniciu2002}:
+\begin{equation} \label{eq:3-A8}
+\mathbf{ms} (\mathbf{x}) = 
+\frac{\sum_{i=1}^n \, \mathbf{x}_i \, g (\parallel  \frac{\mathbf{x}-\mathbf{x_i}}{h} \parallel^2) }{\sum_{i=1}^n \, g (\parallel  \frac{\mathbf{x}-\mathbf{x}_i}{h} \parallel^2)} - \mathbf{x}
+\end{equation}
+,where $g(x)$ is the negative derivative of the original univariate kernel profile $k(x)$:
+\begin{equation} \label{eq:3-A9}
+g(x) = - \frac{dk(x)}{dx}
+\end{equation}
+
+Mean shift is a function defined for every point in space. It is a vector of difference between the current position and the weighted mean of all points within its bandwidth $h$, whose weights are defined by the kernel profile $g(x)$. Therefore, the mean shift vector always points to the direction of maximum increase of the density and can be considered as a function proportional to the gradient of the density function:
+\begin{equation} \label{eq:3-A10}
+\mathbf{ms}_g (\mathbf{x}) \, \propto \, \nabla \hat{f}_k (\mathbf{x})
+\end{equation}
+
+In addition, mean shift can be effectively used to find modes (local maxima) of the underlying density function by an iterative procedure. Kernel is usually centered at a random point in space and the mean shift vector is calculated. In the next iteration, the kernel is centered at the location pointed by the mean shift vector. The procedure is mathematically defined as:
+\begin{equation} \label{eq:3-A11}
+\mathbf{y}_{i+1} \coloneqq 
+\frac{\sum_{j=1}^n \, \mathbf{x}_j \, g (\parallel \frac{\mathbf{y}_i-\mathbf{x}_j}{h} \parallel^2) }
+{\sum_{j=1}^n \, g (\parallel  \frac{\mathbf{y}_i-\mathbf{x}_j}{h} \parallel^2)}
+\end{equation}
+
+By repeating this procedure, at every step, the center of the kernel is shifted to the direction of maximum increase of the density function until the local maximum is reached. At this location, the difference between two consecutive points is zero (up to a tolerance). These final stationary points are considered to be modes of the probability density function:
+\begin{equation} \label{eq:3-A12}
+\mathbf{y}_{i+1} - \mathbf{y}_i = 0
+\end{equation}
+\begin{equation} \label{eq:3-A12}
+\mathbf{y}_{i+1} - \mathbf{y}_i = 0
+\end{equation}
+\begin{equation} \label{eq:3-A13}
+\mathbf{ms}_g (\mathbf{y}_{i}) = \nabla \hat{f}_k \, (\mathbf{y}_i) = 0
+\end{equation}
+
+This algorithm is very useful in image processing and feature space analysis with many applications, of which clustering is the most popular. It only requires setting one parameter, bandwidth $(h)$. On the other hand, unlike the similar methods, e.g., $k-$ means clustering, it is not necessary to define the number of expected clusters. This is a big advantage because it does not require \textit{a priori} knowledge on the number of clusters. Detailed explanation of the mean shift algorithm can be found in the literature \citep{Comaniciu2002, Fukunaga1975}.
+
+In this study, modes of the density function of root-mean-square (RMS) activation maps were found using the mean shift algorithm implemented in Python \citep{scikit-learn} and were used as features in the identification. The Epanechnikov kernel profile was employed to describe the density function, which yielded flat kernel profile $g(x)$ in the calculation of the mean shift vector:
+\begin{equation} \label{eq:3-A14}
+g (x) = \left\{\begin{array}{lr} 1, & \,\, \parallel x \parallel \leq h \\
+0,  & \,\,\parallel x \parallel > h \end{array}\right.
+\end{equation}
+
+This choice of the kernel profile simplified the update of the mean shift centroid to:
+\begin{equation} \label{eq:3-A15}
+\left. \mathbf{y}_{i+1} \coloneqq \frac{\sum_{j=1}^{N} \mathbf{x}_j}{N} \right\vert_{\forall \mathbf{x} \,s.t. \,\parallel \mathbf{x}-\mathbf{y}_i \parallel \leq h}
+\end{equation}
+In the other words, the new centroid was calculated as the mean value of $N$ points located within the Euclidean distance $h$ from the current centroid.
+
+%\end{appendix}

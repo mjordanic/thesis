@@ -60,12 +60,13 @@
 %\input{quotes/quotes}
 
 \body
-%\input{introduction/introduction}
-%\input{problem/problem}
-%\input{JNER/JNER}
-%\input{JNE/JNE}
-%\input{Sensors/Sensors}
-\input{RIAI/RIAI}
+\input{introduction/introduction}
+\input{problem/problem}
+\input{JNER/JNER}
+\input{JNE/JNE}
+\input{Sensors/Sensors}
+
+%\input{RIAI/RIAI}
 
 % body of thesis comes here
 
@@ -74,12 +75,27 @@
 %\thiswillnotshow{\large{Hidden notes} \\ More info at: https://tex.stackexchange.com/questions/9796/how-to-add-todo-notes}
 %\listoftodos[Notes]
 
-%\input{conclusion/conclusion}
+\input{conclusion/conclusion}
 \input{biblio/biblio}
+
 \appendix
-%\input{appendix/appendix}
+%\addcontentsline{toc}{chapter}{Appendices}
+\begin{appendix}
+\input{appendix/mean_shift}
+\input{appendix/pattern_recognition}
+\input{RIAI/RIAI}
+\end{appendix}
 %% appendices come here
 
+
+%\clearpage
+%\vspace*{\fill}
+%\begin{myquote}
+%\begin{flushright}
+%\textit{Take it from me, there's nothing like a job well done. Except the quiet enveloping darkness at the bottom of a bottle of Jim Beam after a job done any way at all.} \\Hunter S. Thompson
+%\end{flushright}
+%\end{myquote}
+%\vspace*{\fill}
 
 
 \end{document}

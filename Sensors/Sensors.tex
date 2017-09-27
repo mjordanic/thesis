@@ -67,11 +67,11 @@ HD-EMG recordings were divided into non-overlapping 150 ms time windows and the 
 AM_{i,j} = \sqrt{\frac{1}{N} \sum_{n=0}^{N-1} EMG_{i,j}^{2}[n] }
 \end{equation}
 
-where $AM$ is the activation map, $N$ corresponds to the number of samples in each window (given a sampling frequency of 2048 Hz, $N = 410$), and $EMG_{i,j}$ denotes the EMG signal recorded by the electrode located at $(i,j)$ position in the recording array. Pixels in $AM$ corresponding to the outlier channels previously identified as artifacts were discarded and substituted using the triangular interpolation \citep{Rojas-Martinez2012}. Examples of torque and EMG signals can be found in the Appendix B.
+where $AM$ is the activation map, $N$ corresponds to the number of samples in each window (given a sampling frequency of 2048 Hz, $N = 410$), and $EMG_{i,j}$ denotes the EMG signal recorded by the electrode located at $(i,j)$ position in the recording array. Pixels in $AM$ corresponding to the outlier channels previously identified as artifacts were discarded and substituted using the triangular interpolation \citep{Rojas-Martinez2012}. %Examples of torque and EMG signals can be found in the Appendix B.
 
 
 \subsection{Feature extraction}
-Identification was performed using the combination of intensity features and spatial features (Figure \ref{fig:3-2}). Spatial features were extracted using the mean shift algorithm \citep{Comaniciu2002}, a non-parametric approach to estimate modes (local maxima) of the underlying density function by an iterative procedure. The details of the mean shift algorithm are provided in the Appendix A and are briefly discussed here. A centroid point $y$ was positioned at a random point in the space and the mean value was calculated for all points $x$, which were located within the Euclidean distance, i.e., bandwidth $h$, from the current centroid. This mean value was assigned as a new position of a centroid $y$ in the next iteration. The procedure can be mathematically defined as:
+Identification was performed using the combination of intensity features and spatial features (Figure \ref{fig:3-2}). Spatial features were extracted using the mean shift algorithm \citep{Comaniciu2002}, a non-parametric approach to estimate modes (local maxima) of the underlying density function by an iterative procedure. The details of the mean shift algorithm are provided in the Appendix \ref{mean_shift} and are briefly discussed here. A centroid point $y$ was positioned at a random point in the space and the mean value was calculated for all points $x$, which were located within the Euclidean distance, i.e., bandwidth $h$, from the current centroid. This mean value was assigned as a new position of a centroid $y$ in the next iteration. The procedure can be mathematically defined as:
 
 \begin{equation} \label{eq:3-2}
 \left. y_{i+1} \coloneqq \frac{\sum_{j=1}^{M} x_j}{M} \right\vert_{\forall x \,s.t. \,\parallel x-y_i \parallel \leq h}
@@ -294,9 +294,9 @@ A high identification rate is not the only factor important in the extraction of
 
 In the current work, features were extracted from the RMS activation maps of the HD-EMG. Although these features proved to be very effective, by describing the EMG signal with its RMS value, i.e., the estimator of variance, the information is partially lost. Since the gradient of the probability density function of raw EMG is a useful feature in task identification, statistical measures (e.g., modes) of the raw HD-EMG, i.e., joint distribution of instantaneous EMG amplitude over the electrode array, could provide valuable information. Moreover, in literature, features were often calculated for each channel separately and selected using the simple sequential method prior to classification \citep{Hargrove2009, Li2017}. On the other hand, Geng et al. recently proposed a more advanced channel selection method based on common spatial patterns \citep{Geng2014}. Modes of the HD-EMG density function could be correlated with the channels with discriminative information and could be a useful tool in channel selection.
 
-Finally, the mean shift algorithm can be used for clustering and, since it was shown that the algorithm is most effective in low-dimensional data, image segmentation is one of its most successful applications \citep{Comaniciu2002}. A mode of the density estimate, or in this case, a channel selected by the mean shift algorithm, can be considered as a cluster representative \citep{Hennig2015}, related to the possible image segments, where spatial (pixel locations) and range features (the intensity of the grayscale value) are considered. The advantage of the mean shift is that it can be used for clustering non-convex shapes, albeit, it could segment complex non-convex regions in the activation maps. Since segmentation of the muscle activation map can improve the neuromuscular activity estimation \citep{Vieira2010}, this could be a reason why mean shift features improved the performance of the movement detection system compared with previously published attributes. In addition, the algorithm only requires setting one parameter, bandwidth ($h$) and, unlike in the similar methods, it is not necessary to define the number of expected clusters. This is a big advantage because it does not require a priori knowledge on the number of clusters.
+%Finally, the mean shift algorithm can be used for clustering and, since it was shown that the algorithm is most effective in low-dimensional data, image segmentation is one of its most successful applications \citep{Comaniciu2002}. A mode of the density estimate, or in this case, a channel selected by the mean shift algorithm, can be considered as a cluster representative \citep{Hennig2015}, related to the possible image segments, where spatial (pixel locations) and range features (the intensity of the grayscale value) are considered. The advantage of the mean shift is that it can be used for clustering non-convex shapes, albeit, it could segment complex non-convex regions in the activation maps. Since segmentation of the muscle activation map can improve the neuromuscular activity estimation \citep{Vieira2010}, this could be a reason why mean shift features improved the performance of the movement detection system compared with previously published attributes. In addition, the algorithm only requires setting one parameter, bandwidth ($h$) and, unlike in the similar methods, it is not necessary to define the number of expected clusters. This is a big advantage because it does not require a priori knowledge on the number of clusters.
 
-As a limitation of the study, it should be noted that the proposed features were tested only in highly controlled conditions of isometric contractions. The experiments during non-isometric contractions should be performed in order to validate the quality of the features in dynamic and more natural movements. Also, the experiment included only four tasks related to the elbow joint. Further analysis should include higher number of more complex tasks related to hand and shoulder. Moreover, all results were obtained during offline analysis. To evaluate practical aspects of the features, the experiment should be repeated using online identification and considering multiple transitions between tasks.
+%As a limitation of the study, it should be noted that the proposed features were tested only in highly controlled conditions of isometric contractions. The experiments during non-isometric contractions should be performed in order to validate the quality of the features in dynamic and more natural movements. Also, the experiment included only four tasks related to the elbow joint. Further analysis should include higher number of more complex tasks related to hand and shoulder. Moreover, all results were obtained during offline analysis. To evaluate practical aspects of the features, the experiment should be repeated using online identification and considering multiple transitions between tasks.
 
 
 \section{Conclusions} \label{sc:3-5}
@@ -304,7 +304,7 @@ In conclusion, a new set of features for the identification of isometric motor t
 
 
 \section{Acknowledgments}
-Special acknowledgement to Laboratory of Engineering of Neuromuscular System and Motor Rehabilitation at the Politecnico di Torino for the help and collaboration during the experiments. This work has been partially supported by the Spanish Ministry of Economy and Competitiveness (Project DPI2014-59049-R), People Programme (Marie Curie Actions) of the Seventh Framework Programme of the European Union (FP7/2007-2013) under REA grant agreement no. 600388 (TECNIO spring programme), and by the grant for the recruitment of early-stage research staff (FI 2014) from the AGAUR, Generalitat de Catalunya, Spain.
+Special acknowledgment to Laboratory of Engineering of Neuromuscular System and Motor Rehabilitation at the Politecnico di Torino for the help and collaboration during the experiments. This work has been partially supported by the Spanish Ministry of Economy and Competitiveness (Project DPI2014-59049-R), People Programme (Marie Curie Actions) of the Seventh Framework Programme of the European Union (FP7/2007-2013) under REA grant agreement no. 600388 (TECNIO spring programme), and by the grant for the recruitment of early-stage research staff (FI 2014) from the AGAUR, Generalitat de Catalunya, Spain.
 
 
 \section{Author contributions}
@@ -314,123 +314,123 @@ M.R.-M. and M.A.M. conceived and designed the experimental protocol and conducte
 The authors declare no conflict of interest.
 \clearpage
 
-\section{Appendix A}
-The mean shift algorithm is a non-parametric approach to estimate the gradient of a density function. It was first proposed by \citet{Fukunaga1975}, but did not get a lot of attention of the academic community initially. Although their work was cited more than 1500 times in literature, most of the cites occurred after the famous publication of Comaniciu and Meer in 2002 (counting almost 6000 citations) that revised the method and drew attention of the scientific community to it \citep{Comaniciu2002}.
-
-The algorithm is the enhanced version of the Parzen window technique for the estimation of density using a kernel \citep{Parzen1962} and its extension to multivariate distributions \citep{Cacoullos1966}, given that density for the point $\textbf{x}$ can be estimated based on the observed samples $\textbf{x}_i$ $(i = 1,2,…,n)$ using the kernel function $K$ as:
-\begin{equation} \label{eq:3-A1}
-\hat{f}(\mathbf{x}) = \frac{1}{n} \sum_{i=1}^{n} K_{H} (\mathbf{x}-\mathbf{x}_i)
-\end{equation}
-\begin{equation} \label{eq:3-A2}
-K_H =  \vert \mathbf{H} \vert ^{-\frac{1}{2}} K (\mathbf{H}^{-\frac{1}{2}} \mathbf{x})
-\end{equation}
-, where $\hat{f}(\mathbf{x})$ is the estimated density, $K_H$ is the normalized kernel function, and $H$ is $d x d$ bandwidth matrix. The bandwidth matrix $H$ can be fully parameterized, diagonal, or, as in this paper, proportional to identity matrix $(\mathbf{H} = h\mathbf{I})$, which simplifies the expression for the density estimation to:
-\begin{equation} \label{eq:3-A3}
-\hat{f}(\mathbf{x}) = \frac{1}{nh^d} \sum_{i=1}^{n} K (\frac{\mathbf{x}-\mathbf{x}_i}{h})\
-\end{equation}
-, where $\hat{f}(\mathbf{x})$ is the estimated density, $h$ is a single bandwidth parameter, $d$ is the number of dimensions, and $K$ is the kernel function. Two commonly used univariate kernel profiles are Epanechnikov $(k_E)$ and Gaussian $(k_N)$:
-\begin{equation} \label{eq:3-A4}
-k_N (x) = e^{- \frac{1}{2} x},\,\, x \geq 0
-\end{equation}
-\begin{equation} \label{eq:3-A5}
-k_E (x) = \left\{\begin{array}{lr} 1-x & \,\,0 \leq x \leq 1\\ 0  & \,\,x > 1 \ \end{array}\right.
-\end{equation}
-, which yield multivariate radially symmetric kernel $(K_E)$ and normal kernel $(K_N)$ respectively:
-\begin{equation} \label{eq:3-A6}
-K_N ( \mathbf{x}) = \frac{1}{2 \pi^{d/2}} e^{- \frac{1}{2} \parallel \mathbf{x} \parallel^2}
-\end{equation}
-\begin{equation} \label{eq:3-A7}
-K_E ( \mathbf{x}) = \left\{\begin{array}{lr} \frac{1}{2} \frac{d+2}{c_d} \left(1 - \parallel \mathbf{x}\parallel^2\right) & \,\, \parallel \mathbf{x}\parallel \leq 1    \\
- 0  & \,\,\parallel \mathbf{x}\parallel > 1 \end{array}\right.
-\end{equation}
-, where $d$ is the number of dimension and $c_d$ is the constant that ensures the kernel integrates to one.
-
-Mean shift vector is defined as \citep{Comaniciu2002}:
-\begin{equation} \label{eq:3-A8}
-\mathbf{ms} (\mathbf{x}) = 
-\frac{\sum_{i=1}^n \, \mathbf{x}_i \, g (\parallel  \frac{\mathbf{x}-\mathbf{x_i}}{h} \parallel^2) }{\sum_{i=1}^n \, g (\parallel  \frac{\mathbf{x}-\mathbf{x}_i}{h} \parallel^2)} - \mathbf{x}
-\end{equation}
-,where $g(x)$ is the negative derivative of the original univariate kernel profile $k(x)$:
-\begin{equation} \label{eq:3-A9}
-g(x) = - \frac{dk(x)}{dx}
-\end{equation}
-
-Mean shift is a function defined for every point in space. It is a vector of difference between the current position and the weighted mean of all points within its bandwidth $h$, whose weights are defined by the kernel profile $g(x)$. Therefore, the mean shift vector always points to the direction of maximum increase of the density and can be considered as a function proportional to the gradient of the density function:
-\begin{equation} \label{eq:3-A10}
-\mathbf{ms}_g (\mathbf{x}) \, \propto \, \nabla \hat{f}_k (\mathbf{x})
-\end{equation}
-
-In addition, mean shift can be effectively used to find modes (local maxima) of the underlying density function by an iterative procedure. Kernel is usually centered at a random point in space and the mean shift vector is calculated. In the next iteration, the kernel is centered at the location pointed by the mean shift vector. The procedure is mathematically defined as:
-\begin{equation} \label{eq:3-A11}
-\mathbf{y}_{i+1} \coloneqq 
-\frac{\sum_{j=1}^n \, \mathbf{x}_j \, g (\parallel \frac{\mathbf{y}_i-\mathbf{x}_j}{h} \parallel^2) }
-{\sum_{j=1}^n \, g (\parallel  \frac{\mathbf{y}_i-\mathbf{x}_j}{h} \parallel^2)}
-\end{equation}
-
-By repeating this procedure, at every step, the center of the kernel is shifted to the direction of maximum increase of the density function until the local maximum is reached. At this location, the difference between two consecutive points is zero (up to a tolerance). These final stationary points are considered to be modes of the probability density function:
-\begin{equation} \label{eq:3-A12}
-\mathbf{y}_{i+1} - \mathbf{y}_i = 0
-\end{equation}
-\begin{equation} \label{eq:3-A12}
-\mathbf{y}_{i+1} - \mathbf{y}_i = 0
-\end{equation}
-\begin{equation} \label{eq:3-A13}
-\mathbf{ms}_g (\mathbf{y}_{i}) = \nabla \hat{f}_k \, (\mathbf{y}_i) = 0
-\end{equation}
-
-This algorithm is very useful in image processing and feature space analysis with many applications, of which clustering is the most popular. It only requires setting one parameter, bandwidth $(h)$. On the other hand, unlike the similar methods, e.g., $k-$ means clustering, it is not necessary to define the number of expected clusters. This is a big advantage because it does not require \textit{a priori} knowledge on the number of clusters. Detailed explanation of the mean shift algorithm can be found in the literature \citep{Comaniciu2002, Fukunaga1975}.
-
-In this study, modes of the density function of root-mean-square (RMS) activation maps were found using the mean shift algorithm implemented in Python \citep{scikit-learn} and were used as features in the identification. The Epanechnikov kernel profile was employed to describe the density function, which yielded flat kernel profile $g(x)$ in the calculation of the mean shift vector:
-\begin{equation} \label{eq:3-A14}
-g (x) = \left\{\begin{array}{lr} 1, & \,\, \parallel x \parallel \leq h \\
-0,  & \,\,\parallel x \parallel > h \end{array}\right.
-\end{equation}
-
-This choice of the kernel profile simplified the update of the mean shift centroid to:
-\begin{equation} \label{eq:3-A15}
-\left. \mathbf{y}_{i+1} \coloneqq \frac{\sum_{j=1}^{N} \mathbf{x}_j}{N} \right\vert_{\forall \mathbf{x} \,s.t. \,\parallel \mathbf{x}-\mathbf{y}_i \parallel \leq h}
-\end{equation}
-In the other words, the new centroid was calculated as the mean value of $N$ points located within the Euclidean distance $h$ from the current centroid.
-\clearpage
-
-
-\section{Appendix B}\label{Apx B}
-Example of the torque signals during supination and pronation can be seen in the Figure \ref{fig:3-B1}, along with the EMG signal recorded on pronator teres. It is possible to observe that the polarity of the torque signals change depending on the direction of the movement. The mechanical brace is fixed at the wrist so that the exerted force during supination and pronation is monitored by left and right torque meters, respectively. In addition, as expected, the amplitude of the sEMG signal in the Pronator Teres is higher during pronation.
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.9\textwidth]{Images/figure3_B1.png}
-\caption{Example of torque and EMG signals in supination and pronation in one subject. Left. Supination at 30\% MVC. The exerted torque on right (black) and left (gray) sides of the mechanical brace are shown at the top of the figure. The sEMG signal recorded on one of the channels of the Pronator Teres muscle is shown at the bottom. Rigth. Torque signals for Pronation at 30\% MVC are shown on the top of the figure. The sEMG signal recorded on the same channel as in the previous case is shown at the bottom.}
-\label{fig:3-B1}
-\end{figure}   
+%\section{Appendix A}
+%The mean shift algorithm is a non-parametric approach to estimate the gradient of a density function. It was first proposed by \citet{Fukunaga1975}, but did not get a lot of attention of the academic community initially. Although their work was cited more than 1500 times in literature, most of the cites occurred after the famous publication of Comaniciu and Meer in 2002 (counting almost 6000 citations) that revised the method and drew attention of the scientific community to it \citep{Comaniciu2002}.
+%
+%The algorithm is the enhanced version of the Parzen window technique for the estimation of density using a kernel \citep{Parzen1962} and its extension to multivariate distributions \citep{Cacoullos1966}, given that density for the point $\textbf{x}$ can be estimated based on the observed samples $\textbf{x}_i$ $(i = 1,2,…,n)$ using the kernel function $K$ as:
+%\begin{equation} \label{eq:3-A1}
+%\hat{f}(\mathbf{x}) = \frac{1}{n} \sum_{i=1}^{n} K_{H} (\mathbf{x}-\mathbf{x}_i)
+%\end{equation}
+%\begin{equation} \label{eq:3-A2}
+%K_H =  \vert \mathbf{H} \vert ^{-\frac{1}{2}} K (\mathbf{H}^{-\frac{1}{2}} \mathbf{x})
+%\end{equation}
+%, where $\hat{f}(\mathbf{x})$ is the estimated density, $K_H$ is the normalized kernel function, and $H$ is $d x d$ bandwidth matrix. The bandwidth matrix $H$ can be fully parameterized, diagonal, or, as in this paper, proportional to identity matrix $(\mathbf{H} = h\mathbf{I})$, which simplifies the expression for the density estimation to:
+%\begin{equation} \label{eq:3-A3}
+%\hat{f}(\mathbf{x}) = \frac{1}{nh^d} \sum_{i=1}^{n} K (\frac{\mathbf{x}-\mathbf{x}_i}{h})\
+%\end{equation}
+%, where $\hat{f}(\mathbf{x})$ is the estimated density, $h$ is a single bandwidth parameter, $d$ is the number of dimensions, and $K$ is the kernel function. Two commonly used univariate kernel profiles are Epanechnikov $(k_E)$ and Gaussian $(k_N)$:
+%\begin{equation} \label{eq:3-A4}
+%k_N (x) = e^{- \frac{1}{2} x},\,\, x \geq 0
+%\end{equation}
+%\begin{equation} \label{eq:3-A5}
+%k_E (x) = \left\{\begin{array}{lr} 1-x & \,\,0 \leq x \leq 1\\ 0  & \,\,x > 1 \ \end{array}\right.
+%\end{equation}
+%, which yield multivariate radially symmetric kernel $(K_E)$ and normal kernel $(K_N)$ respectively:
+%\begin{equation} \label{eq:3-A6}
+%K_N ( \mathbf{x}) = \frac{1}{2 \pi^{d/2}} e^{- \frac{1}{2} \parallel \mathbf{x} \parallel^2}
+%\end{equation}
+%\begin{equation} \label{eq:3-A7}
+%K_E ( \mathbf{x}) = \left\{\begin{array}{lr} \frac{1}{2} \frac{d+2}{c_d} \left(1 - \parallel \mathbf{x}\parallel^2\right) & \,\, \parallel \mathbf{x}\parallel \leq 1    \\
+% 0  & \,\,\parallel \mathbf{x}\parallel > 1 \end{array}\right.
+%\end{equation}
+%, where $d$ is the number of dimension and $c_d$ is the constant that ensures the kernel integrates to one.
+%
+%Mean shift vector is defined as \citep{Comaniciu2002}:
+%\begin{equation} \label{eq:3-A8}
+%\mathbf{ms} (\mathbf{x}) = 
+%\frac{\sum_{i=1}^n \, \mathbf{x}_i \, g (\parallel  \frac{\mathbf{x}-\mathbf{x_i}}{h} \parallel^2) }{\sum_{i=1}^n \, g (\parallel  \frac{\mathbf{x}-\mathbf{x}_i}{h} \parallel^2)} - \mathbf{x}
+%\end{equation}
+%,where $g(x)$ is the negative derivative of the original univariate kernel profile $k(x)$:
+%\begin{equation} \label{eq:3-A9}
+%g(x) = - \frac{dk(x)}{dx}
+%\end{equation}
+%
+%Mean shift is a function defined for every point in space. It is a vector of difference between the current position and the weighted mean of all points within its bandwidth $h$, whose weights are defined by the kernel profile $g(x)$. Therefore, the mean shift vector always points to the direction of maximum increase of the density and can be considered as a function proportional to the gradient of the density function:
+%\begin{equation} \label{eq:3-A10}
+%\mathbf{ms}_g (\mathbf{x}) \, \propto \, \nabla \hat{f}_k (\mathbf{x})
+%\end{equation}
+%
+%In addition, mean shift can be effectively used to find modes (local maxima) of the underlying density function by an iterative procedure. Kernel is usually centered at a random point in space and the mean shift vector is calculated. In the next iteration, the kernel is centered at the location pointed by the mean shift vector. The procedure is mathematically defined as:
+%\begin{equation} \label{eq:3-A11}
+%\mathbf{y}_{i+1} \coloneqq 
+%\frac{\sum_{j=1}^n \, \mathbf{x}_j \, g (\parallel \frac{\mathbf{y}_i-\mathbf{x}_j}{h} \parallel^2) }
+%{\sum_{j=1}^n \, g (\parallel  \frac{\mathbf{y}_i-\mathbf{x}_j}{h} \parallel^2)}
+%\end{equation}
+%
+%By repeating this procedure, at every step, the center of the kernel is shifted to the direction of maximum increase of the density function until the local maximum is reached. At this location, the difference between two consecutive points is zero (up to a tolerance). These final stationary points are considered to be modes of the probability density function:
+%\begin{equation} \label{eq:3-A12}
+%\mathbf{y}_{i+1} - \mathbf{y}_i = 0
+%\end{equation}
+%\begin{equation} \label{eq:3-A12}
+%\mathbf{y}_{i+1} - \mathbf{y}_i = 0
+%\end{equation}
+%\begin{equation} \label{eq:3-A13}
+%\mathbf{ms}_g (\mathbf{y}_{i}) = \nabla \hat{f}_k \, (\mathbf{y}_i) = 0
+%\end{equation}
+%
+%This algorithm is very useful in image processing and feature space analysis with many applications, of which clustering is the most popular. It only requires setting one parameter, bandwidth $(h)$. On the other hand, unlike the similar methods, e.g., $k-$ means clustering, it is not necessary to define the number of expected clusters. This is a big advantage because it does not require \textit{a priori} knowledge on the number of clusters. Detailed explanation of the mean shift algorithm can be found in the literature \citep{Comaniciu2002, Fukunaga1975}.
+%
+%In this study, modes of the density function of root-mean-square (RMS) activation maps were found using the mean shift algorithm implemented in Python \citep{scikit-learn} and were used as features in the identification. The Epanechnikov kernel profile was employed to describe the density function, which yielded flat kernel profile $g(x)$ in the calculation of the mean shift vector:
+%\begin{equation} \label{eq:3-A14}
+%g (x) = \left\{\begin{array}{lr} 1, & \,\, \parallel x \parallel \leq h \\
+%0,  & \,\,\parallel x \parallel > h \end{array}\right.
+%\end{equation}
+%
+%This choice of the kernel profile simplified the update of the mean shift centroid to:
+%\begin{equation} \label{eq:3-A15}
+%\left. \mathbf{y}_{i+1} \coloneqq \frac{\sum_{j=1}^{N} \mathbf{x}_j}{N} \right\vert_{\forall \mathbf{x} \,s.t. \,\parallel \mathbf{x}-\mathbf{y}_i \parallel \leq h}
+%\end{equation}
+%In the other words, the new centroid was calculated as the mean value of $N$ points located within the Euclidean distance $h$ from the current centroid.
+%\clearpage
 
 
-On the other hand, examples of EMG signals recorded on five muscles during 30\% MVC flexion, extension, supination, and pronation can be seen in Figure \ref{fig:3-B2}, Figure \ref{fig:3-B3}, Figure \ref{fig:3-B4} and Figure \ref{fig:3-B5}, respectively. Figures show raw EMG signals and signals filtered using 4\textsuperscript{th} order Butterworth filter with cut-off frequencies of of 15 Hz and 350 Hz. Scale for each muscle is the same across different tasks to show difference in EMG amplitudes in dependence of task.
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.99\textwidth]{Images/figure3_B2.png}
-\caption{Examples of recorded EMG signals from five muscles (biceps brachii, triceps brachi, brachioradialis, anconeus, bracioradialis, and pronator teres) during flexion. Figure shows (a) raw signals and (b) signals filtered using 4\textsuperscript{th} order Butterworth filter with the cut-off frequencies of 15 Hz and 350 Hz.}
-\label{fig:3-B2}
-\end{figure}   
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.99\textwidth]{Images/figure3_B3.png}
-\caption{Example of recorded EMG signals from five muscles (biceps brachii, triceps brachi, brachioradialis, anconeus, bracioradialis, and pronator teres) during extension. Figure shows (a) raw signals and (b) signals filtered using 4\textsuperscript{th} order Butterworth filter with the cut-off frequencies of 15 Hz and 350 Hz.}
-\label{fig:3-B3}
-\end{figure}   
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.99\textwidth]{Images/figure3_B4.png}
-\caption{Example of recorded EMG signals from five muscles (biceps brachii, triceps brachi, brachioradialis, anconeus, bracioradialis, and pronator teres) during supination. Figure shows (a) raw signals and (b) signals filtered using 4\textsuperscript{th} order Butterworth filter with the cut-off frequencies of 15 Hz and 350 Hz.}
-\label{fig:3-B4}
-\end{figure}   
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.99\textwidth]{Images/figure3_B5.png}
-\caption{Example of recorded EMG signals from five muscles (biceps brachii, triceps brachi, brachioradialis, anconeus, bracioradialis, and pronator teres) during pronation. Figure shows (a) raw signals and (b) signals filtered using 4\textsuperscript{th} order Butterworth filter with the cut-off frequencies of 15 Hz and 350 Hz.}
-\label{fig:3-B5}
-\end{figure}   
+%\section{Appendix B}\label{Apx B}
+%Example of the torque signals during supination and pronation can be seen in the Figure \ref{fig:3-B1}, along with the EMG signal recorded on pronator teres. It is possible to observe that the polarity of the torque signals change depending on the direction of the movement. The mechanical brace is fixed at the wrist so that the exerted force during supination and pronation is monitored by left and right torque meters, respectively. In addition, as expected, the amplitude of the sEMG signal in the Pronator Teres is higher during pronation.
+%
+%\begin{figure}[ht]
+%\centering
+%\includegraphics[width=0.9\textwidth]{Images/figure3_B1.png}
+%\caption{Example of torque and EMG signals in supination and pronation in one subject. Left. Supination at 30\% MVC. The exerted torque on right (black) and left (gray) sides of the mechanical brace are shown at the top of the figure. The sEMG signal recorded on one of the channels of the Pronator Teres muscle is shown at the bottom. Rigth. Torque signals for Pronation at 30\% MVC are shown on the top of the figure. The sEMG signal recorded on the same channel as in the previous case is shown at the bottom.}
+%\label{fig:3-B1}
+%\end{figure}   
+%
+%
+%On the other hand, examples of EMG signals recorded on five muscles during 30\% MVC flexion, extension, supination, and pronation can be seen in Figure \ref{fig:3-B2}, Figure \ref{fig:3-B3}, Figure \ref{fig:3-B4} and Figure \ref{fig:3-B5}, respectively. Figures show raw EMG signals and signals filtered using 4\textsuperscript{th} order Butterworth filter with cut-off frequencies of of 15 Hz and 350 Hz. Scale for each muscle is the same across different tasks to show difference in EMG amplitudes in dependence of task.
+%
+%\begin{figure}[ht]
+%\centering
+%\includegraphics[width=0.99\textwidth]{Images/figure3_B2.png}
+%\caption{Examples of recorded EMG signals from five muscles (biceps brachii, triceps brachi, brachioradialis, anconeus, bracioradialis, and pronator teres) during flexion. Figure shows (a) raw signals and (b) signals filtered using 4\textsuperscript{th} order Butterworth filter with the cut-off frequencies of 15 Hz and 350 Hz.}
+%\label{fig:3-B2}
+%\end{figure}   
+%
+%\begin{figure}[ht]
+%\centering
+%\includegraphics[width=0.99\textwidth]{Images/figure3_B3.png}
+%\caption{Example of recorded EMG signals from five muscles (biceps brachii, triceps brachi, brachioradialis, anconeus, bracioradialis, and pronator teres) during extension. Figure shows (a) raw signals and (b) signals filtered using 4\textsuperscript{th} order Butterworth filter with the cut-off frequencies of 15 Hz and 350 Hz.}
+%\label{fig:3-B3}
+%\end{figure}   
+%
+%\begin{figure}[ht]
+%\centering
+%\includegraphics[width=0.99\textwidth]{Images/figure3_B4.png}
+%\caption{Example of recorded EMG signals from five muscles (biceps brachii, triceps brachi, brachioradialis, anconeus, bracioradialis, and pronator teres) during supination. Figure shows (a) raw signals and (b) signals filtered using 4\textsuperscript{th} order Butterworth filter with the cut-off frequencies of 15 Hz and 350 Hz.}
+%\label{fig:3-B4}
+%\end{figure}   
+%
+%\begin{figure}[ht]
+%\centering
+%\includegraphics[width=0.99\textwidth]{Images/figure3_B5.png}
+%\caption{Example of recorded EMG signals from five muscles (biceps brachii, triceps brachi, brachioradialis, anconeus, bracioradialis, and pronator teres) during pronation. Figure shows (a) raw signals and (b) signals filtered using 4\textsuperscript{th} order Butterworth filter with the cut-off frequencies of 15 Hz and 350 Hz.}
+%\label{fig:3-B5}
+%\end{figure}   

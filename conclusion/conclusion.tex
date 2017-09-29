@@ -9,6 +9,14 @@
 %\end{myquote}
 %\normallinespacing
 
+\narrowlinespacing
+\begin{myquote}
+\begin{flushright}
+\textit{There is nothing insignificant in the world. \\It all depends on the point of view.} \\-- Johann Wolfgang von Goethe
+\end{flushright}
+\end{myquote}
+\normallinespacing
+
 \section{Summary}
 
 Task identification and movement estimation based on the EMG are popular topics in biomedical engineering involving different areas in machine learning and, particularly, in pattern recognition with many possible applications in assistive and rehabilitation devices. The emergence of the high-density EMG (HD-EMG) opened new possibilities for extracting neural information and it has been reported that spatial distribution of HD-EMG intensity is a valuable feature in the identification of isometric tasks.
@@ -73,7 +81,10 @@ The work developed in this thesis opens new possibilities in the field of myocon
 	Geng et al. recently proposed a more advanced channel selection method based on common spatial patterns \citep{Geng2014} and Naik et al. propose channel selection based on independent component analysis \citep{Naik2016}. Modes of the HD-EMG density function, a novel feature proposed in chapter 5, could be correlated with the channels with discriminative information and could be a useful tool in channel selection.
 
 \item[Real time application] \hfill \\
-	The task identification system cannot find an application without the ability of online processing. Therefore, an appropriate recording device along with an optimized processing unit should be built. The device should be able to process the task identification in real time using an optimized firmware.
+	The task identification system cannot find an application without the ability of online processing. Moreover, when task identification is used in real time, user can receive feedback and adjust the contraction to optimize the task identification, but also compensate for the non-stationarities in the signal. Therefore, an appropriate recording device along with an optimized processing unit should be built. The device should be able to process the task identification in real time using an optimized firmware.
+	
+\item[Regression-based approach] \hfill \\
+	Contrary to classification, continuous control information for each DoF separately can be achieved by regression. This inherently implies simultaneous control of multiple DoFs. Although it was already hypothesized that the regression is a more suitable technique in myocontrol applications \citep{Jiang2012}, the actual research that confirms this statement was only recently published by \citet{Hahne2017}. The features investigated in this thesis should be translated and evaluated in regression-based myocontrol. 
 
 \item[Hybrid brain-computer interface] \hfill \\
 	The fusion of EEG and EMG could further improve results of upper-limb task identification, that is, the study performed here using only HD-EMG recordings both in healthy subjects and iSCI patients. This type of study can have an impact on numerous fields of application including brain – computer interfaces (BCI). A goal could be to exploit the fusion of cerebral and neuromuscular information and to quantify the improvements when the innovative technique of HD-EMG is joined with the cerebral activity, what was recently called by the research community a \emph{hybrid BCI} \citep{Muller-Putz2015, Rohm2013}.

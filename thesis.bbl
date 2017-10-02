@@ -1,12 +1,9 @@
-\begin{thebibliography}{139}
+\begin{thebibliography}{157}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
-
-\bibitem[mat()]{matlab}
-{MATLAB and Statistics and Machine Learning Toolbox Release 2015a}.
 
 \bibitem[Ameri et~al.(2012)Ameri, Englehart, and Parker]{Ameri2012}
 Ameri, A., Englehart, K.~B., and Parker, P.~a.
@@ -14,6 +11,14 @@ Ameri, A., Englehart, K.~B., and Parker, P.~a.
   myoelectric prostheses}.
 \newblock \emph{Proceedings of the Annual International Conference of the IEEE
   Engineering in Medicine and Biology Society, EMBS}, pages 1342--1345, 2012.
+
+\bibitem[Badesa et~al.(2014)Badesa, Llinares, Morales, Garcia-Aracil, Sabater,
+  and Perez-Vidal]{Badesa2014}
+Badesa, F.~J., Llinares, A., Morales, R., Garcia-Aracil, N., Sabater, J.~M.,
+  and Perez-Vidal, C.
+\newblock {Pneumatic planar rehabilitation robot for post-stroke patients}.
+\newblock \emph{Biomedical Engineering: Applications, Basis and
+  Communications}, 26\penalty0 (02):\penalty0 1450025, 2014.
 
 \bibitem[Baker et~al.(2010)Baker, Scheme, Englehart, Hutchinson, and
   Greger]{Baker2010}
@@ -42,6 +47,17 @@ Boyd, S. and Vandenberghe, L.
 \newblock \emph{{Convex optimization}}.
 \newblock Cambridge University Press, 2004.
 
+\bibitem[Broccard et~al.(2014)Broccard, Mullen, Chi, Peterson, Iversen, Arnold,
+  Kreutz-Delgado, Jung, Makeig, Poizner, Sejnowski, and
+  Cauwenberghs]{Boccard2014}
+Broccard, F.~D., Mullen, T., Chi, Y.~M., Peterson, D., Iversen, J.~R., Arnold,
+  M., Kreutz-Delgado, K., Jung, T.-P., Makeig, S., Poizner, H., Sejnowski, T.,
+  and Cauwenberghs, G.
+\newblock {Closed-Loop Brain–Machine–Body Interfaces for Noninvasive
+  Rehabilitation of Movement Disorders}.
+\newblock \emph{Annals of Biomedical Engineering}, 42\penalty0 (8):\penalty0
+  1573--1593, 2014.
+
 \bibitem[Cacoullos(1966)]{Cacoullos1966}
 Cacoullos, T.
 \newblock {Estimation of a multivariate density}.
@@ -54,6 +70,13 @@ Celadon, N., Do{\v{s}}en, S., Binder, I., Ariano, P., and Farina, D.
 \newblock {Proportional estimation of finger movements from high-density
   surface electromyography}.
 \newblock \emph{Journal of NeuroEngineering and Rehabilitation}, 2016.
+
+\bibitem[Cesqui et~al.(2013)Cesqui, Tropea, Micera, and Krebs]{Cesqui2013}
+Cesqui, B., Tropea, P., Micera, S., and Krebs, H.~I.
+\newblock {EMG-based pattern recognition approach in post stroke robot-aided
+  rehabilitation: a feasibility study}.
+\newblock \emph{Journal of NeuroEngineering and Rehabilitation 2013 10:1},
+  10\penalty0 (1):\penalty0 75, 2013.
 
 \bibitem[Chu et~al.(2006)Chu, Moon, and Mun]{Chu2006}
 Chu, J.~U., Moon, I., and Mun, M.~S.
@@ -81,6 +104,17 @@ Comaniciu, D. and Meer, P.
 \newblock {Mean shift: a robust approach toward feature space analysis}.
 \newblock \emph{IEEE Transactions on Pattern Analysis and Machine
   Intelligence}, 24\penalty0 (5):\penalty0 603--619, 2002.
+
+\bibitem[Cortes and Vapnik(1995)]{Cortes1995}
+Cortes, C. and Vapnik, V.
+\newblock {Support-Vector Networks}.
+\newblock \emph{Machine Learning}, 20\penalty0 (3):\penalty0 273--297, 1995.
+
+\bibitem[{De Luca}(1979)]{DeLuca1979}
+{De Luca}, C.~J.
+\newblock {Physiology and Mathematics of Myoelectric Signals}.
+\newblock \emph{IEEE Transactions on Biomedical Engineering}, 26\penalty0
+  (6):\penalty0 313--325, 1979.
 
 \bibitem[{De Luca}(1984)]{DeLuca1984}
 {De Luca}, C.~J.
@@ -158,6 +192,14 @@ Farina, D., F{\'{e}}votte, C., Doncarli, C., and Merletti, R.
   surface myoelectric signals.}
 \newblock \emph{IEEE Transactions on Biomedical Engineering}, 51\penalty0
   (9):\penalty0 1555--67, 2004.
+
+\bibitem[Farina et~al.(2008)Farina, Leclerc, Arendt-Nielsen, Buttelli, and
+  Madeleine]{Farina2008}
+Farina, D., Leclerc, F., Arendt-Nielsen, L., Buttelli, O., and Madeleine, P.
+\newblock {The change in spatial distribution of upper trapezius muscle
+  activity is correlated to contraction duration}.
+\newblock \emph{Journal of Electromyography and Kinesiology}, 18\penalty0
+  (1):\penalty0 16--25, 2008.
 
 \bibitem[Farina et~al.(2010)Farina, Holobar, Merletti, and Enoka]{Farina2010}
 Farina, D., Holobar, A., Merletti, R., and Enoka, R.~M.
@@ -281,6 +323,11 @@ Hahne, J.~M., D{\"{a}}hne, S., Hwang, H.~J., M{\"{u}}ller, K.~R., and Parra,
 \newblock \emph{IEEE Transactions on Neural Systems and Rehabilitation
   Engineering}, 23\penalty0 (4):\penalty0 618--627, 2015.
 
+\bibitem[Hahne et~al.(2017)Hahne, Markovic, and Farina]{Hahne2017}
+Hahne, J.~M., Markovic, M., and Farina, D.
+\newblock {User adaptation in Myoelectric Man-Machine Interfaces}.
+\newblock \emph{Scientific Reports}, 7\penalty0 (1):\penalty0 4437, 2017.
+
 \bibitem[Hakonen et~al.(2015)Hakonen, Piitulainen, and Visala]{Hakonen2015}
 Hakonen, M., Piitulainen, H., and Visala, A.
 \newblock {Current state of digital signal processing in myoelectric interfaces
@@ -339,6 +386,10 @@ Hermens, H. and Freriks, B.
   ElectroMyoGraphy, results of the SENIAM project (CD)}}.
 \newblock Roessingh Research and Development, 1999.
 
+\bibitem[Hofmann et~al.(2008)Hofmann, Sch{\"{o}}lkopf, and Smola]{Hofmann2008}
+Hofmann, T., Sch{\"{o}}lkopf, B., and Smola, A.~J.
+\newblock {Kernel Methods in Machine Learning}, 2008.
+
 \bibitem[Hogan et~al.(2006)Hogan, Krebs, Rohrer, Palazzolo, Dipietro, Fasoli,
   Stein, Hughes, Frontera, Lynch, and Volpe]{Hogan2006}
 Hogan, N., Krebs, H.~I., Rohrer, B., Palazzolo, J.~J., Dipietro, L., Fasoli,
@@ -377,6 +428,12 @@ Holtermann, A., Roeleveld, K., and Karlsson, J.~S.
 \newblock \emph{Journal of Electromyography and Kinesiology}, 15\penalty0
   (2):\penalty0 131--137, 2005.
 
+\bibitem[Hsu and Lin(2002)]{Hsu2002}
+Hsu, C.~W. and Lin, C.~J.
+\newblock {A comparison of methods for multiclass support vector machines}.
+\newblock \emph{IEEE Transactions on Neural Networks}, 13\penalty0
+  (2):\penalty0 415--425, 2002.
+
 \bibitem[Huang et~al.(2009)Huang, Zhou, Li, and Kuiken]{Huang2009}
 Huang, H., Zhou, P., Li, G., and Kuiken, T.
 \newblock {Spatial filtering improves EMG classification accuracy following
@@ -404,22 +461,23 @@ Jiang, N., Dosen, S., Muller, K.-R., and Farina, D.
 \newblock \emph{IEEE Signal Processing Magazine}, 29\penalty0 (5):\penalty0
   152--150, 2012.
 
-\bibitem[Jordanic et~al.(2016)Jordanic, Rojas-Mart{\'{i}}nez, Ma{\~{n}}anas,
-  and Alonso]{Jordanic2016a}
-Jordanic, M., Rojas-Mart{\'{i}}nez, M., Ma{\~{n}}anas, M.~A., and Alonso, J.~F.
+\bibitem[Jordani{\'{c}} et~al.(2016{\natexlab{a}})Jordani{\'{c}},
+  Rojas-Mart{\'{i}}nez, Ma{\~{n}}anas, and Alonso]{Jordanic2016a}
+Jordani{\'{c}}, M., Rojas-Mart{\'{i}}nez, M., Ma{\~{n}}anas, M.~A., and Alonso,
+  J.~F.
 \newblock {Spatial distribution of HD-EMG improves identification of task and
   force in patients with incomplete spinal cord injury}.
 \newblock \emph{Journal of NeuroEngineering and Rehabilitation}, 13\penalty0
-  (1):\penalty0 41, 2016.
+  (1):\penalty0 41, 2016{\natexlab{a}}.
 
-\bibitem[Jordani{\'{c}} et~al.(2016)Jordani{\'{c}}, Rojas-Mart{\'{i}}nez,
-  Ma{\~{n}}anas, and Alonso]{Jordanic2016b}
+\bibitem[Jordani{\'{c}} et~al.(2016{\natexlab{b}})Jordani{\'{c}},
+  Rojas-Mart{\'{i}}nez, Ma{\~{n}}anas, and Alonso]{Jordanic2016b}
 Jordani{\'{c}}, M., Rojas-Mart{\'{i}}nez, M., Ma{\~{n}}anas, M.~A., and Alonso,
   J.~F.
 \newblock {Prediction of isometric motor tasks and effort levels based on
   high-density EMG in patients with incomplete spinal cord injury}.
 \newblock \emph{Journal of Neural Engineering}, 13\penalty0 (4):\penalty0
-  046002, 2016.
+  046002, 2016{\natexlab{b}}.
 
 \bibitem[Kamavuako et~al.(2013)Kamavuako, Rosenvang, Horup, Jensen, Farina, and
   Englehart]{Kamavuako2013}
@@ -443,12 +501,25 @@ Knaflitz, M. and Bonato, P.
 \newblock \emph{Journal of Electromyography and Kinesiology}, 9\penalty0
   (5):\penalty0 337--50, oct 1999.
 
+\bibitem[Korolev(2012)]{Korolev2012}
+Korolev, A.
+\newblock {Cervical Spine MRI of patient with SCI: C4 fracture and dislocation,
+  spinal cord compression, CC BY-SA 3.0 Creative common rights license,
+  https://commons.wikimedia.org/wiki/File{\%}3ACervical{\_}Spine{\_}MRI{\_}(T2W).jpg},
+  2012.
+
 \bibitem[Kupa et~al.(1995)Kupa, Roy, Kandarian, and {De Luca}]{Kupa1995}
 Kupa, E.~J., Roy, S.~H., Kandarian, S.~C., and {De Luca}, C.~J.
 \newblock {Effects of muscle fiber type and size on EMG median frequency and
   conduction velocity.}
 \newblock \emph{Journal of Applied Physiology}, 79\penalty0 (1):\penalty0
   23--32, 1995.
+
+\bibitem[Lago and Jones(1977)]{Lago1977}
+Lago, P. and Jones, N.~B.
+\newblock {Effect of motor-unit firing time statistics on E.M.G. spectra.}
+\newblock \emph{Medical {\&} biological engineering {\&} computing},
+  15\penalty0 (6):\penalty0 648--55, 1977.
 
 \bibitem[Landa and Everitt(2004)]{Landa2004}
 Landa, S. and Everitt, B.~S.
@@ -562,6 +633,16 @@ Marchal-Crespo, L. and Reinkensmeyer, D.~J.
 \newblock \emph{Journal of Neuroengineering and Rehabilitation}, 6:\penalty0
   20, 2009.
 
+\bibitem[MathWorks(2015)]{matlab}
+MathWorks.
+\newblock {MATLAB and Statistics and Machine Learning Toolbox Release 2015a},
+  2015.
+
+\bibitem[McLachlan(2004)]{McLachlan2004}
+McLachlan, G.~J.
+\newblock \emph{{Discriminant analysis and statistical pattern recognition}}.
+\newblock John Wiley and Sons, New York, USA, 2004.
+
 \bibitem[Merletti and Farina(2016)]{Merletti-Farina-book}
 Merletti, R. and Farina, D.
 \newblock \emph{{Surface Electromyography: Physiology, Engineering, and
@@ -648,6 +729,11 @@ Nazmi, N., {Abdul Rahman}, M., Yamamoto, S.-I., Ahmad, S., Zamzuri, H., and
 \newblock {A Review of Classification Techniques of EMG Signals during Isotonic
   and Isometric Contractions}.
 \newblock \emph{Sensors}, 16\penalty0 (8):\penalty0 1304, 2016.
+
+\bibitem[OpenStax(2013)]{OpenStax2013}
+OpenStax.
+\newblock {Skeletal Muscle. OpenStax CNX,
+  http://cnx.org/contents/6df8aab3-1741-4016-b5a9-ac51b52fade0@3.}, 2013.
 
 \bibitem[Oskoei and Hu(2006)]{Oskoei2006}
 Oskoei, M.~A. and Hu, H.
@@ -756,6 +842,15 @@ Rojas-Mart{\'{i}}nez, M., Ma{\~{n}}anas, M.~a., Alonso, J.~F., and Merletti, R.
 \newblock \emph{Journal of Electromyography and Kinesiology}, 23\penalty0
   (1):\penalty0 33--42, 2013.
 
+\bibitem[Rojas-Mart{\'{i}}nez et~al.(2017)Rojas-Mart{\'{i}}nez, Alonso,
+  Jordani{\'{c}}, Romero, and Ma{\~{n}}anas]{Rojas-Martinez2017}
+Rojas-Mart{\'{i}}nez, M., Alonso, J.~F., Jordani{\'{c}}, M., Romero, S., and
+  Ma{\~{n}}anas, M.~A.
+\newblock {Identificaci{\'{o}}n de tareas isom{\'{e}}tricas y din{\'{a}}micas
+  del miembro superior basada en EMG de alta densidad}.
+\newblock \emph{Revista Iberoamericana de Autom{\'{a}}tica e Inform{\'{a}}tica
+  Industrial, Accepted for publication}, 2017.
+
 \bibitem[Scheme and Englehart(2013)]{Scheme2013}
 Scheme, E. and Englehart, K.
 \newblock {Training strategies for mitigating the effect of proportional
@@ -776,6 +871,12 @@ Sensinger, J., Lock, B., and Kuiken, T.
   Conceptual Framework and Practical Algorithms}.
 \newblock \emph{IEEE Transactions on Neural Systems and Rehabilitation
   Engineering}, 17\penalty0 (3):\penalty0 270--278, 2009.
+
+\bibitem[ShepherdCenter(2011)]{ShepherdCenter2011}
+ShepherdCenter.
+\newblock {Understanding spinal cord injury,
+  http://www.spinalinjury101.org/files/understanding-spinal-cord-injury.pdf}.
+\newblock 2011.
 
 \bibitem[Sherrington(1925)]{Sherrington1925}
 Sherrington, C.~S.
@@ -798,6 +899,13 @@ Soares, F.~A., Carvalho, J. L.~A., Miosso, C.~J., de~Andrade, M.~M., and
   surface electromyographic signals using image processing techniques.}
 \newblock \emph{BioMedical Engineering Online}, 14\penalty0 (1):\penalty0 84,
   2015.
+
+\bibitem[Sokolova and Lapalme(2009)]{Sokolova2009}
+Sokolova, M. and Lapalme, G.
+\newblock {A systematic analysis of performance measures for classification
+  tasks}.
+\newblock \emph{Information Processing {\&} Management}, 45\penalty0
+  (4):\penalty0 427--437, 2009.
 
 \bibitem[Squire(1986)]{Squire1986}
 Squire, J.
@@ -881,6 +989,14 @@ van Dijk, L., van~der Sluis, C.~K., van Dijk, H.~W., Bongers, R.~M., and
   Transfer}.
 \newblock \emph{PLOS ONE}, 11\penalty0 (8):\penalty0 e0160817, 2016.
 
+\bibitem[van Pepen et~al.(2004)van Pepen, Kwakkel, and {Harmeling-Van Der
+  Wel}]{vanPepen2004}
+van Pepen, R., Kwakkel, G., and {Harmeling-Van Der Wel}, B.
+\newblock {KNGF Clinical Practice Guideline for physical therapy in patients
+  with stroke. Review of the evidence [Translation 2008]}.
+\newblock \emph{Nederlands Tijdschrift voor Fysiotherapie}, pages 126--53,
+  2004.
+
 \bibitem[Verikas et~al.(2016)Verikas, Vaiciukynas, Gelzinis, Parker, and
   Olsson]{Verikas2016}
 Verikas, A., Vaiciukynas, E., Gelzinis, A., Parker, J., and Olsson, M.
@@ -918,10 +1034,10 @@ Wang, Y., Li, J., and Li, Y.
 \newblock {Measure for data partitioning in m x 2 cross-validation}.
 \newblock \emph{Pattern Recognition Letters}, 65:\penalty0 211--217, 2015.
 
-\bibitem[Widmaier et~al.(2014)Widmaier, Raff, and Strang]{Widmaier2014}
+\bibitem[Widmaier et~al.(2003)Widmaier, Raff, and Strang]{Widmaier2014}
 Widmaier, E.~P., Raff, H., and Strang, K.~T.
 \newblock \emph{{Vander's Human Physiology: The mechanisms of Body Function}}.
-\newblock McGraw-Hill Higher Education, 2014.
+\newblock McGraw-Hill Higher Education, 9th editio edition, 2003.
 
 \bibitem[Young et~al.(2011)Young, Hargrove, and Kuiken]{Young2011}
 Young, A.~J., Hargrove, L.~J., and Kuiken, T.~A.
@@ -944,10 +1060,10 @@ Young, A.~J., Smith, L.~H., Rouse, E.~J., and Hargrove, L.~J.
 \newblock \emph{IEEE Transactions on Biomedical Engineering}, 60\penalty0
   (5):\penalty0 1250--1258, 2013.
 
-\bibitem[Young()]{Young-SCI}
+\bibitem[Young(2002)]{Young-SCI}
 Young, W.
 \newblock {Spinal Cord Injury Levels {\&} Classification, W M Keck Center for
-  Collaborative Neuroscience}.
+  Collaborative Neuroscience, http://www.sci-info-pages.com/levels.html}, 2002.
 
 \bibitem[Zardoshti-Kermani et~al.(1995)Zardoshti-Kermani, Wheeler, Badie, and
   Hashemi]{Zardoshti1995}
@@ -963,6 +1079,15 @@ Zhang, X. and Zhou, P.
   Rehabilitation}.
 \newblock \emph{IEEE Transactions on Biomedical Engineering}, 59\penalty0
   (6):\penalty0 1649--1657, 2012.
+
+\bibitem[Zhou et~al.(2007)Zhou, Lowery, Englehart, Huang, Li, Hargrove, Dewald,
+  and Kuiken]{Zhou2007}
+Zhou, P., Lowery, M.~M., Englehart, K.~B., Huang, H., Li, G., Hargrove, L.,
+  Dewald, J. P.~A., and Kuiken, T.~A.
+\newblock {Decoding a new neural machine interface for control of artificial
+  limbs}.
+\newblock \emph{Journal of Neurophysiology}, 98\penalty0 (5):\penalty0
+  2974--2982, 2007.
 
 \bibitem[Zimmer and Sahle(2016)]{Zimmer2016}
 Zimmer, C. and Sahle, S.

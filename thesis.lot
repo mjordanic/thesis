@@ -3,24 +3,24 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Relative standard deviation of activation maps for each muscle and effort level averaged between the group of all patients (top) and group of patients with C4 level of injury (bottom).\relax }}{70}{table.caption.49}
-\contentsline {table}{\numberline {4.2}{\ignorespaces Percentages of the activation maps covered by the electrode arrays in each patient. Results are presented for each muscle as mean and standard deviation within the group of all patients (top) and group of patients with C4 level of injury (bottom).\relax }}{70}{table.caption.52}
-\contentsline {table}{\numberline {4.3}{\ignorespaces Identification of tasks using LDA classifier\relax }}{73}{table.caption.57}
-\contentsline {table}{\numberline {4.4}{\ignorespaces Identification of tasks using SVM classifier\relax }}{73}{table.caption.58}
-\contentsline {table}{\numberline {4.5}{\ignorespaces LDA identification of tasks and three effort levels\relax }}{76}{table.caption.59}
-\contentsline {table}{\numberline {4.6}{\ignorespaces LDA identification of tasks and low and moderate effort levels\relax }}{76}{table.caption.60}
-\contentsline {table}{\numberline {4.7}{\ignorespaces SVM identification of tasks and three effort levels\relax }}{77}{table.caption.61}
-\contentsline {table}{\numberline {4.8}{\ignorespaces SVM identification of tasks and low and moderate effort levels\relax }}{77}{table.caption.62}
-\contentsline {table}{\numberline {4.9}{\ignorespaces Identification of tasks using a subset of electrodes: Classification indices using a 3$\times $3 electrode grid located randomly in each muscle. Results are averaged within the group of all patients (top) and group of patients with C4 level of injury (bottom).\relax }}{78}{table.caption.63}
-\contentsline {table}{\numberline {4.10}{\ignorespaces Identification of tasks and three effort levels using a subset of electrodes: Classification indices using a 3$\times $3 electrode grid located randomly in each muscle. Results are averaged within the group of all patients (top) and group of patients with C4 level of injury (bottom).\relax }}{79}{table.caption.64}
+\contentsline {table}{\numberline {4.1}{\ignorespaces Relative standard deviation of activation maps for each muscle and effort level averaged between the group of all patients (top) and group of patients with C4 level of injury (bottom).\relax }}{66}{table.caption.49}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Percentages of the activation maps covered by the electrode arrays in each patient. Results are presented for each muscle as mean and standard deviation within the group of all patients (top) and group of patients with C4 level of injury (bottom).\relax }}{69}{table.caption.52}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Identification of tasks using LDA classifier\relax }}{70}{table.caption.57}
+\contentsline {table}{\numberline {4.4}{\ignorespaces Identification of tasks using SVM classifier\relax }}{70}{table.caption.58}
+\contentsline {table}{\numberline {4.5}{\ignorespaces LDA identification of tasks and three effort levels\relax }}{72}{table.caption.59}
+\contentsline {table}{\numberline {4.6}{\ignorespaces LDA identification of tasks and low and moderate effort levels\relax }}{72}{table.caption.60}
+\contentsline {table}{\numberline {4.7}{\ignorespaces SVM identification of tasks and three effort levels\relax }}{73}{table.caption.61}
+\contentsline {table}{\numberline {4.8}{\ignorespaces SVM identification of tasks and low and moderate effort levels\relax }}{73}{table.caption.62}
+\contentsline {table}{\numberline {4.9}{\ignorespaces Identification of tasks using a subset of electrodes: Classification indices using a 3$\times $3 electrode grid located randomly in each muscle. Results are averaged within the group of all patients (top) and group of patients with C4 level of injury (bottom).\relax }}{75}{table.caption.63}
+\contentsline {table}{\numberline {4.10}{\ignorespaces Identification of tasks and three effort levels using a subset of electrodes: Classification indices using a 3$\times $3 electrode grid located randomly in each muscle. Results are averaged within the group of all patients (top) and group of patients with C4 level of injury (bottom).\relax }}{75}{table.caption.64}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Sensitivity and precision of identification of task using IMS features averaged between patients. Identification Indices for each patient were calculated as an average of hold-out repetitions ($N = 20$) and presented in terms of mean and standard deviation.\relax }}{98}{table.caption.71}
-\contentsline {table}{\numberline {5.2}{\ignorespaces Sensitivity and precision of identification of task and effort level averaged between patients. Identification indices for each patient were calculated as an average of hold-out repetitions (N = 20) and presented in terms of mean and standard deviation.\relax }}{99}{table.caption.74}
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces Sensitivity and precision of identification of task using IMS features averaged between patients. Identification Indices for each patient were calculated as an average of hold-out repetitions ($N = 20$) and presented in terms of mean and standard deviation.\relax }}{94}{table.caption.71}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Sensitivity and precision of identification of task and effort level averaged between patients. Identification indices for each patient were calculated as an average of hold-out repetitions (N = 20) and presented in terms of mean and standard deviation.\relax }}{95}{table.caption.74}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {C.1}{\ignorespaces Results of the identification of isometric tasks using the Ilog features and the combination of Ilog and CG features. The results are presented as the mean and the standard deviation calculated across five subjects.\relax }}{145}{table.caption.87}
-\contentsline {table}{\numberline {C.2}{\ignorespaces Results of the identification of isometric tasks and effort levels using the Ilog features and the combination of Ilog and CG features. The results are presented as the mean and the standard deviation calculated across five subjects.\relax }}{145}{table.caption.88}
-\contentsline {table}{\numberline {C.3}{\ignorespaces Identification of six dynamic contractions based on the intensity features, separately for slow movements and fast movements. The results are presented as the mean and the standard deviation calculated across five subjects.\relax }}{147}{table.caption.89}
-\contentsline {table}{\numberline {C.4}{\ignorespaces Identification of six dynamic contractions based on the combination of intensity and spatial features, separately for slow movements and fast movements. The results are presented as the mean and the standard deviation calculated across five subjects.\relax }}{147}{table.caption.90}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {C.1}{\ignorespaces Results of the identification of isometric tasks using the Ilog features and the combination of Ilog and CG features. The results are presented as the mean and the standard deviation calculated across five subjects.\relax }}{141}{table.caption.87}
+\contentsline {table}{\numberline {C.2}{\ignorespaces Results of the identification of isometric tasks and effort levels using the Ilog features and the combination of Ilog and CG features. The results are presented as the mean and the standard deviation calculated across five subjects.\relax }}{141}{table.caption.88}
+\contentsline {table}{\numberline {C.3}{\ignorespaces Identification of six dynamic contractions based on the intensity features, separately for slow movements and fast movements. The results are presented as the mean and the standard deviation calculated across five subjects.\relax }}{143}{table.caption.89}
+\contentsline {table}{\numberline {C.4}{\ignorespaces Identification of six dynamic contractions based on the combination of intensity and spatial features, separately for slow movements and fast movements. The results are presented as the mean and the standard deviation calculated across five subjects.\relax }}{143}{table.caption.90}

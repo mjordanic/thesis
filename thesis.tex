@@ -13,6 +13,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{cancel}
+\usepackage{scrextend}
 %\usepackage{epi­graph}
 \epstopdfDeclareGraphicsRule
   {.tif}{png}{.png}{convert tif:\SourceFile.\SourceExt png:\OutputFile}
@@ -23,7 +24,9 @@
 \def\myquote{\list{}{\setlength{\leftmargin}{2cm}\setlength{\rightmargin}{0.5cm}}\item[]}
 \let\endmyquote=\endlist 
 
-
+\hypersetup{
+    hypertexnames=true
+}
 
 
 \usepackage{xargs}

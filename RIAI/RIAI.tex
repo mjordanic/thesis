@@ -23,9 +23,9 @@ This study explores the use of the spatial distribution of myoelectric activity 
 \textbf{Keywords:}  bioengineering; electromyography; neuromuscular; rehabilitation
 
 \section{Introduction}
-Every year there are a half million spinal cord injuries and 15 million strokes. These injuries can have an impact on the motor control, resulting in uncoordinated movements, lack of force, and spasticity. In these cases, robot-assisted therapies can be used to stimulate neuroplasticity \citep{vanPepen2004}. If the movement intention of a patient could be extracted in the real time, this information could be used to optimally control the assistive device based on the patient's needs, maximizing the benefits of the therapy \citep{Hogan2006}.
+Every year there are about half million spinal cord injuries and 15 million strokes. These injuries can have an impact on the motor control, resulting in uncoordinated movements, lack of force, and spasticity. In these cases, robot-assisted therapies can be used to stimulate neuroplasticity \citep{vanPepen2004}. If the movement intention of a patient could be extracted in real time, this information could be used to optimally control assistive devices based on the patient's needs, maximizing the benefits of the therapy \citep{Hogan2006}.
 
-The use of the spatial information of the myoelectric activation maps is a novel method that can achieve high results of task identification, both in healthy subjects \citep{Stango2015}, but also in patients with incomplete spinal cord injury \citep{Rojas-Martinez2013, Jordanic2016a, Jordanic2016b}. This study analyses the possibility of using the features extracted from these maps for the identification of set of isometric contractions performed at subjective force levels, and also for the identification of dynamic contractions. Upper-limb motor tasks were recorded in a group of healthy subjects, and were consisted of hand movements in horizontal plane, involving mostly shoulder movements. These tasks were selected because they are usually involved in the therapy with rehabilitation robots \citep{Badesa2014}.
+The use of the spatial information of the myoelectric activation maps is a novel method that can achieve high results of task identification, both in healthy subjects \citep{Stango2015}, but also in patients with incomplete spinal cord injury \citep{Rojas-Martinez2013, Jordanic2016a, Jordanic2016b}. This study analyses the possibility of using the features extracted from these maps for the identification of a set of isometric contractions performed at subjective force levels, and also for the identification of dynamic contractions. Upper-limb motor tasks were recorded in a group of healthy subjects, consisting of hand displacements over a horizontal plane, involving mostly shoulder movements. These tasks were selected because they are similar to those usually involved in therapy with rehabilitation robots \citep{Badesa2014}.
 
 
 \section{Methodology}
@@ -36,11 +36,11 @@ Five male subjects participated in the study (age: 24.8 $\pm$ 6.1 years, height:
 Experimental protocol was divided in two parts: a) recording of isometric contractions, and b) recording of dynamic contractions.
 During the recording of the isometric contractions, subjects were seated upright with their back straight, elbow flexed at approximately 90 degrees, and shoulder in the neutral position (see figure \ref{fig:4-1}A). Maintaining this position, subjects performed three tasks, pushing a fixed object positioned directly in front of them forward, leftward, and rightward. Each of these tasks was realized at three different effort levels: low, medium, and high. Effort levels were chosen by the subjects following their own perception of the exerted force. In addition, HD-EMG was also recorded during the rest state. Each contraction had the duration of ten seconds with two minute rest period between contractions.
 
-For recording of dynamic contractions, subjects were asked to maintain the previously described posture (straight back and elbow flexed at 90 degrees) and to displace an object over the horizontal plane, following the predefined trajectory (see figure \ref{fig:4-1}b):
+For the recording of dynamic contractions, subjects were asked to maintain the previously described posture (straight back and elbow flexed at 90 degrees) and to displace an object over the horizontal plane, following the predefined trajectory depicted in figure \ref{fig:4-1} as follows:
 
 \begin{enumerate}[a)]
-\item From the center of the plane, located at approximately 30 cm in front of the subject, until the full extension of the shoulder, and return to the center.
-\item From the center to the point located approximately 40 cm leftward, following the trajectory perpendicular to the previous one, and return to the center.
+\item From the center of the plane, located at approximately 30 cm in front of the subject, until full extension of the shoulder, and return to the center.
+\item From the center to a point located approximately 40 cm leftward, following the trajectory perpendicular to the previous one, and return to the center.
 \item Repeat the same movement in the other direction, until the point located approximately 40 cm rightward, and return to the center.
 \end{enumerate}
 
@@ -59,13 +59,13 @@ Each movement sequence was performed two times at two different velocities, fast
         \includegraphics[height=2.9in]{Images/figure4_1b.png}
         
     \end{subfigure}
-    \caption{Figure shows \textbf{A)} measurement equipment and the position of the subject during the experimental protocol, and \textbf{B)}experimental plane in which the tasks were performed. Position sensors are marked by dashed rectangles.}
+    \caption{Figure shows \textbf{A)} measurement equipment and the position of the subject during the experimental protocol, and \textbf{B)} experimental plane in which the tasks were performed. Position sensors are marked by dashed rectangles.}
 \label{fig:4-1}
 \end{figure*}
 
 
 \subsection{Signal processing}
-The recorded signals were filtered using 4\textsuperscript{th} order Butterworth filter with zero-phase. Additionally, signals were filtered using an adaptive filter for reducing the power line interference.
+The recorded signals were filtered using a 4\textsuperscript{th} order Butterworth filter with zero-phase. Additionally, signals were filtered using an adaptive filter for reducing the power line interference.
 
 Afterwards, signals were divided in 250 ms time windows without overlapping, and the RMS value was calculated for each channel. Using these values, activation map $HM$ was calculated for each time window as:
 \begin{equation} \label{eq:4-1}
@@ -74,13 +74,13 @@ HM_{i,j} = \sqrt{\frac{\sum_n{sEMG_{i,j}^2 (n)}}{N}}
 
 , where $N=512$ samples (corresponding to time window of 250 ms), $i$ and $j$ are positions (row and column in the electrode array) of the sEMG channel, which correspond to the position ($i,j$) of the pixel in the activation map $HM$. The channels identified as artifacts were substituted using the triangle-based cubic interpolation \citep{Rojas-Martinez2012}.
 
-From these activation maps following features were extracted: logarithm of the average intensity of the map (Ilog), and the center of gravity (CG). In the first case, it was already shown that the logarithmic transform is useful in the identification of effort levels \citep{Rojas-Martinez2012}, and in the second case, it was shown that the spatial distribution of myoelectric activity changes with the force level \citep{Holtermann2005}, and with the isometric task intention \citep{Jordanic2016a}.
+From these activation maps the following features were extracted: logarithm of the average intensity of the map (Ilog), and the center of gravity (CG). In the first case, it was already shown that the logarithmic transform is useful in the identification of effort levels \citep{Rojas-Martinez2012}, and in the second case, it was shown that the spatial distribution of myoelectric activity changes with the force level \citep{Holtermann2005}, and with the isometric task intention \citep{Jordanic2016a}.
 
-On the other hand, positioning signal recorded during dynamic part of the protocol was used to sort the HD-EMG signal epochs in order to obtain the segments corresponding to each of the movements described in the protocol.
+On the other hand, a position signal recorded during dynamic part of the protocol was used to partition the HD-EMG signal into segments corresponding to each of the movements described in the protocol.
 
 
 \subsection{Movement classification}
-The classification was realized for each subject individually, both for the isometric tasks, and for the dynamic tasks. For the isometric tasks, two types of the classification were considered:
+The classification was realized for each subject individually, both for the isometric tasks, and for the dynamic tasks. For the isometric tasks, two types of classification were considered:
 
 \begin{enumerate}[a)]
 \item identification of four tasks regardless of the effort level (rest, push forward, push leftward, push rightward)
@@ -101,11 +101,11 @@ For the dynamic task, the identification consisted of the classification of each
 \item return back to the center
 \end{enumerate}
 
-For the task identification, a classifier based on the linear discriminant analysis (LDA) was used, a technique often used in myoelectric pattern recognition because of the speed and low computational complexity \citep{Zhou2007}.
+For the task identification, a classifier based on the linear discriminant analysis (LDA) was used, a technique often used in myoelectric pattern recognition because of its properties relating speed and low computational complexity \citep{Zhou2007}.
 
-In the case of isometric contractions, database was separated in two groups, training set, consisting of 60\% of the available data, and test set, consisting of 40\% of the available data. This data separation, followed by the training and classification was repeated 100 times in order to minimize the possible statistical error (hold-out validation method). The identification results reported in the study are the result averaged over all iterations.
+In the case of isometric contractions, database was separated in two groups, training set, consisting of 60\% of the available data, and test set, consisting of 40\% of the available data. This data separation, followed by the training and classification was repeated 100 times in order to minimize possible statistical errors (i.e. the hold-out validation method). The identification results reported in the study were obtained after averaging over all iterations.
 
-In the case of dynamic contractions, classifier was trained using the observations recorded in one recording sequence (both for slow and fast movements), and validated using the observations recorded in the other sequence. Afterwards, the training set and the test set were swapped and the identification was repeated. The reported results are the average of these two identifications. This type of validation was used to reduce the possible statistical error, although it is possible that in the second recording subject learned how to control the velocity and perform the exercise better.
+In the case of dynamic contractions, the classifier was trained using the observations recorded in one recording sequence (both for slow and fast movements), and validated using the observations recorded in the other sequence. Afterwards, the training set and the test set were swapped and the identification was repeated. The reported results are the average of these two identifications. As in the previous case, this type of validation was used to reduce possible statistical error, although it is possible that in the second recording the subject learned how to control the velocity and perform the exercise better.
 
 Finally, the performance of the classification was expressed in terms of sensitivity (S) and precision (P) \citep{Farina2001}, calculated as:
 \begin{equation}
@@ -114,12 +114,12 @@ S = \frac{TP}{TP+FN}
 \begin{equation}
 P = \frac{TP}{TP+FP}
 \end{equation}
-, where TP is the number of true positives, that is, correctly classified samples, FP is the number of false positives, which indicate the number of wrongly classified samples to a certain class, and FN is the number of false negatives, that is, the number of samples incorrectly classified to another class. The sensitivity (S) and precision (P) were obtained for each of the classes, and the averaged resultd were calculated.
+, where TP is the number of true positives, that is, correctly classified samples, FP is the number of false positives, which indicate the number of wrongly classified samples to a certain class, and FN is the number of false negatives, that is, the number of samples incorrectly classified to another class. The sensitivity (S) and precision (P) were obtained for each of the classes, and the averaged results were calculated.
 
 
 \section{Results}
 \subsection{Activation maps}
-In the figure \ref{fig:4-2} activation maps of \textit{pectoralis major} are shown. Different activation patterns can be observed during the performance of dynamic tasks. It should be noted that the activation intensity depends on the task, presenting the highest activation (in mV) during the return from full forward extension to the center of the plane, and the reverse. Also, it can be noted that the spatial distribution changes depending on the exercise, for example, during the contraction associated with the forward movement (see figure \ref{fig:4-2}a), the activation is located at the left side of the map (columns 1 to 3), whereas in the rightward movement (see figure \ref{fig:4-2}b), the area with higher activity is located in the right part of the map (column 8, rows 2 to 4). Although only maps of \textit{pectoralis major} are shown, the similar differentiation can be found in the remaining three muscles, which is used as a feature in the identification. 
+In figure \ref{fig:4-2} an example of activation maps of \textit{pectoralis major} are shown. Different activation patterns can be observed during the performance of dynamic tasks. It should be noted that the activation intensity depends on the task, presenting the highest activation (in mV) during the return from full forward extension to the center of the plane, and the reverse. Also, it can be noted that the spatial distribution changes depending on the exercise, for example, during the contraction associated with the forward movement (see figure \ref{fig:4-2}a), the activation is located at the left side of the map (columns 1 to 3), whereas in the rightward movement (see figure \ref{fig:4-2}b), the area with higher activity is located in the right part of the map (column 8, rows 2 to 4). Although only maps of \textit{pectoralis major} are shown, similar differences can be found in the remaining three muscles, which is used as a feature in the identification. 
 
 \begin{figure}[ht]
 \centering
@@ -131,7 +131,7 @@ In the figure \ref{fig:4-2} activation maps of \textit{pectoralis major} are sho
 \subsection{Isometric task identification}
 To test if the spatial distribution of intensity improves the identification, two types of identification were performed: the identification based only on intensity features, and the identification based on the combination of intensity and spatial features. Additionally, identification of task was performed (forward, rightward, leftward, and rest), and the identification of task and effort levels. The results of the task identification, regardless of the effort level are shown in table \ref{tb:4-1}, whereas the results of the identification of task and effort level are shown in table \ref{tb:4-2}.
 
-\begin{table}[]
+\begin{table}[h!]
 \centering
 \caption{Results of the identification of isometric tasks using the Ilog features and the combination of Ilog and CG features. The results are presented as the mean and the standard deviation calculated across five subjects.}
 \label{tb:4-1}
@@ -148,7 +148,7 @@ Rest          & 98.7 $\pm$ 2.1           & 87.1 $\pm$ 3.2           & 100 $\pm$ 
 \end{tabular}
 \end{table}
 
-\begin{table}[]
+\begin{table}[h!]
 \centering
 \caption{Results of the identification of isometric tasks and effort levels using the Ilog features and the combination of Ilog and CG features. The results are presented as the mean and the standard deviation calculated across five subjects.}
 \label{tb:4-2}
@@ -170,15 +170,15 @@ Rest          &                & \multicolumn{1}{l}{97.5 $\pm$ 5.6}            &
 \end{tabular}
 \end{table}
 
-It can be seen that by adding center of gravity to intensity features, results improve for approximately 10\% in the case of the task identification and 5\% in the case of the identification of task and effort level. Moreover, since when using center of gravity, standard deviation is smaller, it can be concluded that spatial distribution has a positive effect on the identification.
+It can be seen that by adding the center of gravity to intensity features, results improve approximately 10\% in the case of the task identification and 5\% in the case of the identification of task and effort level. Moreover, since when using center of gravity, standard deviation is smaller, it can be concluded that spatial distribution has a positive effect on the identification.
 
 
 \subsection{Dynamic task identification}
 In the case of dynamic task identification, 6 classes were considered: move forward and return, move leftward and return, and move rightward and return.
 
-Tables \ref{tb:4-3} and \ref{tb:4-4} show the results obtained by averaging the results of each patient, using only intensity features (table \ref{tb:4-3}), and combination of intensity and spatial features (table \ref{tb:4-4}). As in isometric contractions, identification results are higher when combining intensity and spatial features.
+Tables \ref{tb:4-3} and \ref{tb:4-4} show the results obtained by averaging the results for each patient, using only intensity features (table \ref{tb:4-3}), and combination of intensity and spatial features (table \ref{tb:4-4}). As in isometric contractions, identification results are higher when combining intensity and spatial features.
 
-\begin{table}[]
+\begin{table}[h!]
 \centering
 \caption{Identification of six dynamic contractions based on the intensity features, separately for slow movements and fast movements. The results are presented as the mean and the standard deviation calculated across five subjects.}
 \label{tb:4-3}
@@ -197,7 +197,7 @@ Toward center from & Ahead     & 73.4 $\pm$ 11.8          & 74.7 $\pm$ 11.1     
 \end{table}
 
 
-\begin{table}[]
+\begin{table}[h!]
 \centering
 \caption{Identification of six dynamic contractions based on the combination of intensity and spatial features, separately for slow movements and fast movements. The results are presented as the mean and the standard deviation calculated across five subjects.}
 \label{tb:4-4}
@@ -215,25 +215,27 @@ Toward center from & Ahead     & 92.3 $\pm$ 7.1           & 92.4 $\pm$ 12.8     
 \end{tabular}
 \end{table}
 
-Higher variability can be observed compared to the isometric task identification, as well as lower sensitivity and precision, as could be expected since the dynamic contractions represent a more complex problem. Finally, it should be noted that although the mean identification results of fast movements are higher than slow movements, the variability is higher in the identification of fast movements. Therefore, it can not be said with certainty that fast movements can be identified with higher identification results.
+Higher variability can be observed compared to the isometric task identification, as well as lower sensitivity and precision, as could be expected since the dynamic contractions represent a more complex problem. Finally, it should be noted that although the mean identification results of fast movements are higher than slow movements, the variability is higher in the identification of fast movements. Therefore, it cannot be said with certainty that fast movements can be identified with higher identification results.
 
 
 \section{Conclusions}
 
-Results show that in all cases identification can be improved by adding spatial features, i.e., center of gravity to the intensity features. This fact implies that the task-dependent patterns exist in the spatial domain, both in the isometric tasks and in the dynamic tasks. Besides improving the average identification results, by adding features based on the spatial distribution, standard deviation of the results is lower, which improves the robustness of the identification.
+Results show that in all cases identification can be improved by adding spatial features, i.e., center of gravity to the intensity features. This fact implies that task-dependent patterns exist in the spatial domain, both for isometric tasks and for dynamic tasks. Besides, adding features based on the spatial distribution improved average identification results and reduced its variability therefore improving the robustness of the identification.
 
-This results confirm the previous findings in the literature \citep{Hargrove2007, Farina2008, Jordanic2016a, Zhou2007} that there is a  neuromuscular compartmentalization within the muscles, and that different muscle areas activate during different tasks. %Por lo tanto, es posible que estos hallazgos puedan extenderse al músculo Pectoralis Major que no había sido evaluado previamente en nuestros estudios anteriores.
+This results confirm previous findings in the literature \citep{Hargrove2007, Farina2008, Jordanic2016a, Zhou2007} that there is a  neuromuscular compartmentalization within the muscles, and that different muscle areas activate during different tasks. %Por lo tanto, es posible que estos hallazgos puedan extenderse al músculo Pectoralis Major que no había sido evaluado previamente en nuestros estudios anteriores.
 
 Moreover, in the case of isometric contractions, besides identifying only task (forward, rightward, and leftward), it is also possible to identify force level, which enables simultaneously controlling task and force, which is an important step towards the control of external devices in a natural way. 
 
-On the other hand, identification results of the dynamic contractions are lower than the identification results of the isometric contractions. These results can be expected since the dynamic contractions imply joint movement and shortening of the muscle fibers, which has an effect on the sEMG signal and increases the complexity of the classification problem. Moreover, the velocity of the movement is decided by the subject, which makes it subjective, and more difficult to classify, as would be the case during the rehabilitation. In spite of these difficulties, the obtained results are very promising (sensitivity and precision close to 90\%), but should be improved further in terms of identification indices and robustness.
+On the other hand, identification results of dynamic contractions are lower than the identification results of the isometric contractions. These results can be expected since dynamic contractions imply joint movement and shortening of the muscle fibers, which has an effect over the sEMG signal and increases the complexity of the classification problem. Moreover, the velocity of the movement was decided by the subject, which makes it subjective, and more difficult to classify, as would be the case in a real rehabilitation scenario. In spite of these difficulties, the obtained results are very promising (sensitivity and precision close to 90\%), but should be improved further in terms of identification indices and robustness.
 
-The overall results of the identification of fast and slow movements are similar. Although the identification of fast movements has higher identification indices, the standard deviation is also higher ($>$10\%), and, therefore, it cannot be concluded with certainty that the  identification depends on the speed of the movement. To establish this relationship, more tests should be performed on the database containing more subjects.
+The overall results of the identification of fast and slow movements are similar. Although the identification of fast movements has higher identification indices, the standard deviation is also higher ($>$10\%), and, therefore, it cannot be concluded with certainty that the  identification depends on the speed of the movement. To establish this relationship, more tests should be performed on a bigger database.
 
-As a general conclusion, it was demonstrated that the proposed methodology and the obtained results are promising and that the information extracted from the HD-EMG can be useful in controlling of external devices, e.g. rehabilitation robots.
+As a general conclusion, it was demonstrated that the proposed methodology and the obtained results are promising and that the information extracted from the HD-EMG can be useful for controlling of external devices, e.g. rehabilitation robots.
 
-As a future works, the protocol should be extended to the patients with neuromuscular impairments, where the motion intention could be extracted from intensity and spatial domain of HD-EMG recordings in order to control external devices like rehabilitation robots. 
+Future works should consider the extension of the protocol to patients with neuromuscular impairments, where the motion intention could be extracted from intensity and spatial domain of HD-EMG recordings in order to control external devices like rehabilitation robots. 
 
- 
+\section{Acknowledgments}
+The authors are grateful to Ignasi Gallardo for his collaboration in the development of the study.
+This work has been partially supported by the project ROBERT of the CIBER-BBN, and by the Spanish Ministry of Economy and Competitiveness (project DPI2014-59049-R).
 
 %\end{appendix}

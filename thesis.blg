@@ -1,49 +1,6 @@
-This is BibTeX, Version 0.99d (TeX Live 2018/dev/Debian)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
-The top-level auxiliary file: thesis.aux
+This is BibTeX, Version 0.99dThe top-level auxiliary file: thesis.aux
 The style file: abbrvnatnourl.bst
 Database file #1: biblio/thesis.bib
 Warning--can't use both author and editor fields in Phinyomark2012b
 Warning--empty journal in ShepherdCenter2011
-You've used 157 entries,
-            2757 wiz_defined-function locations,
-            1784 strings with 43150 characters,
-and the built_in function-call counts, 80953 in all, are:
-= -- 7097
-> -- 5445
-< -- 62
-+ -- 1830
-- -- 1669
-* -- 7293
-:= -- 12550
-add.period$ -- 470
-call.type$ -- 157
-change.case$ -- 1019
-chr.to.int$ -- 153
-cite$ -- 316
-duplicate$ -- 3289
-empty$ -- 6142
-format.name$ -- 1900
-if$ -- 16621
-int.to.chr$ -- 5
-int.to.str$ -- 1
-missing$ -- 162
-newline$ -- 788
-num.names$ -- 630
-pop$ -- 1872
-preamble$ -- 1
-purify$ -- 870
-quote$ -- 0
-skip$ -- 2572
-stack$ -- 0
-substring$ -- 3363
-swap$ -- 239
-text.length$ -- 8
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 1672
-warning$ -- 2
-while$ -- 726
-width$ -- 0
-write$ -- 2029
 (There were 2 warnings)

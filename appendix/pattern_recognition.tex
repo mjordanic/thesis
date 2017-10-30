@@ -254,7 +254,7 @@ In the optimization, Karush-Kuhn-Tucker conditions need to be satisfied \citep{B
 This condition explains well the principle of SVM. Since the dual variable must be greater or equal to zero ($\alpha \geq 0$), there are two possibilities:
 \begin{enumerate}
 \item
-If $\alpha$ is greater than zero, $\left[ y_i \left( \Theta^T\mathbf{x}_i + \Theta_0  \right) -1 \right]$ must equal one:
+If $\alpha$ is greater than zero, $\left[ y_i \left( \Theta^T\mathbf{x}_i + \Theta_0  \right) -1 \right]$ must equal zero:
 \begin{equation} 
 \alpha_i > 0 \,\,\,\,\, \Rightarrow \,\,\,  y_i \left( \Theta^T\mathbf{x}_i + \Theta_0  \right) = 1
 \end{equation}
@@ -269,7 +269,7 @@ Since for all samples lying on the margin, the statement
 \begin{equation}
 y_i \left( \Theta^T\mathbf{x}_i + \Theta_0  \right) = 1
 \end{equation}
-\noindent holds, $\alpha$ will be greater than zero only for the samples lying on the decision hyperplane, whereas for the samples further away from the hyperplane, $\alpha$ will be zero. Given the fact that $\Theta$ depends on linear combination of samples weighted by $\alpha$ (eq. \ref{eq:SVM-primal}), only the samples lying on the boundary will have effect in the calculation of $\Theta$ (where $\alpha > 0$), and they are called \emph{support vectors}. The inconveniency of this approach is the fact that the data need to be linearly separable, i.e., there should not be any data on the other side of the margin, which is rarely the case in practice. For this reason it is called the \emph{hard margin SVM}. Margin has distance one from the boundary and all points have to be distanced more or equal (constraint in eq. \ref{eq:SVM-constraint}). To relax this constrain, variable $\beta_i$ is introduced for every sample $\mathbf{x}_i$, such that $\beta_i \geq 0$:s
+\noindent holds, $\alpha$ will be greater than zero only for the samples lying on the decision hyperplane, whereas for the samples further away from the hyperplane, $\alpha$ will be zero. Given the fact that $\Theta$ depends on linear combination of samples weighted by $\alpha$ (eq. \ref{eq:SVM-primal}), only the samples lying on the boundary will have effect in the calculation of $\Theta$ (where $\alpha > 0$), and they are called \emph{support vectors}. The inconveniency of this approach is the fact that the data need to be linearly separable, i.e., there should not be any data on the other side of the margin, which is rarely the case in practice. For this reason it is called the \emph{hard margin SVM}. Margin has distance one from the boundary and all points have to be distanced more or equal (constraint in eq. \ref{eq:SVM-constraint}). To relax this constrain, variable $\beta_i$ is introduced for every sample $\mathbf{x}_i$, such that $\beta_i \geq 0$:
 \begin{equation} 
  y_i \left(\Theta^T \mathbf{x}_i + \Theta_0\right) \geq 1 - \beta_i
 \end{equation}
@@ -302,7 +302,7 @@ L(\alpha) = \sum_i \alpha_i - \frac{1}{2} \sum_j \sum_i \alpha_j \alpha_i y_j y_
 \max L(\alpha) \,\,\,\,\, s.t. \,\,\, \left\{\begin{array}{lr} \alpha_i \geq 0 \\
 \lambda_i \geq 0  \end{array}\right.
 \end{equation}
-However, since objective function $L(\alpha)$ does not depend on dual variable $\lambda_i$, the substituation can be made following the expression in eq. \ref{dual_variable_beta} and the new optimization problem states:
+However, since objective function $L(\alpha)$ does not depend on dual variable $\lambda_i$, the substitution can be made following the expression in eq. \ref{dual_variable_beta} and the new optimization problem states:
  \begin{equation} 
 \max L(\alpha) \,\,\,\,\, s.t. \,\,\, 0 \leq \alpha_i \leq \gamma.
 \end{equation}
@@ -319,7 +319,7 @@ However, this operation is computationally expensive. The solution can be achiev
 K(\mathbf{x},\mathbf{y}) = \Phi(\mathbf{x})^T  \Phi(\mathbf{y})
 \end{equation}
 
-Since in the equation \ref{eq:SVM-dual} $\mathbf{x}$ does not appear by itself, but in a form of dot product $\mathbf{x}^T\mathbf{x}$, non-linear transform can be used in a form of kernel trick:
+Since in the equation \ref{eq:SVM-rewritten} $\mathbf{x}$ does not appear by itself, but in a form of dot product $\mathbf{x}^T\mathbf{x}$, non-linear transform can be used in a form of kernel trick:
 \begin{equation} 
 L(\alpha) = \sum_i \alpha_i - \frac{1}{2} \sum_j \sum_i \alpha_j \alpha_i y_j y_i K(\mathbf{x}_i, \mathbf{x}_j)
 \end{equation}

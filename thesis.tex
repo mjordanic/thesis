@@ -3,7 +3,6 @@
 \usepackage[english]{babel}
 \usepackage{natbib}
 \usepackage[left=2.5cm,right=2.5cm,top=3cm,bottom=3cm]{geometry}
-\usepackage[hidelinks]{hyperref}
 \usepackage{enumerate}
 \usepackage{threeparttable}
 \usepackage{mathtools}
@@ -13,6 +12,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{cancel}
+
 %\usepackage{epi­graph}
 \epstopdfDeclareGraphicsRule
   {.tif}{png}{.png}{convert tif:\SourceFile.\SourceExt png:\OutputFile}
@@ -22,10 +22,6 @@
 %\def\myquote#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
 \def\myquote{\list{}{\setlength{\leftmargin}{2cm}\setlength{\rightmargin}{0.5cm}}\item[]}
 \let\endmyquote=\endlist 
-
-\hypersetup{
-    hypertexnames=true
-}
 
 
 \usepackage{xargs}
@@ -37,11 +33,17 @@
 \newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
 \newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
 
+
 %set the number of sectioning levels that get number and appear in the contents
-\setcounter{secnumdepth}{2}
-\setcounter{tocdepth}{3}
+%\setcounter{secnumdepth}{2}
+%\setcounter{tocdepth}{3}
 
 \include{thesis.preamble}
+
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+    hypertexnames=true
+}
 
 \begin{document}
 
@@ -57,22 +59,22 @@
 \normallinespacing
 \maketitle
 
-\preface
+\preface{
 %\input{quotes/quotes}
 \input{acknowledgements/acknowledgements}
 \input{abstract/abstract}
 \input{abstract/resumen}
-
+}
 %\input{dedication/dedication}
 
 
-\body
+\body{
 \input{introduction/introduction}
 \input{problem/problem}
 \input{JNER/JNER}
 \input{JNE/JNE}
 \input{Sensors/Sensors}
-
+}
 %\input{RIAI/RIAI}
 
 % body of thesis comes here
@@ -85,6 +87,7 @@
 \input{conclusion/conclusion}
 \input{biblio/biblio}
 
+%\phantomsection
 \appendix
 %\addcontentsline{toc}{chapter}{Appendices}
 \begin{appendix}
@@ -94,16 +97,14 @@
 \end{appendix}
 %% appendices come here
 
-
-
-
-%\clearpage
-%\vspace*{\fill}
-%\begin{myquote}
-%\begin{flushright}
-%\textit{Take it from me, there's nothing like a job well done. Except the quiet enveloping darkness at the bottom of a bottle of Jim Beam after a job done any way at all.} \\-- Hunter S. Thompson
-%\end{flushright}
-%\end{myquote}
-%\vspace*{\fill}
+\cleardoublepage
+\pagestyle{plain}
+\vspace*{\fill}
+\begin{myquote}
+\begin{flushright}
+\textit{Take it from me, there's nothing like a job well done. Except the quiet enveloping darkness at the bottom of a bottle of Jim Beam after a job done any way at all.} \\-- Hunter S. Thompson
+\end{flushright}
+\end{myquote}
+\vspace*{\fill}
 
 \end{document}

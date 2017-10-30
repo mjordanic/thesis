@@ -1,10 +1,10 @@
 \select@language {english}
-\contentsline {chapter}{Acknowledgements}{i}{Doc-Start}
-\contentsline {chapter}{Abstract}{iii}{section*.1}
-\contentsline {chapter}{Resumen}{iv}{section*.2}
-\contentsline {chapter}{List of Tables}{xiii}{section*.4}
-\contentsline {chapter}{List of Figures}{xv}{section*.6}
-\contentsline {chapter}{List of Acronyms}{xxi}{section*.9}
+\contentsline {chapter}{Acknowledgements}{i}{section*.1}
+\contentsline {chapter}{Abstract}{iii}{section*.2}
+\contentsline {chapter}{Resumen}{iv}{section*.3}
+\contentsline {chapter}{List of Tables}{xiii}{section*.5}
+\contentsline {chapter}{List of Figures}{xv}{section*.7}
+\contentsline {chapter}{List of Acronyms}{xxi}{section*.10}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Anatomy of a movement: Muscle}{1}{section.1.1}
 \contentsline {subsection}{\numberline {1.1.1}Muscle physiology}{2}{subsection.1.1.1}
@@ -25,18 +25,18 @@
 \contentsline {section}{\numberline {3.1}Background}{36}{section.3.1}
 \contentsline {section}{\numberline {3.2}Method}{39}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Measurements}{39}{subsection.3.2.1}
-\contentsline {subsubsection}{Instrumentation}{39}{section*.27}
-\contentsline {subsubsection}{Experimental setup}{40}{section*.29}
-\contentsline {subsubsection}{HD-EMG recordings}{41}{section*.30}
+\contentsline {subsubsection}{Instrumentation}{39}{section*.28}
+\contentsline {subsubsection}{Experimental setup}{40}{section*.30}
+\contentsline {subsubsection}{HD-EMG recordings}{41}{section*.31}
 \contentsline {subsection}{\numberline {3.2.2}HD-EMG maps and feature extraction}{41}{subsection.3.2.2}
-\contentsline {subsubsection}{HD-EMG maps calculation}{41}{section*.32}
-\contentsline {subsubsection}{Feature extraction}{42}{section*.33}
+\contentsline {subsubsection}{HD-EMG maps calculation}{41}{section*.33}
+\contentsline {subsubsection}{Feature extraction}{42}{section*.34}
 \contentsline {subsection}{\numberline {3.2.3}Identification of motion intention}{43}{subsection.3.2.3}
-\contentsline {subsubsection}{Classification}{43}{section*.34}
-\contentsline {subsubsection}{Short-term identification}{45}{section*.35}
-\contentsline {subsubsection}{Influence of time- progress on identification}{45}{section*.36}
-\contentsline {subsubsection}{Influence of muscle fatigue on identification}{46}{section*.37}
-\contentsline {subsubsection}{Statistical methods}{47}{section*.38}
+\contentsline {subsubsection}{Classification}{43}{section*.35}
+\contentsline {subsubsection}{Short-term identification}{45}{section*.36}
+\contentsline {subsubsection}{Influence of time- progress on identification}{45}{section*.37}
+\contentsline {subsubsection}{Influence of muscle fatigue on identification}{46}{section*.38}
+\contentsline {subsubsection}{Statistical methods}{47}{section*.39}
 \contentsline {section}{\numberline {3.3}Results}{47}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Short-term identification}{47}{subsection.3.3.1}
 \contentsline {subsection}{\numberline {3.3.2}Influence of time on identification}{50}{subsection.3.3.2}
@@ -54,7 +54,7 @@
 \contentsline {subsection}{\numberline {4.3.2}Identification of tasks}{67}{subsection.4.3.2}
 \contentsline {subsection}{\numberline {4.3.3}Identification of tasks and effort levels}{71}{subsection.4.3.3}
 \contentsline {subsection}{\numberline {4.3.4}Classification using smaller arrays of electrodes}{74}{subsection.4.3.4}
-\contentsline {section}{\numberline {4.4}Discussion}{76}{section.4.4}
+\contentsline {section}{\numberline {4.4}Discussion}{75}{section.4.4}
 \contentsline {section}{\numberline {4.5}Conclusions}{78}{section.4.5}
 \contentsline {chapter}{\numberline {5}A Novel feature for task identification}{79}{chapter.5}
 \contentsline {section}{\numberline {5.1}Introduction}{80}{section.5.1}
@@ -79,20 +79,21 @@
 \contentsline {section}{\numberline {6.5}Publications derived from the thesis}{108}{section.6.5}
 \contentsline {subsection}{\numberline {6.5.1}Journal papers}{108}{subsection.6.5.1}
 \contentsline {subsection}{\numberline {6.5.2}Conference papers}{108}{subsection.6.5.2}
-\contentsline {chapter}{Bibliography}{110}{section*.80}
-\contentsline {chapter}{Appendices}{121}{section*.82}
-\contentsline {chapter}{\numberline {A}Mean shift algorithm}{121}{chapter.1}
-\contentsline {chapter}{\numberline {B}Pattern recognition}{124}{chapter.2}
-\contentsline {section}{\numberline {B.1}Linear Discriminant Analysis}{124}{section.2.1}
-\contentsline {section}{\numberline {B.2}Support Vector Machine}{128}{section.2.2}
-\contentsline {chapter}{\numberline {C}Isometric and non-isometric task identification}{134}{chapter.3}
-\contentsline {section}{\numberline {C.1}Introduction}{135}{section.3.1}
-\contentsline {section}{\numberline {C.2}Methodology}{136}{section.3.2}
-\contentsline {subsection}{\numberline {C.2.1}Experimental protocol}{136}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {C.2.2}Signal processing}{137}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {C.2.3}Movement classification}{138}{subsection.3.2.3}
-\contentsline {section}{\numberline {C.3}Results}{140}{section.3.3}
-\contentsline {subsection}{\numberline {C.3.1}Activation maps}{140}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {C.3.2}Isometric task identification}{140}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {C.3.3}Dynamic task identification}{142}{subsection.3.3.3}
-\contentsline {section}{\numberline {C.4}Conclusions}{144}{section.3.4}
+\contentsline {chapter}{Bibliography}{110}{section*.81}
+\contentsline {chapter}{Appendices}{121}{section*.83}
+\contentsline {chapter}{\numberline {A}Mean shift algorithm}{121}{appendix.A}
+\contentsline {chapter}{\numberline {B}Pattern recognition}{124}{appendix.B}
+\contentsline {section}{\numberline {B.1}Linear Discriminant Analysis}{124}{section.B.1}
+\contentsline {section}{\numberline {B.2}Support Vector Machine}{128}{section.B.2}
+\contentsline {chapter}{\numberline {C}Isometric and non-isometric task identification}{134}{appendix.C}
+\contentsline {section}{\numberline {C.1}Introduction}{135}{section.C.1}
+\contentsline {section}{\numberline {C.2}Methodology}{136}{section.C.2}
+\contentsline {subsection}{\numberline {C.2.1}Experimental protocol}{136}{subsection.C.2.1}
+\contentsline {subsection}{\numberline {C.2.2}Signal processing}{137}{subsection.C.2.2}
+\contentsline {subsection}{\numberline {C.2.3}Movement classification}{138}{subsection.C.2.3}
+\contentsline {section}{\numberline {C.3}Results}{140}{section.C.3}
+\contentsline {subsection}{\numberline {C.3.1}Activation maps}{140}{subsection.C.3.1}
+\contentsline {subsection}{\numberline {C.3.2}Isometric task identification}{140}{subsection.C.3.2}
+\contentsline {subsection}{\numberline {C.3.3}Dynamic task identification}{141}{subsection.C.3.3}
+\contentsline {section}{\numberline {C.4}Conclusions}{143}{section.C.4}
+\contentsline {section}{\numberline {C.5}Acknowledgments}{144}{section.C.5}

@@ -122,20 +122,22 @@
 
 
 \def\preface{
+   \pagestyle{plain}
     \pagenumbering{roman}
     \pagestyle{plain}
     \doublespacing
 }
 
 \def\body{
-    \cleardoublepage    
-    \pagestyle{uheadings}
-    \tableofcontents
-    \pagestyle{plain}
-    \cleardoublepage
-    \pagestyle{uheadings}
-    \phantomsection
-    \addcontentsline{toc}{chapter}{\listtablename}
+
+\cleardoublepage    
+ \pagestyle{uheadings}
+ \tableofcontents
+  \pagestyle{plain}
+ \cleardoublepage
+ \pagestyle{uheadings}
+  \phantomsection
+   \addcontentsline{toc}{chapter}{\listtablename}
     \listoftables
     \pagestyle{plain}
     \cleardoublepage
@@ -145,11 +147,11 @@
     \listoffigures
     \pagestyle{plain}
     \cleardoublepage
-    \pagestyle{uheadings}
+   \pagestyle{uheadings}
     \phantomsection
     \input{acronyms/acronyms}
     \pagestyle{plain}
-    
+
     \cleardoublepage
     \pagestyle{uheadings}
     \pagenumbering{arabic}
